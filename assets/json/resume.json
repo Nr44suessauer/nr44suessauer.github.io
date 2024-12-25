@@ -17,7 +17,9 @@
       {
         "network": "Instagram",
         "username": "Nr44MitReis",
-        "url": "https://instagram.com/nr44mitreis"
+        "url": "https://instagram.com/nr44mitreis",
+        "icon": "fa-brands fa-instagram",
+        "label": "Follow me on Instagram"
       }
     ]
   },
@@ -58,7 +60,7 @@
       "studyType": "B.Sc.",
       "startDate": "2018-03-01",
       "endDate": "2023-03-01",
-      "courses": ["Embedded Systems", "Software Engineering", "Computer Science"]
+      "courses": ["Embedded Systems", "Computer Science"]
     }
 
   ],
