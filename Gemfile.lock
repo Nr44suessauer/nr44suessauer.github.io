@@ -54,6 +54,7 @@ GEM
       sax-machine (>= 1.0, < 2)
     ffi (1.17.0-aarch64-linux-gnu)
     ffi (1.17.0-arm64-darwin)
+    ffi (1.17.0-x64-mingw-ucrt)
     ffi (1.17.0-x86-mingw32)
     ffi (1.17.0-x86_64-darwin)
     ffi (1.17.0-x86_64-linux-gnu)
@@ -63,6 +64,9 @@ GEM
       bigdecimal
       rake (>= 13)
     google-protobuf (4.28.2-arm64-darwin)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.28.2-x64-mingw-ucrt)
       bigdecimal
       rake (>= 13)
     google-protobuf (4.28.2-x86-mingw32)
@@ -172,6 +176,8 @@ GEM
       racc (~> 1.4)
     nokogiri (1.16.7-arm64-darwin)
       racc (~> 1.4)
+    nokogiri (1.16.7-x64-mingw-ucrt)
+      racc (~> 1.4)
     nokogiri (1.16.7-x86-mingw32)
       racc (~> 1.4)
     nokogiri (1.16.7-x86_64-darwin)
@@ -192,6 +198,8 @@ GEM
     sass-embedded (1.79.3-aarch64-linux-gnu)
       google-protobuf (~> 4.27)
     sass-embedded (1.79.3-arm64-darwin)
+      google-protobuf (~> 4.27)
+    sass-embedded (1.79.3-x64-mingw-ucrt)
       google-protobuf (~> 4.27)
     sass-embedded (1.79.3-x86-mingw32)
       google-protobuf (~> 4.27)
@@ -215,6 +223,7 @@ GEM
 PLATFORMS
   aarch64-linux
   arm64-darwin
+  x64-mingw-ucrt
   x86-mingw32
   x86_64-darwin
   x86_64-linux
@@ -241,6 +250,7 @@ DEPENDENCIES
   jekyll-toc
   jekyll-twitter-plugin
   jemoji
+  sass-embedded
   unicode_utils
   wdm (>= 0.1.0)
   webrick
