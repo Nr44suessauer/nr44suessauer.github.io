@@ -24,6 +24,7 @@
   "work": [
     {
       "name": "University Heilbronn of Applied Sciences",
+      "location": "Heilbronn, Germany",
       "position": "Academic assistant",
       "url": "https://www.hs-heilbronn.de/en/software-engineering-master",
       "startDate": "2022-03-01",
@@ -31,6 +32,7 @@
     },
     {
       "name": "Sensovo GmbH",
+      "location": "Heilbronn, Germany",
       "position": "lead project manager",
       "startDate": "2021-03-01",
       "endDate": "2024-08-01",
@@ -60,79 +62,18 @@
     }
 
   ],
-    "certificates": [
 
-    {
-      "name": "Machine Learning",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-location-dot"
-    },
-    {
-      "name": "Quantum Computing",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-tag"
-    },
-    {
-      "name": "Quantum Information",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-envelope"
-    },
-    {
-      "name": "Quantum Cryptography",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-hashtag"
-    },
-    {
-      "name": "Quantum Communication",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-calendar"
-    },
-    {
-      "name": "Quantum Teleportation",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-clipboard-check"
-    }
+    "certificates": [
   ],
+
   "publications": [
-    {
-      "name": "Zur Elektrody/namik bewegter Körper",
-      "publisher": "Annalen der Physik",
-      "releaseDate": "1905-06-30",
-      "url": "https://en.wikisource.org/wiki/Translation:On_the_Electrodynamics_of_Moving_Bodies",
-      "summary": "It concerned an interpretation of the Michelson–Morley experiment and the properties of light and time. Special relativity incorporates the principle that the speed of light is the same for all inertial observers regardless of the state of motion of the source."
-    },
-    {
-      "name": "Über einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt",
-      "publisher": "Annalen der Physik",
-      "releaseDate": "1905-03-18",
-      "url": "https://de.wikisource.org/wiki/Über_einen_die_Erzeugung_und_Verwandlung_des_Lichtes_betreffenden_heuristischen_Gesichtspunkt",
-      "summary": "In the second paper, he applied the quantum theory to light to explain the photoelectric effect. In particular, he used the idea of light quanta (photons) to explain experimental results, but stressed the importance of the experimental results. The importance of his work on the photoelectric effect earned him the Nobel Prize in Physics in 1921."
-    },
-    {
-      "name": "Die Grundlage der allgemeinen Relativitätstheorie",
-      "publisher": "Annalen der Physik",
-      "releaseDate": "1916-03-20",
-      "url": "https://de.wikisource.org/wiki/Die_Grundlage_der_allgemeinen_Relativitätstheorie",
-      "summary": "The publication of the theory of general relativity made him internationally famous. He was professor of physics at the universities of Zurich (1909–1911) and Prague (1911–1912), before he returned to ETH Zurich (1912–1914)."
-    }
   ],
+
   "skills": [
     {
       "name": "Software Engineering",
       "level": "Master",
-      "icon": "fa-solid fa-cloud,fa-solid fa-laptop-code",
+      "icon": "fa-solid fa-laptop-code",
       "keywords": [
         "Realtime Systems",
         "Software Architecture",
@@ -145,7 +86,7 @@
     {
       "name": "Crafting Skills",
       "level": "Advanced",
-      "icon": "fa-solid fa-print,fa-solid fa-tools,fa-solid fa-hammer,fa-solid fa-wrench,fa-solid fa-ruler-combined,fa-solid fa-screwdriver",
+      "icon": "fa-solid fa-print",
       "keywords": [
         "3D Printing",
         "Laser Cutting",
@@ -159,39 +100,23 @@
   "languages": [
     {
       "language": "German",
-      "fluency": "Native speaker",
-      "icon": ""
+      "fluency": "Native speaker"
     },
     {
       "language": "English",
-      "fluency": "Fluent",
-      "icon": ""
+      "fluency": "B2"
     }
   ],
-  "interests": [
-    {
-      "name": "Physics",
-      "icon": "fa-solid fa-tag",
-      "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
-      ]
-    }
-  ],
-      "projects": [
-        {
-          "name": "UFO",
-          "summary": "Inclusion for people in the neurodiversity spectrum, using haptic feedback systems & virtual reality.",
-          "funding": {
-            "name": "BMBF",
-            "url": "https://www.bmbf.de/DE/Home/home_node.html"
-          },
-          "duration": "2021-03-01 to 2024-08-01"
-        }
-      ]
-    }
+    "projects": [
+      {
+        "name": "UFO",
+        "summary": "Inclusion for people in the neurodiversity spectrum, using haptic feedback systems & virtual reality.",
+        "url": "https://www.interaktive-technologien.de/projekte/ufo",
+        "duration": "2021-03-01 to 2024-08-01",
+        "role": "Lead project manager | Haptic feedback systems",
+        "keywords": ["Zephyr", "C", "LRA motors", "Bluetooth","Nrf Connect SDK","Vscode"]
+
+      }
+    ]
+}
     
