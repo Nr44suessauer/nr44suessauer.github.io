@@ -235,6 +235,8 @@ GEM
     securerandom (0.4.0)
     terminal-table (3.0.2)
       unicode-display_width (>= 1.1.1, < 3)
+    terser (1.2.4)
+      execjs (>= 0.3.0, < 3)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     uglifier (4.2.1)
@@ -287,8 +289,9 @@ DEPENDENCIES
   jekyll-twitter-plugin
   jemoji
   sassc
+  terser
   unicode_utils
-  wdm (>= 0.1.0)
+  wdm
   webrick
 
 BUNDLED WITH

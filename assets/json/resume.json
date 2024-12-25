@@ -5,22 +5,7 @@
     "image": "",
     "email": "Marc.Nauendorf@Hs-Heilbronn.de",
     "url": "https://DeadLineDriven.dev",
-    "summary": "summary in resume.json",
-    "location": {
-      "address": "Max-Planck-Str. 39",
-      "postalCode": "74081",
-      "city": "Heilbronn",
-      "countryCode": "DE",
-      "region": "Baden-Württemberg"
-    },
-    "profiles": 
-      {
-        "network": "Instagram",
-        "username": "Nr44MitReis",
-        "url": "https://instagram.com/nr44mitreis",
-        "icon": "fa-brands fa-instagram",
-        "label": "Follow me on Instagram"
-      }
+    "summary": "summary in resume.json"   
   },
   "work": [
     {
