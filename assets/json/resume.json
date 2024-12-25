@@ -13,7 +13,7 @@
       "countryCode": "DE",
       "region": "Baden-Württemberg"
     },
-    "profiles": [
+    "profiles": 
       {
         "network": "Instagram",
         "username": "Nr44MitReis",
@@ -21,7 +21,6 @@
         "icon": "fa-brands fa-instagram",
         "label": "Follow me on Instagram"
       }
-    ]
   },
   "work": [
     {
