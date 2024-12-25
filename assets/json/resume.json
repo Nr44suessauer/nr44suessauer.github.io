@@ -2,7 +2,6 @@
   "basics": {
     "name": "Marc Nauendorf",
     "label": "Scientist",
-    "image": "",
     "email": "Marc.Nauendorf@Hs-Heilbronn.de",
     "url": "https://DeadLineDriven.dev",
     "summary": "summary in resume.json"   
@@ -10,19 +9,29 @@
   "work": [
     {
       "name": "University Heilbronn of Applied Sciences",
+      "url": "https://www.hs-heilbronn.de/en/software-engineering-master",
       "location": "Heilbronn, Germany",
       "position": "Academic assistant",
-      "url": "https://www.hs-heilbronn.de/en/software-engineering-master",
       "startDate": "2022-03-01",
       "summary": "Academic assistant at the University Heilbronn of Applied Sciences in the Software Engineering Bachelor&Master program."
     },
     {
       "name": "Sensovo GmbH",
       "location": "Heilbronn, Germany",
-      "position": "lead project manager",
+      "position": "Lead project manager",
       "startDate": "2021-03-01",
       "endDate": "2024-08-01",
       "summary": "Lead project manager at Sensovo, a company that develops haptic feedback systems."
+    },
+
+    {
+      "name": "MAN Truck & Bus SE",
+      "url": "https://www.man.eu/corporate/de/homepage.html",
+      "location": "Stuttgart, Germany",
+      "position": "Mechanic",
+      "startDate": "2012-09-01",
+      "endDate": "2017-08-01",
+      "summary": "Mechanic for busses, military vehicles and specilised vehicles"
     }
   ],
   "education": [
@@ -49,7 +58,21 @@
 
   ],
 
-    "certificates": [
+  "publicService": [
+    {
+      "name": "Civilian Service",
+      "location": "Ludwigsburg, Germany",
+      "position": "Anesthesia & Vascular Surgery",
+      "startDate": "2010-09-01",
+      "endDate": "2011-08-01"
+    },
+    {
+      "name": "Military Service",
+      "location": "Kempten, Germany",
+      "position": "Mountain Ranger",
+      "startDate": "2011-09-01",
+      "endDate": "2013-07-01"
+    }
   ],
 
   "publications": [
@@ -70,9 +93,9 @@
       ]
     },
     {
-      "name": "Crafting Skills",
+      "name": "Crafting & Making",
       "level": "Advanced",
-      "icon": "fa-solid fa-print",
+      "icon": "fa-solid sqrewdriver",
       "keywords": [
         "3D Printing",
         "Laser Cutting",
