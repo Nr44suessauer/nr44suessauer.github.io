@@ -414,9 +414,9 @@ ninja.data = [{
             },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
           title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
           description: "",
-          section: "News",},{id: "projects-develop",
-          title: 'Develop',
-          description: "with background image",
+          section: "News",},{id: "projects-develop-pc",
+          title: 'Develop Pc',
+          description: "Mini Pc with LattePanda &amp; Extern GPU combined with external powersupply",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_project/";
             },},{id: "projects-project-2",
