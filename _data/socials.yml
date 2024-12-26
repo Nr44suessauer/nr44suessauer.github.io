@@ -45,7 +45,7 @@ linkedin_username: "marc-nauendorf-266234329" # your LinkedIn user name
 # x_username: # your X handle
 # youtube_id: # your youtube channel id (youtube.com/@<youtube_id>)
 # zotero_username: # your zotero username
-custom_social: # can be any name here other than the ones already defined above
-  logo: https://stock.adobe.com/de/search?k=instagram+logo # can be png, svg, jpg
-  title: Instagram
-  url: https://www.Instagramm.com/nr44mitreis
+# custom_social: # can be any name here other than the ones already defined above
+#   logo: https://stock.adobe.com/de/search?k=instagram+logo # can be png, svg, jpg
+#   title: Instagram
+#   url: https://www.Instagramm.com/nr44mitreis
