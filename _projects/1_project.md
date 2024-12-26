@@ -1,11 +1,10 @@
 ---
 layout: page
-title: Develop
-description: with background image
+title: Develop Pc
+description: Mini Pc with LattePanda & Extern GPU combined with external powersupply 
 img: assets\img\pc_project.gif
 importance: 1
-category: work
-related_publications: true
+category: Fun
 ---
 
 Every project has a beautiful feature showcase page.
