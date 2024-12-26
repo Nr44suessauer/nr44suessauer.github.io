@@ -3,9 +3,15 @@
     "name": "Marc Nauendorf",
     "label": "Scientist",
     "email": "Marc.Nauendorf@Hs-Heilbronn.de",
-    "url": "https://DeadLineDriven.dev",
-    "summary": "summary in resume.json"   
+    "url": "https://DeadLineDriven.dev"
   },
+
+  "profiles": [{
+      "network": "Instagram",
+      "username": "Nr44mitReis",
+      "url": "https://instagramm.com/Nr44mitReis"
+    }],
+
   "work": [
     {
       "name": "University Heilbronn of Applied Sciences",
@@ -61,14 +67,14 @@
   "volunteer": [
 
     {
-      "name": "OGV Marbach",
+      "organization": "OGV Marbach",
       "location": "Marbach, Germany",
       "position": "Board member",
       "url": "https://ogv-marbach.de/",
       "startDate": "2012-01-01"
     },
     {
-      "name": "Civilian Service",
+      "organization": "Klinikum Ludwigsburg",
       "location": "Ludwigsburg, Germany",
       "position": "Anesthesia & Vascular Surgery",
       "url": "https://www.rkh-gesundheit.de/klinikum-ludwigsburg/",
@@ -76,7 +82,7 @@
       "endDate": "2011-08-01"
     },
     {
-      "name": "Military Service",
+      "organization": "Bundewsehr | German Army",
       "location": "Kempten, Germany",
       "position": "Mountain Ranger",
       "url": "https://www.bundeswehr.de/de",
@@ -103,6 +109,25 @@
       ]
     },
     {
+      "name": "Programming languages",
+      "icon": "fa-solid fa-",
+      "keywords": [
+        "C",
+        "C++",
+        "Python"
+      ]
+    },
+    {
+      "name": "Frameworks C/C++",
+      "icon": "fa-solid fa-laptop-code",
+      "keywords": [
+        "Zephyr",
+        "esp-idf",
+        "esspressif",
+        "arduino"
+      ]
+    },
+    {
       "name": "Crafting & Making",
       "level": "Advanced",
       "icon": "fa-solid sqrewdriver",
@@ -124,6 +149,10 @@
     {
       "language": "English",
       "fluency": "B2"
+    },
+    {
+      "language": "Chinese | Mandarin",
+      "fluency": "A2"
     }
   ],
     "projects": [
