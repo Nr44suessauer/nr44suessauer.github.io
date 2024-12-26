@@ -36,9 +36,9 @@ It was used simply because it was available, and to replicate the dimensions of 
 
 | **Group**                 | **Component**              | **Description**                                                           | **Link**                                                                                     |
 |---------------------------|----------------------------|----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
-| **Computing Hardware**    | LattePanda Mini PC         | Mini PC with Windows or Linux support.                                     | [Product Page](https://www.dfrobot.com/product-2292.html)                                   |
+| **Computing Hardware**    | LattePanda Mini PC         | Mini PC with Windows or Linux support.                                     | [Product Page](https://www.dfrobot.com/product-1729.html)                                   |
 |                           | NVIDIA Quadro 4000         | High-performance GPU for graphics and compute-intensive applications.      | [Datasheet](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/quadro-product-literature/quadro-rtx-4000-data-sheet-us-nvidia-830682-r6-web.pdf) |
-|                           | PCIe Adapter for LattePanda | Expansion for the LattePanda to integrate PCIe cards like GPUs.           | [Product Page](https://www.dfrobot.com/product-1729.html)                                   |
+|                           | PCIe Adapter for LattePanda | Expansion for the LattePanda to integrate PCIe cards like GPUs.           | [Product Page](https://www.dfrobot.com/product-2292.html)                                   |
 |                           | 400-Watt Power Supply      | Power supply for the LattePanda and connected components.                  | -                                                                                           |
 | **Fluid System Components** | Plastic Tube 66mm          | Plastic tube with a 66 mm diameter.                                        | [Product Page](https://de.aliexpress.com/item/1005007636427535.html?spm=a2g0o.order_list.order_list_main.225.65b85c5fuGsIUM&gatewayAdapt=glo2deu) |
 |                           | 1m Hose                    | Flexible hose for connecting components in fluid systems.                  | [Product Page](https://de.aliexpress.com/item/1005003242691209.html?spm=a2g0o.order_list.order_list_main.220.65b85c5fuGsIUM&gatewayAdapt=glo2deu) |
@@ -53,6 +53,10 @@ It was used simply because it was available, and to replicate the dimensions of 
 | **3D Printing Materials** | 2kg Filament HIPS          | Filament for 3D printing, designed for electric cases.                     | -                                                                                           |
 
 ---
+
+# Interface durability 
+
+[Documentation LattePanda](https://docs.lattepanda.com/content/delta_edition/io_playability/)
 
 
 <div class="row justify-content-sm-center">
