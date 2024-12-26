@@ -29,25 +29,26 @@ Complete setup is powered by a 400W power supply, providing 3.3V, 5V, and 12V.
 </div>
 
 The following sections focus entirely on the PC. An NVIDIA graphics card is not recommended due to issues with Linux drivers. 
-It was used simply because it was available, and to replicate the dimensions of the Quadro graphics card and adjust the mounting holes.
+It was used simply because it was available, and to replicate the dimensions of the Quadro graphics card and adjust the mounting holes. 
 
 
-| **Component**              | **Description**                                                           | **Link**                                                                                     |
-|----------------------------|----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
-| LattePanda Mini PC         | Mini PC with Windows or Linux support.                                     | [Product Page](https://www.dfrobot.com/product-2292.html)                                   |
-| NVIDIA Quadro 4000         | High-performance GPU for graphics and compute-intensive applications.      | [Datasheet](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/quadro-product-literature/quadro-rtx-4000-data-sheet-us-nvidia-830682-r6-web.pdf) |
-| PCIe Adapter for LattePanda | Expansion for the LattePanda to integrate PCIe cards like GPUs.           | [Product Page](https://www.dfrobot.com/product-1729.html)                                   |
-| 400-Watt Power Supply      | Power supply for the LattePanda and connected components.                  | -                                                                                           |
-| 2kg Filament HIPS          | Filament for 3D printing, designed for electic cases.                      | -                                                                                           |
-| Plastic Tube 66mm          | Plastic tube with a 66 mm diameter.                                        | |
-| Membrane Air Pump          | Pump for generating air bubbles inside the plastic tube.                   |  [Product Page](https://de.aliexpress.com/item/1005007636427535.html?spm=a2g0o.order_list.order_list_main.225.65b85c5fuGsIUM&gatewayAdapt=glo2deu)|
-| Reed Relay                 | Electrical relay for controlling the membrane air pump.                    | -                                                                                           |
-| WS28 LED Ring (12 LEDs)    | RGB LED ring with 12 individually addressable LEDs for lighting effects.   |  [Product Page](https://de.aliexpress.com/item/4001061749100.html?spm=a2g0o.productlist.main.1.2a6c38abwWlxTH&algo_pvid=ef3cb399-c448-4661-aaae-1a78028cdfe7&utparam-url=scene%3Asearch%7Cquery_from%3A) |
-| 1m Hose                    | Flexible hose for connecting components in fluid systems.                  | [Product Page](https://de.aliexpress.com/item/1005003242691209.html?spm=a2g0o.order_list.order_list_main.220.65b85c5fuGsIUM&gatewayAdapt=glo2deu) |
-| Check Valve                | Prevents backflow in fluid systems.                                        | [Product Page](https://de.aliexpress.com/item/1005001411693525.html?spm=a2g0o.order_list.order_list_main.215.65b85c5fuGsIUM&gatewayAdapt=glo2deu) |
-| Solenoid Valve             | Electrically operated valve for controlling fluid flow.                    | [Product Page](https://de.aliexpress.com/item/1005005779605656.html?spm=a2g0o.productlist.main.35.48192c1cKK2OaR&algo_pvid=9a96b436-c528-4c42-b58c-643d7bead010&utparam-url=scene%3Asearch%7Cquery_from%3A) |
-| Bubble Stone               | Creates fine air bubbles in fluid or water systems.                        | [Product Page](https://de.aliexpress.com/item/1005006467081651.html?spm=a2g0o.order_list.order_list_main.230.65b85c5fuGsIUM&gatewayAdapt=glo2deu) |
-| Antennas                   | Components for improving wireless signal reception.                        | [Product Page](https://de.aliexpress.com/item/1005006108506933.html?spm=a2g0o.order_list.order_list_main.260.65b85c5fuGsIUM&gatewayAdapt=glo2deu) |
+
+| **Group**                 | **Component**              | **Description**                                                           | **Link**                                                                                     |
+|---------------------------|----------------------------|----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
+| **Computing Hardware**    | LattePanda Mini PC         | Mini PC with Windows or Linux support.                                     | [Product Page](https://www.dfrobot.com/product-2292.html)                                   |
+|                           | NVIDIA Quadro 4000         | High-performance GPU for graphics and compute-intensive applications.      | [Datasheet](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/quadro-product-literature/quadro-rtx-4000-data-sheet-us-nvidia-830682-r6-web.pdf) |
+|                           | PCIe Adapter for LattePanda | Expansion for the LattePanda to integrate PCIe cards like GPUs.           | [Product Page](https://www.dfrobot.com/product-1729.html)                                   |
+|                           | 400-Watt Power Supply      | Power supply for the LattePanda and connected components.                  | -                                                                                           |
+| **3D Printing Materials** | 2kg Filament HIPS          | Filament for 3D printing, designed for electric cases.                     | -                                                                                           |
+| **Fluid System Components** | Plastic Tube 66mm          | Plastic tube with a 66 mm diameter.                                        | [Product Page](https://de.aliexpress.com/item/1005007636427535.html?spm=a2g0o.order_list.order_list_main.225.65b85c5fuGsIUM&gatewayAdapt=glo2deu) |
+|                           | 1m Hose                    | Flexible hose for connecting components in fluid systems.                  | [Product Page](https://de.aliexpress.com/item/1005003242691209.html?spm=a2g0o.order_list.order_list_main.220.65b85c5fuGsIUM&gatewayAdapt=glo2deu) |
+|                           | Check Valve                | Prevents backflow in fluid systems.                                        | [Product Page](https://de.aliexpress.com/item/1005001411693525.html?spm=a2g0o.order_list.order_list_main.215.65b85c5fuGsIUM&gatewayAdapt=glo2deu) |
+|                           | Electric Valve             | Electrically operated valve for controlling fluid flow.                    | [Product Page](https://de.aliexpress.com/item/1005005779605656.html?spm=a2g0o.productlist.main.35.48192c1cKK2OaR&algo_pvid=9a96b436-c528-4c42-b58c-643d7bead010&utparam-url=scene%3Asearch%7Cquery_from%3A) |
+|                           | Membrane Air Pump          | Pump for generating air bubbles inside the plastic tube.                   | [Product Page](https://de.aliexpress.com/item/1005007636427535.html?spm=a2g0o.order_list.order_list_main.225.65b85c5fuGsIUM&gatewayAdapt=glo2deu) |
+|                           | Bubble Stone               | Creates fine air bubbles in fluid or water systems.                        | [Product Page](https://de.aliexpress.com/item/1005006467081651.html?spm=a2g0o.order_list.order_list_main.230.65b85c5fuGsIUM&gatewayAdapt=glo2deu) |
+| **Electronics**           | Reed Relay                 | Electrical relay for controlling the membrane air pump.                    | -                                                                                           |
+|                           | WS28 LED Ring (12 LEDs)    | RGB LED ring with 12 individually addressable LEDs for lighting effects.   | [Product Page](https://de.aliexpress.com/item/4001061749100.html?spm=a2g0o.productlist.main.1.2a6c38abwWlxTH&algo_pvid=ef3cb399-c448-4661-aaae-1a78028cdfe7&utparam-url=scene%3Asearch%7Cquery_from%3A) |
+| **Accessories**           | Antennas                   | Components for improving wireless signal reception.                        | [Product Page](https://de.aliexpress.com/item/1005006108506933.html?spm=a2g0o.order_list.order_list_main.260.65b85c5fuGsIUM&gatewayAdapt=glo2deu) |
 
 
 
