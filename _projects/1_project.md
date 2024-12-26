@@ -2,7 +2,7 @@
 layout: page
 title: Develop Pc
 description: LattePanda combined wtih nearly unlimited Power from a Nvidia Quaddro 4000
-img: assets\img\pc_project.gif
+img: https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/pc_project.gif
 importance: 1
 category: work
 related_publications: true
