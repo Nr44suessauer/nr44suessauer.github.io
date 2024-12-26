@@ -9,7 +9,7 @@ related_publications: true
 ---
 A personal project aimed at building a LAN party PC with low power consumption and a stylish design. Compatible with a self-made screen and a 12V fridge. 
 
-Powered by a 400W power supply, providing 3.3V, 5V, and 12V.
+Complete setup is powered by a 400W power supply, providing 3.3V, 5V, and 12V.
 
 ---
 
@@ -25,12 +25,17 @@ Powered by a 400W power supply, providing 3.3V, 5V, and 12V.
     </div>
 </div>
 <div class="caption">
-    This image can also have a caption. It's like magic.
+    Only Pc without power supply & screen
 </div>
 
-You can also put regular text between your rows of images, even citations {% cite einstein1950meaning %}.
-Say you wanted to write a bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
+| **Bauteil**                | **Beschreibung**                                                           | **Link**                                                                                     |
+|----------------------------|----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
+| LattePanda Mini PC         | Mini-PC mit Windows- oder Linux-Support, ideal für kompakte Projekte.      | [Produktseite](https://www.dfrobot.com/product-2292.html)                                 |
+| NVIDIA Quadro 4000         | Hochleistungs-GPU für Grafik- und Rechenintensive Anwendungen.             | [Datenblatt](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/quadro-product-literature/quadro-rtx-4000-data-sheet-us-nvidia-830682-r6-web.pdf) |
+| PCIe Adapter für LattePanda | Erweiterung für den LattePanda, um PCIe-Karten wie GPUs zu integrieren.     | [Produktseite](https://www.dfrobot.com/product-1729.html)                                 |
+| 400-Watt-Netzteil          | Stromversorgung für den LattePanda und angeschlossene Komponenten.         | -                                                                                           |
+
+
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
