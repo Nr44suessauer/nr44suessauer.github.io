@@ -416,7 +416,7 @@ ninja.data = [{
           description: "",
           section: "News",},{id: "projects-develop-pc",
           title: 'Develop Pc',
-          description: "Mini Pc with LattePanda &amp; Extern GPU combined with external powersupply",
+          description: "with background image",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_project/";
             },},{id: "projects-project-2",
