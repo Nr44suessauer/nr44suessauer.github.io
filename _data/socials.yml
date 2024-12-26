@@ -7,20 +7,20 @@
 # bluesky_url: # your bluesky URL
 # dblp_url: # your DBLP profile url
 # discord_id: # your discord id (18-digit unique numerical identifier)
-email: Marc.Nauendorf@Hs-Heilbronn.de # your email address
+email: "Marc.Nauendorf@Hs-Heilbronn.de" # your email address
 # facebook_id: # your facebook id
 # flickr_id: # your flickr id
- github_username: Nr44suessauer # your GitHub user name
- gitlab_username: Nauendorf # your GitLab user name
+github_username: "Nr44suessauer" # your GitHub user name
+gitlab_username: "Nauendorf" # your GitLab user name
 # ieee_id: # your ieeexplore.ieee.org/author/id
 # inspirehep_id: 1010907 # Inspire HEP author ID
- instagram_id: nr44mitreis # your instagram id
+instagram_id: "nr44mitreis" # your instagram id
 # kaggle_id: # your kaggle id
 # keybase_username: # your keybase user name
 # lastfm_id: # your lastfm id
 # lattes_id: # your ID on Lattes (Brazilian Lattes CV)
 # leetcode_id: # your LeetCode id
- linkedin_username: marc-nauendorf-266234329 # your LinkedIn user name
+linkedin_username: "marc-nauendorf-266234329" # your LinkedIn user name
 # mastodon_username: # your mastodon instance+username in the format instance.tld/@username
 # medium_username: # your Medium username
 # orcid_id: # your ORCID ID
