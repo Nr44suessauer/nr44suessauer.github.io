@@ -28,10 +28,11 @@ Complete setup is powered by a 400W power supply, providing 3.3V, 5V, and 12V.
     Only Pc without power supply & screen
 </div>
 
-The following sections focus entirely on the PC. An NVIDIA graphics card is not recommended due to issues with Linux drivers. 
+The following sections focus entirely on the PC. An **NVIDIA** graphics card is **not recommended** due to issues with Linux drivers. 
 It was used simply because it was available, and to replicate the dimensions of the Quadro graphics card and adjust the mounting holes. 
 
 
+# Partlist 
 
 | **Group**                 | **Component**              | **Description**                                                           | **Link**                                                                                     |
 |---------------------------|----------------------------|----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
@@ -48,8 +49,10 @@ It was used simply because it was available, and to replicate the dimensions of 
 | **Electronics**           | Reed Relay                 | Electrical relay for controlling the membrane air pump.                    | -                                                                                           |
 |                           | WS28 LED Ring (12 LEDs)    | RGB LED ring with 12 individually addressable LEDs for lighting effects.   | [Product Page](https://de.aliexpress.com/item/4001061749100.html?spm=a2g0o.productlist.main.1.2a6c38abwWlxTH&algo_pvid=ef3cb399-c448-4661-aaae-1a78028cdfe7&utparam-url=scene%3Asearch%7Cquery_from%3A) |
 |                           | Antennas                   | Components for improving wireless signal reception.                        | [Product Page](https://de.aliexpress.com/item/1005006108506933.html?spm=a2g0o.order_list.order_list_main.260.65b85c5fuGsIUM&gatewayAdapt=glo2deu) |
+|                           | 12V AMD Fan RGB            | RGB cooling fan for efficient & stylish heat dissipation.                  | [Product Page](https://geizhals.de/amd-wraith-prism-712-000075-a1980869.html)               |
 | **3D Printing Materials** | 2kg Filament HIPS          | Filament for 3D printing, designed for electric cases.                     | -                                                                                           |
 
+---
 
 
 <div class="row justify-content-sm-center">
