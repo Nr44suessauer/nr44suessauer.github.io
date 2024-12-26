@@ -523,13 +523,6 @@ ninja.data = [{
           window.open("https://www.linkedin.com/in/marc-nauendorf-266234329", "_blank");
         },
       },{
-        id: 'social-custom_social',
-        title: 'Custom_social',
-        section: 'Socials',
-        handler: () => {
-          window.open("https://www.Instagramm.com/nr44mitreis", "_blank");
-        },
-      },{
       id: 'light-theme',
       title: 'Change theme to light',
       description: 'Change the theme of the site to Light',
