@@ -59,9 +59,11 @@
   ],
 
   "volunteer": [
+
     {
       "name": "OGV Marbach",
       "location": "Marbach, Germany",
+      "position": "Board member",
       "url": "https://ogv-marbach.de/",
       "startDate": "2012-01-01"
     },
