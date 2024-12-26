@@ -57,7 +57,7 @@ It was used simply because it was available, and to replicate the dimensions of 
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+    <img src="https://image.dfrobot.com/image/data/DFR0543/20201123%20Update/LP%20delta%203.jpg" alt="Image" style="width:50%;">
     </div>
     <div class="col-sm-4 mt-3 mt-md-0">
         {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
