@@ -28,12 +28,22 @@ Complete setup is powered by a 400W power supply, providing 3.3V, 5V, and 12V.
     Only Pc without power supply & screen
 </div>
 
-| **Bauteil**                | **Beschreibung**                                                           | **Link**                                                                                     |
+| **Component**              | **Description**                                                           | **Link**                                                                                     |
 |----------------------------|----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
-| LattePanda Mini PC         | Mini-PC mit Windows- oder Linux-Support, ideal für kompakte Projekte.      | [Produktseite](https://www.dfrobot.com/product-2292.html)                                 |
-| NVIDIA Quadro 4000         | Hochleistungs-GPU für Grafik- und Rechenintensive Anwendungen.             | [Datenblatt](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/quadro-product-literature/quadro-rtx-4000-data-sheet-us-nvidia-830682-r6-web.pdf) |
-| PCIe Adapter für LattePanda | Erweiterung für den LattePanda, um PCIe-Karten wie GPUs zu integrieren.     | [Produktseite](https://www.dfrobot.com/product-1729.html)                                 |
-| 400-Watt-Netzteil          | Stromversorgung für den LattePanda und angeschlossene Komponenten.         | -                                                                                           |
+| LattePanda Mini PC         | Mini PC with Windows or Linux support, ideal for compact projects.         | [Product Page](https://www.dfrobot.com/product-2292.html)                                   |
+| NVIDIA Quadro 4000         | High-performance GPU for graphics and compute-intensive applications.      | [Datasheet](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/quadro-product-literature/quadro-rtx-4000-data-sheet-us-nvidia-830682-r6-web.pdf) |
+| PCIe Adapter for LattePanda | Expansion for the LattePanda to integrate PCIe cards like GPUs.           | [Product Page](https://www.dfrobot.com/product-1729.html)                                   |
+| 400-Watt Power Supply      | Power supply for the LattePanda and connected components.                  | -                                                                                           |
+| 2kg Filament HIPS          | High-performance filament for 3D printing, durable and versatile.          | -                                                                                           |
+| Plastic Tube 66mm          | Plastic tube with a 66 mm diameter, ideal for various projects.            | [Product Page](https://de.aliexpress.com/item/1005007636427535.html?spm=a2g0o.order_list.order_list_main.225.65b85c5fuGsIUM&gatewayAdapt=glo2deu) |
+| Membrane Air Pump          | Pump for generating air bubbles inside the plastic tube.                   | [Product Page](https://de.aliexpress.com/item/4001061749100.html?spm=a2g0o.productlist.main.1.2a6c38abwWlxTH&algo_pvid=ef3cb399-c448-4661-aaae-1a78028cdfe7&utparam-url=scene%3Asearch%7Cquery_from%3A) |
+| Reed Relay                 | Electrical relay for controlling the membrane air pump.                    | -                                                                                           |
+| WS28 LED Ring (12 LEDs)    | RGB LED ring with 12 individually addressable LEDs for lighting effects.   | -                                                                                           |
+| 1m Hose                    | Flexible hose for connecting components in fluid systems.                  | [Product Page](https://de.aliexpress.com/item/1005006108506933.html?spm=a2g0o.order_list.order_list_main.260.65b85c5fuGsIUM&gatewayAdapt=glo2deu) |
+| Check Valve                | Prevents backflow in fluid systems.                                        | [Product Page](https://de.aliexpress.com/item/1005001411693525.html?spm=a2g0o.order_list.order_list_main.215.65b85c5fuGsIUM&gatewayAdapt=glo2deu) |
+| Solenoid Valve             | Electrically operated valve for controlling fluid flow.                    | [Product Page](https://de.aliexpress.com/item/1005003242691209.html?spm=a2g0o.order_list.order_list_main.220.65b85c5fuGsIUM&gatewayAdapt=glo2deu) |
+| Bubble Stone               | Creates fine air bubbles in fluid or water systems.                        | [Product Page](https://de.aliexpress.com/item/1005006467081651.html?spm=a2g0o.order_list.order_list_main.230.65b85c5fuGsIUM&gatewayAdapt=glo2deu) |
+| Antennas                   | Components for improving wireless signal reception.                        | -                                                                                           |
 
 
 
