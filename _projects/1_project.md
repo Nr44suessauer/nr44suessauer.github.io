@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Develop Pc
-description: with background image
+description: LattePanda combined wtih nearly unlimited Power from a Nvidia Quaddro 4000
 img: assets\img\pc_project.gif
 importance: 1
 category: work
