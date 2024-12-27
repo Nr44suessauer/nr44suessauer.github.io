@@ -31,6 +31,8 @@ Complete setup is powered by a 400W power supply, providing 3.3V, 5V, and 12V.
 The following sections focus entirely on the PC. An **NVIDIA** graphics card is **not recommended** due to issues with Linux drivers. 
 It was used simply because it was available, and to replicate the dimensions of the Quadro graphics card and adjust the mounting holes. 
 
+<div style="height: 20px;"></div>
+
 
 # Partlist 
 
@@ -57,7 +59,7 @@ It was used simply because it was available, and to replicate the dimensions of 
 ---
 <div style="height: 20px;"></div>
 
-# Information/Software Links
+# Software Links
 
 | **Software** | **Description** |
 |--------------|------------------|
