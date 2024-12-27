@@ -56,12 +56,20 @@ It was used simply because it was available, and to replicate the dimensions of 
 
 ---
 
-# Interface durability 
+# Same Project other Parts
 
 [Documentation LattePanda](https://docs.lattepanda.com/content/delta_edition/io_playability/)
-
-<div class="video-preview">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/PCd3HtRfQ8k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="row">
+    <div class="col-md-6">
+        <p>
+        This is the same project, just without the case and with a different graphics card. For the best possible performance, you can watch this video.
+        </p>
+    </div>
+    <div class="col-md-6">
+        <div class="video-preview">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/PCd3HtRfQ8k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
 </div>
 
 
