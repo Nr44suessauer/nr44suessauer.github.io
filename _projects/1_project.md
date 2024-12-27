@@ -59,18 +59,45 @@ It was used simply because it was available, and to replicate the dimensions of 
 ---
 <div style="height: 20px;"></div>
 
-<div class="container">
-    <div class="left">
-        # **Software Links**
-        | **Software** | **Description** |
-        |--------------|------------------|
-        | [VS Code](https://code.visualstudio.com/) & [PlatformIO](https://platformio.org/) | Programming the onboard Leonardo µC (for pump & led´s) |
-        | [Pi Manager](https://www.raspberrypi.com/software/)                   | For booting WIN10 from a USB stick |
-        | [Cura](https://ultimaker.com/software/ultimaker-cura)                 | 3D Printing slicing and preparation |
-        | [Fusion 360](https://www.autodesk.com/products/fusion-360/overview)   | CAD design and 3D modeling |
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            Fundation
+            <p></p>
+
+            Used software to configure and program the LattePanda. The computer is capable of running as Windows, Linux, Android, or Hackintosh (Apple). 
+            You can find the documentation <a href="https://docs.lattepanda.com/content/alpha_edition/os/">here</a>.
+        </p>     
     </div>
-    <div class="right">
-        beispieltext
+    <div class="col-md-6">
+<div class="table-responsive">
+<table class="table">
+    <thead>
+        <tr>
+            <th><strong>Software</strong></th>
+            <th><strong>Description</strong></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><a href="https://code.visualstudio.com/">VS Code</a> & <a href="https://platformio.org/">PlatformIO</a></td>
+            <td>Programming the onboard Leonardo µC (for pump & LEDs)</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.raspberrypi.com/software/">Pi Manager</a></td>
+            <td>For booting WIN10 from a USB stick</td>
+        </tr>
+        <tr>
+            <td><a href="https://ultimaker.com/software/ultimaker-cura">Cura</a></td>
+            <td>3D Printing slicing and preparation</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.autodesk.com/products/fusion-360/overview">Fusion 360</a></td>
+            <td>CAD design and 3D modeling</td>
+        </tr>
+    </tbody>
+</table>
+</div>     
     </div>
 </div>
 
