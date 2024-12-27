@@ -54,6 +54,9 @@ It was used simply because it was available, and to replicate the dimensions of 
 |                           | 12V AMD Fan RGB            | RGB cooling fan for efficient & stylish heat dissipation.                  | [Product Page](https://geizhals.de/amd-wraith-prism-712-000075-a1980869.html)               |
 | **3D Printing Materials** | 2kg Filament HIPS          | Filament for 3D printing, designed for electric case.                        | -                                                                                           |
 
+---
+<div style="height: 20px;"></div>
+
 # Information/Software Links
 
 | **Software** | **Description** |
