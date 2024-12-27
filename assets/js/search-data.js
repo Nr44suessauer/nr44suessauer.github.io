@@ -402,7 +402,7 @@ ninja.data = [{
           description: "",
           section: "News",},{id: "projects-develop-pc",
           title: 'Develop Pc',
-          description: "LattePanda combined wtih nearly unlimited Power from a Nvidia Quaddro 4000",
+          description: "LattePanda combined wtih nearly unlimited Power from a Nvidia Quadro 4000",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_project/";
             },},{id: "projects-project-2",
