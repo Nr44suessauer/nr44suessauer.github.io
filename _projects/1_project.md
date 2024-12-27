@@ -62,7 +62,6 @@ It was used simply because it was available, and to replicate the dimensions of 
 <div class="container">
     <div class="left">
         # **Software Links**
-
         | **Software** | **Description** |
         |--------------|------------------|
         | [VS Code](https://code.visualstudio.com/) & [PlatformIO](https://platformio.org/) | Programming the onboard Leonardo µC (for pump & led´s) |
@@ -71,7 +70,7 @@ It was used simply because it was available, and to replicate the dimensions of 
         | [Fusion 360](https://www.autodesk.com/products/fusion-360/overview)   | CAD design and 3D modeling |
     </div>
     <div class="right">
-        <textarea placeholder="Enter text here"></textarea>
+        beispieltext
     </div>
 </div>
 
