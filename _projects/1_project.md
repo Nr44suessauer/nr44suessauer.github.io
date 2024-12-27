@@ -111,7 +111,7 @@ It was used simply because it was available, and to replicate the dimensions of 
 <div class="row">
     <div class="col-md-6">
         <p>
-        This is the same project, just without the case and with a different graphics card. For intrest in "best possible performance", you can watch this video.<p></p>
+        For intrest in "best possible performance", you can watch this video.<p></p>
         The limitation of my system is definitely the graphics card. Warcraft 3 is playable at 20FPS (Max Settings) & Leauge of Legends at 40FPS (Max Settings).<p></p>
         I myself prefer using emulators like <a href="https://xemu.app/">Xemu</a> or <a href="https://pcsx2.net/">PCSX2</a>.<p></p>
         The performance is flawless there, but it's more about nostalgia than performance.   
