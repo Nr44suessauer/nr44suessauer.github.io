@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Develop Pc
-description: LattePanda combined wtih nearly unlimited Power from a Nvidia Quaddro 4000
+description: LattePanda combined wtih nearly unlimited Power from a Nvidia Quadro 4000
 img: https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/assets/img/pc_project.gif
 importance: 1
 category: work
@@ -35,6 +35,7 @@ It was used simply because it was available, and to replicate the dimensions of 
 
 
 # **Parts** 
+<div style="height: 20px;"></div>
 
 | **Group**                 | **Component**              | **Description**                                                            | **Link**                                                                                    |
 |---------------------------|----------------------------|----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
@@ -59,14 +60,18 @@ It was used simply because it was available, and to replicate the dimensions of 
 ---
 <div style="height: 20px;"></div>
 
+## Fundation
+<div style="height: 10px;"></div>
+<!-- Table Software -->
 <div class="row">
     <div class="col-md-6">
         <p>
-            Fundation
-            <p></p>
+        Used software to configure and program the LattePanda. The computer is capable of running as Windows, Linux, Android, or Hackintosh (Apple). 
+        <p></p>
+        You can find the OS documentation <a href="https://docs.lattepanda.com/content/alpha_edition/os/">here</a>.
+        <p></p>
+        Hardware interface dokumentation <a href="https://docs.lattepanda.com/content/delta_edition/io_playability/">here</a>
 
-            Used software to configure and program the LattePanda. The computer is capable of running as Windows, Linux, Android, or Hackintosh (Apple). 
-            You can find the documentation <a href="https://docs.lattepanda.com/content/alpha_edition/os/">here</a>.
         </p>     
     </div>
     <div class="col-md-6">
@@ -85,7 +90,7 @@ It was used simply because it was available, and to replicate the dimensions of 
         </tr>
         <tr>
             <td><a href="https://www.raspberrypi.com/software/">Pi Manager</a></td>
-            <td>For booting WIN10 from a USB stick</td>
+            <td>For generate bootstick</td>
         </tr>
         <tr>
             <td><a href="https://ultimaker.com/software/ultimaker-cura">Cura</a></td>
@@ -102,12 +107,15 @@ It was used simply because it was available, and to replicate the dimensions of 
 </div>
 
 ---
-# Same Project other Parts
+# Benchmarks
 
 <div class="row">
     <div class="col-md-6">
         <p>
-        This is the same project, just without the case and with a different graphics card. For the best possible performance, you can watch this video.
+        This is the same project, just without the case and with a different graphics card. For intrest in "best possible performance", you can watch this video.<p></p>
+        The limitation of my system is definitely the graphics card. Warcraft 3 is playable at 20FPS (Max Settings) & Leauge of Legends at 40FPS (Max Settings).<p></p>
+        I myself prefer using emulators like <a href="https://xemu.app/">Xemu</a> or <a href="https://pcsx2.net/">PCSX2</a>.<p></p>
+        The performance is flawless there, but it's more about nostalgia than performance.   
         </p>
     </div>
     <div class="col-md-6">
@@ -118,34 +126,4 @@ It was used simply because it was available, and to replicate the dimensions of 
 </div>
 ---
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-    <img src="https://image.dfrobot.com/image/data/DFR0543/20201123%20Update/LP%20delta%203.jpg" alt="Image" style="width:50%;">
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
 
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
-
-{% raw %}
-
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
-```
-
-{% endraw %}
