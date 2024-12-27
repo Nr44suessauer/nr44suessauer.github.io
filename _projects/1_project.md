@@ -52,13 +52,23 @@ It was used simply because it was available, and to replicate the dimensions of 
 |                           | WS28 LED Ring (12 LEDs)    | RGB LED ring with 12 individually addressable LEDs for lighting effects.   | [Product Page](https://de.aliexpress.com/item/4001061749100.html?spm=a2g0o.productlist.main.1.2a6c38abwWlxTH&algo_pvid=ef3cb399-c448-4661-aaae-1a78028cdfe7&utparam-url=scene%3Asearch%7Cquery_from%3A) |
 |                           | Antennas                   | Components for improving wireless signal reception.                        | [Product Page](https://de.aliexpress.com/item/1005006108506933.html?spm=a2g0o.order_list.order_list_main.260.65b85c5fuGsIUM&gatewayAdapt=glo2deu) |
 |                           | 12V AMD Fan RGB            | RGB cooling fan for efficient & stylish heat dissipation.                  | [Product Page](https://geizhals.de/amd-wraith-prism-712-000075-a1980869.html)               |
-| **3D Printing Materials** | 2kg Filament HIPS          | Filament for 3D printing, designed for electric cases.                     | -                                                                                           |
-
+| **3D Printing Materials** | 2kg Filament HIPS          | Filament for 3D printing, designed for electric case.                     | -  |
 ---
 
+# Information/Software Links
+
+| **Software** | **Description** |
+|--------------|------------------|
+| [VS Code](https://code.visualstudio.com/)                             | Programming the onboard Leonardo µC (for pump & led´s) |
+| [PlatformIO](https://platformio.org/)                                 | Programming the onboard Leonardo µC  (for pump & led´s) |
+| [Pi Manager](https://www.raspberrypi.com/software/)                   | For booting WIN10 from a USB stick |
+| [Cura](https://ultimaker.com/software/ultimaker-cura)                 | 3D Printing slicing and preparation |
+| [Fusion 360](https://www.autodesk.com/products/fusion-360/overview)   | CAD design and 3D modeling |
+
+
+---
 # Same Project other Parts
 
-[Documentation LattePanda](https://docs.lattepanda.com/content/delta_edition/io_playability/)
 <div class="row">
     <div class="col-md-6">
         <p>
@@ -71,7 +81,7 @@ It was used simply because it was available, and to replicate the dimensions of 
         </div>
     </div>
 </div>
-
+---
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
