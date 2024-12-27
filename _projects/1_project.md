@@ -34,7 +34,7 @@ It was used simply because it was available, and to replicate the dimensions of 
 <div style="height: 20px;"></div>
 
 
-# Partlist 
+# **Parts** 
 
 | **Group**                 | **Component**              | **Description**                                                            | **Link**                                                                                    |
 |---------------------------|----------------------------|----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
@@ -59,16 +59,21 @@ It was used simply because it was available, and to replicate the dimensions of 
 ---
 <div style="height: 20px;"></div>
 
-# Software Links
+<div class="container">
+    <div class="left">
+        # **Software Links**
 
-| **Software** | **Description** |
-|--------------|------------------|
-| [VS Code](https://code.visualstudio.com/)                             | Programming the onboard Leonardo µC (for pump & led´s) |
-| [PlatformIO](https://platformio.org/)                                 | Programming the onboard Leonardo µC  (for pump & led´s) |
-| [Pi Manager](https://www.raspberrypi.com/software/)                   | For booting WIN10 from a USB stick |
-| [Cura](https://ultimaker.com/software/ultimaker-cura)                 | 3D Printing slicing and preparation |
-| [Fusion 360](https://www.autodesk.com/products/fusion-360/overview)   | CAD design and 3D modeling |
-
+        | **Software** | **Description** |
+        |--------------|------------------|
+        | [VS Code](https://code.visualstudio.com/) & [PlatformIO](https://platformio.org/) | Programming the onboard Leonardo µC (for pump & led´s) |
+        | [Pi Manager](https://www.raspberrypi.com/software/)                   | For booting WIN10 from a USB stick |
+        | [Cura](https://ultimaker.com/software/ultimaker-cura)                 | 3D Printing slicing and preparation |
+        | [Fusion 360](https://www.autodesk.com/products/fusion-360/overview)   | CAD design and 3D modeling |
+    </div>
+    <div class="right">
+        <textarea placeholder="Enter text here"></textarea>
+    </div>
+</div>
 
 ---
 # Same Project other Parts
