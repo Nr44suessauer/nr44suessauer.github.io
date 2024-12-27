@@ -5,7 +5,6 @@ description: LattePanda combined wtih nearly unlimited Power from a Nvidia Quadr
 img: https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/assets/img/pc_project.gif
 importance: 1
 category: work
-related_publications: true
 ---
 A personal project aimed at building a LAN party PC with low power consumption and a stylish design. Compatible with a self-made screen and a 12V fridge. 
 
@@ -125,5 +124,11 @@ It was used simply because it was available, and to replicate the dimensions of 
     </div>
 </div>
 ---
-
-
+<div class="row">
+    <div class="col-md-6">
+        next: Electric System & Fluid System
+    </div>
+    <div class="col-md-6">
+        <img src="https://media1.tenor.com/m/fTC3vQTQbHoAAAAC/back-to-the-future-to-be-continued.gif" alt="Description" class="img-fluid">
+    </div>
+</div>
