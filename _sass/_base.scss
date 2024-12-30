@@ -578,6 +578,7 @@ footer.sticky-bottom {
 }
 
 .post-title {
+  word-break: break-word;
   mjx-container[jax="CHTML"][display="true"] {
     display: unset;
   }
