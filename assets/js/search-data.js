@@ -37,22 +37,22 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/_pages/dropdown/";
           },
-        },{id: "post-formatting-and-links",
+        },{id: "post-plant-uml-install-guide",
       
-        title: "formatting and links",
+        title: "Plant uml install guide",
       
-      description: "Baseknowlage for µC programming",
+      description: "Basic tool for generating uml diagrams",
       section: "Posts",
       handler: () => {
         
-          window.location.href = "/blog/2024/formatting-and-links/";
+          window.location.href = "/blog/2024/Plant-UML/";
         
       },
     },{id: "post-introduction-platformio",
       
         title: "Introduction Platformio",
       
-      description: "µC programming PlatformIO",
+      description: "µC programming with PlatformIO",
       section: "Posts",
       handler: () => {
         
