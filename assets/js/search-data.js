@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/_pages/dropdown/";
           },
-        },{id: "post-introduction-platformio",
+        },{id: "post-formatting-and-links",
+      
+        title: "formatting and links",
+      
+      description: "Baseknowlage for µC programming",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2024/formatting-and-links/";
+        
+      },
+    },{id: "post-introduction-platformio",
       
         title: "Introduction Platformio",
       
