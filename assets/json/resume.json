@@ -112,8 +112,7 @@
       "name": "Programming languages",
       "icon": "fa-solid fa-",
       "keywords": [
-        "C",
-        "C++",
+        "C/C++",
         "Python"
       ]
     },
@@ -123,7 +122,6 @@
       "keywords": [
         "Zephyr",
         "esp-idf",
-        "esspressif",
         "arduino"
       ]
     },
