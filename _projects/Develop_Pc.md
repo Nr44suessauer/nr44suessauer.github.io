@@ -4,7 +4,7 @@ title: Develop Pc
 description: LattePanda combined wtih nearly unlimited Power from a Nvidia Quadro 4000
 img: https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/assets/img/pc_project.gif
 importance: 1
-category: work
+category: all
 ---
 A personal project aimed at building a LAN party PC with low power consumption and a stylish design. Compatible with a self-made screen and a 12V fridge. 
 
