@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/_pages/dropdown/";
           },
-        },{id: "post-a-post-with-image-galleries",
+        },{id: "post-introduction-platformio",
+      
+        title: "Introduction Platformio",
+      
+      description: "µC programming PlatformIO",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2024/Intruduction/";
+        
+      },
+    },{id: "post-a-post-with-image-galleries",
       
         title: "a post with image galleries",
       
@@ -376,17 +387,6 @@ ninja.data = [{
       handler: () => {
         
           window.location.href = "/blog/2015/images/";
-        
-      },
-    },{id: "post-a-post-with-formatting-and-links",
-      
-        title: "a post with formatting and links",
-      
-      description: "march &amp; april, looking forward to summer",
-      section: "Posts",
-      handler: () => {
-        
-          window.location.href = "/blog/2015/formatting-and-links/";
         
       },
     },{id: "news-a-simple-inline-announcement",
