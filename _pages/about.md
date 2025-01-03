@@ -18,7 +18,7 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-I’m an engineer and tech enthusiast passionate about creating innovative projects that combine hardware and software – from DIY robotics to IoT and automation. For me, efficiency and meeting deadlines are always top priorities.
+I’m an engineer and tech enthusiast passionate about creating innovative projects that combine hardware and software – from DIY robotics to IoT and automation. For me, efficiency and creativity are always top priorities.
 
 I’m currently an academic assistant at [Hochschule Heilbronn](https://www.hs-heilbronn.de/en), where I teach [Signal Processing 2](assets/pdf/SignalVerarbeitung2ModulHandbuch.pdf) and [Realtime Systems](assets/pdf/RealTImeSystemsModulHandbuch.pdf), along with handling various other responsibilities at the university.
 
