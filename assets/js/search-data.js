@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/_pages/dropdown/";
           },
-        },{id: "post-atemis-import-exercise",
+        },{id: "post-old-but-gold",
+      
+        title: "Old but Gold",
+      
+      description: "Project Octoprint/3D Print Server, project from 2022.",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/Old-Project-about-3DServer/";
+        
+      },
+    },{id: "post-atemis-import-exercise",
       
         title: "Atemis | import exercise",
       
