@@ -9,7 +9,7 @@ disqus_comments: true
 featured: true
 ---
 
-The project "3D Printers and Server Tuning" combines innovative approaches in embedded systems with practical applications in the field of 3D printing. The goal is to develop a modular and expandable system that allows both students and technology enthusiasts to deepen their knowledge of 3D printing, microcontrollers, and Raspberry Pi. The setup integrates multiple 3D printers, cameras, LED light controls, and a physical input unit. The focus is on playful expandability and support through comprehensive interfaces.
+The project "3D Printer & Server Tuning" combines innovative approaches in embedded systems with practical applications in the field of 3D printing. The goal is to develop a modular and expandable system that allows both students and technology enthusiasts to deepen their knowledge of 3D printing, microcontrollers, and Raspberry Pi. The setup integrates multiple 3D printers, cameras, LED light controls, and a physical input unit. The focus is on playful expandability and support through comprehensive interfaces.
 
 The project includes the repair and tuning of a Taz-3 printer, the development of an illuminated server case, and the implementation of control systems via ArduinoBoards and Raspberry Pi. Through experiments with hardware and software, a robust and versatile system has been created, distinguished by its user-friendly and visually appealing design.
 
