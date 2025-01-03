@@ -9,7 +9,7 @@ profile:
   image: mePic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p> B.Sc Marc Nauendorf </p>
+    <p> Marc Nauendorf </p>
     <p> Office F718a (Basement) </p>
 
 
