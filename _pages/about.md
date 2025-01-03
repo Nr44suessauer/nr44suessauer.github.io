@@ -20,6 +20,8 @@ social: true # includes social icons at the bottom of the page
 
 I’m an engineer and tech enthusiast passionate about creating innovative projects that combine hardware and software – from DIY robotics to IoT and automation. For me, efficiency and meeting deadlines are always top priorities.
 
-I’m currently an academic assistant at Hochschule Heilbronn, where I teach [Signal Processing 2](assets/pdf/SignalVerarbeitung2ModulHandbuch.pdf) and [Realtime Systems](assets/pdf/RealTImeSystemsModulHandbuch.pdf), along with handling various other responsibilities at the university.
+I’m currently an academic assistant at [Hochschule Heilbronn](https://www.hs-heilbronn.de/en), where I teach [Signal Processing 2](assets/pdf/SignalVerarbeitung2ModulHandbuch.pdf) and [Realtime Systems](assets/pdf/RealTImeSystemsModulHandbuch.pdf), along with handling various other responsibilities at the university.
 
 I started deadlinedriven.dev to provide students with tutorials and insights into exciting technical projects. Here, I share my knowledge, experiences, and journey from concept to completion.
+
+Occasionally, I publish diverse content in the [blog section](/blog), where you can find tutorials, instructions, and more.
