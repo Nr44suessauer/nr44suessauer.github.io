@@ -30,13 +30,6 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/resume/";
           },
-        },{id: "nav-submenus",
-          title: "submenus",
-          description: "",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/_pages/dropdown/";
-          },
         },{id: "post-old-but-gold",
       
         title: "Old but Gold",
@@ -81,18 +74,7 @@ ninja.data = [{
           window.location.href = "/blog/2024/Intruduction/";
         
       },
-    },{id: "news-a-simple-inline-announcement",
-          title: 'A simple inline announcement.',
-          description: "",
-          section: "News",},{id: "news-a-long-announcement-with-details",
-          title: 'A long announcement with details',
-          description: "",
-          section: "News",handler: () => {
-              window.location.href = "/news/announcement_2/";
-            },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
-          title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
-          description: "",
-          section: "News",},{id: "projects-develop-pc",
+    },{id: "projects-develop-pc",
           title: 'Develop Pc',
           description: "LattePanda combined wtih nearly unlimited Power from a Nvidia Quadro 4000",
           section: "Projects",handler: () => {
