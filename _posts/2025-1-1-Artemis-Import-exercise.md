@@ -5,6 +5,7 @@ date: 2025-01-01 10:00:00
 description: for creating exercises | this instructions are for Tutors etc.
 tags: tutorial artemis 
 categories: instruction
+disqus_comments: true
 featured: false
 ---
 
