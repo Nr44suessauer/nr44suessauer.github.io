@@ -7,7 +7,7 @@ first_name: Marc
 last_name: Nauendorf
 contact_note: > # footer_text
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  Based on [*folio](https://github.com/bogoli/-folio) design.
+  Personal blog of Marc Nauendorf, a computer scientist and software engineer.
 footer_text: >
 
 keywords:  # add your own keywords or leave empty
