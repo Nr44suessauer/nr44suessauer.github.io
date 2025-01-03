@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/_pages/dropdown/";
           },
-        },{id: "post-plant-uml-install-guide",
+        },{id: "post-atemis-import-exercise",
+      
+        title: "Atemis | import exercise",
+      
+      description: "for creating exercises | this instructions are for Tutors etc.",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/Artemis-Import-exercise/";
+        
+      },
+    },{id: "post-plant-uml-install-guide",
       
         title: "Plant uml install guide",
       
