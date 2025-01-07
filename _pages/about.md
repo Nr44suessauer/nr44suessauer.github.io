@@ -24,4 +24,4 @@ I’m currently an academic assistant at [Hochschule Heilbronn](https://www.hs-h
 
 I started deadlinedriven.dev to provide students with tutorials and insights into exciting technical projects. Here, I share my knowledge, experiences, and journey from concept to completion.
 
-Occasionally, I publish diverse content in the [blog section](/blog), where you can find tutorials, instructions, and more.
+I publish diverse content in the [blog section](/blog), where you can find tutorials, instructions, and more.
