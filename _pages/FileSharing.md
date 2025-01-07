@@ -14,7 +14,7 @@ horizontal: false
 <div style="display: flex; justify-content: space-between; align-items: center;">
     <div style="flex: 1; text-align: center;">
         <a href="https://drive.google.com/drive/folders/1bAfISxHMrTDO5cFRg7WHa-9dp59fEqZL?usp=sharing" target="_blank">
-            <img src="/assets/img/titelpages/Ai_gen_titelpage1.png" alt="Title Image" style="cursor:pointer; width:25%;">
+            <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/912a9de30edc361246864e567f1ac6a002842042/assets/img/titelpages/Ai_gen_titelpage1.png" alt="Title Image" style="cursor:pointer; width:25%;">
         </a>
     </div>
     <div style="flex: 1; padding-left: 20px;">
