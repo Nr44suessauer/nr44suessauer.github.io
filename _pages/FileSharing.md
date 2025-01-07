@@ -19,6 +19,6 @@ horizontal: false
     </div>
     <div style="flex: 1; padding-left: 20px;">
         <!-- Your text here -->
-        <p>Your descriptive text goes here.</p>
+        <p>Little test for sharing/using storage with github pages</p>
     </div>
 </div>
