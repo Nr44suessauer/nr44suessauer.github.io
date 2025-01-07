@@ -3,7 +3,7 @@ layout: page
 title: filesharing
 permalink: /FileSharing/
 description: Filesharing with me 
-nav: true
+nav: false
 nav_order: 6
 # display_categories: [all]
 horizontal: false
