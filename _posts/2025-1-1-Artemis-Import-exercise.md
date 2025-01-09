@@ -21,7 +21,7 @@ Für weitere Informationen lesen Sie die [Artemis-Dokumentation](https://docs.ar
 
 ## Projekt herunterladen
 
-Ein Example Projekt (Hello World Java) können Sie [hier](https://drive.google.com/drive/folders/1Hj0aG_3q_sFK32tAP1A9gVNzhCcBAZbD?usp=sharing) herunterladen. Dieses Projekt dient als Muster.
+Ein Example Projekt (Hello World Java) können Sie [hier](https://github.com/Nr44suessauer/Artemis_Example/tree/zipped) herunterladen. Dieses Projekt dient als Muster.
 
 **Architechture:**
 ```markdown
