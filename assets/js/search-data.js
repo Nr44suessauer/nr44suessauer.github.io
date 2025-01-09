@@ -48,17 +48,6 @@ ninja.data = [{
           window.location.href = "/blog/2025/Artemis-Import-exercise/";
         
       },
-    },{id: "post-atemis-import-exercise",
-      
-        title: "Atemis | import exercise",
-      
-      description: "for creating exercises | this instructions are for Tutors etc.",
-      section: "Posts",
-      handler: () => {
-        
-          window.location.href = "/blog/2025/Artemis-Project-Structure/";
-        
-      },
     },{id: "post-old-but-gold",
       
         title: "Old but Gold",
