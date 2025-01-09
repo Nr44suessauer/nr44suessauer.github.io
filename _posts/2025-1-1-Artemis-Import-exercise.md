@@ -413,30 +413,37 @@ Wenn eine andere Build config z.B. für eine andere Sprache benötigt wird, müs
     <p></p>
 </div>
 
-- Zugriff über Kursverwaltung auf "Aufgaben".
-<img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/Artemis_pics/Kursverwaltung.png?raw=true" width="70%"/>
+<div style="display: flex; align-items: center; margin-top: 20px;">
+    <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/Artemis_pics/Kursverwaltung.png?raw=true" width="50%" style="margin-right: 20px;"/>
+    <p>Zugriff über Kursverwaltung auf "Aufgaben".</p>
+</div>
 
 <div style="display: flex; align-items: center; margin-top: 20px;">
     <p></p>
 </div>
 
-- Importieren über "Programmieraufgabe importieren".
-<img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/Artemis_pics/%C3%9CbersichtAufgaben.png?raw=true" width="70%"/>
-    
 <div style="display: flex; align-items: center; margin-top: 20px;">
-    <p></p>
+    <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/Artemis_pics/%C3%9CbersichtAufgaben.png?raw=true" width="50%" style="margin-right: 20px;"/>
+    <p>Importieren über "Programmieraufgabe importieren".</p>
 </div>
-
-- Vom Computer hochladen
-<img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/Artemis_pics/UploadAufgabe.png?raw=true" width="70%"/>
 
 <div style="display: flex; align-items: center; margin-top: 20px;">
     <p></p>
 </div>
 
-- Überprüfen/test.Json
-- Generieren der test.Json, damit die Aufgaben getestet werden können.
-<img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/Artemis_pics/jasongenerieren.png?raw=true" width="70%"/>
+<div style="display: flex; align-items: center; margin-top: 20px;">
+    <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/Artemis_pics/UploadAufgabe.png?raw=true" width="50%" style="margin-right: 20px;"/>
+    <p>Vom Computer hochladen</p>
+</div>
+
+<div style="display: flex; align-items: center; margin-top: 20px;">
+    <p></p>
+</div>
+
+<div style="display: flex; align-items: center; margin-top: 20px;">
+    <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/Artemis_pics/jasongenerieren.png?raw=true" width="50%" style="margin-right: 20px;"/>
+    <p>Überprüfen/test.Json<br>Generieren der test.Json, damit die Aufgaben getestet werden können.</p>
+</div>
 
 <div style="display: flex; align-items: center; margin-top: 20px;">
     <p></p>
