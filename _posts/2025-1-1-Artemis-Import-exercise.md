@@ -378,6 +378,7 @@ Es geht um folgende Datei: **Exercise-Details-<EXERCISE-NAME>.json**
 }
 ```
 
+---
 
 # Import in Artemis
 **Bedingung/Format der Upload-Datei:**
@@ -399,6 +400,7 @@ Es geht um folgende Datei: **Exercise-Details-<EXERCISE-NAME>.json**
   
 <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/Artemis_pics/jasongenerieren.png?raw=true" width="70%"/>
 
+---
 # Test der Aufgabe
 
 <div style="display: flex; align-items: center;">
