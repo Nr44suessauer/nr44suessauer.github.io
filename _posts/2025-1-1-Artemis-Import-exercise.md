@@ -15,6 +15,7 @@ featured: true
 3. [Config by File](#config-by-file)
 4. [Hier eine vollständige configfile](#hier-eine-vollständige-configfile)
 5. [Import in Artemis](#import-in-artemis)
+6. [test](#test)
 
 Für weitere Informationen lesen Sie die [Artemis-Dokumentation](https://docs.artemis.cit.tum.de/index.html).
 
@@ -39,7 +40,7 @@ Projekte müssen den Aufbau dieser 3 Repos aufweisen, zudem muss die Config-Date
 
 #### Config by File
 
-Es geht um folgende Datei: **Exercise-Details-<EXERCISE-NAME>.json**
+Es geht um folgende Datei: Exercise-Details-<EXERCISE-NAME>.json
 
 ##### Folgende Felder sollten unbedingt geändert werden:
 ```yml
@@ -66,8 +67,8 @@ Es geht um folgende Datei: **Exercise-Details-<EXERCISE-NAME>.json**
 }
 ```
 
-##### Wenn eine andere Build config z.B. für eine andere Sprache benötigt wird, müssen folgende Felder zusätzlich angepasst werden:
-### Build config anzeigen
+##### Wenn eine andere Build-Konfiguration, z.B. für eine andere Sprache, benötigt wird, müssen folgende Felder zusätzlich angepasst werden:
+### Build-Konfiguration anzeigen
 ```yml
 "buildConfig": {
     "id": 22,
@@ -88,10 +89,12 @@ Es geht um folgende Datei: **Exercise-Details-<EXERCISE-NAME>.json**
 }
 ```
 
+---
+
 # Import in Artemis
-**Bedingung/Format der Upload Datei:**
+**Bedingung/Format der Upload-Datei:**
  [X] Adminrechte
-- über Kursverwaltung auf "Aufgaben" zugreifen.
+- Zugriff über Kursverwaltung auf "Aufgaben".
 
 <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/Artemis_pics/Kursverwaltung.png?raw=true" width="70%"/>
     
@@ -99,12 +102,12 @@ Es geht um folgende Datei: **Exercise-Details-<EXERCISE-NAME>.json**
 
 <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/Artemis_pics/%C3%9CbersichtAufgaben.png?raw=true" width="70%"/>
     
-- hochladen vom Computer
+- Vom Computer hochladen
 
 <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/Artemis_pics/UploadAufgabe.png?raw=true" width="70%"/>
     
 - Überprüfen/test.Json
-- generieren der test.Json, damit die Aufgaben getestet werden können. 
+- Generieren der test.Json, damit die Aufgaben getestet werden können.
   
 <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/Artemis_pics/jasongenerieren.png?raw=true" width="70%"/>
 
@@ -112,6 +115,14 @@ Es geht um folgende Datei: **Exercise-Details-<EXERCISE-NAME>.json**
 
 ## Test
 
-![testpic1](assets/img/Artemis_pics/testpic1.png)
-![testpic2](assets/img/Artemis_pics/testpic2.png)
-![testpic3](assets/img/Artemis_pics/testpic3.png)
+Zum Testen wird selbst eine Lösung eingereicht. Dafür bearbeiten wir die hochgeladene Aufgabe im Online-Editor.
+
+![testpic1](https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/Artemis_pics/testpic1.png?raw=true)
+
+Jetzt muss ein Assignment-Repository erstellt werden (die Einreichung). Das geschieht durch einen Klick auf das Feld.
+
+![testpic2](https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/Artemis_pics/testpic2.png?raw=true)
+
+Jetzt kopieren wir die Musterlösung (im Beispiel SimpleHelloWorld) in das Assignment-Repository. Zum Einreichen der Lösung oben rechts auf "Absenden" klicken. Wenn "100% Graded" angezeigt wird, funktioniert der Prozess.
+
+![testpic3](https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/Artemis_pics/testpic3.png?raw=true)
