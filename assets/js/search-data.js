@@ -37,15 +37,15 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/FileSharing/";
           },
-        },{id: "post-old-but-gold",
+        },{id: "post-atemis-import-exercise",
       
-        title: "Old but Gold",
+        title: "Atemis | import exercise",
       
-      description: "Project Octoprint/3D Print Server, project from 2022.",
+      description: "exercise structure | Example Project with instruction",
       section: "Posts",
       handler: () => {
         
-          window.location.href = "/blog/2025/Old-Project-about-3DServer/";
+          window.location.href = "/blog/2025/Artemis-Import-exercise/";
         
       },
     },{id: "post-atemis-import-exercise",
@@ -56,7 +56,18 @@ ninja.data = [{
       section: "Posts",
       handler: () => {
         
-          window.location.href = "/blog/2025/Artemis-Import-exercise/";
+          window.location.href = "/blog/2025/Artemis-Project-Structure/";
+        
+      },
+    },{id: "post-old-but-gold",
+      
+        title: "Old but Gold",
+      
+      description: "Project Octoprint/3D Print Server, project from 2022.",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/Old-Project-about-3DServer/";
         
       },
     },{id: "post-plant-uml-install-guide",
