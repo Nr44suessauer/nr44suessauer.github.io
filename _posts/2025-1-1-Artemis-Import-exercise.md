@@ -212,10 +212,13 @@ Wenn eine andere Build config z.B. für eine andere Sprache benötigt wird, müs
 </div>
 
 
-Vollständige Exercise-Details-HelloWorld.json  [herunterladen](assets/json/Exercise-Details-HelloWorld.json).
+Vollständige Exercise-Details-HelloWorld.json  [herunterladen](https://github.com/Nr44suessauer/Artemis_Example/blob/main/Material-KPROG-HelloWorld-32-20250109-16557/Exercise-Details-HelloWorld.json).
 
     
+<div style="display: flex; align-items: center; margin-top: 20px;">
+    <p></p>
 </div>
+
 
 ---
 
