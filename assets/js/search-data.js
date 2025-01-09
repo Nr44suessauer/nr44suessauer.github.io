@@ -41,7 +41,7 @@ ninja.data = [{
       
         title: "Atemis | import exercise",
       
-      description: "exercise structure | Example Project with instruction",
+      description: "exercise structure | Example Project Java",
       section: "Posts",
       handler: () => {
         
