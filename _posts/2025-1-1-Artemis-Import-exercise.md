@@ -2,8 +2,8 @@
 layout: post
 title: Atemis | import exercise 
 date: 2025-01-09 10:00:00
-description: exercise structure | Example Project with instruction 
-tags: tutorial artemis 
+description: exercise structure | Example Project Java
+tags: tutorial artemis java
 categories: instruction
 disqus_comments: true
 featured: true
@@ -11,11 +11,11 @@ featured: true
 
 ## Inhaltsverzeichnis
 1. [Projekt herunterladen](#projekt-herunterladen)
-2. [Architektur](#architektur)
-3. [Config by File](#config-by-file)
-4. [Hier eine vollständige configfile](#hier-eine-vollständige-configfile)
-5. [Import in Artemis](#import-in-artemis)
-6. [test](#test)
+2. [Architechture](#architechture)
+3. [Config by File](#anleitung-import-from-file)
+4. [Hier eine vollständige configfile](#hier-eine-vollständige-gültige-datei)
+5. [Import der Aufgabe in Artemis](#import-in-artemis)
+6. [Test der Aufgabe](#test-der-aufgabe)
 
 Für weitere Informationen lesen Sie die [Artemis-Dokumentation](https://docs.artemis.cit.tum.de/index.html).
 
@@ -23,24 +23,24 @@ Für weitere Informationen lesen Sie die [Artemis-Dokumentation](https://docs.ar
 
 Ein Example Projekt (Hello World Java) können Sie [hier](https://drive.google.com/drive/folders/1Hj0aG_3q_sFK32tAP1A9gVNzhCcBAZbD?usp=sharing) herunterladen. Dieses Projekt dient als Muster.
 
-**Architektur:**
+**Architechture:**
 ```markdown
 Project_zip.zip
 ├── exercise-details-project_name.json  | Config-Datei 
 ├── problem-statement-project_name.md   | Aufgabenstellung für Studierende
 └── Project_name.zip                
-    ├── project_name-exercise.zip       | Projekt zu Händen Studierende
+    ├── project_name-exercise.zip       | Projekt zu händen Studierende
     ├── project_name-solution.zip       | Gesamtes Projekt 
     └── project_name-test.zip           | Nur Tests
 ```
 
-**Tipp:** Solution Repository kopieren und Dateien, die nicht nötig sind, entfernen.
+**Tipp:** Solution Reposetorie kopieren und Dateien die nicht nötig sind entfernen.
 
-Projekte müssen den Aufbau dieser 3 Repos aufweisen, zudem muss die Config-Datei in folgendem Umfang angepasst werden:
+Projekte müssen den Aufbau dieser 3 Repos aufweisen, zudem muss die configdatei in folgendem umfang angepasst werden:
 
 #### Config by File
 
-Es geht um folgende Datei: Exercise-Details-<EXERCISE-NAME>.json
+Es geht um folgende Datei: **Exercise-Details-<EXERCISE-NAME>.json**
 
 ##### Folgende Felder sollten unbedingt geändert werden:
 ```yml
@@ -53,7 +53,7 @@ Es geht um folgende Datei: Exercise-Details-<EXERCISE-NAME>.json
 ```
 
 ##### Diese Felder müssen nur verändert werden, wenn der Kurs (id, title, etc.) nicht stimmt:
-### Code anzeigen
+### code anzeigen
 ```yml
 "course": {
     "id": 8,
@@ -63,19 +63,135 @@ Es geht um folgende Datei: Exercise-Details-<EXERCISE-NAME>.json
     "teachingAssistantGroupName": "artemis-KPROG-tutors",
     "editorGroupName": "artemis-KPROG-editors",
     "instructorGroupName": "artemis-KPROG-instructors",
-    ...
-}
+    "startDate": "",
+    "endDate": "",
+    "enrollmentStartDate": "",
+    "enrollmentEndDate": "",
+    "testCourse": false,
+    "defaultProgrammingLanguage": "JAVA",
+    "onlineCourse": false,
+    "courseInformationSharingConfiguration": "COMMUNICATION_AND_MESSAGING",
+    "courseInformationSharingMessagingCodeOfConduct": "<!-- Code of Conduct Template: Adapt to your demands -->\n<!-- Important: This template will directly be shown on the iOS and Android client if a course has no explicit code of conduct set. -->\n\nWe as students, tutors, and instructors pledge to make participation in our course a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.\n\nWe pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive, and healthy community.\n\n## Our Standards\n\n### Examples of behavior that contributes to a positive environment for our community include:\n\n- Demonstrating empathy and kindness toward other people\n- Being respectful of differing opinions, viewpoints, and experiences\n- Giving and gracefully accepting constructive feedback\n- Accepting responsibility and apologizing to those affected by our mistakes, and learning from the experience\n- Focusing on what is best not just for us as individuals, but for the overall community\n\n### Examples of unacceptable behavior include:\n\n- The use of sexualized language or imagery, and sexual attention or advances of any kind\n- Trolling, insulting or derogatory comments, and personal or political attacks\n- Public or private harassment\n- Publishing others' private information, such as a physical or email address, without their explicit permission\n- Other conduct which could reasonably be considered inappropriate in a professional setting\n\n## Scope\n\nThis Code of Conduct applies within all messages channels.\n\n## Reporting\n\nEach course is represented by instructors. If you see inappropriate behavior or content, please report it.\nYou may find a list of contacts responsible for this course below.\n\n<!-- The responsible users are automatically compiled from the course's instructors -->\n",
+    "maxComplaints": 3,
+    "maxTeamComplaints": 3,
+    "maxComplaintTimeDays": 7,
+    "maxRequestMoreFeedbackTimeDays": 7,
+    "maxComplaintTextLimit": 2000,
+    "maxComplaintResponseTextLimit": 2000,
+    "enrollmentEnabled": true,
+    "unenrollmentEnabled": false,
+    "maxPoints": 236,
+    "accuracyOfScores": 1,
+    "restrictedAthenaModulesAccess": false,
+    "learningPathsEnabled": false,
+    "studentCourseAnalyticsDashboardEnabled": false,
+    "complaintsEnabled": true,
+    "requestMoreFeedbackEnabled": true
+  }
 ```
 
-##### Wenn eine andere Build-Konfiguration, z.B. für eine andere Sprache, benötigt wird, müssen folgende Felder zusätzlich angepasst werden:
-### Build-Konfiguration anzeigen
+##### Wenn eine andere Build config z.B. für eine andere Sprache benötigt wird, müssen folgende Felder zusätzlich angepasst werden:
+### Build config anzeigen
 ```yml
-"buildConfig": {
+  "buildConfig": {
     "id": 22,
     "sequentialTestRuns": true,
     "branch": "main",
-    ...
-}
+    "buildPlanConfiguration": "{\"api\":\"v0.0.1\",\"metadata\":{\"docker\":{\"image\":\"ls1tum/artemis-maven-template:java17-21\",\"parameters\":[\"--cpus\",\"\\\"2\\\"\",\"--memory\",\"\\\"2g\\\"\",\"--memory-swap\",\"\\\"2g\\\"\",\"--pids-limit\",\"\\\"1000\\\"\"]}},\"actions\":[{\"name\":\"structural_tests\",\"results\":[{\"name\":\"junit_**/test-results/structuralTests/*.xml\",\"path\":\"**/test-results/structuralTests/*.xml\",\"type\":\"junit\",\"before\":false}],\"runAlways\":false,\"script\":\"chmod +x ./gradlew\\n./gradlew clean structuralTests\"},{\"name\":\"behavior_tests\",\"results\":[{\"name\":\"junit_**/test-results/behaviorTests/*.xml\",\"path\":\"**/test-results/behaviorTests/*.xml\",\"type\":\"junit\",\"before\":false}],\"runAlways\":false,\"script\":\"./gradlew behaviorTests\"}],\"results\":[{\"name\":\"junit_**/test-results/structuralTests/*.xml\",\"path\":\"**/test-results/structuralTests/*.xml\",\"type\":\"junit\",\"before\":false},{\"name\":\"junit_**/test-results/behaviorTests/*.xml\",\"path\":\"**/test-results/behaviorTests/*.xml\",\"type\":\"junit\",\"before\":false}],\"scriptActions\":[{\"name\":\"structural_tests\",\"results\":[{\"name\":\"junit_**/test-results/structuralTests/*.xml\",\"path\":\"**/test-results/structuralTests/*.xml\",\"type\":\"junit\",\"before\":false}],\"runAlways\":false,\"script\":\"chmod +x ./gradlew\\n./gradlew clean structuralTests\"},{\"name\":\"behavior_tests\",\"results\":[{\"name\":\"junit_**/test-results/behaviorTests/*.xml\",\"path\":\"**/test-results/behaviorTests/*.xml\",\"type\":\"junit\",\"before\":false}],\"runAlways\":false,\"script\":\"./gradlew behaviorTests\"}]}",
+    "buildScript": "#!/usr/bin/env bash\nset -e\nexport AEOLUS_INITIAL_DIRECTORY=${PWD}\nstructural_tests () {\n  echo '⚙️ executing structural_tests'\n  chmod +x ./gradlew\n  ./gradlew clean structuralTests\n}\n\nbehavior_tests () {\n  echo '⚙️ executing behavior_tests'\n  ./gradlew behaviorTests\n}\n\nmain () {\n  if [[ \"${1}\" == \"aeolus_sourcing\" ]]; then\n    return 0 # just source to use the methods in the subshell, no execution\n  fi\n  local _script_name\n  _script_name=${BASH_SOURCE[0]:-$0}\n  cd \"${AEOLUS_INITIAL_DIRECTORY}\"\n  bash -c \"source ${_script_name} aeolus_sourcing; structural_tests\"\n  cd \"${AEOLUS_INITIAL_DIRECTORY}\"\n  bash -c \"source ${_script_name} aeolus_sourcing; behavior_tests\"\n}\n\nmain \"${@}\"\n",
+    "checkoutSolutionRepository": false,
+    "timeoutSeconds": 0,
+    "testwiseCoverageEnabled": false,
+    "allowBranching": false,
+    "windfile": {
+      "api": "v0.0.1",
+      "metadata": {
+        "docker": {
+          "image": "ls1tum/artemis-maven-template:java17-21",
+          "parameters": [
+            "--cpus",
+            "\"2\"",
+            "--memory",
+            "\"2g\"",
+            "--memory-swap",
+            "\"2g\"",
+            "--pids-limit",
+            "\"1000\""
+          ]
+        }
+      },
+      "actions": [
+        {
+          "name": "structural_tests",
+          "results": [
+            {
+              "name": "junit_**/test-results/structuralTests/*.xml",
+              "path": "**/test-results/structuralTests/*.xml",
+              "type": "junit",
+              "before": false
+            }
+          ],
+          "runAlways": false,
+          "script": "chmod +x ./gradlew\n./gradlew clean structuralTests"
+        },
+        {
+          "name": "behavior_tests",
+          "results": [
+            {
+              "name": "junit_**/test-results/behaviorTests/*.xml",
+              "path": "**/test-results/behaviorTests/*.xml",
+              "type": "junit",
+              "before": false
+            }
+          ],
+          "runAlways": false,
+          "script": "./gradlew behaviorTests"
+        }
+      ],
+      "results": [
+        {
+          "name": "junit_**/test-results/structuralTests/*.xml",
+          "path": "**/test-results/structuralTests/*.xml",
+          "type": "junit",
+          "before": false
+        },
+        {
+          "name": "junit_**/test-results/behaviorTests/*.xml",
+          "path": "**/test-results/behaviorTests/*.xml",
+          "type": "junit",
+          "before": false
+        }
+      ],
+      "scriptActions": [
+        {
+          "name": "structural_tests",
+          "results": [
+            {
+              "name": "junit_**/test-results/structuralTests/*.xml",
+              "path": "**/test-results/structuralTests/*.xml",
+              "type": "junit",
+              "before": false
+            }
+          ],
+          "runAlways": false,
+          "script": "chmod +x ./gradlew\n./gradlew clean structuralTests"
+        },
+        {
+          "name": "behavior_tests",
+          "results": [
+            {
+              "name": "junit_**/test-results/behaviorTests/*.xml",
+              "path": "**/test-results/behaviorTests/*.xml",
+              "type": "junit",
+              "before": false
+            }
+          ],
+          "runAlways": false,
+          "script": "./gradlew behaviorTests"
+        }
+      ]
+    }
+  }
 ```
 
 ##### Hier eine vollständige gültige Datei
@@ -85,11 +201,183 @@ Es geht um folgende Datei: Exercise-Details-<EXERCISE-NAME>.json
   "type": "programming",
   "id": 25,
   "title": "HelloWorld",
-  ...
+  "shortName": "helloworld",
+  "maxPoints": 12.0,
+  "bonusPoints": 0.0,
+  "assessmentType": "AUTOMATIC",
+  "releaseDate": "2024-12-02T07:00:00Z",
+  "startDate": "2024-12-02T07:00:00Z",
+  "dueDate": "2024-12-14T07:52:00Z",
+  "difficulty": "MEDIUM",
+  "mode": "INDIVIDUAL",
+  "allowComplaintsForAutomaticAssessments": false,
+  "allowFeedbackRequests": false,
+  "includedInOverallScore": "INCLUDED_COMPLETELY",
+  "problemStatement": "# Example Hello World",
+  "presentationScoreEnabled": false,
+  "secondCorrectionEnabled": false,
+  "course": {
+    "id": 8,
+    "title": "Komplexe Programme 262004",
+    "shortName": "KPROG",
+    "studentGroupName": "artemis-KPROG-students",
+    "teachingAssistantGroupName": "artemis-KPROG-tutors",
+    "editorGroupName": "artemis-KPROG-editors",
+    "instructorGroupName": "artemis-KPROG-instructors",
+    "startDate": "",
+    "endDate": "",
+    "enrollmentStartDate": "",
+    "enrollmentEndDate": "",
+    "testCourse": false,
+    "defaultProgrammingLanguage": "JAVA",
+    "onlineCourse": false,
+    "courseInformationSharingConfiguration": "COMMUNICATION_AND_MESSAGING",
+    "courseInformationSharingMessagingCodeOfConduct": "<!-- Code of Conduct Template: Adapt to your demands -->\n<!-- Important: This template will directly be shown on the iOS and Android client if a course has no explicit code of conduct set. -->\n\nWe as students, tutors, and instructors pledge to make participation in our course a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.\n\nWe pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive, and healthy community.\n\n## Our Standards\n\n### Examples of behavior that contributes to a positive environment for our community include:\n\n- Demonstrating empathy and kindness toward other people\n- Being respectful of differing opinions, viewpoints, and experiences\n- Giving and gracefully accepting constructive feedback\n- Accepting responsibility and apologizing to those affected by our mistakes, and learning from the experience\n- Focusing on what is best not just for us as individuals, but for the overall community\n\n### Examples of unacceptable behavior include:\n\n- The use of sexualized language or imagery, and sexual attention or advances of any kind\n- Trolling, insulting or derogatory comments, and personal or political attacks\n- Public or private harassment\n- Publishing others' private information, such as a physical or email address, without their explicit permission\n- Other conduct which could reasonably be considered inappropriate in a professional setting\n\n## Scope\n\nThis Code of Conduct applies within all messages channels.\n\n## Reporting\n\nEach course is represented by instructors. If you see inappropriate behavior or content, please report it.\nYou may find a list of contacts responsible for this course below.\n\n<!-- The responsible users are automatically compiled from the course's instructors -->\n",
+    "maxComplaints": 3,
+    "maxTeamComplaints": 3,
+    "maxComplaintTimeDays": 7,
+    "maxRequestMoreFeedbackTimeDays": 7,
+    "maxComplaintTextLimit": 2000,
+    "maxComplaintResponseTextLimit": 2000,
+    "enrollmentEnabled": true,
+    "unenrollmentEnabled": false,
+    "maxPoints": 236,
+    "accuracyOfScores": 1,
+    "restrictedAthenaModulesAccess": false,
+    "learningPathsEnabled": false,
+    "studentCourseAnalyticsDashboardEnabled": false,
+    "complaintsEnabled": true,
+    "requestMoreFeedbackEnabled": true
+  },
+  "plagiarismDetectionConfig": {
+    "continuousPlagiarismControlEnabled": false,
+    "continuousPlagiarismControlPostDueDateChecksEnabled": false,
+    "continuousPlagiarismControlPlagiarismCaseStudentResponsePeriod": 7,
+    "similarityThreshold": 90,
+    "minimumScore": 0,
+    "minimumSize": 50
+  },
+  "testRepositoryUri": "",
+  "allowOnlineEditor": true,
+  "allowOfflineIde": true,
+  "allowOnlineIde": false,
+  "staticCodeAnalysisEnabled": false,
+  "programmingLanguage": "JAVA",
+  "packageName": "prog.example",
+  "showTestNamesToStudents": true,
+  "testCasesChanged": true,
+  "projectKey": "KPROGEXAMPLE",
+  "projectType": "PLAIN_GRADLE",
+  "releaseTestsWithExampleSolution": false,
+  "buildConfig": {
+    "id": 22,
+    "sequentialTestRuns": true,
+    "branch": "main",
+    "buildPlanConfiguration": "{\"api\":\"v0.0.1\",\"metadata\":{\"docker\":{\"image\":\"ls1tum/artemis-maven-template:java17-21\",\"parameters\":[\"--cpus\",\"\\\"2\\\"\",\"--memory\",\"\\\"2g\\\"\",\"--memory-swap\",\"\\\"2g\\\"\",\"--pids-limit\",\"\\\"1000\\\"\"]}},\"actions\":[{\"name\":\"structural_tests\",\"results\":[{\"name\":\"junit_**/test-results/structuralTests/*.xml\",\"path\":\"**/test-results/structuralTests/*.xml\",\"type\":\"junit\",\"before\":false}],\"runAlways\":false,\"script\":\"chmod +x ./gradlew\\n./gradlew clean structuralTests\"},{\"name\":\"behavior_tests\",\"results\":[{\"name\":\"junit_**/test-results/behaviorTests/*.xml\",\"path\":\"**/test-results/behaviorTests/*.xml\",\"type\":\"junit\",\"before\":false}],\"runAlways\":false,\"script\":\"./gradlew behaviorTests\"}],\"results\":[{\"name\":\"junit_**/test-results/structuralTests/*.xml\",\"path\":\"**/test-results/structuralTests/*.xml\",\"type\":\"junit\",\"before\":false},{\"name\":\"junit_**/test-results/behaviorTests/*.xml\",\"path\":\"**/test-results/behaviorTests/*.xml\",\"type\":\"junit\",\"before\":false}],\"scriptActions\":[{\"name\":\"structural_tests\",\"results\":[{\"name\":\"junit_**/test-results/structuralTests/*.xml\",\"path\":\"**/test-results/structuralTests/*.xml\",\"type\":\"junit\",\"before\":false}],\"runAlways\":false,\"script\":\"chmod +x ./gradlew\\n./gradlew clean structuralTests\"},{\"name\":\"behavior_tests\",\"results\":[{\"name\":\"junit_**/test-results/behaviorTests/*.xml\",\"path\":\"**/test-results/behaviorTests/*.xml\",\"type\":\"junit\",\"before\":false}],\"runAlways\":false,\"script\":\"./gradlew behaviorTests\"}]}",
+    "buildScript": "#!/usr/bin/env bash\nset -e\nexport AEOLUS_INITIAL_DIRECTORY=${PWD}\nstructural_tests () {\n  echo '⚙️ executing structural_tests'\n  chmod +x ./gradlew\n  ./gradlew clean structuralTests\n}\n\nbehavior_tests () {\n  echo '⚙️ executing behavior_tests'\n  ./gradlew behaviorTests\n}\n\nmain () {\n  if [[ \"${1}\" == \"aeolus_sourcing\" ]]; then\n    return 0 # just source to use the methods in the subshell, no execution\n  fi\n  local _script_name\n  _script_name=${BASH_SOURCE[0]:-$0}\n  cd \"${AEOLUS_INITIAL_DIRECTORY}\"\n  bash -c \"source ${_script_name} aeolus_sourcing; structural_tests\"\n  cd \"${AEOLUS_INITIAL_DIRECTORY}\"\n  bash -c \"source ${_script_name} aeolus_sourcing; behavior_tests\"\n}\n\nmain \"${@}\"\n",
+    "checkoutSolutionRepository": false,
+    "timeoutSeconds": 0,
+    "testwiseCoverageEnabled": false,
+    "allowBranching": false,
+    "windfile": {
+      "api": "v0.0.1",
+      "metadata": {
+        "docker": {
+          "image": "ls1tum/artemis-maven-template:java17-21",
+          "parameters": [
+            "--cpus",
+            "\"2\"",
+            "--memory",
+            "\"2g\"",
+            "--memory-swap",
+            "\"2g\"",
+            "--pids-limit",
+            "\"1000\""
+          ]
+        }
+      },
+      "actions": [
+        {
+          "name": "structural_tests",
+          "results": [
+            {
+              "name": "junit_**/test-results/structuralTests/*.xml",
+              "path": "**/test-results/structuralTests/*.xml",
+              "type": "junit",
+              "before": false
+            }
+          ],
+          "runAlways": false,
+          "script": "chmod +x ./gradlew\n./gradlew clean structuralTests"
+        },
+        {
+          "name": "behavior_tests",
+          "results": [
+            {
+              "name": "junit_**/test-results/behaviorTests/*.xml",
+              "path": "**/test-results/behaviorTests/*.xml",
+              "type": "junit",
+              "before": false
+            }
+          ],
+          "runAlways": false,
+          "script": "./gradlew behaviorTests"
+        }
+      ],
+      "results": [
+        {
+          "name": "junit_**/test-results/structuralTests/*.xml",
+          "path": "**/test-results/structuralTests/*.xml",
+          "type": "junit",
+          "before": false
+        },
+        {
+          "name": "junit_**/test-results/behaviorTests/*.xml",
+          "path": "**/test-results/behaviorTests/*.xml",
+          "type": "junit",
+          "before": false
+        }
+      ],
+      "scriptActions": [
+        {
+          "name": "structural_tests",
+          "results": [
+            {
+              "name": "junit_**/test-results/structuralTests/*.xml",
+              "path": "**/test-results/structuralTests/*.xml",
+              "type": "junit",
+              "before": false
+            }
+          ],
+          "runAlways": false,
+          "script": "chmod +x ./gradlew\n./gradlew clean structuralTests"
+        },
+        {
+          "name": "behavior_tests",
+          "results": [
+            {
+              "name": "junit_**/test-results/behaviorTests/*.xml",
+              "path": "**/test-results/behaviorTests/*.xml",
+              "type": "junit",
+              "before": false
+            }
+          ],
+          "runAlways": false,
+          "script": "./gradlew behaviorTests"
+        }
+      ]
+    }
+  },
+  "type": "programming",
+  "exerciseType": "PROGRAMMING",
+  "defaultTestCaseVisibility": "ALWAYS",
+  "studentAssignedTeamIdComputed": false,
+  "gradingInstructionFeedbackUsed": false,
+  "visibleToStudents": true,
+  "teamMode": false
 }
 ```
 
----
 
 # Import in Artemis
 **Bedingung/Format der Upload-Datei:**
@@ -111,18 +399,28 @@ Es geht um folgende Datei: Exercise-Details-<EXERCISE-NAME>.json
   
 <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/Artemis_pics/jasongenerieren.png?raw=true" width="70%"/>
 
----
+# Test der Aufgabe
 
-## Test
+<div style="display: flex; align-items: center;">
+    <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/Artemis_pics/testpic1.png?raw=true" width="50%" style="margin-right: 20px;"/>
+    <p>Zum Testen wird selbst eine Lösung eingereicht. Dafür bearbeiten wir die hochgeladene Aufgabe im Online-Editor.</p>
+</div>
 
-Zum Testen wird selbst eine Lösung eingereicht. Dafür bearbeiten wir die hochgeladene Aufgabe im Online-Editor.
+<div style="display: flex; align-items: center; margin-top: 20px;">
+    <p></p>
+</div>
 
-![testpic1](https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/Artemis_pics/testpic1.png?raw=true)
+<div style="display: flex; align-items: center;">
+    <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/Artemis_pics/testpic2.png?raw=true" width="50%" style="margin-right: 20px;"/>
+    <p>Jetzt muss ein Assignment-Repository erstellt werden (die Einreichung). Das geschieht durch einen Klick auf das Feld.</p>
+</div>
 
-Jetzt muss ein Assignment-Repository erstellt werden (die Einreichung). Das geschieht durch einen Klick auf das Feld.
 
-![testpic2](https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/Artemis_pics/testpic2.png?raw=true)
+<div style="display: flex; align-items: center; margin-top: 20px;">
+    <p></p>
+</div>
 
-Jetzt kopieren wir die Musterlösung (im Beispiel SimpleHelloWorld) in das Assignment-Repository. Zum Einreichen der Lösung oben rechts auf "Absenden" klicken. Wenn "100% Graded" angezeigt wird, funktioniert der Prozess.
-
-![testpic3](https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/Artemis_pics/testpic3.png?raw=true)
+<div style="display: flex; align-items: center;">
+    <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/Artemis_pics/testpic3.png?raw=true" width="50%" style="margin-right: 20px;"/>
+    <p>Nun kopieren wir die Musterlösung (SimpleHelloWorld) in das Assignment-Repository. Um die Lösung einzureichen, klicken Sie oben rechts auf "Absenden". Wenn "100% Graded" angezeigt wird, funktioniert der Prozess.</p>
+</div>
