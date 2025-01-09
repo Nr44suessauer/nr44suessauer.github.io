@@ -6,7 +6,7 @@ description: exercise structure | Example Project Java
 tags: tutorial artemis java
 categories: instruction
 disqus_comments: true
-featured: true
+featured: false
 ---
 
 ## Inhaltsverzeichnis

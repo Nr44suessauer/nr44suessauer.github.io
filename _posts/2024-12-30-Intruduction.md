@@ -6,7 +6,7 @@ description: µC programming with PlatformIO
 tags: tutorial C basics sv2 rts 
 categories: lecture
 disqus_comments: true
-featured: true
+featured: false
 ---
 
 # VsCode & PlatformIO
