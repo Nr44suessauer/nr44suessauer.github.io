@@ -12,9 +12,9 @@ featured: true
 ## Inhaltsverzeichnis
 1. [Projekt herunterladen](#projekt-herunterladen)
 2. [Architechture](#architechture)
-3. [Config by File](#anleitung-import-from-file)
-4. [Hier eine vollständige configfile](#hier-eine-vollständige-gültige-datei)
-5. [Import der Aufgabe in Artemis](#import-in-artemis)
+3. [Config by File](#config-by-file)
+4. [Hier eine vollständige gültige Exercise-Details-HelloWorld.json](#hier-eine-vollständige-gültige-exercise-details-helloworldjson)
+5. [Import in Artemis](#import-in-artemis)
 6. [Test der Aufgabe](#test-der-aufgabe)
 
 Für weitere Informationen lesen Sie die [Artemis-Dokumentation](https://docs.artemis.cit.tum.de/index.html).
@@ -29,9 +29,9 @@ Project_zip.zip
 ├── exercise-details-project_name.json  | Config-Datei 
 ├── problem-statement-project_name.md   | Aufgabenstellung für Studierende
 └── Project_name.zip                
-    ├── project_name-exercise.zip       | Projekt zu händen Studierende
+    ├── project_name-exercise.zip       | Projekt für Studierende
     ├── project_name-solution.zip       | Gesamtes Projekt 
-    └── project_name-test.zip           | Nur Tests
+    └── project_name-test.zip           | Tests
 ```
 
 **Tipp:** Solution Reposetorie kopieren und Dateien die nicht nötig sind entfernen.
@@ -40,7 +40,11 @@ Projekte müssen den Aufbau dieser 3 Repos aufweisen, zudem muss die configdatei
 
 #### Config by File
 
-Es geht um folgende Datei: **Exercise-Details-<EXERCISE-NAME>.json**
+Es geht um folgende Datei: Exercise-Details-<EXERCISE-NAME>.json
+
+<div style="display: flex; align-items: center; margin-top: 20px;">
+    <p></p>
+</div>
 
 ##### Folgende Felder sollten unbedingt geändert werden:
 ```yml
@@ -52,8 +56,12 @@ Es geht um folgende Datei: **Exercise-Details-<EXERCISE-NAME>.json**
 "projectKey": "KPROGEXAMPLE"
 ```
 
+<div style="display: flex; align-items: center; margin-top: 20px;">
+    <p></p>
+</div>
+
 ##### Diese Felder müssen nur verändert werden, wenn der Kurs (id, title, etc.) nicht stimmt:
-### code anzeigen
+
 ```yml
 "course": {
     "id": 8,
@@ -90,8 +98,13 @@ Es geht um folgende Datei: **Exercise-Details-<EXERCISE-NAME>.json**
   }
 ```
 
-##### Wenn eine andere Build config z.B. für eine andere Sprache benötigt wird, müssen folgende Felder zusätzlich angepasst werden:
-### Build config anzeigen
+<div style="display: flex; align-items: center; margin-top: 20px;">
+    <p></p>
+</div>
+
+Wenn eine andere Build config z.B. für eine andere Sprache benötigt wird, müssen folgende Felder zusätzlich angepasst werden:
+
+### Build config :
 ```yml
   "buildConfig": {
     "id": 22,
@@ -194,8 +207,11 @@ Es geht um folgende Datei: **Exercise-Details-<EXERCISE-NAME>.json**
   }
 ```
 
-##### Hier eine vollständige gültige Datei
-### Vollständige Datei anzeigen
+<div style="display: flex; align-items: center; margin-top: 20px;">
+    <p></p>
+</div>
+
+##### Hier eine vollständige gültige Exercise-Details-HelloWorld.json
 ```json
 {
   "type": "programming",
@@ -378,30 +394,61 @@ Es geht um folgende Datei: **Exercise-Details-<EXERCISE-NAME>.json**
 }
 ```
 
+<div style="display: flex; align-items: center; margin-top: 20px;">
+    <p></p>
+</div>
+
 ---
 
 # Import in Artemis
+
+<div style="display: flex; align-items: center; margin-top: 20px;">
+    <p></p>
+</div>
+
 **Bedingung/Format der Upload-Datei:**
  [X] Adminrechte
+
+<div style="display: flex; align-items: center; margin-top: 20px;">
+    <p></p>
+</div>
+
 - Zugriff über Kursverwaltung auf "Aufgaben".
-
 <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/Artemis_pics/Kursverwaltung.png?raw=true" width="70%"/>
-    
-- Importieren über "Programmieraufgabe importieren".
 
+<div style="display: flex; align-items: center; margin-top: 20px;">
+    <p></p>
+</div>
+
+- Importieren über "Programmieraufgabe importieren".
 <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/Artemis_pics/%C3%9CbersichtAufgaben.png?raw=true" width="70%"/>
     
-- Vom Computer hochladen
+<div style="display: flex; align-items: center; margin-top: 20px;">
+    <p></p>
+</div>
 
+- Vom Computer hochladen
 <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/Artemis_pics/UploadAufgabe.png?raw=true" width="70%"/>
-    
+
+<div style="display: flex; align-items: center; margin-top: 20px;">
+    <p></p>
+</div>
+
 - Überprüfen/test.Json
 - Generieren der test.Json, damit die Aufgaben getestet werden können.
-  
 <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/Artemis_pics/jasongenerieren.png?raw=true" width="70%"/>
+
+<div style="display: flex; align-items: center; margin-top: 20px;">
+    <p></p>
+</div>
 
 ---
 # Test der Aufgabe
+
+<div style="display: flex; align-items: center; margin-top: 20px;">
+    <p></p>
+</div>
+
 
 <div style="display: flex; align-items: center;">
     <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/Artemis_pics/testpic1.png?raw=true" width="50%" style="margin-right: 20px;"/>
