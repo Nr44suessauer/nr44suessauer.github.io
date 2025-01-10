@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/FileSharing/";
           },
-        },{id: "post-atemis-import-exercise",
+        },{id: "post-photogrammetrie",
+      
+        title: "Photogrammetrie",
+      
+      description: "Recherche für ein Projekt namens I-Scan, das ein 3D-Scanner sein wird",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/Photogrammetrie-I-SCAN/";
+        
+      },
+    },{id: "post-atemis-import-exercise",
       
         title: "Atemis | import exercise",
       
