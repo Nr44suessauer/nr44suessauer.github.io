@@ -38,7 +38,7 @@ Die Photogrammetrie ist ein Verfahren zur **Erfassung räumlicher Daten** eines 
 ---
 
 ### Technische Grundlagen der Photogrammetrie
-#### 1. Bildaufnahme
+#### Bildaufnahme
 
 
 <div style="display: flex; align-items: center; margin-top: 20px;">
@@ -55,16 +55,16 @@ Die Photogrammetrie ist ein Verfahren zur **Erfassung räumlicher Daten** eines 
 
 [Unity Photogrammetry Workflow PDF](https://github.com/Nr44suessauer/I-Scan/blob/main/docs/datasheet/Unity-Photogrammetry-Workflow_2017-07_v2.pdf)
 
-#### 2. Merkmalsextraktion und Positionsdaten
+#### Merkmalsextraktion und Positionsdaten
 
 Die Merkmalsextraktion identifiziert charakteristische Elemente in den Bildern, die für die Rekonstruktion der 3D-Struktur wichtig sind. Die **Kamerapositionierung ergänzt diesen Prozess**, indem sie zusätzliche räumliche Informationen liefert, die die Genauigkeit der Punktwolken verbessern.
 
-#### 3. Grundlagen |  Generierung von Punktwolken aus Bildern
+#### Grundlagen |  Generierung von Punktwolken aus Bildern
 
 Die Erstellung von Punktwolken ist zentraler Schritt in der Photogrammetrie, um dreidimensionale Strukturen präzise zu rekonstruieren. 
 Dieser Prozess beinhaltet die Analyse und Verarbeitung mehrerer **überlappender Fotografien** desselben Objekts oder derselben Szene und nutzt die **bekannten Kamerapositionen** zur Verbesserung der Rekonstruktionsgenauigkeit.
 
-##### 3.1 Bildvorbereitung und -auswahl
+##### Bildvorbereitung und -auswahl
 
 Eine sorgfältige Auswahl und Vorbereitung der Bilddaten ist Voraussetzung für eine präzise Punktwolkenextraktion:
 
@@ -73,11 +73,11 @@ Eine sorgfältige Auswahl und Vorbereitung der Bilddaten ist Voraussetzung für 
 - **Überlappung sicherstellen:** Mindestens 60-80% Überlappung zwischen den Bildern.
     Das stellt sicher, dass genügend gemeinsame Merkmale zwischen den Bildern vorhanden sind. Dies **senkt das Risiko von Lücken** und Unstimmigkeiten im finalen Punktwolkenmodell.
 
-#### 3.2 Merkmalserkennung und -abgleich
+#### Merkmalserkennung und -abgleich
 
 Kennzeichnung und Abgleich von Merkmalen in überlappenden Bildern mittels **Algorithmen** wie [SIFT](https://www.geeksforgeeks.org/what-is-the-difference-between-sift-and-surf/) oder [SURF](https://www.geeksforgeeks.org/what-is-the-difference-between-sift-and-surf/), um korrespondierende Punkte zu identifizieren.
 
-#### 3.3 Triangulation und Bundle Adjustment zur 3D-Punktberechnung
+#### Triangulation und Bundle Adjustment zur 3D-Punktberechnung
 
 Berechnung der räumlichen Position jedes Punkts durch Triangulation unter Verwendung der Kamerapositionen und korrespondierenden Bildpunkte, gefolgt von einer **Optimierung mittels [Bundle Adjustment](https://en.wikipedia.org/wiki/Bundle_adjustment).**
 
@@ -85,7 +85,7 @@ Das Ziel ist, die Übereinstimmung zwischen den Bildpunkten und den projizierten
 
 
 
-#### 3.4 Integration und Weiterverarbeitung
+#### Integration und Weiterverarbeitung
 
 Integration der Punktwolke in Softwarelösungen zur Erstellung von Meshes, Texturierung und weiterführender Analyse.
 
@@ -97,7 +97,7 @@ Integration der Punktwolke in Softwarelösungen zur Erstellung von Meshes, Textu
 - [**Pix4D**](https://www.pix4d.com/)
 - [**Autodesk ReCap**](https://www.autodesk.com/products/recap/overview)
 
-#### 4. Texturierung
+#### Texturierung
 
 Anwendung von Texturen auf das Mesh zur Erzeugung eines realitätsnahen Erscheinungsbildes umfasst mehrere Schritte. 
 
