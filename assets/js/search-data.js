@@ -97,6 +97,11 @@ ninja.data = [{
           description: "LattePanda combined with nearly unlimited Power from a Nvidia Quadro 4000",
           section: "Projects",handler: () => {
               window.location.href = "/projects/Develop_Pc/";
+            },},{id: "projects-i-scan",
+          title: 'I-Scan',
+          description: "ResearchProject | Lifesize 3D Scanner based on Mac Mini 2012 with Linux and random Cams | still working at",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/I-Scan/";
             },},{
         id: 'social-email',
         title: 'email',
