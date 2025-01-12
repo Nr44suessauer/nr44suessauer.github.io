@@ -3,7 +3,7 @@ layout: post
 title: ProXmoX Quickstart
 date: 2025-1-11 16:40:00
 description: A virtual environment tool , with Web UI 
-tags: installguide basics engineering_tool rts nice_to_know proxmox docker linux
+tags: quickstart basics engineering_tool rts nice_to_know proxmox docker linux
 categories: tutorial
 disqus_comments: true
 featured: false
