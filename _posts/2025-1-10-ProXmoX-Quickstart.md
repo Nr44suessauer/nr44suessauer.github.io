@@ -122,14 +122,14 @@ To create your first LXC container, you will need a container template. **Proxmo
 
 <div style="display: flex; align-items: center; margin-top: 0px;">
     <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/gif/ContainerConsole.gif?raw=true" alt="Container Console" style="width: 60%; margin-right: 20px;" />
-    <p>After the container is created, you can start it from the Proxmox interface. You can access the container's console to manage and configure it as needed.</p>
+    <p>After the container is created, you can start it from the Proxmox interface. You can access the container's console to manage and configure it as needed. 
+    Using these steps, you can quickly set up and deploy LXC containers in Proxmox.</p>
 </div>
 
 <div style="display: flex; align-items: center; margin-top: 50px;">
     <p></p>
 </div>
 
-Using these steps, you can quickly set up and deploy LXC containers in Proxmox, leveraging the available templates to streamline the process.
 
 ---
 
