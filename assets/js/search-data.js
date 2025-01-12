@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/FileSharing/";
           },
-        },{id: "post-photogrammetrie",
+        },{id: "post-proxmox-quickstart",
+      
+        title: "ProXmoX Quickstart",
+      
+      description: "A virtual environment tool , with Web UI",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/ProXmoX-Quickstart/";
+        
+      },
+    },{id: "post-photogrammetrie",
       
         title: "Photogrammetrie",
       
