@@ -12,7 +12,6 @@ featured: false
 1. [**Introduction**](#introduction)
 2. [**What are LXC Containers?**](#what-are-lxc-containers)
 3. [**Creating a Bootable USB Stick**](#creating-a-bootable-usb-stick)
-    - [**Steps to Create a Bootable USB Stick with balenaEtcher**](#steps-to-create-a-bootable-usb-stick-with-balenaetcher)
 4. [**First Login**](#first-login)
 5. [**Creating First LXC Container**](#creating-first-lxc-container)
     - [**Download a Template**](#download-a-template)
@@ -54,8 +53,6 @@ LXC containers are commonly used for **deploying applications in a consistent en
 Creating a bootable USB stick is an essential step for installing operating systems or running live environments. One of the most user-friendly tools for this purpose is **balenaEtcher**. 
 
 **balenaEtcher** is a free and open-source utility used for writing image files such as `.iso` and `.img` files to USB drives and SD cards. It is available for Windows, macOS, and Linux.
-
-### **Steps to Create a Bootable USB Stick with balenaEtcher**:
 
 To create a bootable USB stick, you can use **balenaEtcher**. Download it from the [balenaEtcher website](https://www.balena.io/etcher/), install it, and follow the simple steps to select your image file and USB drive, then flash the image. Your bootable USB stick will be ready in minutes.
 
