@@ -58,6 +58,13 @@ To create a bootable USB stick, you can use **balenaEtcher**. Download it from t
 
 Additionally, you will need the Proxmox VE ISO file. You can download it from the [Proxmox website](https://www.proxmox.com/de/downloads). Once you have the ISO file, you can use balenaEtcher to create a bootable USB stick with the Proxmox VE installer.
 
+**BIOS** \
+To access the BIOS, restart your computer and press the designated key (often Del, F2, or F12) when prompted. In the BIOS, locate the boot priority settings and move the USB device to the top. Save the changes, then reboot with the USB drive inserted. The system should now load data from the USB, allowing you to install operating systems or run live environments quickly.
+
+Then install ProXmoX, and you can leave the default settings unchanged.
+
+
+
 ### **First Login**
 
 ![ProXmoX Port](https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/ProXmoX/port.png?raw=true){: style="width: 80%;" }
