@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/FileSharing/";
           },
-        },{id: "post-proxmox-quickstart",
+        },{id: "post-concept-of-a-movable-camera-setup-in-the-z-axis",
+      
+        title: "Concept of a Movable Camera Setup in the Z-Axis",
+      
+      description: "Moveable Camera Setup , ctrl via Webserver",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/";
+        
+      },
+    },{id: "post-proxmox-quickstart",
       
         title: "ProXmoX Quickstart",
       
