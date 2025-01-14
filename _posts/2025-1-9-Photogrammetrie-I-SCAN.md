@@ -4,7 +4,7 @@ title: Photogrammetrie
 date: 2025-01-09 10:00:00
 description: Recherche für ein Projekt namens I-Scan, das ein 3D-Scanner sein wird
 tags: Photogrammetrie I-Scan Research_Project 
-categories: Recherche
+categories: Research_Project
 disqus_comments: true
 featured: false
 ---
