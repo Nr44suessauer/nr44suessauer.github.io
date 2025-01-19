@@ -45,7 +45,7 @@ ninja.data = [{
       section: "Posts",
       handler: () => {
         
-          window.location.href = "/blog/2025/";
+          window.location.href = "/blog/2025/Concept_of_a_Movable_Camera_Setup_in_the_Z-Axis/";
         
       },
     },{id: "post-proxmox-quickstart",
