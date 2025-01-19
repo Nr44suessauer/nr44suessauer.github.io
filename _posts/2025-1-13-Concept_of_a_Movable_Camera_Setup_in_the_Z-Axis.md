@@ -10,8 +10,6 @@ featured: false
 ---
 
 
-## Concept of a Movable Camera Setup in the Z-Axis
-
 This concept outlines a movable camera setup in the Z-axis, consisting of **three movable modules**, each equipped with a camera. The angle of each camera can be individually adjusted for flexible and precise recording.
 
 ### Components
