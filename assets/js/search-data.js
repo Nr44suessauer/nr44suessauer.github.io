@@ -70,11 +70,11 @@ ninja.data = [{
           window.location.href = "/blog/2025/ProXmoX-Quickstart/";
         
       },
-    },{id: "post-photogrammetrie",
+    },{id: "post-photogrammetry",
       
-        title: "Photogrammetrie",
+        title: "Photogrammetry",
       
-      description: "Recherche für ein Projekt namens I-Scan, das ein 3D-Scanner sein wird",
+      description: "Research for a project called I-Scan, which will be a 3D scanner",
       section: "Posts",
       handler: () => {
         
