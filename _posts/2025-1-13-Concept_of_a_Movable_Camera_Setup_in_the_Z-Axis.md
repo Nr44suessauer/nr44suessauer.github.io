@@ -119,6 +119,8 @@ The cameras will be **connected via USB** to the main system, which serves as th
         <div class="text">
             <p>The execution of individual processes for both the cameras and the modules can be handled by subsystems. These subsystems are designed as Docker containers that save the images on a shared partition.</p>
             <p>A web server will allow configuration of the processes and the hardware used. The web server also provides access to the saved data. This management solution enables the integration of cameras with different requirements. In the long term, the system should also be usable for other measurement tools.</p>
+            <p>Docker containers are used because different cameras require different software versions. For example, older Kinects (Microsoft Cam) require older Python versions for control, which can be managed using virtual environments or dedicated Docker containers.</p>
+            <p>For information on running Kinect 2.0 on Ubuntu, refer to this <a href="https://www.notaboutmy.life/posts/run-kinect-2-on-ubuntu-20-lts/">guide</a>.</p>
         </div>
     </div>
 </body>
