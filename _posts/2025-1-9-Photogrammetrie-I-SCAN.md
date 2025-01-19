@@ -1,51 +1,48 @@
 ---
 layout: post
-title: Photogrammetrie
+title: Photogrammetry
 date: 2025-01-09 10:00:00
-description: Recherche für ein Projekt namens I-Scan, das ein 3D-Scanner sein wird
-tags: Photogrammetrie I-Scan Research_Project 
+description: Research for a project called I-Scan, which will be a 3D scanner
+tags: Photogrammetry I-Scan Research_Project 
 categories: Research_Project
 disqus_comments: true
 featured: false
 ---
 
-### Photogrammetrie: Technische Grundlagen, Softwarelösungen und Anwendungsbereiche
+### Photogrammetry: Technical Basics, Software Solutions, and Application Areas
 
-Photogrammetrie stellt eine fortschrittliche Methode dar, mit der aus **zweidimensionalen Fotografien** präzise **dreidimensionale Modelle** generiert werden können. In diesem Beitrag werden die Funktionsweise der Photogrammetrie, die erforderlichen Schritte sowie die geeignete Software erläutert.
+Photogrammetry represents an advanced method for generating precise **three-dimensional models** from **two-dimensional photographs**. This post explains the functionality of photogrammetry, the necessary steps, and the appropriate software.
 
-### Definition und Anwendungsgebiete der Photogrammetrie
+### Definition and Application Areas of Photogrammetry
 
-Die Photogrammetrie ist ein Verfahren zur **Erfassung räumlicher Daten** eines Objekts oder einer Szene **mittels fotografischer Aufnahmen**. Diese Methode findet breite Anwendung in verschiedenen Fachbereichen, darunter:
+Photogrammetry is a process for **capturing spatial data** of an object or scene **using photographic images**. This method is widely used in various fields, including:
 
 <div style="display: flex; align-items: flex-start; margin-top: 20px;">
   <ul style="margin-right: 20px;">
-    <li>Gamedesign</li>
-    <li>Qualitätskontrolle</li>
-    <li>Medizin</li>
-    <li>Forensik</li>
-    <li>Kartografie</li>
+    <li>Game Design</li>
+    <li>Quality Control</li>
+    <li>Medicine</li>
+    <li>Forensics</li>
+    <li>Cartography</li>
   </ul>
   <div>
   <div style="display: flex; align-items: center; margin-top: 5px;">
     <p></p>
   </div>
-    <p>Dank ihrer Flexibilität ermöglicht die Photogrammetrie die Digitalisierung von Objekten und Umgebungen unabhängig von Größe oder Zugänglichkeit.</p>
+    <p>Thanks to its flexibility, photogrammetry enables the digitization of objects and environments regardless of size or accessibility.</p>
   </div>
 </div>
 
-
-
 ---
 
-### Technische Grundlagen der Photogrammetrie
-#### Bildaufnahme
-
+### Technical Basics of Photogrammetry
+#### Image Capture
 
 <div style="display: flex; align-items: center; margin-top: 20px;">
   <img src="https://formlabs.com/_next/image/?url=https%3A%2F%2Fformlabs-media.formlabs.com%2Ffiler_public_thumbnails%2Ffiler_public%2F6d%2F43%2F6d430a93-30a4-4091-bb20-a24a09e07954%2Fphotogrammetry.jpg__1354x0_q85_subsampling-2.jpg&w=1920&q=75" width="50%" style="margin-right: 20px;"/>
   <div>
-    <p>Es werden Serien überlappender Bilder erstellt, die das Zielobjekt oder die Szene aus verschiedenen Perspektiven erfassen. Für optimale Ergebnisse sind hochauflösende Kameras mit präziser Positionsbestimmung unerlässlich.</p>
-    <p>Die Bilder werden anhand ihrer räumlichen Position und übereinstimmender Merkmale identifiziert und verknüpft. Mit Softwaretools wie Unity lassen sich aus diesen Daten präzise 3D-Modelle erstellen, die sich nahtlos in verschiedene Anwendungen integrieren lassen.</p>
+    <p>Series of overlapping images are taken to capture the target object or scene from different perspectives. For optimal results, high-resolution cameras with precise positioning are essential.</p>
+    <p>The images are identified and linked based on their spatial position and matching features. Software tools like Unity can be used to create precise 3D models from this data, which can be seamlessly integrated into various applications.</p>
   </div>
 </div>
 
@@ -55,41 +52,39 @@ Die Photogrammetrie ist ein Verfahren zur **Erfassung räumlicher Daten** eines 
 
 [Unity Photogrammetry Workflow PDF](https://github.com/Nr44suessauer/I-Scan/blob/main/docs/datasheet/Unity-Photogrammetry-Workflow_2017-07_v2.pdf)
 
-#### Merkmalsextraktion und Positionsdaten
+#### Feature Extraction and Position Data
 
-Die Merkmalsextraktion identifiziert charakteristische Elemente in den Bildern, die für die Rekonstruktion der 3D-Struktur wichtig sind. Die **Kamerapositionierung ergänzt diesen Prozess**, indem sie zusätzliche räumliche Informationen liefert, die die Genauigkeit der Punktwolken verbessern.
+Feature extraction identifies characteristic elements in the images that are important for reconstructing the 3D structure. **Camera positioning complements this process**, providing additional spatial information that improves the accuracy of the point clouds.
 
-#### Grundlagen |  Generierung von Punktwolken aus Bildern
+#### Basics | Generating Point Clouds from Images
 
-Die Erstellung von Punktwolken ist zentraler Schritt in der Photogrammetrie, um dreidimensionale Strukturen präzise zu rekonstruieren. 
-Dieser Prozess beinhaltet die Analyse und Verarbeitung mehrerer **überlappender Fotografien** desselben Objekts oder derselben Szene und nutzt die **bekannten Kamerapositionen** zur Verbesserung der Rekonstruktionsgenauigkeit.
+Creating point clouds is a central step in photogrammetry to accurately reconstruct three-dimensional structures. 
+This process involves analyzing and processing multiple **overlapping photographs** of the same object or scene and using the **known camera positions** to improve reconstruction accuracy.
 
-##### Bildvorbereitung und -auswahl
+##### Image Preparation and Selection
 
-Eine sorgfältige Auswahl und Vorbereitung der Bilddaten ist Voraussetzung für eine präzise Punktwolkenextraktion:
+Careful selection and preparation of image data are prerequisites for precise point cloud extraction:
 
-- **Bildqualität:** Hochauflösende, gut beleuchtete Bilder mit minimalem Rauschen.
-- **Kamerakalibrierung:** Sicherstellung der genauen Orientierung der Kameras.
-- **Überlappung sicherstellen:** Mindestens 60-80% Überlappung zwischen den Bildern.
-    Das stellt sicher, dass genügend gemeinsame Merkmale zwischen den Bildern vorhanden sind. Dies **senkt das Risiko von Lücken** und Unstimmigkeiten im finalen Punktwolkenmodell.
+- **Image Quality:** High-resolution, well-lit images with minimal noise.
+- **Camera Calibration:** Ensuring accurate camera orientation.
+- **Ensuring Overlap:** At least 60-80% overlap between images.
+    This ensures that there are enough common features between the images. This **reduces the risk of gaps** and inconsistencies in the final point cloud model.
 
-#### Merkmalserkennung und -abgleich
+#### Feature Detection and Matching
 
-Kennzeichnung und Abgleich von Merkmalen in überlappenden Bildern mittels **Algorithmen** wie [SIFT](https://www.geeksforgeeks.org/what-is-the-difference-between-sift-and-surf/) oder [SURF](https://www.geeksforgeeks.org/what-is-the-difference-between-sift-and-surf/), um korrespondierende Punkte zu identifizieren.
+Marking and matching features in overlapping images using **algorithms** like [SIFT](https://www.geeksforgeeks.org/what-is-the-difference-between-sift-and-surf/) or [SURF](https://www.geeksforgeeks.org/what-is-the-difference-between-sift-and-surf/) to identify corresponding points.
 
-#### Triangulation und Bundle Adjustment zur 3D-Punktberechnung
+#### Triangulation and Bundle Adjustment for 3D Point Calculation
 
-Berechnung der räumlichen Position jedes Punkts durch Triangulation unter Verwendung der Kamerapositionen und korrespondierenden Bildpunkte, gefolgt von einer **Optimierung mittels [Bundle Adjustment](https://en.wikipedia.org/wiki/Bundle_adjustment).**
+Calculating the spatial position of each point through triangulation using the camera positions and corresponding image points, followed by **optimization using [Bundle Adjustment](https://en.wikipedia.org/wiki/Bundle_adjustment).**
 
-Das Ziel ist, die Übereinstimmung zwischen den Bildpunkten und den projizierten 3D-Punkten zu erhöhen. Dadurch wird die Genauigkeit der Rekonstruktion verbessert, indem Fehler in den Kamerapositionen und den 3D-Punkten verringert werden.
+The goal is to increase the match between the image points and the projected 3D points. This improves the accuracy of the reconstruction by reducing errors in the camera positions and the 3D points.
 
+#### Integration and Further Processing
 
+Integrating the point cloud into software solutions for creating meshes, texturing, and further analysis.
 
-#### Integration und Weiterverarbeitung
-
-Integration der Punktwolke in Softwarelösungen zur Erstellung von Meshes, Texturierung und weiterführender Analyse.
-
-[Verfügbare Softwarelösungen](https://all3dp.com/de/1/photogrammetrie-programm-3d-scan/) zur Punktwolkenextraktion und 3D-Modellierung umfassen:
+[Available Software Solutions](https://all3dp.com/de/1/photogrammetrie-programm-3d-scan/) for point cloud extraction and 3D modeling include:
 
 - [**Agisoft Metashape**](https://www.agisoft.com/)
 - [**RealityCapture**](https://www.capturingreality.com/)
@@ -97,41 +92,28 @@ Integration der Punktwolke in Softwarelösungen zur Erstellung von Meshes, Textu
 - [**Pix4D**](https://www.pix4d.com/)
 - [**Autodesk ReCap**](https://www.autodesk.com/products/recap/overview)
 
-#### Texturierung
+#### Texturing
 
-Anwendung von Texturen auf das Mesh zur Erzeugung eines realitätsnahen Erscheinungsbildes umfasst mehrere Schritte. 
+Applying textures to the mesh to create a realistic appearance involves several steps. 
 
-Zunächst werden **Bilder** ausgewählt, die **die gewünschten Oberflächenmerkmale realistisch darstellen**. Diese Texturbilder werden anschließend mithilfe von UV-Mapping-Techniken den entsprechenden Mesh-Flächen zugeordnet. 
-Dabei werden UV-Koordinaten erstellt, die definieren, wie die zweidimensionalen Bilder auf die dreidimensionalen Strukturen projiziert werden. 
-Nach der Zuordnung erfolgt die **Anpassung der Texturen**, um nahtlose Übergänge und eine konsistente Darstellung von Farben, Materialien und Lichtreflexionen zu erreichen. **Abschließend** werden die Texturen **durch Filter und Nachbearbeitungen optimiert**.
-
-
-<details>
-<summary>UV-Mapping-Techniken</summary>
-
-<div style="display: flex; align-items: center; margin-top: 0px;">
-    <p></p>
-</div>
-
-sind Methoden, mit denen 2D-Texturen auf die Oberfläche von 3D-Modellen projiziert werden. Sie ermöglichen es, detaillierte und realistische Oberflächenstrukturen auf 3D-Objekte anzuwenden.
-
-</details>
+First, **images** are selected that **realistically represent the desired surface features**. These texture images are then assigned to the corresponding mesh surfaces using UV mapping techniques. 
+UV coordinates are created to define how the two-dimensional images are projected onto the three-dimensional structures. 
+After the assignment, the **textures are adjusted** to achieve seamless transitions and a consistent representation of colors, materials, and light reflections. **Finally**, the textures are **optimized through filters and post-processing**.
 
 ---
 
-## Fazit
+## Conclusion
 
-Photogrammetrie ist ein leistungsfähiges Werkzeug zur **Erstellung von 3D-Modellen**, das in zahlreichen technischen und wissenschaftlichen Bereichen Anwendung findet. 
-Die Vielseitigkeit der Photogrammetrie erlaubt es, komplexe **Strukturen und Umgebungen detailgenau abzubilden**, was sie insbesondere in Bereichen wie Architektur, Forensik und Medizin unverzichtbar macht. Darüber hinaus bieten moderne Softwarelösungen erweiterte Funktionalitäten wie automatisierte Merkmalsextraktion und Optimierungstechniken, die den gesamten Workflow effizienter gestalten. 
-Die **kontinuierliche Weiterentwicklung** von Kameratechnologien und Algorithmen **trägt dazu bei**, die Genauigkeit und **Benutzerfreundlichkeit** der Photogrammetrie **zu verbessern**. 
+Photogrammetry is a powerful tool for **creating 3D models**, used in numerous technical and scientific fields. 
+The versatility of photogrammetry allows for the detailed representation of complex **structures and environments**, making it indispensable in areas such as architecture, forensics, and medicine. Additionally, modern software solutions offer advanced functionalities like automated feature extraction and optimization techniques, making the entire workflow more efficient. 
+The **continuous development** of camera technologies and algorithms **contributes to** improving the accuracy and **user-friendliness** of photogrammetry. 
 
 ---
 
-## Spannende Links
+## Interesting Links
 
-- [Wikipedia: Photogrammetrie](https://de.wikipedia.org/wiki/Photogrammetrie)
+- [Wikipedia: Photogrammetry](https://de.wikipedia.org/wiki/Photogrammetrie)
 - [Meshroom GitHub](https://github.com/alicevision/meshroom)
-- [Uni Freiburg Vorlesung 2008](https://lmb.informatik.uni-freiburg.de/people/haasdonk/DBV_FHO/DBV_FHO_SS08_E10.pdf)
+- [University of Freiburg Lecture 2008](https://lmb.informatik.uni-freiburg.de/people/haasdonk/DBV_FHO/DBV_FHO_SS08_E10.pdf)
 - [Formlabs Blog](https://formlabs.com/de/blog/photogrammetrie-leitfaden-und-software-vergleich/)
 - [pix4d Blog](https://www.pix4d.com/de/blog/zehn-grundbegriffe-der-photogrammetrie/)
-
