@@ -25,6 +25,8 @@ This document explains the architecture of the project [I-Scan](https://deadline
     - [DELETE](#delete)
     - [GET](#get)
     - [POST/PUT](#postput)
+6. [Activity Diagrams](#activity-diagrams)
+
 
 ---
 
@@ -106,9 +108,111 @@ REST APIs are widely used due to their simplicity, scalability, and stateless na
 
 ---
 
-# Flowdiagrams 
-....
+## Activity Diagrams
+<div style="display: flex; align-items: center; margin-top: 20px;">
+    <p></p>
+</div>
 
+
+**Table of diagrams**
+1. [device config](#device-config)
+
+
+#### **Device Config**
+
+This is the initial process to connect and verify all subsystems. It is the first step to use the scanner. The mapping of PositionUnit and MeasurementUnit (camera) is crucial, as the main system coordinates the process.
+
+
+<div style="display: flex; align-items: center; margin-top: 20px;">
+    <div style="flex: 1; text-align: center;">
+        <img src="https://raw.githubusercontent.com/Nr44suessauer/I-Scan/eac7a51ff977a7fc9e4928790c771728cb8c71d2/docs/diagram/FlowDiagrams_API_Webserver/device%20Config.svg" alt="Device Configuration Flow Diagram" style="width: 90%; height: 120%;">
+    </div>
+    <div style="flex: 1; padding-left: 20px;">
+    <h2>Steps in the Diagram</h2>
+    <ol>
+        <li><strong>Send JSON (Post/Put command)</strong>
+            <ul>
+                <li>Configuration for device connection</li>
+            </ul>
+            <pre><code class="language-json">
+    {
+        "IpPositionUnitTop": "192.168.1.10",
+        "IpPositionUnitMid": "192.168.1.11",
+        "IpPositionUnitBot": "192.168.1.12",
+        "IpLightingUnitA": "192.168.1.20",
+        "IpLightingUnitB": "192.168.1.21",
+        "ComPortMeasurementUnitTop": "/dev/ttyUSB0",
+        "ComPortMeasurementUnitMid": "/dev/ttyUSB1",
+        "ComPortMeasurementUnitBot": "/dev/ttyUSB2"
+    }
+            </code></pre>
+        </li>
+        <li><strong>Save input data</strong>
+            <ul>
+                <li>The web server receives the JSON and triggers further actions</li>
+            </ul>
+        </li>
+        <li><strong>Check IP address of Position Units</strong>
+            <ul>
+                <li>Establish connection via IP address with Position Unit X</li>
+            </ul>
+        </li>
+        <li><strong>Check IP address of Lighting Units</strong>
+            <ul>
+                <li>Establish connection via IP address with Lighting Unit X</li>
+            </ul>
+        </li>
+        <li><strong>Check COM ports</strong>
+            <ul>
+                <li>The camera stream is checked, in future versions, this may not necessarily be a camera.</li>
+            </ul>
+        </li>
+    </ol>
+    </div>
+</div>
+<div style="display: flex; align-items: center; margin-top: 20px;">
+    <p></p>
+</div>
+
+**Results**
+- The results of the configuration will be available at /config/status after the routine is completed. 
+> **Note**: can combined with the "single picture" process.
+
+<div style="display: flex; align-items: center; margin-top: 10px;">
+    <p></p>
+</div>
+
+```json
+{
+    "IpPositionUnitTop": "192.168.1.10",
+    "IpPositionUnitMid": "192.168.1.11",
+    "IpPositionUnitBot": "192.168.1.12",
+    "IpLightingUnitA": "192.168.1.20",
+    "IpLightingUnitB": "192.168.1.21",
+    "ComPortMeasurementUnitTop": "/dev/ttyUSB0",
+    "ComPortMeasurementUnitMid": "/dev/ttyUSB1",
+    "ComPortMeasurementUnitBot": "/dev/ttyUSB2",
+
+    "IpPositionUnitTopStatus": "connected",
+    "IpPositionUnitMidStatus": "connected",
+    "IpPositionUnitBotStatus": "connected",
+    "IpLightingUnitAStatus": "connected",
+    "IpLightingUnitBStatus": "connected",
+    "ComPortMeasurementUnitTopStatus": "active",
+    "ComPortMeasurementUnitMidStatus": "active",
+    "ComPortMeasurementUnitBotStatus": "active",
+
+    "IpPositionUnitTopMapping": "ComPortMeasurementUnitTop",
+    "IpPositionUnitMidMapping": "ComPortMeasurementUnitMid",
+    "IpPositionUnitBotMapping": "ComPortMeasurementUnitBot"
+}
+```
+
+
+
+<div style="display: flex; align-items: center; margin-top: 20px;">
+    <p></p>
+</div>
 
 <div style="text-align: center;">
     <img src="https://media1.tenor.com/m/GBr8-ytUtA0AAAAd/power-button-press-any-button.gif" alt="Flow Diagram" style="width: 50%;">
