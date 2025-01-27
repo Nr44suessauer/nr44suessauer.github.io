@@ -223,8 +223,8 @@ This is the initial process to connect and verify all subsystems. It is the firs
 
 
 <div style="display: flex; align-items: center;">
-     <div style="flex: 1;">
-        <img src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/diagram/FlowDiagrams_API_Webserver/Scan%20config.png?raw=true" alt="Scan Config Diagramm" width="80%">
+    <div style="flex: 1;">
+        <img src="https://raw.githubusercontent.com/Nr44suessauer/I-Scan/e3244204858e6e4e7f5cfc8a78d4bcee4665ab8d/docs/diagram/FlowDiagrams_API_Webserver/Scan%20config.svg" alt="Scan Config Diagramm" width="50%">
     </div>
     <div style="flex: 1; padding-left: 0px;">
     In this configuration step, parameters required for aligning the machine are processed. This assumes that all devices being used are also configured. Currently, both configuration processes (device config & scan config) are not dependent on each other.
