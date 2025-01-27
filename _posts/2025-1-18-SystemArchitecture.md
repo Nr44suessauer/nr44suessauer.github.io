@@ -224,6 +224,9 @@ This is the initial process to connect and verify all subsystems. It is the firs
     </div>
     <div style="flex: 1; padding-left: 0px;">
     In this configuration step, parameters required for aligning the machine are processed. This assumes that all devices being used are also configured. Currently, both configuration processes (device config & scan config) are not dependent on each other.
+    <div style="display: flex; align-items: center; margin-top: 50px;">
+    <p></p>
+    </div>
     <h3>Scan Configuration Parameters</h3>
     <p>The parameters of the scan configuration in relation to the iScan machine are discussed:</p>
     <ol>
