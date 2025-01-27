@@ -336,7 +336,12 @@ This approach provides a continuous representation of the height changes of each
 ### **Calculate resolution | for 30 Pictures over a Distance of 170 cm**
 
 If 30 pictures are taken over a distance of 170 cm, the distance between each picture can be calculated.
-The distance \(\Delta Z_{\text{scan}}\) is the distance we previously sent.
+
+<body>
+    <p>
+        The distance \(\Delta Z_{\text{scan}}\) is the distance we previously sent.
+    </p>
+</body>
 
 <html lang="de">
 <head>
