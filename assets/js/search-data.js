@@ -37,18 +37,7 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/FileSharing/";
           },
-        },{id: "post-systemarchitechture-of-i-scan",
-      
-        title: "Systemarchitechture of I-Scan",
-      
-      description: "Moveable Camera Setup , ctrl via Webserver",
-      section: "Posts",
-      handler: () => {
-        
-          window.location.href = "/blog/2025/SystemArchitecture/";
-        
-      },
-    },{id: "post-concept-of-a-movable-camera-setup-in-the-z-axis",
+        },{id: "post-concept-of-a-movable-camera-setup-in-the-z-axis",
       
         title: "Concept of a Movable Camera Setup in the Z-Axis",
       
