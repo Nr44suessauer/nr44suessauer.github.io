@@ -101,7 +101,8 @@ REST APIs are widely used due to their simplicity, scalability, and stateless na
 
 #### POST/PUT
 
-- **Update general config**: This command updates the general configuration of the system. The variables sent are the general settings such as the IP addresses of the position unit and the lighting unit. The return value is the status of the operation. Example call: `curl -X PUT -d '{"positionUnitIPs": [...], "lightingUnitIPs": [...]}' http://<I-Scan Ip adress>/api/config/general`
+- **Update general config**: This command updates the general configuration of the system. The variables sent are the IP addresses of the position units and lighting units, as well as the COM ports for the measurement units. The return value is the status of the operation. Example call: `curl -X PUT -d '{"IpPositionUnitTop": "192.168.1.10", "IpPositionUnitMid": "192.168.1.11", "IpPositionUnitBot": "192.168.1.12", "IpLightingUnitA": "192.168.1.20", "IpLightingUnitB": "192.168.1.21", "ComPortMeasurementUnitTop": "/dev/ttyUSB0", "ComPortMeasurementUnitMid": "/dev/ttyUSB1", "ComPortMeasurementUnitBot": "/dev/ttyUSB2"}' http://<I-Scan Ip adress>/api/config/general`
+
 - **Update lighting config**: This command updates the configuration of the lighting unit. The variables sent are the lighting unit and the color HEX code (RGB + intensity = 4 bytes). The return value is the status of the operation. Example call: `curl -X PUT -d '{"lightingUnit": ..., "colorHex": ...}' http://<I-Scan Ip adress>/api/config/lighting`
 - **Update scan config**: This command updates the configuration for the scanning process. The variables sent are the number of pictures, the machine resolution (number of pictures / ΔZ), the cameras to be used, the height of the object (rough measurements), and the distance to the object (rough measurements - I-Scan to object). The return value is the status of the operation. Example call: `curl -X PUT -d '{"numPics": ..., "resolution": ..., "cameras": [...], "height": ..., "distance": ...}' http://<I-Scan Ip adress>/api/config/scan`
 - **Start scan**: This command starts the scanning process. No variables are sent, and the return value is the status of the operation. Example call: `curl -X POST http://<I-Scan Ip adress>/api/scan/start`
@@ -116,7 +117,7 @@ REST APIs are widely used due to their simplicity, scalability, and stateless na
 
 **Table of diagrams**
 1. [device config](#device-config)
-
+2. [scan config](#scan-config)
 
 #### **Device Config**
 
@@ -210,9 +211,176 @@ This is the initial process to connect and verify all subsystems. It is the firs
 
 
 
-<div style="display: flex; align-items: center; margin-top: 20px;">
+<div style="display: flex; align-items: center; margin-top: 50px;">
     <p></p>
 </div>
+
+
+## Scan config
+
+<div style="display: flex; align-items: center;">
+     <div style="flex: 1;">
+        <img src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/diagram/FlowDiagrams_API_Webserver/Scan%20config.png?raw=true" alt="Scan Config Diagramm" width="90%">
+    </div>
+    <div style="flex: 1; padding-left: 0px;">
+    In this configuration step, parameters required for aligning the machine are processed. This assumes that all devices being used are also configured. Currently, both configuration processes (device config & scan config) are not dependent on each other.
+    <h3>Scan Configuration Parameters</h3>
+    <p>The parameters of the scan configuration in relation to the iScan machine are discussed:</p>
+    <ol>
+        <li><a href="#send-json-parameters">Send JSON (parameters)</a></li>
+        <li><a href="#max-z-movement">Max Z Movement</a></li>
+        <li><a href="#transition-to-integral-representation">Transition to Integral Representation</a></li>
+        <li><a href="#calculate-resolution-for-30-pictures-over-a-distance-of-170-cm">Calculate resolution | for 30 Pictures over a Distance of 170 cm</a></li>
+    </ol>
+    </div> 
+</div>
+
+
+
+<div style="display: flex; align-items: center; margin-top: 50px;">
+    <p></p>
+</div>
+
+**Send JSON (Post/Put command)**
+- Configuration of the "next" scan
+
+```json
+{
+    "MeasurementUnitInUse": ["Top", "Mid", "Bot"],
+    "MeasurementUnitSize" : ["15","15","15"],
+    "DistanceToObject": "100cm",
+    "HeightOfObject": "50cm",
+    "NumberOfPictures": 30,
+    "MaxDistanceZmove": "170cm"
+}
+```
+
+### **Max Z movement**
+
+If the EndStopBot is at 0 cm (Init) and the maximum height of the device is 210 cm, the maximum Z movement can be calculated.
+
+To calculate the maximum height, we need to know the size of each module. In our example, these are standardized to 15 cm.
+
+The modules are labeld (Bot = 0, Mid = 1, Top = 2) and is the variable Z Endstop Unit.
+
+Substituting the values:
+
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathJax Beispiel</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <h1></h1>
+    <p>
+        \[
+        \Delta Z_{\text{max}} = (\text{Z}_{\text{Endstop Unit}} \times \text{Unit Height} + \text{Maximum Height I-Scan}) - (\text{Z}_{\text{Endstop Mid}} \times \text{Unit Height} + \text{Z}_{\text{Endstop Top}} \times \text{Unit Height})
+        \]
+    </p>
+</body>
+</html>
+
+So the maximum Z movement for the bottom unit is 180 cm. This value is absolute, not relative. 
+
+---
+
+### Transition to Integral Representation
+
+To represent the height changes of units using integrals, we start with the equation and replace the discrete measurements with continuous functions:
+
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathJax Beispiel</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <h1></h1>
+    <ol>
+        <li><strong>Define Continuous Functions:</strong>
+            <ul>
+                <li>\( f_{\text{unit}}(z) \)</li>
+                <li>\( f_{\text{mid}}(z) \)</li>
+                <li>\( f_{\text{top}}(z) \)</li>
+            </ul>
+        </li>
+        <li><strong>Integrate Over the Range:</strong>
+            <ul>
+                <li>\(\int_{a}^{b} f_{\text{unit}}(z) \, dz\)</li>
+                <li>\(\int_{a}^{b} f_{\text{mid}}(z) \, dz\)</li>
+                <li>\(\int_{a}^{b} f_{\text{top}}(z) \, dz\)</li>
+            </ul>
+        </li>
+        <li><strong>Calculate the Difference:</strong>
+            <p>
+                \[
+                \Delta Z_{\text{max}} = \left( \int_{a}^{b} f_{\text{unit}}(z) \, dz + \text{Maximum Height I-Scan} \right) - \left( \int_{a}^{b} f_{\text{mid}}(z) \, dz + \int_{a}^{b} f_{\text{top}}(z) \, dz \right)
+                \]
+            </p>
+        </li>
+    </ol>
+</body>
+</html>
+
+This approach provides a continuous representation of the height changes of each unit.
+> Note: This formula is only intended for the case of 3 units.
+
+
+---
+
+### **Calculate resolution | for 30 Pictures over a Distance of 170 cm**
+
+If 30 pictures are taken over a distance of 170 cm, the distance between each picture can be calculated.
+The distance \(\Delta Z_{\text{scan}}\) is the distance we previously sent.
+
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathJax Beispiel mit Formeln</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <h1></h1>
+    <p>
+        \[
+        \text{Distance between MeasurementPoints} = \frac{\Delta Z_{\text{scan}}}{\text{Number of Pictures}}
+        \]
+    </p>
+    <p>
+        Substituting the values:
+    </p>
+    <p>
+        \[
+        \text{Distance between MeasurementPoints} = \frac{170 \text{ cm}}{30} \approx 5.67 \text{ cm}
+        \]
+    </p>
+</body>
+</html>
+
+So, the distance between each MeasurementPoint is approximately 5.67 cm.
+
+
+
+
+
+
+
+
+
+<div style="display: flex; align-items: center; margin-top: 100px;">
+    <p></p>
+</div>
+<div style="display: flex; align-items: center; margin-top: 50px;">
+    <p></p>
+</div>
+
 
 <div style="text-align: center;">
     <img src="https://media1.tenor.com/m/GBr8-ytUtA0AAAAd/power-button-press-any-button.gif" alt="Flow Diagram" style="width: 50%;">
