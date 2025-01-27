@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Systemarchitechture of I-Scan
-date: 2025-1-18 16:40:00
+date: 2030-1-18 16:40:00
 description: Moveable Camera Setup , ctrl via Webserver
 tags: I-Scan Research_Project Architechture Rest-API   
 categories: Research_Project
