@@ -217,22 +217,29 @@ This is the initial process to connect and verify all subsystems. It is the firs
 
 
 ## Scan config
+<div style="display: flex; align-items: center; margin-top: 50px;">
+<p></p>
+</div>
+
 
 <div style="display: flex; align-items: center;">
      <div style="flex: 1;">
-        <img src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/diagram/FlowDiagrams_API_Webserver/Scan%20config.png?raw=true" alt="Scan Config Diagramm" width="90%">
+        <img src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/diagram/FlowDiagrams_API_Webserver/Scan%20config.png?raw=true" alt="Scan Config Diagramm" width="80%">
     </div>
     <div style="flex: 1; padding-left: 0px;">
     In this configuration step, parameters required for aligning the machine are processed. This assumes that all devices being used are also configured. Currently, both configuration processes (device config & scan config) are not dependent on each other.
     <div style="display: flex; align-items: center; margin-top: 50px;">
     <p></p>
     </div>
-    <h3>Scan Configuration Parameters</h3>
-    <p>The parameters of the scan configuration in relation to the iScan machine are discussed:</p>
+    <h3>Scan Configuration</h3>
+    <p>The parameters for configuring the scan are defined, explained, and put into context here:</p>
     <ol>
         <li><a href="#send-json-parameters">Send JSON (parameters)</a></li>
-        <li><a href="#max-z-movement">Max Z Movement</a></li>
-        <li><a href="#transition-to-integral-representation">Transition to Integral Representation</a></li>
+        <li><a href="#max-z-movement">Max Z Movement</a>
+            <ul>
+                <li><a href="#transition-to-integral-representation">Transition to Integral Representation</a></li>
+            </ul>
+        </li>
         <li><a href="#calculate-resolution-for-30-pictures-over-a-distance-of-170-cm">Calculate resolution | for 30 Pictures over a Distance of 170 cm</a></li>
     </ol>
     </div> 
@@ -312,6 +319,9 @@ To represent the height changes of units using integrals, we start with the equa
                 <li>\( f_{\text{top}}(z) \)</li>
             </ul>
         </li>
+        <div style="display: flex; align-items: center; margin-top: 50px;">
+        <p></p>
+        </div>
         <li><strong>Integrate Over the Range:</strong>
             <ul>
                 <li>\(\int_{a}^{b} f_{\text{unit}}(z) \, dz\)</li>
@@ -319,6 +329,9 @@ To represent the height changes of units using integrals, we start with the equa
                 <li>\(\int_{a}^{b} f_{\text{top}}(z) \, dz\)</li>
             </ul>
         </li>
+        <div style="display: flex; align-items: center; margin-top: 20px;">
+    <p></p>
+    </div>
         <li><strong>Calculate the Difference:</strong>
             <p>
                 \[
