@@ -360,7 +360,7 @@ This approach provides a continuous representation of the height changes of each
 ### <a id="upper-max-lower-max"></a>Upper Max / Lower Max Table
 The table below shows the dependency of the maximum and minimum heights of each unit based on the positions of the other units. The reference is taken from the bottom of the unit.
 
-<table border="2">
+<table border="1">
     <thead>
         <tr>
             <th>Unit</th>
