@@ -295,7 +295,7 @@ Substituting the values:
 </body>
 </html>
 
-So the ΔZmax for each Unit is 165 cm.
+So the ΔZmax for Unit bot is 165 cm.
 >note: This formula is only for three same size units.
 ---
 
