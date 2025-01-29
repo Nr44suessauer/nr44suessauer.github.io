@@ -241,7 +241,7 @@ This is the initial process to connect and verify all subsystems. It is the firs
                 <li><a href="#upper-max-lower-max">Upper Max / Lower Max Table</a></li>
             </ul>
         </li>
-        <li><a href="#4-resolution-calculation">Resolution Calculation</a></li>
+        <li><a href="#resolution-calculation">Resolution Calculation</a></li>
     </ol>
     </div> 
 </div>
@@ -299,9 +299,11 @@ So the maximum Delta Z for Unit Bot is 165 cm.
 >note: This formula is only for three same size units.
 ---
 
-### <a id="integral-representation"></a>Integral Representation and Height Calculation
+### <a id="integral-representation"></a>**Integral Representation and Height Calculation**
 
-
+<div style="display: flex; align-items: center; margin-top: 20px;">
+    <p></p>
+</div>
 
 #### 1. **Discrete vs. Continuous Representation**
 The discrete representation is based on fixed unit sizes (e.g., 15 cm per unit), while the continuous representation uses integrals to model units of varying sizes.
@@ -356,7 +358,7 @@ This approach provides a continuous representation of the height changes of each
 
 ---
 
-### <a id="upper-max-lower-max"></a>Upper Max / Lower Max Table
+### <a id="upper-max-lower-max"></a>**Upper Max / Lower Max Table**
 The table below shows the dependency of the maximum and minimum heights of each unit based on the positions of the other units. The reference is taken from the bottom of the unit.
 
 <table border="1">
@@ -413,7 +415,7 @@ The table below shows the dependency of the maximum and minimum heights of each 
 
 ---
 
-### <a id="4-resolution-calculation"></a>4. **Resolution Calculation**
+### <a id="resolution-calculation"></a>**Resolution Calculation**
 
 For 30 pictures taken over a distance of 150 cm, the distance between measurement points is calculated as follows:
 
@@ -442,8 +444,33 @@ Here, &Delta; Z<sub>scan</sub> is the value `MaxDistanceZmove` from the JSON con
 
 The distance between each picture is approximately **5 cm**.
 
----
 
+<div style="display: flex; align-items: center; margin-top: 20px;">
+    <p></p>
+</div>
+
+#### **Condition for &Delta; Z<sub>scan</sub>**
+
+It is important to ensure that the value of &Delta; Z<sub>scan</sub> (the maximum distance the Z-axis can move during a scan) is less than or equal to &Delta; Z<sub>max</sub> (the maximum allowable height difference).
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condition for Delta Z</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <p>
+        \[ 
+        \Delta Z_{\text{scan}} \leq \Delta Z_{\text{max}} 
+        \]
+    </p>
+</body>
+</html>
+
+---
 
 
 
