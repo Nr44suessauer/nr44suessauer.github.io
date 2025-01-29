@@ -26,7 +26,8 @@ This document explains the architecture of the project [I-Scan](https://deadline
     - [GET](#get)
     - [POST/PUT](#postput)
 6. [Activity Diagrams](#activity-diagrams)
-
+    - [Device Config](#device-config)
+    - [Scan Config](#scan-config)
 
 ---
 
