@@ -273,9 +273,9 @@ This is the initial process to connect and verify all subsystems. It is the firs
 
 If the endstop Z is at 0 cm and the maximum height of the device is 210 cm, the maximum Delta Z can be calculated.
 
-To calculate the maximum height, we need to know the size of each module. In our example, these are standardized to 15 cm.
+To calculate the maximum height, we need to know the size of each unit. In our example, these are standardized to 15 cm.
 
-The modules are labeld (Bot = 0, Mid = 1, Top = 2) and is the variable Z Endstop Unit.
+The unit´s are labeld (Bot = 0, Mid = 1, Top = 2) and is the variable Z Endstop Unit.
 
 Substituting the values:
 
