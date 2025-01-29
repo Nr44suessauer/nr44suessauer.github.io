@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Systemarchitechture of I-Scan
-date: 2030-1-18 16:40:00
+date: 2025-1-18 16:40:00
 description: Moveable Camera Setup , ctrl via Webserver
 tags: I-Scan Research_Project Architechture Rest-API   
 categories: Research_Project
@@ -222,52 +222,58 @@ This is the initial process to connect and verify all subsystems. It is the firs
 </div>
 
 
+
 <div style="display: flex; align-items: center;">
     <div style="flex: 1;">
-        <img src="https://raw.githubusercontent.com/Nr44suessauer/I-Scan/e3244204858e6e4e7f5cfc8a78d4bcee4665ab8d/docs/diagram/FlowDiagrams_API_Webserver/Scan%20config.svg" alt="Scan Config Diagramm" width="50%">
+        <img src="https://raw.githubusercontent.com/Nr44suessauer/I-Scan/e3244204858e6e4e7f5cfc8a78d4bcee4665ab8d/docs/diagram/FlowDiagrams_API_Webserver/Scan%20config.svg" alt="Scan Config Diagramm" width="70%">
     </div>
     <div style="flex: 1; padding-left: 0px;">
-    In this configuration step, parameters required for aligning the machine are processed. This assumes that all devices being used are also configured. Currently, both configuration processes (device config & scan config) are not dependent on each other.
+    In this configuration step, parameters required for aligning the machine are processed. This assumes that <strong>all devices being used are also configured</strong>. Currently, both configuration processes (device config & scan config) are not dependent on each other.
     <div style="display: flex; align-items: center; margin-top: 50px;">
     <p></p>
     </div>
     <h3>Scan Configuration</h3>
     <p>The parameters for configuring the scan are defined, explained, and put into context here:</p>
     <ol>
-        <li><a href="#send-json-parameters">Send JSON (parameters)</a></li>
-        <li><a href="#max-z-movement">Max Z Movement</a>
+        <li><a href="#send-json-postput-command">Send JSON (Post/Put command)</a></li>
+        <li><a href="#maximum-delta-z">Maximum Delta Z</a>
             <ul>
-                <li><a href="#transition-to-integral-representation">Transition to Integral Representation</a></li>
+                <li><a href="#integral-representation">Integral Representation and Height Calculation</a></li>
+                <li><a href="#upper-max-lower-max">Upper Max / Lower Max Table</a></li>
             </ul>
         </li>
-        <li><a href="#calculate-resolution-for-30-pictures-over-a-distance-of-170-cm">Calculate resolution | for 30 Pictures over a Distance of 170 cm</a></li>
+        <li><a href="#4-resolution-calculation">Resolution Calculation</a></li>
     </ol>
     </div> 
 </div>
-
-
 
 <div style="display: flex; align-items: center; margin-top: 50px;">
     <p></p>
 </div>
 
-**Send JSON (Post/Put command)**
+---
+
+
+### <a id="send-json-postput-command"></a>Send JSON (Post/Put command)
 - Configuration of the "next" scan
 
 ```json
 {
     "MeasurementUnitInUse": ["Top", "Mid", "Bot"],
     "MeasurementUnitSize" : ["15","15","15"],
+    "ModuleHeadOffsets": ["5cm", "7.5cm", "5cm", "7.5cm", "5cm", "7.5cm", "5cm", "7.5cm"],
+
+    "NumberOfPictures": "30",
+    "MaxDistanceZmove": "150cm",
+
     "DistanceToObject": "100cm",
-    "HeightOfObject": "50cm",
-    "NumberOfPictures": 30,
-    "MaxDistanceZmove": "170cm"
+    "HeightOfObject": "50cm"
 }
 ```
 
-### **Max Z movement**
+### <a id="maximum-delta-z"></a>Maximum Delta Z
 
-If the EndStopBot is at 0 cm (Init) and the maximum height of the device is 210 cm, the maximum Z movement can be calculated.
+If the endstop Z is at 0 cm and the maximum height of the device is 210 cm, the maximum Delta Z can be calculated.
 
 To calculate the maximum height, we need to know the size of each module. In our example, these are standardized to 15 cm.
 
@@ -279,54 +285,58 @@ Substituting the values:
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MathJax Beispiel</title>
+    <title></title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-    <h1></h1>
     <p>
-        \[
-        \Delta Z_{\text{max}} = (\text{Z}_{\text{Endstop Unit}} \times \text{Unit Height} + \text{Maximum Height I-Scan}) - (\text{Z}_{\text{Endstop Mid}} \times \text{Unit Height} + \text{Z}_{\text{Endstop Top}} \times \text{Unit Height})
-        \]
+        \[\Delta Z_{\text{max}} = (\text{Z}_{\text{Endstop Unit}} \times \text{Unit Height} + \text{Maximum Height I-Scan}) - (\text{Z}_{\text{Endstop Mid}} \times \text{Unit Height} + \text{Z}_{\text{Endstop Top}} \times \text{Unit Height})\]
     </p>
 </body>
 </html>
 
-So the maximum Z movement for the bottom unit is 180 cm. This value is absolute, not relative. 
-
+So the maximum Delta Z for Unit Bot is 165 cm.
+>note: This formula is only for three same size units.
 ---
 
-### Transition to Integral Representation
+### <a id="integral-representation"></a>Integral Representation and Height Calculation
 
-To represent the height changes of units using integrals, we start with the equation and replace the discrete measurements with continuous functions:
+
+
+#### 1. **Discrete vs. Continuous Representation**
+The discrete representation is based on fixed unit sizes (e.g., 15 cm per unit), while the continuous representation uses integrals to model units of varying sizes.
+
+
+
+#### 2. **Integral Representation**
+The heights of the units are represented using continuous functions:
 
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MathJax Beispiel</title>
+    <title></title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-    <h1></h1>
     <ol>
-        <li><strong>Define Continuous Functions:</strong>
+        <li><strong>Definition of Continuous Functions:</strong>
             <ul>
-                <li>\( f_{\text{unit}}(z) \)</li>
-                <li>\( f_{\text{mid}}(z) \)</li>
-                <li>\( f_{\text{top}}(z) \)</li>
-            </ul>
+                <li>\( f_{\text{bot}}(z) \): Height contribution of the bottom unit.</li>
+                <li>\( f_{\text{mid}}(z) \): Height contribution of the middle unit.</li>
+                <li>\( f_{\text{top}}(z) \): Height contribution of the top unit.</li>
+            </ul>     
         </li>
         <div style="display: flex; align-items: center; margin-top: 50px;">
         <p></p>
         </div>
         <li><strong>Integrate Over the Range:</strong>
             <ul>
-                <li>\(\int_{a}^{b} f_{\text{unit}}(z) \, dz\)</li>
-                <li>\(\int_{a}^{b} f_{\text{mid}}(z) \, dz\)</li>
-                <li>\(\int_{a}^{b} f_{\text{top}}(z) \, dz\)</li>
+                <li>\(\int_{a}^{b} f_{\text{bot}}(z) \, dz\): This integral represents the height contribution of the bottom unit over the range from \(a\) to \(b\).</li>
+                <li>\(\int_{a}^{b} f_{\text{mid}}(z) \, dz\): This integral represents the height contribution of the middle unit over the range from \(a\) to \(b\).</li>
+                <li>\(\int_{a}^{b} f_{\text{top}}(z) \, dz\): This integral represents the height contribution of the top unit over the range from \(a\) to \(b\).</li>
             </ul>
         </li>
         <div style="display: flex; align-items: center; margin-top: 20px;">
@@ -335,7 +345,7 @@ To represent the height changes of units using integrals, we start with the equa
         <li><strong>Calculate the Difference:</strong>
             <p>
                 \[
-                \Delta Z_{\text{max}} = \left( \int_{a}^{b} f_{\text{unit}}(z) \, dz + \text{Maximum Height I-Scan} \right) - \left( \int_{a}^{b} f_{\text{mid}}(z) \, dz + \int_{a}^{b} f_{\text{top}}(z) \, dz \right)
+                \Delta Z_{\text{max}} = \left( \text{Maximum Height I-Scan} \right) - \left( \int_{a}^{b} f_{\text{bot}}(z) \, dz + \int_{a}^{b} f_{\text{mid}}(z) \, dz + \int_{a}^{b} f_{\text{top}}(z) \, dz \right)
                 \]
             </p>
         </li>
@@ -344,49 +354,96 @@ To represent the height changes of units using integrals, we start with the equa
 </html>
 
 This approach provides a continuous representation of the height changes of each unit.
-> Note: This formula is only intended for the case of 3 units.
-
 
 ---
 
-### **Calculate resolution | for 30 Pictures over a Distance of 170 cm**
+### <a id="upper-max-lower-max"></a>Upper Max / Lower Max Table
+The table below shows the dependency of the maximum and minimum heights of each unit based on the positions of the other units. The reference is taken from the bottom of the module.
 
-If 30 pictures are taken over a distance of 170 cm, the distance between each picture can be calculated.
+<table border="1">
+    <thead>
+        <tr>
+            <th>Unit</th>
+            <th>Upper Border (Maximum)</th>
+            <th>Lower Border (Initial Position)</th>
+            <th>Condition Upper Border</th>
+            <th>Condition Lower Border</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Bot</strong></td>
+            <td>\( \text{Max } Z_{\text{bot}} = \text{Maximum Height I-Scan} - \left( \int_{a}^{b} f_{\text{bot}}(z) \, dz + \int_{a}^{b} f_{\text{mid}}(z) \, dz + \int_{a}^{b} f_{\text{top}}(z) \, dz \right) \)</td>
+            <td>\( \text{Min } Z_{\text{bot}} = \text{Initial Height I-Scan} \)</td>
+            <td>mid & top = max</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><strong>Mid</strong></td>
+            <td>\( \text{Max } Z_{\text{mid}} = \text{Maximum Height I-Scan} - \left( \int_{a}^{b} f_{\text{mid}}(z) \, dz + \int_{a}^{b} f_{\text{top}}(z) \, dz \right) \)</td>
+            <td>\( \text{Min } Z_{\text{mid}} = \text{Initial Height I-Scan} + \int_{a}^{b} f_{\text{bot}}(z) \, dz \)</td>
+            <td>top = max</td>
+            <td>bot = min</td>
+        </tr>
+        <tr>
+            <td><strong>Top</strong></td>
+            <td>\( \text{Max } Z_{\text{top}} = \text{Maximum Height I-Scan} - \int_{a}^{b} f_{\text{top}}(z) \, dz \)</td>
+            <td>\( \text{Min } Z_{\text{top}} = \text{Initial Height I-Scan} + \left( \int_{a}^{b} f_{\text{bot}}(z) \, dz + \int_{a}^{b} f_{\text{mid}}(z) \, dz \right) \)</td>
+            <td>-</td>
+            <td>mid & bot = min</td>
+        </tr>
+    </tbody>
+</table>
 
-<body>
-    <p>
-        The distance \(\Delta Z_{\text{scan}}\) is the distance we previously sent.
-    </p>
-</body>
+<div style="display: flex; align-items: center; margin-top: 20px;">
+    <p></p>
+</div>
 
-<html lang="de">
+### **Table Description:**
+- **Upper Border (Maximum):**  
+  The maximum height of each unit is calculated by subtracting the heights of the units above it from the maximum height of the I-Scan device.
+
+- **Lower Border (Initial Position):**  
+  The minimum height of each unit is calculated by adding the heights of the units below it to the initial height of the I-Scan device.
+
+- **Conditions:**  
+  - **"mid & top = max":** The middle and top units are at their maximum heights.
+  - **"bot = min":** The bottom unit is at its minimum height.
+  - **"top = max":** The top unit is at its maximum height.
+  - **"mid & bot = min":** The middle and bottom units are at their minimum heights.
+
+---
+
+### <a id="4-resolution-calculation"></a>4. **Resolution Calculation**
+
+For 30 pictures taken over a distance of 150 cm, the distance between measurement points is calculated as follows:
+
+Here, &Delta; Z<sub>scan</sub> is the value `MaxDistanceZmove` from the JSON configuration provided earlier.
+
+<div style="display: flex; align-items: center; margin-top: 20px;">
+    <p></p>
+</div>
+
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MathJax Beispiel mit Formeln</title>
+    <title>Resolution Calculation</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-    <h1></h1>
     <p>
         \[
-        \text{Distance between MeasurementPoints} = \frac{\Delta Z_{\text{scan}}}{\text{Number of Pictures}}
-        \]
-    </p>
-    <p>
-        Substituting the values:
-    </p>
-    <p>
-        \[
-        \text{Distance between MeasurementPoints} = \frac{170 \text{ cm}}{30} \approx 5.67 \text{ cm}
+        \text{Distance Between Measurement Points} = \frac{\Delta Z_{\text{scan}}}{\text{Number of Pictures}} = \frac{150 \text{ cm}}{30} = 5 \text{ cm}
         \]
     </p>
 </body>
 </html>
 
-So, the distance between each MeasurementPoint is approximately 5.67 cm.
+The distance between each picture is approximately **5 cm**.
 
+---
 
 
 
