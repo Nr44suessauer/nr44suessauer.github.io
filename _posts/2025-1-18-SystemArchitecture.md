@@ -74,11 +74,11 @@ REST APIs are widely used due to their simplicity, scalability, and stateless na
 | `DELETE` | Delete general config  | -                                                                             | Status                                      | `curl -X DELETE http://<I-Scan Ip adress>/api/config/general`                          |
 | `DELETE` | Delete scan config     | -                                                                             | Status                                      | `curl -X DELETE http://<I-Scan Ip adress>/api/config/scan`                             |
 | `GET`    | Get general config     | -                                                                             | Configuration (IP addresses of units, etc.) | `curl -X GET http://<I-Scan Ip adress>/api/config/general`                             |
-| `GET`    | Get single picture     | `Cam X`, `Height of pic (Z-Axis)`, `Angle of pic (Y-Axis)`                     | Single Picture                              | `curl -X GET "http://<I-Scan Ip adress>/api/picture?cam=X&height=Z&angle=Y"`           |
+| `GET`    | Get single measurement     | `Cam X`, `Height of pic (Z-Axis)`, `Angle of pic (Y-Axis)`                     | Single Measurement                              | `curl -X GET "http://<I-Scan Ip adress>/api/measurement?cam=X&height=Z&angle=Y"`           |
 | `GET`    | Get scan status        | -                                                                             | Status of progress/operation status         | `curl -X GET http://<I-Scan Ip adress>/api/scan/status`                                |
 | `PUT` `POST`    | Update general config  | `General settings: PositionUnit IP addresses`, `Lighting Unit IP addresses`   | Status                                      | `curl -X PUT -d '{"positionUnitIPs": [...], "lightingUnitIPs": [...]}' http://<I-Scan Ip adress>/api/config/general` |
 | `PUT` `POST` | Update lighting config | `Lighting Unit`, `Color HEX code (RGB + intensity = 4 Byte)`                  | Status                                      | `curl -X PUT -d '{"lightingUnit": ..., "colorHex": ...}' http://<I-Scan Ip adress>/api/config/lighting` |
-| `PUT` `POST`| Update scan config     | `Measurement units in use`, `Sizes`, `Module head offsets`, `Number of pictures`, `Max distance for Z movement`, `Distance to object`, `Height of object` | Status | `curl -X PUT -d '{"MeasurementUnitInUse": ["Top", "Mid", "Bot"], "MeasurementUnitSize": ["15","15","15"], "ModuleHeadOffsets": ["5cm", "7.5cm", "5cm", "7.5cm", "5cm", "7.5cm", "5cm", "7.5cm"], "NumberOfPictures": "30", "MaxDistanceZmove": "150cm", "DistanceToObject": "100cm", "HeightOfObject": "50cm"}' http://<I-Scan Ip adress>/api/config/scan` |
+| `PUT` `POST`| Update scan config     | `Measurement units in use`, `Sizes`, `Module head offsets`, `Number of measurements`, `Max distance for Z movement`, `Distance to object`, `Height of object` | Status | `curl -X PUT -d '{"MeasurementUnitInUse": ["Top", "Mid", "Bot"], "MeasurementUnitSize": ["15","15","15"], "ModuleHeadOffsets": ["5cm", "7.5cm", "5cm", "7.5cm", "5cm", "7.5cm", "5cm", "7.5cm"], "NumberOfMeasurements": "30", "MaxDistanceZmove": "150cm", "DistanceToObject": "100cm", "HeightOfObject": "50cm"}' http://<I-Scan Ip adress>/api/config/scan` |
 | `POST`   | Start scan             | -                                                                             | Status                                      | `curl -X POST http://<I-Scan Ip adress>/api/scan/start`                                |
 
 ## Explanation of Commands
@@ -95,7 +95,7 @@ REST APIs are widely used due to their simplicity, scalability, and stateless na
 #### GET
 
 - **Get general config**: This command retrieves the general configuration of the system, such as the IP addresses of the units. No variables are sent, and the return value is the configuration. Example call: `curl -X GET http://<I-Scan Ip adress>/api/config/general`
-- **Get single picture**: This command retrieves a single picture from the camera. The variables sent are the camera (Cam X), the height of the picture (Z-Axis), and the angle of the picture (Y-Axis). The return value is the single picture. Example call: `curl -X GET "http://<I-Scan Ip adress>/api/picture?cam=X&height=Z&angle=Y"`
+- **Get single measurement**: This command retrieves a single measurement from the camera. The variables sent are the camera (Cam X), the height of the measurement (Z-Axis), and the angle of the measurement (Y-Axis). The return value is the single measurement. Example call: `curl -X GET "http://<I-Scan Ip adress>/api/measurement?cam=X&height=Z&angle=Y"`
 - **Get scan status**: This command retrieves the status of the scanning process. No variables are sent, and the return value is the progress or operation status. Example call: `curl -X GET http://<I-Scan Ip adress>/api/scan/status`
 
 #### POST/PUT
@@ -103,7 +103,7 @@ REST APIs are widely used due to their simplicity, scalability, and stateless na
 - **Update general config**: This command updates the general configuration of the system. The variables sent are the IP addresses of the position units and lighting units, as well as the COM ports for the measurement units. The return value is the status of the operation. Example call: `curl -X PUT -d '{"IpPositionUnitTop": "192.168.1.10", "IpPositionUnitMid": "192.168.1.11", "IpPositionUnitBot": "192.168.1.12", "IpLightingUnitA": "192.168.1.20", "IpLightingUnitB": "192.168.1.21", "ComPortMeasurementUnitTop": "/dev/ttyUSB0", "ComPortMeasurementUnitMid": "/dev/ttyUSB1", "ComPortMeasurementUnitBot": "/dev/ttyUSB2"}' http://<I-Scan Ip adress>/api/config/general`
 
 - **Update lighting config**: This command updates the configuration of the lighting unit. The variables sent are the lighting unit and the color HEX code (RGB + intensity = 4 bytes). The return value is the status of the operation. Example call: `curl -X PUT -d '{"lightingUnit": ..., "colorHex": ...}' http://<I-Scan Ip adress>/api/config/lighting`
-- **Update scan config**: This command updates the configuration for the scanning process. The variables sent are the measurement units in use, their sizes, module head offsets, the number of pictures, the maximum distance for Z movement, the distance to the object, and the height of the object. The return value is the status of the operation. Example call: `curl -X PUT -d '{"MeasurementUnitInUse": ["Top", "Mid", "Bot"], "MeasurementUnitSize": ["15","15","15"], "ModuleHeadOffsets": ["5cm", "7.5cm", "5cm", "7.5cm", "5cm", "7.5cm", "5cm", "7.5cm"], "NumberOfPictures": "30", "MaxDistanceZmove": "150cm", "DistanceToObject": "100cm", "HeightOfObject": "50cm"}' http://<I-Scan Ip adress>/api/config/scan`
+- **Update scan config**: This command updates the configuration for the scanning process. The variables sent are the measurement units in use, their sizes, module head offsets, the number of measurements, the maximum distance for Z movement, the distance to the object, and the height of the object. The return value is the status of the operation. Example call: `curl -X PUT -d '{"MeasurementUnitInUse": ["Top", "Mid", "Bot"], "MeasurementUnitSize": ["15","15","15"], "ModuleHeadOffsets": ["5cm", "7.5cm", "5cm", "7.5cm", "5cm", "7.5cm", "5cm", "7.5cm"], "NumberOfMeasurements": "30", "MaxDistanceZmove": "150cm", "DistanceToObject": "100cm", "HeightOfObject": "50cm"}' http://<I-Scan Ip adress>/api/config/scan`
 - **Start scan**: This command starts the scanning process. No variables are sent, and the return value is the status of the operation. Example call: `curl -X POST http://<I-Scan Ip adress>/api/scan/start`
 
 ---
@@ -176,7 +176,7 @@ This is the initial process to connect and verify all subsystems. It is the firs
 
 **Results**
 - The results of the configuration will be available at /config/status after the routine is completed. 
-> **Note**: can combined with the "single picture" process.
+> **Note**: can combined with the "single measurement" process.
 
 <div style="display: flex; align-items: center; margin-top: 10px;">
     <p></p>
@@ -213,6 +213,8 @@ This is the initial process to connect and verify all subsystems. It is the firs
 <div style="display: flex; align-items: center; margin-top: 50px;">
     <p></p>
 </div>
+
+---
 
 
 ## Scan config
@@ -262,7 +264,7 @@ This is the initial process to connect and verify all subsystems. It is the firs
     "MeasurementUnitSize" : ["15","15","15"],
     "ModuleHeadOffsets": ["5cm", "7.5cm", "5cm", "7.5cm", "5cm", "7.5cm", "5cm", "7.5cm"],
 
-    "NumberOfPictures": "30",
+    "NumberOfMeasurements": "30",
     "MaxDistanceZmove": "150cm",
 
     "DistanceToObject": "100cm",
@@ -376,22 +378,22 @@ The table below shows the dependency of the maximum and minimum heights of each 
             <td><strong>Bot</strong></td>
             <td>\( \text{Max } Z_{\text{bot}} = \text{Maximum Height I-Scan} - \left( \int_{a}^{b} f_{\text{bot}}(z) \, dz + \int_{a}^{b} f_{\text{mid}}(z) \, dz + \int_{a}^{b} f_{\text{top}}(z) \, dz \right) \)</td>
             <td>\( \text{Min } Z_{\text{bot}} = \text{Initial Height I-Scan} \)</td>
-            <td>mid & top = max</td>
+            <td>\( Z_{\text{mid}} \) & \( Z_{\text{top}} \) = \( Z_{\text{max}} \)</td>
             <td>-</td>
         </tr>
         <tr>
             <td><strong>Mid</strong></td>
             <td>\( \text{Max } Z_{\text{mid}} = \text{Maximum Height I-Scan} - \left( \int_{a}^{b} f_{\text{mid}}(z) \, dz + \int_{a}^{b} f_{\text{top}}(z) \, dz \right) \)</td>
             <td>\( \text{Min } Z_{\text{mid}} = \text{Initial Height I-Scan} + \int_{a}^{b} f_{\text{bot}}(z) \, dz \)</td>
-            <td>top = max</td>
-            <td>bot = min</td>
+            <td>\( Z_{\text{top}} \) = \( Z_{\text{max}} \)</td>
+            <td>\( Z_{\text{bot}} \) = \( Z_{\text{min}} \)</td>
         </tr>
         <tr>
             <td><strong>Top</strong></td>
             <td>\( \text{Max } Z_{\text{top}} = \text{Maximum Height I-Scan} - \int_{a}^{b} f_{\text{top}}(z) \, dz \)</td>
             <td>\( \text{Min } Z_{\text{top}} = \text{Initial Height I-Scan} + \left( \int_{a}^{b} f_{\text{bot}}(z) \, dz + \int_{a}^{b} f_{\text{mid}}(z) \, dz \right) \)</td>
             <td>-</td>
-            <td>mid & bot = min</td>
+            <td>\( Z_{\text{mid}} \) & \( Z_{\text{bot}} \) = \( Z_{\text{min}} \)</td>
         </tr>
     </tbody>
 </table>
@@ -400,24 +402,29 @@ The table below shows the dependency of the maximum and minimum heights of each 
     <p></p>
 </div>
 
-### **Table Description:**
-- **Upper Border (Maximum):**  
-  The maximum height of each unit is calculated by subtracting the heights of the units above it from the maximum height of the I-Scan device.
+### Table Description:
+- **Upper Border (Maximum):** Calculated by subtracting the heights of the units above from the maximum height of the I-Scan device.
+- **Lower Border (Initial Position):** Calculated by adding the heights of the units below to the initial height of the I-Scan device.
 
-- **Lower Border (Initial Position):**  
-  The minimum height of each unit is calculated by adding the heights of the units below it to the initial height of the I-Scan device.
+**Conditions:**
 
-- **Conditions:**  
-  - **"mid & top = max":** The middle and top units are at their maximum heights.
-  - **"bot = min":** The bottom unit is at its minimum height.
-  - **"top = max":** The top unit is at its maximum height.
-  - **"mid & bot = min":** The middle and bottom units are at their minimum heights.
+<ul>
+    <li><strong>Z<sub>mid</sub> & Z<sub>top</sub> = Z<sub>max</sub></strong> : Middle and top units at maximum heights.</li>
+    <li><strong>Z<sub>bot</sub> = Z<sub>min</sub></strong> : Bottom unit at minimum height.</li>
+    <li><strong>Z<sub>top</sub> = Z<sub>max</sub></strong> : Top unit at maximum height.</li>
+    <li><strong>Z<sub>mid</sub> & Z<sub>bot</sub> = Z<sub>min</sub></strong> : Middle and bottom units at minimum heights.</li>
+</ul>
+
+   
+### Movement condition
+- **"Z<sub>bot</sub> < Z<sub>mid</sub> < Z<sub>top</sub>":** For upward movement.
+- **"Z<sub>bot</sub> > Z<sub>mid</sub> > Z<sub>top</sub>":** For downward movement.
 
 ---
 
 ### <a id="resolution-calculation"></a>**Resolution Calculation**
 
-For 30 pictures taken over a distance of 150 cm, the distance between measurement points is calculated as follows:
+For 30 measurements taken over a distance of 150 cm, the distance between measurement points is calculated as follows:
 
 Here, &Delta; Z<sub>scan</sub> is the value `MaxDistanceZmove` from the JSON configuration provided earlier.
 
@@ -435,14 +442,31 @@ Here, &Delta; Z<sub>scan</sub> is the value `MaxDistanceZmove` from the JSON con
 </head>
 <body>
     <p>
-        \[
-        \text{Distance Between Measurement Points} = \frac{\Delta Z_{\text{scan}}}{\text{Number of Pictures}} = \frac{150 \text{ cm}}{30} = 5 \text{ cm}
-        \]
+\[ \text{Distance Between Measurement Points} = \frac{\Delta Z_{\text{scan}}}{\text{Number of Measurements}} = \frac{150 \text{ cm}}{30} = 5 \text{ cm} \]
     </p>
 </body>
 </html>
 
-The distance between each picture is approximately **5 cm**.
+The distance between each measurement is approximately **5 cm**.
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <p>
+\[ \text{Resolution} = \text{Distance Between Measurement Points} \times \text{Number of Measurements} \]
+    </p>
+</body>
+</html>
+
+
+
+
 
 
 <div style="display: flex; align-items: center; margin-top: 20px;">
