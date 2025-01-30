@@ -218,40 +218,39 @@ This is the initial process to connect and verify all subsystems. It is the firs
 
 
 ## Scan config
+
 <div style="display: flex; align-items: center; margin-top: 50px;">
 <p></p>
 </div>
 
-
-
 <div style="display: flex; align-items: center;">
-    <div style="flex: 1;">
-        <img src="https://raw.githubusercontent.com/Nr44suessauer/I-Scan/e3244204858e6e4e7f5cfc8a78d4bcee4665ab8d/docs/diagram/FlowDiagrams_API_Webserver/Scan%20config.svg" alt="Scan Config Diagramm" width="70%">
-    </div>
-    <div style="flex: 1; padding-left: 0px;">
-    In this configuration step, parameters required for aligning the machine are processed. This assumes that <strong>all devices being used are also configured</strong>. Currently, both configuration processes (device config & scan config) are not dependent on each other.
-    <div style="display: flex; align-items: center; margin-top: 50px;">
-    <p></p>
-    </div>
-    <h3>Scan Configuration</h3>
-    <p>The parameters for configuring the scan are defined, explained, and put into context here:</p>
-    <ol>
-        <li><a href="#send-json-postput-command">Send JSON (Post/Put command)</a></li>
-        <li><a href="#maximum-delta-z">Maximum Delta Z</a>
-            <ul>
-                <li><a href="#integral-representation">Integral Representation and Height Calculation</a></li>
-                <li><a href="#upper-max-lower-max">Upper Max / Lower Max Table</a></li>
-            </ul>
-        </li>
-        <li><a href="#resolution-calculation">Resolution Calculation</a></li>
-    </ol>
-    </div> 
+   <div style="flex: 1;">
+      <img src="https://raw.githubusercontent.com/Nr44suessauer/I-Scan/e3244204858e6e4e7f5cfc8a78d4bcee4665ab8d/docs/diagram/FlowDiagrams_API_Webserver/Scan%20config.svg" alt="Scan Config Diagramm" width="70%">
+   </div>
+   <div style="flex: 1; padding-left: 0px;">
+   In this configuration step, parameters required for aligning the machine are processed. This assumes that <strong>all devices being used are also configured</strong>. Currently, both configuration processes (device config & scan config) are not dependent on each other.
+   <div style="display: flex; align-items: center; margin-top: 50px;">
+   <p></p>
+   </div>
+   <h3>Scan Configuration</h3>
+   <p>The parameters for configuring the scan are defined, explained, and put into context here:</p>
+   <ol>
+      <li><a href="#send-json-postput-command">Send JSON (Post/Put command)</a></li>
+      <li><a href="#maximum-delta-z">Maximum Delta Z</a>
+         <ul>
+            <li><a href="#integral-representation">Integral Representation and Height Calculation</a></li>
+            <li><a href="#upper-max-lower-max">Upper Max / Lower Max Table</a></li>
+         </ul>
+      </li>
+      <li><a href="#module-offset">Module Offset</a></li>
+      <li><a href="#resolution-calculation">Resolution Calculation</a></li>
+   </ol>
+   </div> 
 </div>
 
 <div style="display: flex; align-items: center; margin-top: 50px;">
-    <p></p>
+   <p></p>
 </div>
-
 ---
 
 
@@ -419,6 +418,49 @@ The table below shows the dependency of the maximum and minimum heights of each 
 ### Movement condition
 - **"Z<sub>bot</sub> < Z<sub>mid</sub> < Z<sub>top</sub>":** For upward movement.
 - **"Z<sub>bot</sub> > Z<sub>mid</sub> > Z<sub>top</sub>":** For downward movement.
+
+
+
+---
+
+### Module Offset
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module Offset</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <p>The module offset indicates the 2-dimensional offset from the reference point \( (X_{\text{unit}}, Y_{\text{unit}}) \). This value, along with the unit position, is required to determine the exact position of the modul. The offset can vary from module to module. It is assumed that measuring tools are mounted centrally on the units. If this is not the case, an additional offset vector must be considered.</p>
+    <p>To determine the exact position \( P_{\text{unit}} \) of the measurement unit, the following formulas can be used:</p>
+    <h4>For the 2D Case (X, Y Plane):</h4>
+    <p>
+        \[
+        P_{\text{unit}} = \left( X_{\text{unit}} + \text{Offset}_{X}, Y_{\text{unit}} + \text{Offset}_{Y} \right)
+        \]
+    </p>
+    <h4>For the 3D Case (X, Y, Z Space):</h4>
+    <p>
+        \[
+        P_{\text{unit}} = \left( X_{\text{unit}} + \text{Offset}_{X}, Y_{\text{unit}} + \text{Offset}_{Y}, Z_{\text{unit}} + \text{Offset}_{Z} \right)
+        \]
+    </p>
+    <h3>Definitions:</h3>
+    <ul>
+        <li>\( X_{\text{unit}}, Y_{\text{unit}}, Z_{\text{unit}} \) represent the original position of the measurement unit in 3D space.</li>
+        <li>\( \text{Offset}_{X} \) is the offset along the X-axis.</li>
+        <li>\( \text{Offset}_{Y} \) is the offset along the Y-axis.</li>
+        <li>\( \text{Offset}_{Z} \) is the offset along the Z-axis (if needed).</li>
+    </ul>
+    <p><strong>Note:</strong> The \( \text{Offset}_{Z} \) is not required for the scanning process but is used later during the processing of measurements on the external system.</p>
+    <p>By applying these formulas, the module's position can be precisely calculated and adjusted for varying mounting configurations.</p>
+</body>
+</html>
+
+
+
 
 ---
 
