@@ -78,7 +78,7 @@ REST APIs are widely used due to their simplicity, scalability, and stateless na
 | `GET`    | Get scan status        | -                                                                             | Status of progress/operation status         | `curl -X GET http://<I-Scan Ip adress>/api/scan/status`                                |
 | `PUT` `POST`    | Update general config  | `General settings: PositionUnit IP addresses`, `Lighting Unit IP addresses`   | Status                                      | `curl -X PUT -d '{"positionUnitIPs": [...], "lightingUnitIPs": [...]}' http://<I-Scan Ip adress>/api/config/general` |
 | `PUT` `POST` | Update lighting config | `Lighting Unit`, `Color HEX code (RGB + intensity = 4 Byte)`                  | Status                                      | `curl -X PUT -d '{"lightingUnit": ..., "colorHex": ...}' http://<I-Scan Ip adress>/api/config/lighting` |
-| `PUT` `POST`| Update scan config     | `Measurement units in use`, `Sizes`, `Module head offsets`, `Number of measurements`, `Max distance for Z movement`, `Distance to object`, `Height of object` | Status | `curl -X PUT -d '{"MeasurementUnitInUse": ["Top", "Mid", "Bot"], "MeasurementUnitSize": ["15","15","15"], "ModuleHeadOffsets": ["5cm", "7.5cm", "5cm", "7.5cm", "5cm", "7.5cm", "5cm", "7.5cm"], "NumberOfMeasurements": "30", "MaxDistanceZmove": "150cm", "DistanceToCenter": "100cm", "HeightOfObject": "50cm"}' http://<I-Scan Ip adress>/api/config/scan` |
+| `PUT` `POST`| Update scan config     | `Measurement units in use`, `Sizes`, `Module head offsets`, `Number of measurements`, `Max distance for Z movement`, `Distance to object`, `Height of object` | Status | `curl -X PUT -d '{"MeasurementUnitInUse": ["Top", "Mid", "Bot"], "MeasurementUnitSize": ["15","15","15"], "ModuleHeadOffsets": ["5cm", "7.5cm", "5cm", "7.5cm", "5cm", "7.5cm", "5cm", "7.5cm"], "NumberOfMeasurements": "30", "MaxDistanceZmove": "150cm", "DistanceToCenter": "100cm", "HeightOfCenter": "50cm"}' http://<I-Scan Ip adress>/api/config/scan` |
 | `POST`   | Start scan             | -                                                                             | Status                                      | `curl -X POST http://<I-Scan Ip adress>/api/scan/start`                                |
 
 ## Explanation of Commands
@@ -103,7 +103,7 @@ REST APIs are widely used due to their simplicity, scalability, and stateless na
 - **Update general config**: This command updates the general configuration of the system. The variables sent are the IP addresses of the position units and lighting units, as well as the COM ports for the measurement units. The return value is the status of the operation. Example call: `curl -X PUT -d '{"IpPositionUnitTop": "192.168.1.10", "IpPositionUnitMid": "192.168.1.11", "IpPositionUnitBot": "192.168.1.12", "IpLightingUnitA": "192.168.1.20", "IpLightingUnitB": "192.168.1.21", "ComPortMeasurementUnitTop": "/dev/ttyUSB0", "ComPortMeasurementUnitMid": "/dev/ttyUSB1", "ComPortMeasurementUnitBot": "/dev/ttyUSB2"}' http://<I-Scan Ip adress>/api/config/general`
 
 - **Update lighting config**: This command updates the configuration of the lighting unit. The variables sent are the lighting unit and the color HEX code (RGB + intensity = 4 bytes). The return value is the status of the operation. Example call: `curl -X PUT -d '{"lightingUnit": ..., "colorHex": ...}' http://<I-Scan Ip adress>/api/config/lighting`
-- **Update scan config**: This command updates the configuration for the scanning process. The variables sent are the measurement units in use, their sizes, module head offsets, the number of measurements, the maximum distance for Z movement, the distance to the object, and the height of the object. The return value is the status of the operation. Example call: `curl -X PUT -d '{"MeasurementUnitInUse": ["Top", "Mid", "Bot"], "MeasurementUnitSize": ["15","15","15"], "ModuleHeadOffsets": ["5cm", "7.5cm", "5cm", "7.5cm", "5cm", "7.5cm", "5cm", "7.5cm"], "NumberOfMeasurements": "30", "MaxDistanceZmove": "150cm", "DistanceToCenter": "100cm", "HeightOfObject": "50cm"}' http://<I-Scan Ip adress>/api/config/scan`
+- **Update scan config**: This command updates the configuration for the scanning process. The variables sent are the measurement units in use, their sizes, module head offsets, the number of measurements, the maximum distance for Z movement, the distance to the object, and the height of the object. The return value is the status of the operation. Example call: `curl -X PUT -d '{"MeasurementUnitInUse": ["Top", "Mid", "Bot"], "MeasurementUnitSize": ["15","15","15"], "ModuleHeadOffsets": ["5cm", "7.5cm", "5cm", "7.5cm", "5cm", "7.5cm", "5cm", "7.5cm"], "NumberOfMeasurements": "30", "MaxDistanceZmove": "150cm", "DistanceToCenter": "100cm", "HeightOfCenter": "50cm"}' http://<I-Scan Ip adress>/api/config/scan`
 - **Start scan**: This command starts the scanning process. No variables are sent, and the return value is the status of the operation. Example call: `curl -X POST http://<I-Scan Ip adress>/api/scan/start`
 
 ---
@@ -268,7 +268,7 @@ This is the initial process to connect and verify all subsystems. It is the firs
     "MaxDistanceZmove": "150cm",
 
     "DistanceToCenter": "100cm",
-    "HeightOfObject": "50cm"
+    "HeightOfCenter": "50cm"
 }
 ```
 
