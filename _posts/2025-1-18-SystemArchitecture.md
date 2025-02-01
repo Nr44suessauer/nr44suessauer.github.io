@@ -78,7 +78,7 @@ REST APIs are widely used due to their simplicity, scalability, and stateless na
 | `GET`    | Get scan status        | -                                                                             | Status of progress/operation status         | `curl -X GET http://<I-Scan Ip adress>/api/scan/status`                                |
 | `PUT` `POST`    | Update general config  | `General settings: PositionUnit IP addresses`, `Lighting Unit IP addresses`   | Status                                      | `curl -X PUT -d '{"positionUnitIPs": [...], "lightingUnitIPs": [...]}' http://<I-Scan Ip adress>/api/config/general` |
 | `PUT` `POST` | Update lighting config | `Lighting Unit`, `Color HEX code (RGB + intensity = 4 Byte)`                  | Status                                      | `curl -X PUT -d '{"lightingUnit": ..., "colorHex": ...}' http://<I-Scan Ip adress>/api/config/lighting` |
-| `PUT` `POST`| Update scan config     | `Measurement units in use`, `Sizes`, `Module head offsets`, `Number of measurements`, `Max distance for Z movement`, `Distance to object`, `Height of object` | Status | `curl -X PUT -d '{"MeasurementUnitInUse": ["Top", "Mid", "Bot"], "MeasurementUnitSize": ["15","15","15"], "ModuleHeadOffsets": ["5cm", "7.5cm", "5cm", "7.5cm", "5cm", "7.5cm", "5cm", "7.5cm"], "NumberOfMeasurements": "30", "MaxDistanceZmove": "150cm", "DistanceToObject": "100cm", "HeightOfObject": "50cm"}' http://<I-Scan Ip adress>/api/config/scan` |
+| `PUT` `POST`| Update scan config     | `Measurement units in use`, `Sizes`, `Module head offsets`, `Number of measurements`, `Max distance for Z movement`, `Distance to object`, `Height of object` | Status | `curl -X PUT -d '{"MeasurementUnitInUse": ["Top", "Mid", "Bot"], "MeasurementUnitSize": ["15","15","15"], "ModuleHeadOffsets": ["5cm", "7.5cm", "5cm", "7.5cm", "5cm", "7.5cm", "5cm", "7.5cm"], "NumberOfMeasurements": "30", "MaxDistanceZmove": "150cm", "DistanceToCenter": "100cm", "HeightOfObject": "50cm"}' http://<I-Scan Ip adress>/api/config/scan` |
 | `POST`   | Start scan             | -                                                                             | Status                                      | `curl -X POST http://<I-Scan Ip adress>/api/scan/start`                                |
 
 ## Explanation of Commands
@@ -103,7 +103,7 @@ REST APIs are widely used due to their simplicity, scalability, and stateless na
 - **Update general config**: This command updates the general configuration of the system. The variables sent are the IP addresses of the position units and lighting units, as well as the COM ports for the measurement units. The return value is the status of the operation. Example call: `curl -X PUT -d '{"IpPositionUnitTop": "192.168.1.10", "IpPositionUnitMid": "192.168.1.11", "IpPositionUnitBot": "192.168.1.12", "IpLightingUnitA": "192.168.1.20", "IpLightingUnitB": "192.168.1.21", "ComPortMeasurementUnitTop": "/dev/ttyUSB0", "ComPortMeasurementUnitMid": "/dev/ttyUSB1", "ComPortMeasurementUnitBot": "/dev/ttyUSB2"}' http://<I-Scan Ip adress>/api/config/general`
 
 - **Update lighting config**: This command updates the configuration of the lighting unit. The variables sent are the lighting unit and the color HEX code (RGB + intensity = 4 bytes). The return value is the status of the operation. Example call: `curl -X PUT -d '{"lightingUnit": ..., "colorHex": ...}' http://<I-Scan Ip adress>/api/config/lighting`
-- **Update scan config**: This command updates the configuration for the scanning process. The variables sent are the measurement units in use, their sizes, module head offsets, the number of measurements, the maximum distance for Z movement, the distance to the object, and the height of the object. The return value is the status of the operation. Example call: `curl -X PUT -d '{"MeasurementUnitInUse": ["Top", "Mid", "Bot"], "MeasurementUnitSize": ["15","15","15"], "ModuleHeadOffsets": ["5cm", "7.5cm", "5cm", "7.5cm", "5cm", "7.5cm", "5cm", "7.5cm"], "NumberOfMeasurements": "30", "MaxDistanceZmove": "150cm", "DistanceToObject": "100cm", "HeightOfObject": "50cm"}' http://<I-Scan Ip adress>/api/config/scan`
+- **Update scan config**: This command updates the configuration for the scanning process. The variables sent are the measurement units in use, their sizes, module head offsets, the number of measurements, the maximum distance for Z movement, the distance to the object, and the height of the object. The return value is the status of the operation. Example call: `curl -X PUT -d '{"MeasurementUnitInUse": ["Top", "Mid", "Bot"], "MeasurementUnitSize": ["15","15","15"], "ModuleHeadOffsets": ["5cm", "7.5cm", "5cm", "7.5cm", "5cm", "7.5cm", "5cm", "7.5cm"], "NumberOfMeasurements": "30", "MaxDistanceZmove": "150cm", "DistanceToCenter": "100cm", "HeightOfObject": "50cm"}' http://<I-Scan Ip adress>/api/config/scan`
 - **Start scan**: This command starts the scanning process. No variables are sent, and the return value is the status of the operation. Example call: `curl -X POST http://<I-Scan Ip adress>/api/scan/start`
 
 ---
@@ -243,6 +243,7 @@ This is the initial process to connect and verify all subsystems. It is the firs
          </ul>
       </li>
       <li><a href="#module-offset">Module Offset</a></li>
+      <li><a href="#calculation-of-measurement-angle">Calculation of Measurement Angle</a></li>
       <li><a href="#resolution-calculation">Resolution Calculation</a></li>
    </ol>
    </div> 
@@ -266,7 +267,7 @@ This is the initial process to connect and verify all subsystems. It is the firs
     "NumberOfMeasurements": "30",
     "MaxDistanceZmove": "150cm",
 
-    "DistanceToObject": "100cm",
+    "DistanceToCenter": "100cm",
     "HeightOfObject": "50cm"
 }
 ```
@@ -415,10 +416,8 @@ The table below shows the dependency of the maximum and minimum heights of each 
 </ul>
 
    
-### Movement condition
-- **"Z<sub>bot</sub> < Z<sub>mid</sub> < Z<sub>top</sub>":** For upward movement.
-- **"Z<sub>bot</sub> > Z<sub>mid</sub> > Z<sub>top</sub>":** For downward movement.
-
+### General Movement condition
+- **Z<sub>bot</sub> < Z<sub>mid</sub> < Z<sub>top</sub>** 
 
 
 ---
@@ -459,8 +458,85 @@ The table below shows the dependency of the maximum and minimum heights of each 
 </body>
 </html>
 
+---
+
+### <a id="calculation-of-measurement-angle"></a>Calculation of Measurement Angle
 
 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Right-Angled Triangles</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <h4>Right-Angled Triangles</h4>
+    <p>In this chapter, we will show how to calculate the angle \( \alpha \) in a right-angled triangle when one side is variable. For our example:</p>
+    <ul>
+        <li><strong>Side A</strong> is the \( Z_{\text{dist}} \).</li>
+        <li><strong>Side B</strong> is the `DistanceToCenter` \( 150 \) cm (this value is in the JSON configuration). Side B refers to the standardized center of the machine.</li>
+    </ul>
+</body>
+</html>
+
+#### Mathematical Derivation
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculation of Measurement Angle</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <p>In a right-angled triangle, the tangent of an angle can be defined. Since \( \alpha \) is the angle opposite to Side A, and Side B is the adjacent side, it follows:</p>
+    <p>
+        \[
+        \tan(\alpha) = \frac{Z_{\text{dist}}}{\text{DistanceToCenter}}
+        \]
+    </p>
+    <p>To calculate \( \alpha \), the arctangent (\( \arctan \)) is used:</p>
+    <p>
+        \[
+        \alpha = \arctan\left(\frac{Z_{\text{dist}}}{\text{DistanceToCenter}}\right)
+        \]
+    </p>
+    <p>Example with \( Z_{\text{dist}} = 150 \) cm and \( \text{DistanceToCenter} = 150 \) cm:</p>
+    <p>
+        \[
+        \alpha = \arctan\left(\frac{150}{150}\right) = 45°
+        \]
+    </p>
+    <p>Using this method, any value for \( Z_{\text{dist}} \) can be substituted to calculate the corresponding angle \( \alpha \) in a right-angled triangle.</p>
+</body>
+</html>
+
+
+<h4>Define Measurement Center</h4>
+<p>The variable \( Z_{\text{dist}} \) can also be used to determine the measurement center. This ensures that larger objects remain centered during measurements. The calculation is as follows:</p>
+<p>
+    \[ Z_{\text{dist}} = Z_{\text{center}} - Z_{\text{module}} \]
+</p>
+<p>Here, \( Z_{\text{module}} \) represents the height of the respective unit, \( Z_{\text{center}} \) is our defined center point.</p>
+<p>This formula helps in maintaining the central alignment of objects during the scanning process.</p>
+
+<h4>Z<sub>module</sub> Calculation</h4>
+<p>The height \( Z_{\text{module}} \) is calculated by adding the height of the unit \( Z_{\text{unit}} \) and its offset \( \text{Offset}_{Y} \):</p>
+<p>
+    \[ Z_{\text{module}} = Z_{\text{unit}} + \text{Offset}_{Y} \]
+</p>
+<p>This ensures that the module's height is accurately determined by considering both the unit's height and its offset.</p>
+
+<h4>Summary</h4>
+<p>In summary, \( Z_{\text{dist}} \) is our relative distance to the center, and the angle \( \alpha \) is calculated based on this distance. This ensures accurate and centered measurements during the scanning process.</p>
+
+
+
+<div style="display: flex; align-items: center; margin-top: 20px;">
+    <p></p>
+</div>
 
 ---
 
