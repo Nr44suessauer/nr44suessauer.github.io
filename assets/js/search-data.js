@@ -30,13 +30,6 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/resume/";
           },
-        },{id: "nav-filesharing",
-          title: "filesharing",
-          description: "Filesharing with me",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/FileSharing/";
-          },
         },{id: "post-systemarchitechture-of-i-scan",
       
         title: "Systemarchitechture of I-Scan",
