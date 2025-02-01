@@ -460,26 +460,31 @@ The table below shows the dependency of the maximum and minimum heights of each 
 
 ---
 
+
 ### <a id="calculation-of-measurement-angle"></a>Calculation of Measurement Angle
+<div style="display: flex; align-items: flex-start;">
+   <div style="flex: 1; padding-right: 20px;">
+      <h3>Right-Angled Triangles</h3>
+      <p>In this chapter, we will show how to calculate the angle \( \alpha \) in a right-angled triangle when one side is variable. For our example:</p>
+      <ul>
+         <li><strong>Side A:</strong> \( Z_{\text{dist}} \)</li>
+         <li><strong>Side B:</strong> <code>DistanceToCenter</code> (150 cm as defined in the JSON configuration)</li>
+      </ul>
+      <h4>Mathematical Derivation</h4>
+      <p>In a right-angled triangle, the tangent of an angle is defined. Since \( \alpha \) is the angle opposite Side A and Side B is the adjacent side, it follows:</p>
+      <p>\( \tan(\alpha) = \frac{Z_{\text{dist}}}{\text{DistanceToCenter}} \)</p>
+      <p>To calculate \( \alpha \), the arctangent is used:</p>
+      <p>\( \alpha = \arctan\left(\frac{Z_{\text{dist}}}{\text{DistanceToCenter}}\right) \)</p>
+      <p><strong>Example:</strong> With \( Z_{\text{dist}} = 150 \) cm and \( \text{DistanceToCenter} = 150 \) cm:</p>
+      <p>\( \alpha = \arctan\left(\frac{150}{150}\right) = 45° \)</p>
+      <p>This method allows substituting any value for \( Z_{\text{dist}} \) to calculate the corresponding angle \( \alpha \) in a right-angled triangle.</p>
+   </div>
+   <div style="flex: 1; display: flex; justify-content: center; align-items: center;">
+      <img src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/diagram/AngleinPython.png?raw=true" alt="Angle Calculation Diagram" style="max-width: 100%;">
+   </div>
+</div>
 
-
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Right-Angled Triangles</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-</head>
-<body>
-    <h4>Right-Angled Triangles</h4>
-    <p>In this chapter, we will show how to calculate the angle \( \alpha \) in a right-angled triangle when one side is variable. For our example:</p>
-    <ul>
-        <li><strong>Side A</strong> is the \( Z_{\text{dist}} \).</li>
-        <li><strong>Side B</strong> is the `DistanceToCenter` \( 150 \) cm (this value is in the JSON configuration). Side B refers to the standardized center of the machine.</li>
-    </ul>
-</body>
-</html>
+---
 
 #### Mathematical Derivation
 <html lang="en">
