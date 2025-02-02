@@ -480,59 +480,33 @@ The table below shows the dependency of the maximum and minimum heights of each 
       <p>This method allows substituting any value for \( Z_{\text{dist}} \) to calculate the corresponding angle \( \alpha \) in a right-angled triangle.</p>
    </div>
    <div style="flex: 1; display: flex; justify-content: center; align-items: center;">
-      <img src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/diagram/AngleinPython.png?raw=true" alt="Angle Calculation Diagram" style="max-width: 100%;">
+      <img src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/diagram/mathAnimations/Triangle_center.png?raw=true" alt="Angle Calculation Diagram" style="max-width: 100%;">
    </div>
 </div>
 
 ---
 
-#### Mathematical Derivation
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculation of Measurement Angle</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-</head>
-<body>
-    <p>In a right-angled triangle, the tangent of an angle can be defined. Since \( \alpha \) is the angle opposite to Side A, and Side B is the adjacent side, it follows:</p>
-    <p>
-        \[
-        \tan(\alpha) = \frac{Z_{\text{dist}}}{\text{DistanceToCenter}}
-        \]
-    </p>
-    <p>To calculate \( \alpha \), the arctangent (\( \arctan \)) is used:</p>
-    <p>
-        \[
-        \alpha = \arctan\left(\frac{Z_{\text{dist}}}{\text{DistanceToCenter}}\right)
-        \]
-    </p>
-    <p>Example with \( Z_{\text{dist}} = 150 \) cm and \( \text{DistanceToCenter} = 150 \) cm:</p>
-    <p>
-        \[
-        \alpha = \arctan\left(\frac{150}{150}\right) = 45°
-        \]
-    </p>
-    <p>Using this method, any value for \( Z_{\text{dist}} \) can be substituted to calculate the corresponding angle \( \alpha \) in a right-angled triangle.</p>
-</body>
-</html>
 
-
-<h4>Define Measurement Center</h4>
-<p>The variable \( Z_{\text{dist}} \) can also be used to determine the measurement center. This ensures that larger objects remain centered during measurements. The calculation is as follows:</p>
-<p>
-    \[ Z_{\text{dist}} = Z_{\text{center}} - Z_{\text{module}} \]
-</p>
-<p>Here, \( Z_{\text{module}} \) represents the height of the respective unit, \( Z_{\text{center}} \) is our defined center point.</p>
-<p>This formula helps in maintaining the central alignment of objects during the scanning process.</p>
-
-<h4>Z<sub>module</sub> Calculation</h4>
-<p>The height \( Z_{\text{module}} \) is calculated by adding the height of the unit \( Z_{\text{unit}} \) and its offset \( \text{Offset}_{Y} \):</p>
-<p>
-    \[ Z_{\text{module}} = Z_{\text{unit}} + \text{Offset}_{Y} \]
-</p>
-<p>This ensures that the module's height is accurately determined by considering both the unit's height and its offset.</p>
+<div style="display: flex; align-items: center;">
+    <div style="flex: 1;">
+        <h4>Define Measurement Center</h4>
+        <p>The variable \( Z_{\text{dist}} \) can also be used to determine the measurement center. This ensures that larger objects remain centered during measurements. The calculation is as follows:</p>
+        <p>
+            \[ Z_{\text{dist}} = Z_{\text{center}} - Z_{\text{module}} \]
+        </p>
+        <p>Here, \( Z_{\text{module}} \) represents the height of the respective unit, \( Z_{\text{center}} \) is our defined center point.</p>
+        <p>This formula helps in maintaining the central alignment of the modules during the scanning process.</p>
+        <h4>Z<sub>module</sub> Calculation</h4>
+        <p>The height \( Z_{\text{module}} \) is calculated by adding the height of the unit \( Z_{\text{unit}} \) and its offset \( \text{Offset}_{Y} \):</p>
+        <p>
+            \[ Z_{\text{module}} = Z_{\text{unit}} + \text{Offset}_{Y} \]
+        </p>
+        <p>This ensures that the module's height is accurately determined by considering both the unit's height and its offset.</p>
+    </div>
+    <div style="flex: 1; text-align: center;">
+        <img src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/diagram/mathAnimations/Triangle_newCenter.gif?raw=true" alt="Measurement Center Diagram" style="max-width: 100%;">
+    </div>
+</div>
 
 <h4>Summary</h4>
 <p>In summary, \( Z_{\text{dist}} \) is our relative distance to the center, and the angle \( \alpha \) is calculated based on this distance. This ensures accurate and centered measurements during the scanning process.</p>
