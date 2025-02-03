@@ -6,14 +6,25 @@ nav: true
 nav_order: 5
 ---
 
-<div class="calculator-container">
-    <!-- SVG Anzeige: Oben statische Elemente (Punkte, Linien) und dynamische Elemente -->
-    <svg id="coordinateSystem" width="600" height="600" viewBox="0 0 170 175" preserveAspectRatio="xMidYMid meet">
-        <!-- 
-                Um standardmäßige mathematische Koordinaten (y=0 unten) zu erhalten, wird ein <g>-Element genutzt, 
-                das die Y-Achse umkehrt.
-        -->
-        <g id="canvas" transform="scale(1,-1) translate(0,-175)">
+<h2 style="margin-bottom: 20px;">Benanntes Koordinatensystem</h2>
+
+<div class="calculator-container" style="margin-top: 20px;">
+    <!-- SVG Anzeige: Das benannte Koordinatensystem bleibt während der Animation sichtbar -->
+    <svg id="coordinateSystem" width="600" height="600" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet" style="margin-bottom:30px;">
+        <!-- Statisches Koordinatensystem: Rahmen und Hilfslinien -->
+        <rect x="0" y="0" width="200" height="200" fill="none" stroke="#ccc" stroke-width="0.5" />
+        <!-- Hilfslinien -->
+        <line x1="0" y1="100" x2="200" y2="100" stroke="#eee" stroke-dasharray="2" />
+        <line x1="100" y1="0" x2="100" y2="200" stroke="#eee" stroke-dasharray="2" />
+        <!-- Neue Achsen (X-Achse: von (0,0) bis (200,0); Y-Achse: von (0,0) bis (0,200)) -->
+        <line x1="0" y1="0" x2="200" y2="0" stroke="black" stroke-width="1" />
+        <line x1="0" y1="0" x2="0" y2="200" stroke="black" stroke-width="1" />
+        
+        <!-- Transformierte Zeichengruppe -->
+        <g id="canvas" transform="scale(1,-1) translate(0,-200)">
+            <text x="10" y="-10" font-size="12" fill="#333">X-Achse</text>
+            <text x="-30" y="10" font-size="12" fill="#333">Y-Achse</text>
+            
             <!-- Dynamisch berechnete Linien -->
             <!-- Grüne gestrichelte Linie: newCenter -> Baseline -> M -> newCenter -->
             <polyline id="greenPolyline" points="150,75 0,75 0,150 150,75" stroke="green" stroke-dasharray="4" fill="none" />
@@ -87,11 +98,11 @@ nav_order: 5
         </fieldset>
         
         <fieldset>
-            <legend>Z-Modul</legend>
+            <legend>Z-Modul (Bewegt sich zwischen Punkt P und Punkt M)</legend>
             <label for="zX">X:</label>
             <input type="number" id="zX" value="0" step="1">
             <label for="zY">Y:</label>
-            <input type="number" id="zY" value="0" step="1">
+            <input type="number" id="zY" value="0" min="0" max="150" step="1">
         </fieldset>
 
         <button onclick="updatePositions()">Update</button>
@@ -114,6 +125,7 @@ nav_order: 5
     background: #f8f9fa;
     border: 1px solid #ddd;
     border-radius: 8px;
+    margin: 20px auto;
 }
 
 .controls {
@@ -161,7 +173,7 @@ let isAnimating = false;
 let animationId = null;
 
 function updatePositions() {
-    // Werte der Punkte abrufen
+    // Werten der Punkte abrufen
     const pX = parseFloat(document.getElementById('pX').value);
     const pY = parseFloat(document.getElementById('pY').value);
     const mX = parseFloat(document.getElementById('mX').value);
@@ -189,15 +201,14 @@ function updatePositions() {
     document.getElementById('zModule').setAttribute('cx', zX);
     document.getElementById('zModule').setAttribute('cy', zY);
 
-    // Verbindungslinie vom Z-Modul zu newCenter updaten
+    // Verbindungslinie vom Z-Modul zu newCenter aktualisieren
     const zLine = document.getElementById('zModuleLine');
     zLine.setAttribute('x1', zX);
     zLine.setAttribute('y1', zY);
     zLine.setAttribute('x2', nX);
     zLine.setAttribute('y2', nY);
 
-    // Aktualisiere die dynamischen Polyline-Pfade
-    // Baseline: x=0 und y entspricht dem aktuellen newCenter y
+    // Aktualisierung der dynamischen Polyline-Pfade
     const baselineY = nY;
     const greenPoints = `${nX},${nY} 0,${baselineY} ${mX},${mY} ${nX},${nY}`;
     document.getElementById('greenPolyline').setAttribute('points', greenPoints);
@@ -224,7 +235,7 @@ function updatePositions() {
     angleText.setAttribute('y', zY + 10);
     angleText.textContent = `Angle: ${angle_v.toFixed(1)}°`;
 
-    // Aktualisiere den Winkelbogen um das Z-Modul (Radius 20)
+    // Update des Winkelbogens um das Z-Modul (Radius 20)
     const radius = 20;
     const startAngle = 90;
     const radStart = startAngle * Math.PI / 180;
@@ -233,27 +244,41 @@ function updatePositions() {
     const startY = zY + radius * Math.sin(radStart);
     const endX = zX + radius * Math.cos(radEnd);
     const endY = zY + radius * Math.sin(radEnd);
-    // Flags: kleiner Winkel, sweep abhängig von alpha
     const largeArcFlag = 0;
     const sweepFlag = (alpha >= 90) ? 1 : 0;
     const d = `M ${startX},${startY} A ${radius} ${radius} 0 ${largeArcFlag} ${sweepFlag} ${endX},${endY}`;
     document.getElementById('angleArc').setAttribute('d', d);
 }
 
-// Animationsfunktion: Aktualisiert periodisch nur den Z-Modul (als Beispiel)
+// Animationsfunktion: Das Z-Modul bewegt sich vertikal, wobei als untere Grenze Punkt P
+// und als obere Grenze Punkt M festgelegt sind.
 function toggleAnimation() {
     const btn = document.getElementById('animateBtn');
     const speed = document.getElementById('speed').value;
     
-    if (!isAnimating) {
-        let zYVal = parseFloat(document.getElementById('zY').value);
-        const step = 150 / (60 * (10 - speed + 1));
-        function animate() {
-            zYVal = (zYVal + step) % 150;
-            document.getElementById('zY').value = zYVal.toFixed(0);
-            updatePositions();
-            animationId = requestAnimationFrame(animate);
+    // Grenzen: untere Grenze von Punkt P und obere Grenze von Punkt M aus den Input-Feldern
+    const zMin = parseFloat(document.getElementById('pY').value);
+    const zMax = parseFloat(document.getElementById('mY').value);
+
+    // Starte die Animation am unteren Ende (P)
+    let zYVal = zMin;
+    let step = (zMax - zMin) / (60 * (10 - speed + 1));
+    let direction = 1;
+    
+    function animate() {
+        zYVal += direction * step;
+        if (zYVal >= zMax) {
+            zYVal = zMax;
+            direction = -1;
+        } else if (zYVal <= zMin) {
+            zYVal = zMin;
+            direction = 1;
         }
+        document.getElementById('zY').value = zYVal.toFixed(0);
+        updatePositions();
+        animationId = requestAnimationFrame(animate);
+    }
+    if (!isAnimating) {
         animationId = requestAnimationFrame(animate);
         btn.textContent = 'Stop Animation';
     } else {
@@ -263,10 +288,8 @@ function toggleAnimation() {
     isAnimating = !isAnimating;
 }
 
-// Initiale Aufrufe
 updatePositions();
 
-// Optional: Füge Event Listener hinzu, um bei Änderung eines Feldes sofort zu updaten
 document.querySelectorAll('input[type="number"]').forEach(input => {
     input.addEventListener('change', updatePositions);
 });
