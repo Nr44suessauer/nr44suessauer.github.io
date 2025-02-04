@@ -152,33 +152,33 @@ For example, add it right after the closing </div> of the "controls" section. --
 function generateResultsTable() {
     const numberOfMeasurements = parseInt(document.getElementById('numberOfMeasurements').value, 10);
     const pY = parseFloat(document.getElementById('pY').value);
-    const zX = parseFloat(document.getElementById('zX').value);
-    const nX = parseFloat(document.getElementById('nX').value);
-    const nY = parseFloat(document.getElementById('nY').value);
-    const zY = parseFloat(document.getElementById('zY').value);
+    const zX = parseFloat(document.getElementById('zX').value); // Fester X-Wert des Z-Moduls
+    const nX = parseFloat(document.getElementById('nX').value);  // New Center X
+    const nY = parseFloat(document.getElementById('nY').value);  // New Center Y
     
-    // Winkelberechnung basierend auf Zmodule und New Center
-    const dx = nX - zX;
-    const dy = nY - zY;
-    let angle = Math.atan2(dy, dx) * 180 / Math.PI;
-    angle = Math.abs(90 - angle);
-    
-    // Berechnung des Resultats: deltaScan / numberOfMeasurements
     const deltaScan = parseFloat(document.getElementById('deltaScan').value);
     let result = 0;
     if (numberOfMeasurements > 0) {
         result = deltaScan / numberOfMeasurements;
     }
     
-    // Tabelle initialisieren: Spalte 1 = Angle, Spalte 2 = Zmodule (Coordinates)
     let table = '<table border="1" cellspacing="0" cellpadding="5" style="border-collapse: collapse;">';
     table += '<tr><th>Angle (°)</th><th>Zmodule (Coordinates)</th></tr>';
     
-    // Für jede Zeile wird der Y-Wert folgendermaßen berechnet:
-    // Zeile 1: pY, Zeile 2: pY + result * 1, Zeile 3: pY + result * 2 usw.
     for (let i = 0; i < numberOfMeasurements; i++) {
-        let newY = pY + result * i;
-        table += `<tr><td>${angle.toFixed(1)}</td><td>(${zX}, ${newY.toFixed(1)})</td></tr>`;
+        // Y-Wert für diese Zeile berechnen
+        const currentY = pY + result * i;
+        
+        // Winkelberechnung MIT AKTUELLEM Y-WERT
+        const dx = nX - zX;                  // X-Distanz (konstant)
+        const dy = nY - currentY;             // Y-Distanz (variiert pro Zeile)
+        let angle = Math.atan2(dy, dx) * 180 / Math.PI;
+        angle = Math.abs(90 - angle);         // Winkelkorrektur
+        
+        table += `<tr>
+            <td>${angle.toFixed(1)}</td>
+            <td>(${zX.toFixed(1)}, ${currentY.toFixed(1)})</td>
+        </tr>`;
     }
     table += '</table>';
     
