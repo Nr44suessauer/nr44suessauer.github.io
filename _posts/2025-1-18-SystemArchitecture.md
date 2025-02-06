@@ -3,12 +3,11 @@ layout: post
 title: Systemarchitechture of I-Scan
 date: 2025-1-18 16:40:00
 description: Moveable Camera Setup , ctrl via Webserver
-tags: I-Scan Research_Project Architechture Rest-API   
+tags: I-Scan Research_Project Architechture Rest-API
 categories: Research_Project
 disqus_comments: true
 featured: false
 ---
-
 
 This document explains the architecture of the project [I-Scan](https://deadlinedriven.dev/projects/I-Scan/). Based on the available API with which the user can interact, the underlying processes and structures are explained. This includes the various HTTP methods used to communicate with the server, as well as the specific commands and their functionality within the system.
 
@@ -18,16 +17,16 @@ This document explains the architecture of the project [I-Scan](https://deadline
 
 1. [System Architecture](#system-architecture)
 2. [Introduction to REST APIs](#introduction-to-rest-apis)
-    - [HTTP Methods](#http-methods)
+   - [HTTP Methods](#http-methods)
 3. [System Architecture Overview](#system-architecture-overview)
 4. [API-DC Web Server](#api-dc-web-server)
 5. [Explanation of Commands](#explanation-of-commands)
-    - [DELETE](#delete)
-    - [GET](#get)
-    - [POST/PUT](#postput)
+   - [DELETE](#delete)
+   - [GET](#get)
+   - [POST/PUT](#postput)
 6. [Activity Diagrams](#activity-diagrams)
-    - [Device Config](#device-config)
-    - [Scan Config](#scan-config)
+   - [Device Config](#device-config)
+   - [Scan Config](#scan-config)
 
 ---
 
@@ -69,17 +68,17 @@ REST APIs are widely used due to their simplicity, scalability, and stateless na
 
 ## API-DC Web Server
 
-| Command  | Description            | Variables Sent                                                                 | Return                                      | Example Call                                                                 |
-|----------|------------------------|-------------------------------------------------------------------------------|---------------------------------------------|------------------------------------------------------------------------------|
-| `DELETE` | Delete general config  | -                                                                             | Status                                      | `curl -X DELETE http://<I-Scan Ip adress>/api/config/general`                          |
-| `DELETE` | Delete scan config     | -                                                                             | Status                                      | `curl -X DELETE http://<I-Scan Ip adress>/api/config/scan`                             |
-| `GET`    | Get general config     | -                                                                             | Configuration (IP addresses of units, etc.) | `curl -X GET http://<I-Scan Ip adress>/api/config/general`                             |
-| `GET`    | Get single measurement     | `Cam X`, `Height of pic (Z-Axis)`, `Angle of pic (Y-Axis)`                     | Single Measurement                              | `curl -X GET "http://<I-Scan Ip adress>/api/measurement?cam=X&height=Z&angle=Y"`           |
-| `GET`    | Get scan status        | -                                                                             | Status of progress/operation status         | `curl -X GET http://<I-Scan Ip adress>/api/scan/status`                                |
-| `PUT` `POST`    | Update general config  | `General settings: PositionUnit IP addresses`, `Lighting Unit IP addresses`   | Status                                      | `curl -X PUT -d '{"positionUnitIPs": [...], "lightingUnitIPs": [...]}' http://<I-Scan Ip adress>/api/config/general` |
-| `PUT` `POST` | Update lighting config | `Lighting Unit`, `Color HEX code (RGB + intensity = 4 Byte)`                  | Status                                      | `curl -X PUT -d '{"lightingUnit": ..., "colorHex": ...}' http://<I-Scan Ip adress>/api/config/lighting` |
-| `PUT` `POST`| Update scan config     | `Measurement units in use`, `Sizes`, `Module head offsets`, `Number of measurements`, `Max distance for Z movement`, `Distance to object`, `Height of object` | Status | `curl -X PUT -d '{"MeasurementUnitInUse": ["Top", "Mid", "Bot"], "MeasurementUnitSize": ["15","15","15"], "ModuleHeadOffsets": ["5cm", "7.5cm", "5cm", "7.5cm", "5cm", "7.5cm", "5cm", "7.5cm"], "NumberOfMeasurements": "30", "MaxDistanceZmove": "150cm", "DistanceToCenter": "100cm", "HeightOfCenter": "50cm"}' http://<I-Scan Ip adress>/api/config/scan` |
-| `POST`   | Start scan             | -                                                                             | Status                                      | `curl -X POST http://<I-Scan Ip adress>/api/scan/start`                                |
+| Command      | Description            | Variables Sent                                                                                                                                                | Return                                      | Example Call                                                                                                                                                                                                                                                                                                                                                   |
+| ------------ | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `DELETE`     | Delete general config  | -                                                                                                                                                             | Status                                      | `curl -X DELETE http://<I-Scan Ip adress>/api/config/general`                                                                                                                                                                                                                                                                                                  |
+| `DELETE`     | Delete scan config     | -                                                                                                                                                             | Status                                      | `curl -X DELETE http://<I-Scan Ip adress>/api/config/scan`                                                                                                                                                                                                                                                                                                     |
+| `GET`        | Get general config     | -                                                                                                                                                             | Configuration (IP addresses of units, etc.) | `curl -X GET http://<I-Scan Ip adress>/api/config/general`                                                                                                                                                                                                                                                                                                     |
+| `GET`        | Get single measurement | `Cam X`, `Height of pic (Z-Axis)`, `Angle of pic (Y-Axis)`                                                                                                    | Single Measurement                          | `curl -X GET "http://<I-Scan Ip adress>/api/measurement?cam=X&height=Z&angle=Y"`                                                                                                                                                                                                                                                                               |
+| `GET`        | Get scan status        | -                                                                                                                                                             | Status of progress/operation status         | `curl -X GET http://<I-Scan Ip adress>/api/scan/status`                                                                                                                                                                                                                                                                                                        |
+| `PUT` `POST` | Update general config  | `General settings: PositionUnit IP addresses`, `Lighting Unit IP addresses`                                                                                   | Status                                      | `curl -X PUT -d '{"positionUnitIPs": [...], "lightingUnitIPs": [...]}' http://<I-Scan Ip adress>/api/config/general`                                                                                                                                                                                                                                           |
+| `PUT` `POST` | Update lighting config | `Lighting Unit`, `Color HEX code (RGB + intensity = 4 Byte)`                                                                                                  | Status                                      | `curl -X PUT -d '{"lightingUnit": ..., "colorHex": ...}' http://<I-Scan Ip adress>/api/config/lighting`                                                                                                                                                                                                                                                        |
+| `PUT` `POST` | Update scan config     | `Measurement units in use`, `Sizes`, `Module head offsets`, `Number of measurements`, `Max distance for Z movement`, `Distance to object`, `Height of object` | Status                                      | `curl -X PUT -d '{"MeasurementUnitInUse": ["Top", "Mid", "Bot"], "MeasurementUnitSize": ["15","15","15"], "ModuleHeadOffsets": ["5cm", "7.5cm", "5cm", "7.5cm", "5cm", "7.5cm", "5cm", "7.5cm"], "NumberOfMeasurements": "30", "MaxDistanceZmove": "150cm", "DistanceToCenter": "100cm", "HeightOfCenter": "50cm"}' http://<I-Scan Ip adress>/api/config/scan` |
+| `POST`       | Start scan             | -                                                                                                                                                             | Status                                      | `curl -X POST http://<I-Scan Ip adress>/api/scan/start`                                                                                                                                                                                                                                                                                                        |
 
 ## Explanation of Commands
 
@@ -109,19 +108,19 @@ REST APIs are widely used due to their simplicity, scalability, and stateless na
 ---
 
 ## Activity Diagrams
+
 <div style="display: flex; align-items: center; margin-top: 20px;">
     <p></p>
 </div>
 
-
 **Table of diagrams**
+
 1. [device config](#device-config)
 2. [scan config](#scan-config)
 
 #### **Device Config**
 
 This is the initial process to connect and verify all subsystems. It is the first step to use the scanner. The mapping of PositionUnit and MeasurementUnit (camera) is crucial, as the main system coordinates the process.
-
 
 <div style="display: flex; align-items: center; margin-top: 20px;">
     <div style="flex: 1; text-align: center;">
@@ -175,8 +174,9 @@ This is the initial process to connect and verify all subsystems. It is the firs
 </div>
 
 **Results**
-- The results of the configuration will be available at /config/status after the routine is completed. 
-> **Note**: can combined with the "single measurement" process.
+
+- The results of the configuration will be available at /config/status after the routine is completed.
+  > **Note**: can combined with the "single measurement" process.
 
 <div style="display: flex; align-items: center; margin-top: 10px;">
     <p></p>
@@ -184,38 +184,35 @@ This is the initial process to connect and verify all subsystems. It is the firs
 
 ```json
 {
-    "IpPositionUnitTop": "192.168.1.10",
-    "IpPositionUnitMid": "192.168.1.11",
-    "IpPositionUnitBot": "192.168.1.12",
-    "IpLightingUnitA": "192.168.1.20",
-    "IpLightingUnitB": "192.168.1.21",
-    "ComPortMeasurementUnitTop": "/dev/ttyUSB0",
-    "ComPortMeasurementUnitMid": "/dev/ttyUSB1",
-    "ComPortMeasurementUnitBot": "/dev/ttyUSB2",
+  "IpPositionUnitTop": "192.168.1.10",
+  "IpPositionUnitMid": "192.168.1.11",
+  "IpPositionUnitBot": "192.168.1.12",
+  "IpLightingUnitA": "192.168.1.20",
+  "IpLightingUnitB": "192.168.1.21",
+  "ComPortMeasurementUnitTop": "/dev/ttyUSB0",
+  "ComPortMeasurementUnitMid": "/dev/ttyUSB1",
+  "ComPortMeasurementUnitBot": "/dev/ttyUSB2",
 
-    "IpPositionUnitTopStatus": "connected",
-    "IpPositionUnitMidStatus": "connected",
-    "IpPositionUnitBotStatus": "connected",
-    "IpLightingUnitAStatus": "connected",
-    "IpLightingUnitBStatus": "connected",
-    "ComPortMeasurementUnitTopStatus": "active",
-    "ComPortMeasurementUnitMidStatus": "active",
-    "ComPortMeasurementUnitBotStatus": "active",
+  "IpPositionUnitTopStatus": "connected",
+  "IpPositionUnitMidStatus": "connected",
+  "IpPositionUnitBotStatus": "connected",
+  "IpLightingUnitAStatus": "connected",
+  "IpLightingUnitBStatus": "connected",
+  "ComPortMeasurementUnitTopStatus": "active",
+  "ComPortMeasurementUnitMidStatus": "active",
+  "ComPortMeasurementUnitBotStatus": "active",
 
-    "IpPositionUnitTopMapping": "ComPortMeasurementUnitTop",
-    "IpPositionUnitMidMapping": "ComPortMeasurementUnitMid",
-    "IpPositionUnitBotMapping": "ComPortMeasurementUnitBot"
+  "IpPositionUnitTopMapping": "ComPortMeasurementUnitTop",
+  "IpPositionUnitMidMapping": "ComPortMeasurementUnitMid",
+  "IpPositionUnitBotMapping": "ComPortMeasurementUnitBot"
 }
 ```
-
-
 
 <div style="display: flex; align-items: center; margin-top: 50px;">
     <p></p>
 </div>
 
 ---
-
 
 ## Scan config
 
@@ -254,21 +251,21 @@ This is the initial process to connect and verify all subsystems. It is the firs
 </div>
 ---
 
-
 ### <a id="send-json-postput-command"></a>Send JSON (Post/Put command)
+
 - Configuration of the "next" scan
 
 ```json
 {
-    "MeasurementUnitInUse": ["Top", "Mid", "Bot"],
-    "MeasurementUnitSize" : ["15","15","15"],
-    "ModuleHeadOffsets": ["5cm", "7.5cm", "5cm", "7.5cm", "5cm", "7.5cm", "5cm", "7.5cm"],
+  "MeasurementUnitInUse": ["Top", "Mid", "Bot"],
+  "MeasurementUnitSize": ["15", "15", "15"],
+  "ModuleHeadOffsets": ["5cm", "7.5cm", "5cm", "7.5cm", "5cm", "7.5cm", "5cm", "7.5cm"],
 
-    "NumberOfMeasurements": "30",
-    "MaxDistanceZmove": "150cm",
+  "NumberOfMeasurements": "30",
+  "MaxDistanceZmove": "150cm",
 
-    "DistanceToCenter": "100cm",
-    "HeightOfCenter": "50cm"
+  "DistanceToCenter": "100cm",
+  "HeightOfCenter": "50cm"
 }
 ```
 
@@ -298,7 +295,9 @@ Substituting the values:
 </html>
 
 So the ΔZmax for Unit bot is 165 cm.
->note: This formula is only for three same size units.
+
+> note: This formula is only for three same size units.
+
 ---
 
 ### <a id="integral-representation"></a>**Integral Representation and Height Calculation**
@@ -308,11 +307,11 @@ So the ΔZmax for Unit bot is 165 cm.
 </div>
 
 #### 1. **Discrete vs. Continuous Representation**
+
 The discrete representation is based on fixed unit sizes (e.g., 15 cm per unit), while the continuous representation uses integrals to model units of varying sizes.
 
-
-
 #### 2. **Integral Representation**
+
 The heights of the units are represented using continuous functions:
 
 <html lang="de">
@@ -361,6 +360,7 @@ This approach provides a continuous representation of the height changes of each
 ---
 
 ### <a id="upper-max-lower-max"></a>**Upper Max / Lower Max Table**
+
 The table below shows the dependency of the maximum and minimum heights of each unit based on the positions of the other units. The reference is taken from the bottom of the unit.
 
 <table border="1">
@@ -403,6 +403,7 @@ The table below shows the dependency of the maximum and minimum heights of each 
 </div>
 
 ### Table Description:
+
 - **Upper Border (Maximum):** Calculated by subtracting the heights of the units above from the maximum height of the I-Scan device.
 - **Lower Border (Initial Position):** Calculated by adding the heights of the units below to the initial height of the I-Scan device.
 
@@ -415,14 +416,14 @@ The table below shows the dependency of the maximum and minimum heights of each 
     <li><strong>Z<sub>mid</sub> & Z<sub>bot</sub> = Z<sub>min</sub></strong> : Middle and bottom units at minimum heights.</li>
 </ul>
 
-   
 ### General Movement condition
-- **Z<sub>bot</sub> < Z<sub>mid</sub> < Z<sub>top</sub>** 
 
+- **Z<sub>bot</sub> < Z<sub>mid</sub> < Z<sub>top</sub>**
 
 ---
 
 ### Module Offset
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -460,8 +461,8 @@ The table below shows the dependency of the maximum and minimum heights of each 
 
 ---
 
-
 ### <a id="calculation-of-measurement-angle"></a>Calculation of Measurement Angle
+
 <div style="display: flex; align-items: flex-start;">
    <div style="flex: 1; padding-right: 20px;">
       <h3>Right-Angled Triangles</h3>
@@ -486,7 +487,6 @@ The table below shows the dependency of the maximum and minimum heights of each 
 
 ---
 
-
 <div style="display: flex; align-items: center;">
     <div style="flex: 1;">
         <h4>Define Measurement Center</h4>
@@ -510,8 +510,6 @@ The table below shows the dependency of the maximum and minimum heights of each 
 
 <h4>Summary</h4>
 <p>In summary, \( Z_{\text{dist}} \) is our relative distance to the center, and the angle \( \alpha \) is calculated based on this distance. This ensures accurate and centered measurements during the scanning process.</p>
-
-
 
 <div style="display: flex; align-items: center; margin-top: 20px;">
     <p></p>
@@ -561,11 +559,6 @@ The distance between each measurement is approximately **5 cm**.
 </body>
 </html>
 
-
-
-
-
-
 <div style="display: flex; align-items: center; margin-top: 20px;">
     <p></p>
 </div>
@@ -593,12 +586,6 @@ It is important to ensure that the value of &Delta; Z<sub>scan</sub> (the maximu
 
 ---
 
-
-
-
-
-
-
 <div style="display: flex; align-items: center; margin-top: 100px;">
     <p></p>
 </div>
@@ -606,8 +593,6 @@ It is important to ensure that the value of &Delta; Z<sub>scan</sub> (the maximu
     <p></p>
 </div>
 
-
 <div style="text-align: center;">
     <img src="https://media1.tenor.com/m/GBr8-ytUtA0AAAAd/power-button-press-any-button.gif" alt="Flow Diagram" style="width: 50%;">
 </div>
-

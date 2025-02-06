@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Atemis | import exercise 
+title: Atemis | import exercise
 date: 2025-01-09 10:00:00
 description: exercise structure | Example Project Java
 tags: tutorial artemis java
@@ -10,6 +10,7 @@ featured: false
 ---
 
 ## Inhaltsverzeichnis
+
 1. [Projekt herunterladen](#projekt-herunterladen)
 2. [Architechture](#architechture)
 3. [Config by File](#config-by-file)
@@ -24,14 +25,15 @@ Für weitere Informationen lesen Sie die [Artemis-Dokumentation](https://docs.ar
 Ein Example Projekt (Hello World Java) können Sie [hier](https://github.com/Nr44suessauer/Artemis_Example/tree/zipped) herunterladen. Dieses Projekt dient als Muster.
 
 **Architechture:**
+
 ```markdown
 Project_zip.zip
-├── exercise-details-project_name.json  | Config-Datei 
-├── problem-statement-project_name.md   | Aufgabenstellung für Studierende
-└── Project_name.zip                
-    ├── project_name-exercise.zip       | Projekt für Studierende
-    ├── project_name-solution.zip       | Gesamtes Projekt 
-    └── project_name-test.zip           | Tests
+├── exercise-details-project_name.json | Config-Datei
+├── problem-statement-project_name.md | Aufgabenstellung für Studierende
+└── Project_name.zip  
+ ├── project_name-exercise.zip | Projekt für Studierende
+├── project_name-solution.zip | Gesamtes Projekt
+└── project_name-test.zip | Tests
 ```
 
 **Tipp:** Solution Reposetorie kopieren und Dateien die nicht nötig sind entfernen.
@@ -47,6 +49,7 @@ Es geht um folgende Datei: Exercise-Details-<EXERCISE-NAME>.json
 </div>
 
 ##### Folgende Felder sollten unbedingt geändert werden:
+
 ```yml
 "id": 25,
 "title": "HelloWorld",
@@ -63,7 +66,8 @@ Es geht um folgende Datei: Exercise-Details-<EXERCISE-NAME>.json
 ##### Diese Felder müssen nur verändert werden, wenn der Kurs (id, title, etc.) nicht stimmt:
 
 ```yml
-"course": {
+"course":
+  {
     "id": 8,
     "title": "Komplexe Programme 262004",
     "shortName": "KPROG",
@@ -94,7 +98,7 @@ Es geht um folgende Datei: Exercise-Details-<EXERCISE-NAME>.json
     "learningPathsEnabled": false,
     "studentCourseAnalyticsDashboardEnabled": false,
     "complaintsEnabled": true,
-    "requestMoreFeedbackEnabled": true
+    "requestMoreFeedbackEnabled": true,
   }
 ```
 
@@ -105,8 +109,10 @@ Es geht um folgende Datei: Exercise-Details-<EXERCISE-NAME>.json
 Wenn eine andere Build config z.B. für eine andere Sprache benötigt wird, müssen folgende Felder zusätzlich angepasst werden:
 
 ### Build config :
+
 ```yml
-  "buildConfig": {
+"buildConfig":
+  {
     "id": 22,
     "sequentialTestRuns": true,
     "branch": "main",
@@ -116,94 +122,90 @@ Wenn eine andere Build config z.B. für eine andere Sprache benötigt wird, müs
     "timeoutSeconds": 0,
     "testwiseCoverageEnabled": false,
     "allowBranching": false,
-    "windfile": {
-      "api": "v0.0.1",
-      "metadata": {
-        "docker": {
-          "image": "ls1tum/artemis-maven-template:java17-21",
-          "parameters": [
-            "--cpus",
-            "\"2\"",
-            "--memory",
-            "\"2g\"",
-            "--memory-swap",
-            "\"2g\"",
-            "--pids-limit",
-            "\"1000\""
-          ]
-        }
+    "windfile":
+      {
+        "api": "v0.0.1",
+        "metadata":
+          {
+            "docker":
+              {
+                "image": "ls1tum/artemis-maven-template:java17-21",
+                "parameters": ["--cpus", '"2"', "--memory", '"2g"', "--memory-swap", '"2g"', "--pids-limit", '"1000"'],
+              },
+          },
+        "actions":
+          [
+            {
+              "name": "structural_tests",
+              "results":
+                [
+                  {
+                    "name": "junit_**/test-results/structuralTests/*.xml",
+                    "path": "**/test-results/structuralTests/*.xml",
+                    "type": "junit",
+                    "before": false,
+                  },
+                ],
+              "runAlways": false,
+              "script": "chmod +x ./gradlew\n./gradlew clean structuralTests",
+            },
+            {
+              "name": "behavior_tests",
+              "results":
+                [
+                  {
+                    "name": "junit_**/test-results/behaviorTests/*.xml",
+                    "path": "**/test-results/behaviorTests/*.xml",
+                    "type": "junit",
+                    "before": false,
+                  },
+                ],
+              "runAlways": false,
+              "script": "./gradlew behaviorTests",
+            },
+          ],
+        "results":
+          [
+            {
+              "name": "junit_**/test-results/structuralTests/*.xml",
+              "path": "**/test-results/structuralTests/*.xml",
+              "type": "junit",
+              "before": false,
+            },
+            { "name": "junit_**/test-results/behaviorTests/*.xml", "path": "**/test-results/behaviorTests/*.xml", "type": "junit", "before": false },
+          ],
+        "scriptActions":
+          [
+            {
+              "name": "structural_tests",
+              "results":
+                [
+                  {
+                    "name": "junit_**/test-results/structuralTests/*.xml",
+                    "path": "**/test-results/structuralTests/*.xml",
+                    "type": "junit",
+                    "before": false,
+                  },
+                ],
+              "runAlways": false,
+              "script": "chmod +x ./gradlew\n./gradlew clean structuralTests",
+            },
+            {
+              "name": "behavior_tests",
+              "results":
+                [
+                  {
+                    "name": "junit_**/test-results/behaviorTests/*.xml",
+                    "path": "**/test-results/behaviorTests/*.xml",
+                    "type": "junit",
+                    "before": false,
+                  },
+                ],
+              "runAlways": false,
+              "script": "./gradlew behaviorTests",
+            },
+          ],
       },
-      "actions": [
-        {
-          "name": "structural_tests",
-          "results": [
-            {
-              "name": "junit_**/test-results/structuralTests/*.xml",
-              "path": "**/test-results/structuralTests/*.xml",
-              "type": "junit",
-              "before": false
-            }
-          ],
-          "runAlways": false,
-          "script": "chmod +x ./gradlew\n./gradlew clean structuralTests"
-        },
-        {
-          "name": "behavior_tests",
-          "results": [
-            {
-              "name": "junit_**/test-results/behaviorTests/*.xml",
-              "path": "**/test-results/behaviorTests/*.xml",
-              "type": "junit",
-              "before": false
-            }
-          ],
-          "runAlways": false,
-          "script": "./gradlew behaviorTests"
-        }
-      ],
-      "results": [
-        {
-          "name": "junit_**/test-results/structuralTests/*.xml",
-          "path": "**/test-results/structuralTests/*.xml",
-          "type": "junit",
-          "before": false
-        },
-        {
-          "name": "junit_**/test-results/behaviorTests/*.xml",
-          "path": "**/test-results/behaviorTests/*.xml",
-          "type": "junit",
-          "before": false
-        }
-      ],
-      "scriptActions": [
-        {
-          "name": "structural_tests",
-          "results": [
-            {
-              "name": "junit_**/test-results/structuralTests/*.xml",
-              "path": "**/test-results/structuralTests/*.xml",
-              "type": "junit",
-              "before": false
-            }
-          ],
-          "runAlways": false,
-          "script": "chmod +x ./gradlew\n./gradlew clean structuralTests"
-        },
-        {
-          "name": "behavior_tests",
-          "results": [
-            {
-              "name": "junit_**/test-results/behaviorTests/*.xml",
-              "path": "**/test-results/behaviorTests/*.xml",
-              "type": "junit",
-              "before": false
-            }
-          ],
-          "runAlways": false,
-          "script": "./gradlew behaviorTests"
-        }
-      ]
-    }
   }
 ```
 
@@ -211,14 +213,11 @@ Wenn eine andere Build config z.B. für eine andere Sprache benötigt wird, müs
     <p></p>
 </div>
 
+Vollständige Exercise-Details-HelloWorld.json [herunterladen](https://github.com/Nr44suessauer/Artemis_Example/blob/main/Material-KPROG-HelloWorld-32-20250109-16557/Exercise-Details-HelloWorld.json).
 
-Vollständige Exercise-Details-HelloWorld.json  [herunterladen](https://github.com/Nr44suessauer/Artemis_Example/blob/main/Material-KPROG-HelloWorld-32-20250109-16557/Exercise-Details-HelloWorld.json).
-
-    
 <div style="display: flex; align-items: center; margin-top: 20px;">
     <p></p>
 </div>
-
 
 ---
 
@@ -229,7 +228,7 @@ Vollständige Exercise-Details-HelloWorld.json  [herunterladen](https://github.c
 </div>
 
 **Bedingung/Format der Upload-Datei:**
- [X] Adminrechte
+[X] Adminrechte
 
 <div style="display: flex; align-items: center; margin-top: 20px;">
     <p></p>
@@ -272,12 +271,12 @@ Vollständige Exercise-Details-HelloWorld.json  [herunterladen](https://github.c
 </div>
 
 ---
+
 # Test der Aufgabe
 
 <div style="display: flex; align-items: center; margin-top: 20px;">
     <p></p>
 </div>
-
 
 <div style="display: flex; align-items: center;">
     <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/Artemis_pics/testpic1.png?raw=true" width="50%" style="margin-right: 20px;"/>
@@ -292,7 +291,6 @@ Vollständige Exercise-Details-HelloWorld.json  [herunterladen](https://github.c
     <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/Artemis_pics/testpic2.png?raw=true" width="50%" style="margin-right: 20px;"/>
     <p>Jetzt muss ein Assignment-Repository erstellt werden (die Einreichung). Das geschieht durch einen Klick auf das Feld.</p>
 </div>
-
 
 <div style="display: flex; align-items: center; margin-top: 20px;">
     <p></p>

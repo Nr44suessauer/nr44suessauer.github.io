@@ -3,13 +3,14 @@ layout: post
 title: Introduction Platformio
 date: 2024-12-30 10:00:00
 description: µC programming with PlatformIO
-tags: tutorial C basics sv2 rts 
+tags: tutorial C basics sv2 rts
 categories: lecture
 disqus_comments: true
 featured: false
 ---
 
 # VsCode & PlatformIO
+
 <img src="https://hack.depta.dev/uploads/upload_314d7020e9b723d1e35b947897c27788.png" style="max-width:80%; height:auto;" alt="">
 
 ## Installation
@@ -40,15 +41,16 @@ Download: [https://code.visualstudio.com/](https://code.visualstudio.com/)
 
 ## Creating a Project
 
-1. Select the PlatformIO extension  
-2. Choose **PIO Home**  
-3. Select **New Project**  
+1. Select the PlatformIO extension
+2. Choose **PIO Home**
+3. Select **New Project**
 
-<img src="https://hack.depta.dev/uploads/upload_9a532915a17ab2fc2e862e44b2561278.PNG" style="max-width:80%; height:auto;" alt="">  
+<img src="https://hack.depta.dev/uploads/upload_9a532915a17ab2fc2e862e44b2561278.PNG" style="max-width:80%; height:auto;" alt="">
 
-4. Select **Board & Framework**:  
-  - **Board**: ATmega328P (or Arduino Uno).  
-  - **Framework**: `None`.  
+4. Select **Board & Framework**:
+
+- **Board**: ATmega328P (or Arduino Uno).
+- **Framework**: `None`.
 
 5. Wait for PlatformIO to create the project.
 
@@ -82,8 +84,8 @@ upload_protocol = COM9   // look for your device port
 
 The platformio.ini is the central configuration file for the project. Multiple environments (e.g., [env:esp32dev]) can be created to quickly switch between production and debugging. The file format is in YAML, so be careful with the indentation.
 
-More info here:  \
-[Project Configuration](https://docs.platformio.org/en/latest/projectconf/index.html)   \
+More info here: \
+[Project Configuration](https://docs.platformio.org/en/latest/projectconf/index.html) \
 [Environment Variables](https://docs.platformio.org/en/latest/envvars.html)
 
 ---
@@ -98,7 +100,7 @@ More info here:  \
 4. Clean - Clean build files
 5. Test - Start unit tests or invoke the environment for testing
 6. Serial Monitor - Serial communication
-7. Terminal - A terminal with loaded PIO variables 
+7. Terminal - A terminal with loaded PIO variables
 8. Environment - Quickly switch the environment
 9. Serial Monitor Config - Settings for the serial monitor
 

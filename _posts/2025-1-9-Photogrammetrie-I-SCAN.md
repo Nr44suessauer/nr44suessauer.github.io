@@ -3,7 +3,7 @@ layout: post
 title: Photogrammetry
 date: 2025-01-09 10:00:00
 description: Research for a project called I-Scan, which will be a 3D scanner
-tags: Photogrammetry I-Scan Research_Project 
+tags: Photogrammetry I-Scan Research_Project
 categories: Research_Project
 disqus_comments: true
 featured: false
@@ -36,6 +36,7 @@ Photogrammetry is a process for **capturing spatial data** of an object or scene
 ---
 
 ### Technical Basics of Photogrammetry
+
 #### Image Capture
 
 <div style="display: flex; align-items: center; margin-top: 20px;">
@@ -58,7 +59,7 @@ Feature extraction identifies characteristic elements in the images that are imp
 
 #### Basics | Generating Point Clouds from Images
 
-Creating point clouds is a central step in photogrammetry to accurately reconstruct three-dimensional structures. 
+Creating point clouds is a central step in photogrammetry to accurately reconstruct three-dimensional structures.
 This process involves analyzing and processing multiple **overlapping photographs** of the same object or scene and using the **known camera positions** to improve reconstruction accuracy.
 
 ##### Image Preparation and Selection
@@ -68,7 +69,7 @@ Careful selection and preparation of image data are prerequisites for precise po
 - **Image Quality:** High-resolution, well-lit images with minimal noise.
 - **Camera Calibration:** Ensuring accurate camera orientation.
 - **Ensuring Overlap:** At least 60-80% overlap between images.
-    This ensures that there are enough common features between the images. This **reduces the risk of gaps** and inconsistencies in the final point cloud model.
+  This ensures that there are enough common features between the images. This **reduces the risk of gaps** and inconsistencies in the final point cloud model.
 
 #### Feature Detection and Matching
 
@@ -94,19 +95,19 @@ Integrating the point cloud into software solutions for creating meshes, texturi
 
 #### Texturing
 
-Applying textures to the mesh to create a realistic appearance involves several steps. 
+Applying textures to the mesh to create a realistic appearance involves several steps.
 
-First, **images** are selected that **realistically represent the desired surface features**. These texture images are then assigned to the corresponding mesh surfaces using UV mapping techniques. 
-UV coordinates are created to define how the two-dimensional images are projected onto the three-dimensional structures. 
+First, **images** are selected that **realistically represent the desired surface features**. These texture images are then assigned to the corresponding mesh surfaces using UV mapping techniques.
+UV coordinates are created to define how the two-dimensional images are projected onto the three-dimensional structures.
 After the assignment, the **textures are adjusted** to achieve seamless transitions and a consistent representation of colors, materials, and light reflections. **Finally**, the textures are **optimized through filters and post-processing**.
 
 ---
 
 ## Conclusion
 
-Photogrammetry is a powerful tool for **creating 3D models**, used in numerous technical and scientific fields. 
-The versatility of photogrammetry allows for the detailed representation of complex **structures and environments**, making it indispensable in areas such as architecture, forensics, and medicine. Additionally, modern software solutions offer advanced functionalities like automated feature extraction and optimization techniques, making the entire workflow more efficient. 
-The **continuous development** of camera technologies and algorithms **contributes to** improving the accuracy and **user-friendliness** of photogrammetry. 
+Photogrammetry is a powerful tool for **creating 3D models**, used in numerous technical and scientific fields.
+The versatility of photogrammetry allows for the detailed representation of complex **structures and environments**, making it indispensable in areas such as architecture, forensics, and medicine. Additionally, modern software solutions offer advanced functionalities like automated feature extraction and optimization techniques, making the entire workflow more efficient.
+The **continuous development** of camera technologies and algorithms **contributes to** improving the accuracy and **user-friendliness** of photogrammetry.
 
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: Old but Gold
 date: 2025-01-01 10:00:00
-description: Project Octoprint/3D Print Server, project from 2022. 
+description: Project Octoprint/3D Print Server, project from 2022.
 tags: old presentation embedded 2022
 categories: example_presentation
 disqus_comments: true
@@ -21,4 +21,3 @@ Please note that the video and documentation are in German as they were part of 
     <iframe width="560" height="315" src="https://www.youtube.com/embed/0iTQ-RBdDN0" frameborder="0" allowfullscreen style="flex: 1; margin-right: 10px;"></iframe>
     <iframe src="/assets/pdf/Projekt%203D%20Druck%20Doku.pdf" width="100%" height="500px" style="flex: 1;"></iframe>
 </div>
-

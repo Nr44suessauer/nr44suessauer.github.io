@@ -2,7 +2,7 @@
 layout: post
 title: ProXmoX Quickstart
 date: 2025-1-11 16:40:00
-description: A virtual environment tool , with Web UI 
+description: A virtual environment tool , with Web UI
 tags: quickstart basics engineering_tool rts nice_to_know proxmox docker linux
 categories: tutorial
 disqus_comments: true
@@ -14,13 +14,13 @@ featured: false
 3. [**Creating a Bootable USB Stick**](#creating-a-bootable-usb-stick)
 4. [**First Login**](#first-login)
 5. [**Creating First LXC Container**](#creating-first-lxc-container)
-    - [**Download a Template**](#download-a-template)
-    - [**Create the Container**](#create-the-container)
-    - [**Start the Container**](#start-the-container)
+   - [**Download a Template**](#download-a-template)
+   - [**Create the Container**](#create-the-container)
+   - [**Start the Container**](#start-the-container)
 6. [**Nano Text Editor**](#nano-text-editor)
 7. [**Using Vim as an Alternative**](#using-vim-as-an-alternative)
-    - [**Installing Vim**](#installing-vim)
-    - [**Using Vim**](#using-vim)
+   - [**Installing Vim**](#installing-vim)
+   - [**Using Vim**](#using-vim)
 
 <div style="display: flex; align-items: center; margin-top: 0px;">
     <p></p>
@@ -31,14 +31,14 @@ featured: false
 [![Proxmox Logo](https://www.proxmox.com/images/proxmox/Proxmox_logo_standard_hex_400px.png#joomlaImage://local-images/proxmox/Proxmox_logo_standard_hex_400px.png?width=400&height=60)](https://www.proxmox.com/)
 
 [**Proxmox Virtual Environment (Proxmox VE)**](https://www.proxmox.com/) is an open-source **server virtualization management platform**.  
-It is designed to manage **virtual machines**, **containers**, and **storage resources** in a unified and efficient manner.  
+It is designed to manage **virtual machines**, **containers**, and **storage resources** in a unified and efficient manner.
 
 Proxmox VE supports both KVM (Kernel-based Virtual Machine) for full virtualization and **LXC (Linux Containers)** for lightweight container-based virtualization.  
-Additionally, Proxmox VE **provides an HTTP client interface**, allowing users to access and manage its functionalities programmatically.  
+Additionally, Proxmox VE **provides an HTTP client interface**, allowing users to access and manage its functionalities programmatically.
 
 ## **What are LXC Containers?**
 
-**LXC (Linux Containers)** is an operating-system-level virtualization method for running **multiple isolated Linux systems** (containers) on a **single Linux control host**. Unlike traditional virtual machines, LXC containers **share the same kernel** as the host system, which makes them **more lightweight and efficient**. 
+**LXC (Linux Containers)** is an operating-system-level virtualization method for running **multiple isolated Linux systems** (containers) on a **single Linux control host**. Unlike traditional virtual machines, LXC containers **share the same kernel** as the host system, which makes them **more lightweight and efficient**.
 
 Key features of LXC containers include:
 
@@ -50,7 +50,7 @@ LXC containers are commonly used for **deploying applications in a consistent en
 
 ### **Creating a Bootable USB Stick**
 
-Creating a bootable USB stick is an essential step for installing operating systems or running live environments. One of the most user-friendly tools for this purpose is **balenaEtcher**. 
+Creating a bootable USB stick is an essential step for installing operating systems or running live environments. One of the most user-friendly tools for this purpose is **balenaEtcher**.
 
 **balenaEtcher** is a free and open-source utility used for writing image files such as `.iso` and `.img` files to USB drives and SD cards. It is available for Windows, macOS, and Linux.
 
@@ -62,8 +62,6 @@ Additionally, you will need the Proxmox VE ISO file. You can download it from th
 To access the BIOS, restart your computer and press the designated key (often Del, F2, or F12) when prompted. In the BIOS, locate the boot priority settings and move the USB device to the top. Save the changes, then reboot with the USB drive inserted. The system should now load data from the USB, allowing you to install operating systems or run live environments quickly.
 
 Then install ProXmoX, and you can leave the default settings unchanged.
-
-
 
 ### **First Login**
 
@@ -86,6 +84,7 @@ You can find the IP address either on the **server's display** or in your **rout
 To create your first LXC container, you will need a container template. **Proxmox provides a variety of templates for different operating systems and applications**.
 
 ### **Download a Template**
+
 <div style="display: flex; align-items: center; margin-top: 0px;">
     <p></p>
 </div>
@@ -130,12 +129,11 @@ To create your first LXC container, you will need a container template. **Proxmo
     <p></p>
 </div>
 
-
 ---
 
 ## **Nano Text Editor**
 
-**Nano** is a **simple**, user-friendly text editor for Unix-like systems. It is often **pre-installed on many** Linux distributions and can be used directly from the command line. 
+**Nano** is a **simple**, user-friendly text editor for Unix-like systems. It is often **pre-installed on many** Linux distributions and can be used directly from the command line.
 
 <div style="display: flex; align-items: center; margin-top: 0px;">
     <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/gif/ctrl-W-proxmox.gif?raw=true" alt="Ctrl + W Proxmox" style="width: 60%; margin-right: 20px;" />
@@ -186,6 +184,3 @@ Here are some basic commands to get you started with Vim:
 <div style="display: flex; align-items: center; margin-top: 10px;">
     <p></p>
 </div>
-
-
-

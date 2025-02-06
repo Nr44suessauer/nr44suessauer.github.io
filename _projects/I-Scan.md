@@ -41,8 +41,6 @@ A key focus is on replicability with common, readily available components. Addit
 
 The project is presented in individual units. The entry point after the [Concept](https://deadlinedriven.dev/blog/2025/Concept_of_a_Movable_Camera_Setup_in_the_Z-Axis/) is the [API Documentation](https://deadlinedriven.dev/blog/2025/SystemArchitecture/), which shows various interaction possibilities. Through the use of this API documentation, technical processes are explained and clearly presented, including the interaction and setup of external modules. The idea is that once the structure is understood and how its modular setup can be used, you can jump to the things that are relevant for the respective use case.
 
-
-
 ```plaintext
 
 Concept of a Movable Camera Setup in the Z-Axis

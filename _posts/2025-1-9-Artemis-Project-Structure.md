@@ -3,24 +3,23 @@ layout: post
 title: Atemis | import exercise
 date: 2030-01-01 10:00:00
 description: for creating exercises | this instructions are for Tutors etc.
-tags: tutorial artemis 
+tags: tutorial artemis
 categories: instruction
 disqus_comments: true
 featured: false
 ---
 
-
 Für weitere Informationen lesen Sie die [Artemis-Dokumentation](https://docs.artemis.cit.tum.de/index.html).
 
-
 ## Importieren einer Aufgabe in Artemis
-      
+
 **Bedingung/Format der Upload Datei:**
- [X] Adminrechte
-  
+[X] Adminrechte
+
 **Schritt 1:** Json&md Dateien aus bestehender Übung entnehmen.
+
 - Dafür über die **Kursverwaltung** auf auf einen Kurs zugreifen.
- Darin eine generierte Aufgabe auswählen.
+  Darin eine generierte Aufgabe auswählen.
 
 <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/Artemis_pics/generierteAufgabe.png?raw=true" width="70%"/>
     

@@ -6,11 +6,13 @@
     "url": "https://DeadLineDriven.dev"
   },
 
-  "profiles": [{
+  "profiles": [
+    {
       "network": "Instagram",
       "username": "Nr44mitReis",
       "url": "https://instagramm.com/Nr44mitReis"
-    }],
+    }
+  ],
 
   "work": [
     {
@@ -49,7 +51,7 @@
       "studyType": "M.Sc.",
       "startDate": "2023-09-01",
       "endDate": "2026-03-01",
-      "courses": ["Realtime Systems", "Software Architecture", "Mixed Reality","Machine learning"]
+      "courses": ["Realtime Systems", "Software Architecture", "Mixed Reality", "Machine learning"]
     },
     {
       "institution": "University Heilbronn of Applied Sciences, Heilbronn, Germany",
@@ -61,11 +63,9 @@
       "endDate": "2023-03-01",
       "courses": ["Embedded Systems", "Computer Science"]
     }
-
   ],
 
   "volunteer": [
-
     {
       "organization": "OGV Marbach",
       "location": "Marbach, Germany",
@@ -91,52 +91,30 @@
     }
   ],
 
-  "publications": [
-  ],
+  "publications": [],
 
   "skills": [
     {
       "name": "Software Engineering",
       "level": "Master",
       "icon": "fa-solid fa-laptop-code",
-      "keywords": [
-        "Realtime Systems",
-        "Software Architecture",
-        "Mixed Reality",
-        "Machine learning",
-        "Embedded Systems",
-        "Prototype development"
-      ]
+      "keywords": ["Realtime Systems", "Software Architecture", "Mixed Reality", "Machine learning", "Embedded Systems", "Prototype development"]
     },
     {
       "name": "Programming languages",
       "icon": "fa-solid fa-",
-      "keywords": [
-        "C/C++",
-        "Python"
-      ]
+      "keywords": ["C/C++", "Python"]
     },
     {
       "name": "Frameworks C/C++",
       "icon": "fa-solid fa-laptop-code",
-      "keywords": [
-        "Zephyr",
-        "esp-idf",
-        "arduino"
-      ]
+      "keywords": ["Zephyr", "esp-idf", "arduino"]
     },
     {
       "name": "Crafting & Making",
       "level": "Advanced",
       "icon": "fa-solid sqrewdriver",
-      "keywords": [
-        "3D Printing",
-        "Laser Cutting",
-        "CAD Design",
-        "Soldering",
-        "Woodworking",
-        "Metalworking"
-      ]
+      "keywords": ["3D Printing", "Laser Cutting", "CAD Design", "Soldering", "Woodworking", "Metalworking"]
     }
   ],
   "languages": [
@@ -153,16 +131,14 @@
       "fluency": "A2"
     }
   ],
-    "projects": [
-      {
-        "name": "UFO",
-        "summary": "Inclusion for people in the neurodiversity spectrum, using haptic feedback systems & virtual reality.",
-        "url": "https://www.interaktive-technologien.de/projekte/ufo",
-        "duration": "2021-03-01 to 2024-08-01",
-        "role": "Lead project manager | Haptic feedback systems",
-        "keywords": ["Zephyr", "C", "LRA motors", "Bluetooth","Nrf Connect SDK","Vscode"]
-
-      }
-    ]
+  "projects": [
+    {
+      "name": "UFO",
+      "summary": "Inclusion for people in the neurodiversity spectrum, using haptic feedback systems & virtual reality.",
+      "url": "https://www.interaktive-technologien.de/projekte/ufo",
+      "duration": "2021-03-01 to 2024-08-01",
+      "role": "Lead project manager | Haptic feedback systems",
+      "keywords": ["Zephyr", "C", "LRA motors", "Bluetooth", "Nrf Connect SDK", "Vscode"]
+    }
+  ]
 }
-    

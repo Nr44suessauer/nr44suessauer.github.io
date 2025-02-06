@@ -13,7 +13,7 @@ pagination:
   sort_reverse: true
   trail:
     before: 5 # The number of links before the current page
-    after:  5 # The number of links after the current page
+    after: 5 # The number of links after the current page
 ---
 
 <div class="post">

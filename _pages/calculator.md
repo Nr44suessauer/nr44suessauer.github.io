@@ -71,7 +71,7 @@ nav_order: 5
                 <input type="range" id="pY_slider" value="0" min="0" max="200" step="1" class="small-slider">
             </div>
         </fieldset>
-        
+
         <fieldset>
             <legend>Punkt M</legend>
             <div>
@@ -85,7 +85,7 @@ nav_order: 5
                 <input type="range" id="mY_slider" value="150" min="0" max="200" step="1" class="small-slider">
             </div>
         </fieldset>
-        
+
         <fieldset>
             <legend>New Center</legend>
             <div>
@@ -99,7 +99,7 @@ nav_order: 5
                 <input type="range" id="nY_slider" value="75" min="0" max="200" step="1" class="small-slider">
             </div>
         </fieldset>
-        
+
         <fieldset>
             <legend>Old Center</legend>
             <div>
@@ -113,7 +113,7 @@ nav_order: 5
                 <input type="range" id="oY_slider" value="0" min="0" max="200" step="1" class="small-slider">
             </div>
         </fieldset>
-        
+
         <fieldset>
             <legend>Z-Modul</legend>
             <div>
@@ -141,6 +141,7 @@ nav_order: 5
             </div>
         </fieldset>
     </div>
+
 </div>
 
 <!-- Insert the results table container within the calculator container.
@@ -188,8 +189,8 @@ function generateResultsTable() {
 
 <!-- You can call generateResultsTable() on a button click or after updating inputs.
 For example, you might add a button within your controls that triggers this function: -->
-<button onclick="generateResultsTable()">Generate Results Table</button>
 
+<button onclick="generateResultsTable()">Generate Results Table</button>
 
 <style>
 .calculator-container {
@@ -246,7 +247,6 @@ button:hover {
     background: #0056b3;
 }
 </style>
-
 
 <script>
 // Existing JavaScript code remains unchanged.
@@ -417,4 +417,3 @@ document.addEventListener('keydown', function(e) {
     }
 });
 </script>
-

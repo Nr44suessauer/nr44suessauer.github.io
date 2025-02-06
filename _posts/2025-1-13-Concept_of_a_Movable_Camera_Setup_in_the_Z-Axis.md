@@ -3,28 +3,31 @@ layout: post
 title: Concept of a Movable Camera Setup in the Z-Axis
 date: 2025-1-11 16:40:00
 description: Moveable Camera Setup , ctrl via Webserver
-tags: I-Scan Research_Project Architechture Conzept   
+tags: I-Scan Research_Project Architechture Conzept
 categories: Research_Project
 disqus_comments: true
 featured: false
 ---
 
-
 This concept outlines a movable camera setup in the Z-axis, consisting of **three movable modules**, each equipped with a camera. The angle of each camera can be individually adjusted for flexible and precise recording.
 
 ### Components
+
 1. **Movable Modules**: Three modules that can move along the Z-axis.
 2. **Cameras**: Each unit is equipped with a camera of choice.
 3. **Angle Adjustment**: Mechanism to change the camera angle.
 
 ### Functionality
+
 - **Movement Along the Z-Axis**: The modules can move independently along the Z-axis to cover different heights and positions.
 - **Adjustable Camera Angle**: The angle of each camera can be adjusted manually or automatically to ensure the optimal viewing angle for recording.
 
 ### Advantages
+
 - **Flexibility**: The movable modules and adjustable camera angles allow the setup to adapt to various scenarios and requirements.
 
 ### Goals
+
 - **3D Recording of Large Objects**: The setup aims to enable precise 3D recording of large objects and be compatible with various scenarios, regardless of size or measurement concept.
 - **Scalability**: Four of these setups or a turntable to the use case's size can be used.
 

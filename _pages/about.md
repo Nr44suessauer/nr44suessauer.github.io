@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: 
+subtitle:
 
 profile:
   align: right
@@ -11,7 +11,6 @@ profile:
   more_info: >
     <p> Marc Nauendorf </p>
     <p> Office F718a (Basement) </p>
-
 
 news: false # includes a list of news items
 selected_papers: false # includes a list of papers marked as "selected={true}"
