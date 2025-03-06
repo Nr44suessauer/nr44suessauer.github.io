@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Concept Measurement Parkour
+title: Konzept Messparkour
 date: 2025-03-05 16:40:00
 description: Possible measurement scenarios for students
 tags: basics engineering_tool measurement Voltage OHM Ampere Hz 
@@ -9,6 +9,9 @@ disqus_comments: true
 featured: false
 ---
 
+Der Student sollte in der Lage sein, Schaltungen aus diesen **drei Kategorien** zu verstehen, zu **analysieren** und auf **Fehler** zu **prüfen**. Mit Messwerkzeugen wie **Oszilloskop und Multimeter** sollen Fehler messtechnisch bewiesen werden. 
+
+Es wäre möglich, den Studenten einen Teil der Schaltung selbst aufbauen zu lassen (z. B. einen Spannungsteiler) und diesen dann zu nutzen, um ein analoges Signal zu messen/interpretieren.
 
 <h3><strong>1. Spannungsteiler</strong></h3>
 <p><strong>Schaltung</strong>: Zwei Widerstände \( R_1 \) und \( R_2 \) in Reihe an einer Versorgungsspannung \( V_{CC} \).</p>
@@ -42,7 +45,7 @@ featured: false
 
 <hr>
 
-<h3><strong>2. I²C-Bus (SDA und SCL)</strong></h3>
+<h3><strong>2. DataLine | I²C-Bus (SDA und SCL)</strong></h3>
 <p><strong>Schaltung</strong>: Open-Drain-Leitungen mit Pull-Up-Widerständen (\( R_{PU} \)) an \( V_{CC} \).</p>
 
 <div style="display: flex; justify-content: space-between;">
@@ -134,7 +137,7 @@ featured: false
         <tr>
             <td>Spannungsteiler zu schwach unter Last</td>
             <td>\( R_L \) zu klein</td>
-            <td>\( R_1 \), \( R_2 \) verkleinern oder Puffer-OPV verwenden</td>
+            <td>\( R_1 \), \( R_2 \) verkleinern oder "Puffer" verwenden</td>
         </tr>
         <tr>
             <td>I²C-Signale zu langsam</td>
