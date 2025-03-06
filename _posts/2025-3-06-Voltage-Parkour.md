@@ -1,61 +1,84 @@
 ---
 layout: post
-title: Spannungsparcours
-date: 2025-03-06 16:40:00
-description: SV2 Praxis-Teil – Spannungsteiler im Detail
-tags: basics engineering_tool measurement Voltage OHM Ampere Hz 
-categories: tutorial
+title: Voltage Divider
+date: 2025-03-05 16:40:00
+description: SV2 Practical Part – Voltage Divider in Detail
+tags: basics engineering_tool measurement Voltage OHM Ampere  
+categories: tutorial Measurement_Parkour 
 disqus_comments: true
 featured: false
 ---
 
-## **Spannungsteiler – Der unsichtbare Dirigent**
+<p>A voltage divider is a simple yet extremely useful circuit in electronics, consisting of two resistors connected in series. This circuit divides the input voltage \( V_{in} \) into a smaller output voltage \( V_{out} \). The output voltage depends on the values of the two resistors and can be calculated using the following formula:</p>
+<p>\[ V_{out} = V_{in} \cdot \frac{R_2}{R_1 + R_2} \]</p>
+<p>The measurement point for \( V_{out} \) is located between the resistors \( R_1 \) and \( R_2 \) and must be measured against GND.</p>
 
-Ein Spannungsteiler ist eine einfache, aber äußerst nützliche Schaltung in der Elektronik, die aus zwei in Reihe geschalteten Widerständen besteht. Diese Schaltung teilt die Eingangsspannung \( V_{in} \) in eine kleinere Ausgangsspannung \( V_{out} \) auf. Die Ausgangsspannung hängt von den Werten der beiden Widerstände ab und kann durch die folgende Formel berechnet werden:
+<div style="display: flex; align-items: center;">
+    <div style="flex: 1;">
+        <h3><strong>Functionality</strong></h3>
+        The voltage divider works on the principle of Ohm's Law, which states that the voltage across a resistor is proportional to the current through the resistor. In a voltage divider, the same current flows through both resistors since they are connected in series. The voltages across the individual resistors add up to the input voltage \( V_{in} \).
+    </div>
+    <div style="flex: 1; text-align: center;">
+        <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/schaltungen/Einfacher-unbelasteter-Spannungsteiler.svg.png?raw=true" alt="Simple Unloaded Voltage Divider" style="max-width: 100%; height: auto;">
+    </div>
+</div>
 
-\[ V_{out} = V_{in} \cdot \frac{R_2}{R_1 + R_2} \]
+### **Applications**
 
-### **Funktionsweise**
+Voltage dividers are often used to generate a desired voltage that is lower than the input voltage. They are used in:
 
-Der Spannungsteiler funktioniert nach dem Prinzip des Ohmschen Gesetzes, das besagt, dass die Spannung über einem Widerstand proportional zum Strom durch den Widerstand ist. In einem Spannungsteiler fließt derselbe Strom durch beide Widerstände, da sie in Reihe geschaltet sind. Die Spannungen über den einzelnen Widerständen addieren sich zur Eingangsspannung \( V_{in} \).
+- **Sensors**: Many sensors, such as LDRs, require a specific reference voltage that can be provided by a voltage divider.
+- **Voltage Measurement**: Voltage dividers can be used to measure high voltages by reducing the voltage to a lower, measurable range.
+- **Input Stages of Amplifiers**: Here, they serve to adjust the input voltage to the desired level.
 
-### **Anwendungen**
+### **Example**
 
-Spannungsteiler werden häufig verwendet, um eine gewünschte Spannung zu erzeugen, die kleiner als die Eingangsspannung ist. Sie finden Anwendung in:
+<p>Let's consider a practical example to illustrate the functionality of a voltage divider. Suppose we have an input voltage \( V_{in} \) of 5V and a fixed resistor \( R_1 = 10kΩ \) as well as a light-dependent resistor (LDR) \( R_2 \), whose value changes depending on the light intensity.</p>
 
-- **Sensoren**: Viele Sensoren, wie z.B. LDRs, benötigen eine bestimmte Referenzspannung, die durch einen Spannungsteiler bereitgestellt werden kann.
-- **Spannungsmessung**: Spannungsteiler können verwendet werden, um hohe Spannungen zu messen, indem sie die Spannung auf einen niedrigeren, messbaren Bereich reduzieren.
-- **Eingangsstufen von Verstärkern**: Hier dienen sie zur Anpassung der Eingangsspannung an den gewünschten Pegel.
+<p>The output voltage \( V_{out} \) can be calculated as follows:</p>
 
-### **Beispiel**
-
-Betrachten wir ein praktisches Beispiel, um die Funktionsweise eines Spannungsteilers zu verdeutlichen. Angenommen, wir haben eine Eingangsspannung \( V_{in} \) von 5V und einen festen Widerstand \( R_1 = 10kΩ \) sowie einen lichtabhängigen Widerstand (LDR) \( R_2 \), dessen Wert sich je nach Lichtintensität ändert.
-
-Die Ausgangsspannung \( V_{out} \) kann wie folgt berechnet werden:
-
-\[ V_{out} = 5V \cdot \frac{R_{LDR}}{10kΩ + R_{LDR}} \]
+<p>\[ V_{out} = 5V \cdot \frac{R_{LDR}}{10kΩ + R_{LDR}} \]</p>
 
 ### **LDR (Light Dependent Resistor)**
 
 <div style="display: flex; align-items: center;">
     <div style="flex: 1;">
-        Ein LDR ist ein spezieller Widerstand, dessen Widerstandswert sich mit der Lichtintensität ändert. Bei hoher Lichtintensität sinkt der Widerstandswert des LDR, während er bei geringer Lichtintensität steigt. Dies macht den LDR ideal für Anwendungen, bei denen die Lichtintensität gemessen oder gesteuert werden muss.
+        An LDR is a special resistor whose resistance value changes with light intensity. At high light intensity, the resistance value of the LDR decreases, while it increases at low light intensity. This makes the LDR ideal for applications where light intensity needs to be measured or controlled.
     </div>
     <div style="flex: 1; text-align: center;">
         <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/LDR.png" alt="LDR" style="max-width: 100%; height: auto;">
     </div>
 </div>
 
+### **Moving Solar Panel**
 
-[extra knowlege](https://www.technologystudent.com/elec1/ldr1.htm) 
+This is a project where this measurement was used in a practical project. The documentation and other related materials are available in German.
 
+<div style="text-align: center; margin-top: 20px;">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/AsCWFgdaryg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
-### **Wichtige Überlegungen**
+<div style="display: flex; align-items: center; margin-top: 20px;">
+    <p></p>
+</div>
 
-- **Lastwirkung**: Jede angeschlossene Last (z.B. ein Messgerät oder eine LED) beeinflusst den Spannungsteiler, da sie parallel zu einem der Widerstände geschaltet wird. Dies muss bei der Berechnung der Ausgangsspannung berücksichtigt werden.
-- **Widerstandswerte**: Die Summe der Widerstandswerte \( R_1 \) und \( R_2 \) sollte nicht zu klein sein, um übermäßige Stromflüsse und damit verbundene Wärmeentwicklung zu vermeiden. Typische Werte liegen im Bereich von 1kΩ bis 100kΩ.
-- **Potentiometer**: Ein Potentiometer kann als verstellbarer Spannungsteiler verwendet werden, um eine variable Ausgangsspannung zu erzeugen.
+For more detailed information, you can refer to the project documentation [here](https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/pdf/docs/Dokumentation_smartes_solar_panel.pdf).
 
-Der Spannungsteiler ist somit ein grundlegendes Werkzeug in der Elektronik, das durch seine Einfachheit und Vielseitigkeit besticht.
+<div style="display: flex; align-items: center; margin-top: 20px;">
+    <p></p>
+</div>
+
+<h3>Important Considerations</h3>
+<div style="display: flex; align-items: center; margin-top: 20px;">
+    <ul>
+        <li><strong>Load Effect</strong>: Any connected load (e.g., a measuring device or an LED) affects the voltage divider, as it is connected in parallel with one of the resistors. This must be considered when calculating the output voltage.</li>
+        <li><strong>Resistance Values</strong>: The sum of the resistance values \( R_1 \) and \( R_2 \) should not be too small to avoid excessive current flows and associated heat generation. Typical values range from 1kΩ to 100kΩ.</li>
+        <li><strong>Potentiometer</strong>: A potentiometer can be used as an adjustable voltage divider to generate a variable output voltage.</li>
+    </ul>
+</div>
+
+The voltage divider is thus a fundamental tool in electronics, distinguished by its simplicity and versatility.
 
 ---
+
+[extra knowledge](https://www.technologystudent.com/elec1/ldr1.htm)
