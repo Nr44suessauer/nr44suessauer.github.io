@@ -3,13 +3,13 @@ layout: post
 title: Konzept Messparkour
 date: 2025-03-05 16:40:00
 description: Possible measurement scenarios for students
-tags: basics engineering_tool measurement Voltage OHM Ampere Hz 
+tags: basics engineering_tool measurement Voltage OHM Ampere Hz
 categories: Measurement_Parkour concept
 disqus_comments: true
 featured: false
 ---
 
-Der Student sollte in der Lage sein, Schaltungen aus diesen **drei Kategorien** zu verstehen, zu **analysieren** und auf **Fehler** zu **prüfen**. Mit Messwerkzeugen wie **Oszilloskop und Multimeter** sollen Fehler messtechnisch bewiesen werden. 
+Der Student sollte in der Lage sein, Schaltungen aus diesen **drei Kategorien** zu verstehen, zu **analysieren** und auf **Fehler** zu **prüfen**. Mit Messwerkzeugen wie **Oszilloskop und Multimeter** sollen Fehler messtechnisch bewiesen werden.
 
 Es wäre möglich, den Studenten einen Teil der Schaltung selbst aufbauen zu lassen (z. B. einen Spannungsteiler) und diesen dann zu nutzen, um ein analoges Signal zu messen/interpretieren.
 
@@ -41,7 +41,6 @@ Es wäre möglich, den Studenten einen Teil der Schaltung selbst aufbauen zu las
         <p><img src="https://www.elektronik-kompendium.de/sites/slt/schalt/02011111.gif" alt="Spannungsteiler Schaltung"></p>
     </div>
 </div>
-
 
 <hr>
 
@@ -77,8 +76,6 @@ Es wäre möglich, den Studenten einen Teil der Schaltung selbst aufbauen zu las
         <img src="https://www.mikrocontroller.net/attachment/41866/sinewave.jpg" alt="Signalintegrität Oszilloskop" width="500px">
         </div>
 </div>
-
-
 
 <hr>
 
@@ -121,7 +118,6 @@ Es wäre möglich, den Studenten einen Teil der Schaltung selbst aufbauen zu las
         </div>
 </div>
 
-
 <hr>
 
 <h3><strong>Typische Fehler und Lösungen</strong></h3>
@@ -151,4 +147,3 @@ Es wäre möglich, den Studenten einen Teil der Schaltung selbst aufbauen zu las
         </tr>
     </tbody>
 </table>
-

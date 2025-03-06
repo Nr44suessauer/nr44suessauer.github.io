@@ -3,8 +3,8 @@ layout: post
 title: Voltage Divider
 date: 2025-03-05 16:40:00
 description: SV2 Practical Part – Voltage Divider in Detail
-tags: basics engineering_tool measurement Voltage OHM Ampere  
-categories: tutorial Measurement_Parkour 
+tags: basics engineering_tool measurement Voltage OHM Ampere
+categories: tutorial Measurement_Parkour
 disqus_comments: true
 featured: false
 ---
