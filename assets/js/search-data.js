@@ -37,7 +37,29 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/resume/";
           },
-        },{id: "post-systemarchitechture-of-i-scan",
+        },{id: "post-voltage-divider",
+      
+        title: "Voltage Divider",
+      
+      description: "SV2 Practical Part – Voltage Divider in Detail",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/Voltage-Parkour/";
+        
+      },
+    },{id: "post-konzept-messparkour",
+      
+        title: "Konzept Messparkour",
+      
+      description: "Possible measurement scenarios for students",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/Concept-measurementparkour/";
+        
+      },
+    },{id: "post-systemarchitechture-of-i-scan",
       
         title: "Systemarchitechture of I-Scan",
       
