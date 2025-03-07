@@ -11,7 +11,7 @@ featured: false
 
 <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/Makerspace/DSC_0268.JPG?raw=true" alt="Makerspace der Hochschule Heilbronn" title="Makerspace der Hochschule Heilbronn" width="900px">
 
-# MakeIT Makerspace: Wo Ideen zu Innovationen werden  
+## **MakeIT Makerspace: Wo Ideen zu Innovationen werden**  
 
 Du bist Student:in und hast Lust, deine technischen Visionen endlich in die Hände zu nehmen? Ob Roboter bauen, smarte Gadgets programmieren oder mit dem Lasercutter individuelle Designs kreieren – im **MakeIT Makerspace** der Hochschule Heilbronn wird jedes Projekt möglich! Hier trifft Hightech auf Kreativität, und du bekommst nicht nur Zugang zu modernster Ausstattung, sondern auch eine Community, die deine Leidenschaft fürs Machen teilt.  
 
