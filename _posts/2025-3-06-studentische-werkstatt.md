@@ -3,8 +3,8 @@ layout: post
 title: Die Studentische Werkstatt | Hochschule Heilbronn
 date: 2025-03-06 10:00:00
 description: Dein Raum für Kreativität und Hardware-Projekte an der Hochschule Heilbronn
-tags: Hochschule Heilbronn, Studentische Werkstatt, Hardware-Projekte, Kreativität, Innovation
-categories: Werkstatt, Hochschule, Projekte, Kreativität
+tags: Hochschule Heilbronn Studentische Werkstatt Hardware-Projekte Kreativität Innovation
+categories: Werkstatt Hochschule Projekte Kreativität
 disqus_comments: true
 featured: false
 ---

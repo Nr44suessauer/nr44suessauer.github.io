@@ -3,8 +3,8 @@ layout: post
 title: Innovationsräume | DigiLab & Makerspace
 date: 2025-03-06 10:00:00
 description: Dein Ansprechpartner für innovative-Projekte an der Hochschule Heilbronn
-tags: Hochschule Heilbronn, DigiLab, Makerspace, Hardware-Projekte, Kreativität, Innovation
-categories: Werkstatt, Hochschule, Projekte, Kreativität
+tags: Hochschule Heilbronn DigiLab Makerspace Hardware-Projekte Kreativität Innovation
+categories: Werkstatt Hochschule Projekte Kreativität
 disqus_comments: true
 featured: false
 ---
