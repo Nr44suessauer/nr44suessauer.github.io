@@ -48,6 +48,17 @@ ninja.data = [{
           window.location.href = "/blog/2025/studentische-werkstatt/";
         
       },
+    },{id: "post-innovationsräume-digilab-amp-makerspace",
+      
+        title: "Innovationsräume | DigiLab &amp; Makerspace",
+      
+      description: "Dein Ansprechpartner für innovative-Projekte an der Hochschule Heilbronn",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/Makerspace/";
+        
+      },
     },{id: "post-voltage-divider",
       
         title: "Voltage Divider",
