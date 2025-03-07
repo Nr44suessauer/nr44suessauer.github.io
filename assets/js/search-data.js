@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/resume/";
           },
-        },{id: "post-voltage-divider",
+        },{id: "post-die-studentische-werkstatt-hochschule-heilbronn",
+      
+        title: "Die Studentische Werkstatt | Hochschule Heilbronn",
+      
+      description: "Dein Raum für Kreativität und Hardware-Projekte an der Hochschule Heilbronn",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/studentische-werkstatt/";
+        
+      },
+    },{id: "post-voltage-divider",
       
         title: "Voltage Divider",
       
