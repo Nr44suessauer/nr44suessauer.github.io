@@ -73,7 +73,6 @@ It was used simply because it was available, and to replicate the dimensions of 
         You can find the OS documentation <a href="https://docs.lattepanda.com/content/alpha_edition/os/">here</a>.
         <p></p>
         Hardware interface dokumentation <a href="https://docs.lattepanda.com/content/delta_edition/io_playability/">here</a>
-
         </p>
     </div>
     <div class="col-md-6">
@@ -128,10 +127,91 @@ It was used simply because it was available, and to replicate the dimensions of 
         </div>
     </div>
 </div>
+
+
+--- 
+
+# **Electical System**
+
+<div class="row">
+    <div class="col-md-12">
+        <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/Schaltplan.JPG?raw=true" alt="Electrical System Schaltplan" class="img-fluid rounded">
+    </div>
+</div>
+
+<div style="height: 20px;"></div>
+
 ---
+
+
+<h2><strong>Component Table</strong></h2>
+<table border="1" style="border-collapse: collapse; width: 100%;">
+    <thead>
+        <tr>
+            <th style="font-weight: normal; padding: 8px;">Component</th>
+            <th style="font-weight: normal; padding: 8px;">Pin Setup</th>
+            <th style="font-weight: normal; padding: 8px;">Info</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="padding: 8px;">Latte Panda</td>
+            <td style="padding: 8px;">+12V, GND, Relay, LED Strip, Knob 5V &amp; Data</td>
+            <td style="padding: 8px;">Built-in Leonardo for pump &amp; LED control</td>
+        </tr>
+        <tr>
+            <td style="padding: 8px;">GPU Adapter</td>
+            <td style="padding: 8px;">+12V, +5V, GND, Panda</td>
+            <td style="padding: 8px;">Direct connection to Latte Panda</td>
+        </tr>
+        <tr>
+            <td style="padding: 8px;">Relay</td>
+            <td style="padding: 8px;">+5V, GND, +5V, Leonardo</td>
+            <td style="padding: 8px;">Reed Relay – consider a transistor alternative</td>
+        </tr>
+        <tr>
+            <td style="padding: 8px;">Fan</td>
+            <td style="padding: 8px;">+12V, GND, PWM, (RGB Data)</td>
+            <td style="padding: 8px;">RGB self-control mode</td>
+        </tr>
+        <tr>
+            <td style="padding: 8px;">LED Strip</td>
+            <td style="padding: 8px;">+5V, Leonardo, GND</td>
+            <td style="padding: 8px;">-</td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+<div style="height: 20px;"></div>
+---
+<div style="height: 20px;"></div>
+
+
 <div class="row">
     <div class="col-md-6">
-        next: Electric System & Fluid System
+        <div class="note">
+            <p><strong>Note:</strong> The 400W power supply must be bridged so that both the 12V and 5V outputs are available when it is connected and activated. This crucial step ensures that all connected components receive the proper voltage reliably.</p>
+            <p>At the main connector of the power supply, wires 14 and 16 are shorted, with wire 16 serving as ground.</p>
+        </div>
+    </div>
+    <div class="col-md-6 text-center">
+        <img src="http://www.netzteil-test.de/wp-content/uploads/2015/11/ATX-Stecker-Aufbau-115x300.png" alt="ATX Connector Setup Diagram" class="img-fluid rounded" style="height: 300px;">
+        <div class="caption">ATX Connector Setup Diagram</div>
+    </div>
+</div>
+
+
+
+---
+
+
+
+
+<div class="row">
+    <div class="col-md-6">
+        next: Fluid System
     </div>
     <div class="col-md-6">
         <img src="https://media1.tenor.com/m/fTC3vQTQbHoAAAAC/back-to-the-future-to-be-continued.gif" alt="Description" class="img-fluid">
