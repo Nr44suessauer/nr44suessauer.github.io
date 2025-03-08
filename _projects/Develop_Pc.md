@@ -197,23 +197,101 @@ It was used simply because it was available, and to replicate the dimensions of 
         </div>
     </div>
     <div class="col-md-6 text-center">
-        <img src="http://www.netzteil-test.de/wp-content/uploads/2015/11/ATX-Stecker-Aufbau-115x300.png" alt="ATX Connector Setup Diagram" class="img-fluid rounded" style="height: 300px;">
+        <img src="http://www.netzteil-test.de/wp-content/uploads/2015/11/ATX-Stecker-Aufbau-115x300.png" alt="ATX Connector Setup Diagram" class="img-fluid rounded" style="height: 200px;">
         <div class="caption">ATX Connector Setup Diagram</div>
     </div>
 </div>
 
+<div style="height: 20px;"></div>
+---
+<div style="height: 20px;"></div>
+
+
+## **Fluid System**
+
+<div style="height: 20px;"></div>
+
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            The Stop Valve functions as a check valve and forms the <strong>theoretical boundary between air and water</strong>. It prevents water from flowing back and separates the zones.
+        </p>
+        <p>
+            The Magnetic Valve is open when no voltage is applied (i.e., without power). Once the PC or system is supplied with power, it closes. This mechanism enables targeted venting of the pipeline behind the check valve. The pump, <strong>when idle, slowly allows air to escape</strong>, which can lead to <strong>unpredictable pressure conditions</strong>. Without venting, the pressure behind the check valve might build up and trigger it uncontrollably. By opening the Magnetic Valve during a power loss, air is <strong>actively vented</strong> so that the pressure remains stable and the check valve opens only when required—such as during pump operation.
+        </p>
+    </div>
+    <div class="col-md-6">
+        <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/fluidsystems.JPG?raw=true" alt="Fluid System Diagram" class="img-fluid rounded" style="width:100%; height:auto;">
+    </div>
+</div>
+
+
+<div style="height: 20px;"></div>
+---
+<div style="height: 20px;"></div>
+
+
+
+<div class="row">
+    <div class="col-md-6 text-center">
+        <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/oszi.gif?raw=true" alt="Oscilloscope Gif" class="img-fluid rounded" style="width:70%;">
+    </div>
+    <div class="col-md-6">
+        <p>The pump is operated by a relay driven by a <strong>PWM signal from the onboard Leonardo chip</strong>. A random value between 0 and 256 is selected, and the corresponding signal is applied to the relay’s control pin, allowing for precise control of the pump’s strength. A reed relay, known for its <strong>silent magnetic switching</strong>, is used instead of traditional noisier relays. It is also worth noting that a <strong>classic transistor would be the best choice</strong> for improved efficiency and reliability.</p>
+    </div>
+</div>
+
+<div style="height: 20px;"></div>
+---
+<div style="height: 20px;"></div>
+
+## **3D Design**
+<div style="height: 20px;"></div>
+
+
+
+<div class="row">
+    <div class="col-md-6">
+        <p><a href="https://drive.google.com/drive/folders/1ZKxtoRTurWC2JT--2RW9NhEu6h4j1WrM?usp=sharing">Full file available for download [here]</a>.</p>
+        <p>The power connections are Tx60 Female, and the HDMI output comes with an adapter (DPort -> HDMI).</p>
+        <p>The flaps can be modified or fitted with additional USB ports. The bottom is designed with a <strong>grid structure</strong> to ensure that any water leakage does not accumulate inside the case.</p>
+        <p>The RGB fan can be inserted into the duct, effectively <strong>cooling</strong> the <strong>backside</strong> of both the graphics card and the Latte Panda. Additionally, the grid structure at the bottom functions as an air outlet.</p>
+        <p>Please note that press-fit sleeves and screws are required.</p>
+        <div class="note">
+            <p><strong>Note:</strong> The tube was originally a paintbrush packaging. It is therefore advisable to adjust the placeholder to match the size of the material actually available.</p>
+        </div>
+    </div>
+    <div class="col-md-6 text-center">
+        <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/AnimationDevelopPc.gif?raw=true" alt="Animation Develop Pc" class="img-fluid rounded" style="width:70%;">
+    </div>
+</div>
+
+
+<div style="height: 20px;"></div>
+
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/skellet.PNG?raw=true" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/baseplate.PNG?raw=true" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/back.PNG?raw=true" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+</div>
+<div class="caption"></div>
 
 
 ---
 
 
 
+<div style="height: 110px;"></div>
 
-<div class="row">
-    <div class="col-md-6">
-        next: Fluid System
-    </div>
-    <div class="col-md-6">
-        <img src="https://media1.tenor.com/m/fTC3vQTQbHoAAAAC/back-to-the-future-to-be-continued.gif" alt="Description" class="img-fluid">
+<div class="row justify-content-center">
+    <div class="col-md-12 text-center">
+        <img src="https://media1.tenor.com/m/fTC3vQTQbHoAAAAC/back-to-the-future-to-be-continued.gif" alt="Description" class="img-fluid mx-auto d-block" style="width:50%;">
     </div>
 </div>
