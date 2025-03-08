@@ -288,7 +288,24 @@ It was used simply because it was available, and to replicate the dimensions of 
 <div class="caption"></div>
 
 
+
+<div style="height: 20px;"></div>
 ---
+<div style="height: 20px;"></div>
+
+### **"Future Design additions"**
+
+<div class="row align-items-center">
+    <div class="col-md-6 text-center">
+        <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/mewtwo.gif?raw=true" alt="Mewtwo Gif" class="img-fluid" style="width:70%;">
+    </div>
+    <div class="col-md-6">
+        <h4><strong>Mewtwo in the Tank</strong></h4>
+        <p>
+            Mewtwo will be housed in this lab tank. This eye-catching centerpiece reinforces the experimental spirit of the project but also symbolizes a harmonious blend of art.
+        </p>
+    </div>
+</div>
 
 
 
@@ -299,3 +316,5 @@ It was used simply because it was available, and to replicate the dimensions of 
         <img src="https://media1.tenor.com/m/fTC3vQTQbHoAAAAC/back-to-the-future-to-be-continued.gif" alt="Description" class="img-fluid mx-auto d-block" style="width:30%;">
     </div>
 </div>
+
+
