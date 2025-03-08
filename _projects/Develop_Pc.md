@@ -256,18 +256,19 @@ It was used simply because it was available, and to replicate the dimensions of 
         <p>The power connections are Tx60 Female, and the HDMI output comes with an adapter (DPort -> HDMI).</p>
         <p>The flaps can be modified or fitted with additional USB ports. The bottom is designed with a <strong>grid structure</strong> to ensure that any water leakage does not accumulate inside the case.</p>
         <p>The RGB fan can be inserted into the duct, effectively <strong>cooling</strong> the <strong>backside</strong> of both the graphics card and the Latte Panda. Additionally, the grid structure at the bottom functions as an air outlet.</p>
+        <p>An <strong>LED ring</strong> is attached within the tube, and the cables run through the case to the Latte Panda.</p>
         <p>Please note that press-fit sleeves and screws are required.</p>
         <div class="note">
             <p><strong>Note:</strong> The tube was originally a paintbrush packaging. It is therefore advisable to adjust the placeholder to match the size of the material actually available.</p>
         </div>
     </div>
     <div class="col-md-6 text-center">
-        <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/AnimationDevelopPc.gif?raw=true" alt="Animation Develop Pc" class="img-fluid rounded" style="width:70%;">
+        <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/AnimationDevelopPc.gif?raw=true" alt="Animation Develop Pc" class="img-fluid rounded" style="width:90%;">
     </div>
 </div>
 
 
-<div style="height: 20px;"></div>
+<div style="height: 50px;"></div>
 
 
 <div class="row mt-3">
@@ -292,6 +293,6 @@ It was used simply because it was available, and to replicate the dimensions of 
 
 <div class="row justify-content-center">
     <div class="col-md-12 text-center">
-        <img src="https://media1.tenor.com/m/fTC3vQTQbHoAAAAC/back-to-the-future-to-be-continued.gif" alt="Description" class="img-fluid mx-auto d-block" style="width:50%;">
+        <img src="https://media1.tenor.com/m/fTC3vQTQbHoAAAAC/back-to-the-future-to-be-continued.gif" alt="Description" class="img-fluid mx-auto d-block" style="width:30%;">
     </div>
 </div>
