@@ -177,7 +177,7 @@ It was used simply because it was available, and to replicate the dimensions of 
         <tr>
             <td style="padding: 8px;">LED Strip</td>
             <td style="padding: 8px;">+5V, Leonardo, GND</td>
-            <td style="padding: 8px;">-</td>
+            <td style="padding: 8px;"> ws28 3pin</td>
         </tr>
     </tbody>
 </table>
