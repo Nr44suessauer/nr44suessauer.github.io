@@ -252,7 +252,7 @@ It was used simply because it was available, and to replicate the dimensions of 
 
 <div class="row">
     <div class="col-md-6">
-        <p><a href="https://drive.google.com/drive/folders/1ZKxtoRTurWC2JT--2RW9NhEu6h4j1WrM?usp=sharing">Full file available for download [here]</a>.</p>
+        <p><a href="https://github.com/Nr44suessauer/nr44suessauer.github.io/tree/main/assets/3Dprojects">Full file available for download [here]</a>.</p>
         <p>The power connections are Tx60 Female, and the HDMI output comes with an adapter (DPort -> HDMI).</p>
         <p>The flaps can be modified or fitted with additional USB ports. The bottom is designed with a <strong>grid structure</strong> to ensure that any water leakage does not accumulate inside the case.</p>
         <p>The RGB fan can be inserted into the duct, effectively <strong>cooling</strong> the <strong>backside</strong> of both the graphics card and the Latte Panda. Additionally, the grid structure at the bottom functions as an air outlet.</p>
