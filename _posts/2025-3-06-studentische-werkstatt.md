@@ -13,17 +13,14 @@ featured: false
 
 [Official Page](https://www.hs-heilbronn.de/de/studentische-werkstatt-8bbc5c5809a1f85c)
 
-Du bist Student:in an der Hochschule Heilbronn und suchst Unterstützung für dein nächstes Hardware-Projekt – sei es für einen Kurs, deine Abschlussarbeit oder ein privates Hobby? Dann ist die [**Studentische Werkstatt**](https://www.hs-heilbronn.de/de/studentische-werkstatt-8bbc5c5809a1f85c) genau der richtige **Ort für dich!** Hier findest du nicht nur hochwertige Werkzeuge und Maschinen, sondern auch Raum für Kreativität, Austausch und professionelle Begleitung.  
+Du bist Student:in an der Hochschule Heilbronn und suchst Unterstützung für dein Hardware-Projekt? Dann ist die [Studentische Werkstatt](https://www.hs-heilbronn.de/de/studentische-werkstatt-8bbc5c5809a1f85c) genau das Richtige! Hier verbinden sich moderne Werkzeuge, Maschinen und kompetente Beratung zu einem Raum für kreativen Austausch.
 
----
+### Was ist die Studentische Werkstatt?
 
-### **Was ist die Studentische Werkstatt?**  
+Die Werkstatt bietet dir einen praxisnahen Arbeitsbereich – ob Maschinenbau, Informatik, Elektrotechnik oder ein anderes Studienfach. Mit Zugang zu **professionellen Geräten und Expert:innen** kannst du deine Ideen umsetzen, interdisziplinär arbeiten und voneinander lernen.
 
-Die Studentische Werkstatt ist eine moderne Werkstatt, die speziell für Studierende eingerichtet wurde, um **praxisnahes Arbeiten** zu ermöglichen. 
+**Ziel** ist es, dir eine Plattform zu bieten, um innovativ und ohne Druck Projekte voranzubringen.
 
-Egal, ob du im Studiengang Maschinenbau, Informatik, Elektrotechnik oder einem anderen Fachbereich tätig bist – hier kannst du Ideen in die Tat umsetzen. Die Werkstatt bietet dir Zugang zu professionellen Geräten, Werkzeugen und Expert:innen, die dich bei der Realisierung deiner Projekte unterstützen.  
-
-**Das Ziel:** Studierenden eine Plattform zu bieten, in der sie **interdisziplinär arbeiten**, experimentieren und voneinander lernen können – ganz ohne Druck und mit jeder Menge Raum für Innovation.  
 
 ---
 
