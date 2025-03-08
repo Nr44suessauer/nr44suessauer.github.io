@@ -61,7 +61,7 @@ It was used simply because it was available, and to replicate the dimensions of 
 
 <div style="height: 20px;"></div>
 
-## Fundation
+## **Fundation**
 
 <div style="height: 10px;"></div>
 <!-- Table Software -->
@@ -110,7 +110,7 @@ It was used simply because it was available, and to replicate the dimensions of 
 
 ---
 
-# Benchmarks
+## **Benchmarks**
 
 <div class="row">
     <div class="col-md-6">
@@ -118,7 +118,7 @@ It was used simply because it was available, and to replicate the dimensions of 
         For intrest in "best possible performance", you can watch this video.<p></p>
         The limitation of my system is definitely the graphics card. Warcraft 3 is playable at 20FPS (Max Settings) & Leauge of Legends at 40FPS (Max Settings).<p></p>
         I myself prefer using emulators like <a href="https://xemu.app/">Xemu</a> or <a href="https://pcsx2.net/">PCSX2</a>.<p></p>
-        The performance is flawless there, but it's more about nostalgia than performance.   
+        The <strong>performance is flawless</strong> there, but it's more about nostalgia than performance.   
         </p>
     </div>
     <div class="col-md-6">
