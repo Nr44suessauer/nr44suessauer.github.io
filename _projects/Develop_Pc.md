@@ -190,17 +190,20 @@ It was used simply because it was available, and to replicate the dimensions of 
 
 
 <div class="row">
-    <div class="col-md-6">
-        <div class="note">
-            <p><strong>Note:</strong> The 400W power supply must be bridged so that both the 12V and 5V outputs are available when it is connected and activated. This crucial step ensures that all connected components receive the proper voltage reliably.</p>
-            <p>At the main connector of the power supply, wires 14 and 16 are shorted, with wire 16 serving as ground.</p>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="note">
+                <p><strong>Note:</strong> The 400W power supply must be bridged so that both the 12V and 5V outputs are available when connected and activated. This crucial step ensures that all connected components receive the proper voltage reliably.</p>
+                <p>At the main connector of the power supply, wires 14 and 16 are shorted, with wire 16 serving as ground.</p>
+            </div>
+        </div>
+        <div class="col-md-6 text-center">
+            <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/stecker.png?raw=true" alt="ATX Connector Setup Diagram" class="img-fluid rounded" style="max-height: 200px; width: 100;">
+            <div class="caption">ATX Connector Setup Diagram</div>
         </div>
     </div>
-    <div class="col-md-6 text-center">
-        <img src="https://www.netzteil-test.de/wp-content/uploads/2015/11/ATX-Stecker-Aufbau-115x300.png" alt="ATX Connector Setup Diagram" class="img-fluid rounded" style="height: 200px;">
-        <div class="caption">ATX Connector Setup Diagram</div>
-    </div>
 </div>
+
 
 <div style="height: 20px;"></div>
 ---
