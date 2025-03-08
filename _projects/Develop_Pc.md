@@ -197,7 +197,7 @@ It was used simply because it was available, and to replicate the dimensions of 
         </div>
     </div>
     <div class="col-md-6 text-center">
-        <img src="http://www.netzteil-test.de/wp-content/uploads/2015/11/ATX-Stecker-Aufbau-115x300.png" alt="ATX Connector Setup Diagram" class="img-fluid rounded" style="height: 200px;">
+        <img src="https://www.netzteil-test.de/wp-content/uploads/2015/11/ATX-Stecker-Aufbau-115x300.png" alt="ATX Connector Setup Diagram" class="img-fluid rounded" style="height: 200px;">
         <div class="caption">ATX Connector Setup Diagram</div>
     </div>
 </div>
