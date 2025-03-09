@@ -5,6 +5,7 @@ description: LattePanda combined with nearly unlimited Power from a Nvidia Quadr
 img: https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/assets/img/pc_project.gif
 importance: 1
 category: all
+disqus_comments: true
 toc:
   sidebar: left # oder right
 
@@ -349,3 +350,4 @@ It was used simply because it was available, and to replicate the dimensions of 
         </div>
     </div>
 </div>
+
