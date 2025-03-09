@@ -315,7 +315,7 @@ It was used simply because it was available, and to replicate the dimensions of 
 ---
 <div style="height: 20px;"></div>
 
-# **Galerie**
+# **Gallery**
 <div style="height: 20px;"></div>
 
 <div class="gallery">
