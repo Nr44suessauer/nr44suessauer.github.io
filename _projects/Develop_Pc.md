@@ -240,7 +240,7 @@ It was used simply because it was available, and to replicate the dimensions of 
         <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/oszi.gif?raw=true" alt="Oscilloscope Gif" class="img-fluid rounded" style="width:70%;">
     </div>
     <div class="col-md-6">
-        <p>The pump is operated by a relay driven by a <strong>PWM signal from the onboard Leonardo chip</strong>. A random value between 0 and 256 is selected, and the corresponding signal is applied to the relay’s control pin, allowing for precise control of the pump’s strength. A reed relay, known for its <strong>silent magnetic switching</strong>, is used instead of traditional noisier relays. It is also worth noting that a <strong>classic transistor would be the best choice</strong> for improved efficiency and reliability.</p>
+        <p>The pump is operated by a relay driven by a <strong>PWM signal from the onboard Leonardo chip</strong>. A random value between 0 and 255 is selected, and the corresponding signal is applied to the relay’s control pin, allowing for precise control of the pump’s strength. A reed relay, known for its <strong>silent magnetic switching</strong>, is used instead of traditional noisier relays. It is also worth noting that a <strong>classic transistor would be the best choice</strong> for improved efficiency and reliability.</p>
     </div>
 </div>
 
