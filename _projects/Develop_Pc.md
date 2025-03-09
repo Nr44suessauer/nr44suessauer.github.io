@@ -311,3 +311,37 @@ It was used simply because it was available, and to replicate the dimensions of 
 </div>
 
 
+<div style="height: 20px;"></div>
+---
+<div style="height: 20px;"></div>
+
+# **Galerie**
+<div style="height: 20px;"></div>
+
+<div class="gallery">
+    <div class="row">
+        <div class="row">
+        <div class="col-sm mt-3 mt-md-0">
+            {% include figure.liquid loading="eager" path="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/1st_try_mit_wasser.gif?raw=true" class="img-fluid rounded z-depth-1" zoomable=true %}
+        </div>
+        <div class="col-sm mt-3 mt-md-0">
+            {% include figure.liquid loading="eager" path="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/in_process.jpg?raw=true" class="img-fluid rounded z-depth-1" zoomable=true %}
+        </div>
+        <div class="col-sm mt-3 mt-md-0">
+            {% include figure.liquid loading="eager" path="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/LattePanda.jpg?raw=true" class="img-fluid rounded z-depth-1" zoomable=true %}
+        </div>
+        <div class="col-sm mt-3 mt-md-0">
+            {% include figure.liquid loading="eager" path="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/im_office.jpg?raw=true" class="img-fluid rounded z-depth-1" zoomable=true %}
+        </div>
+    </div>
+        <div class="col-sm mt-3 mt-md-0">
+            {% include figure.liquid loading="eager" path="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/waterservice.jpg?raw=true" class="img-fluid rounded z-depth-1" zoomable=true %}
+        </div>
+        <div class="col-sm mt-3 mt-md-0">
+            {% include figure.liquid loading="eager" path="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/setupA.jpg?raw=true" class="img-fluid rounded z-depth-1" zoomable=true %}
+        </div>
+        <div class="col-sm mt-3 mt-md-0">
+            {% include figure.liquid loading="eager" path="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/SetupB.jpg?raw=true" class="img-fluid rounded z-depth-1" zoomable=true %}
+        </div>
+    </div>
+</div>
