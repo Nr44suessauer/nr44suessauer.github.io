@@ -311,5 +311,3 @@ It was used simply because it was available, and to replicate the dimensions of 
 </div>
 
 
-
-
