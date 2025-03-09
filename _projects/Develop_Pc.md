@@ -5,6 +5,9 @@ description: LattePanda combined with nearly unlimited Power from a Nvidia Quadr
 img: https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/assets/img/pc_project.gif
 importance: 1
 category: all
+toc:
+  sidebar: left # oder right
+
 ---
 
 A personal project aimed at building a LAN party PC with low power consumption and a stylish design. Compatible with a self-made screen and a 12V fridge.
@@ -210,7 +213,7 @@ It was used simply because it was available, and to replicate the dimensions of 
 <div style="height: 20px;"></div>
 
 
-## **Fluid System**
+# **Fluid System**
 
 <div style="height: 20px;"></div>
 
@@ -248,14 +251,14 @@ It was used simply because it was available, and to replicate the dimensions of 
 ---
 <div style="height: 20px;"></div>
 
-## **3D Design**
+# **3D Design**
 <div style="height: 20px;"></div>
 
+<p><a href="https://github.com/Nr44suessauer/nr44suessauer.github.io/tree/main/assets/3Dprojects">Full file available for download [here]</a>.</p>
 
 
 <div class="row">
     <div class="col-md-6">
-        <p><a href="https://github.com/Nr44suessauer/nr44suessauer.github.io/tree/main/assets/3Dprojects">Full file available for download [here]</a>.</p>
         <p>The power connections are Tx60 Female, and the HDMI output comes with an adapter (DPort -> HDMI).</p>
         <p>The flaps can be modified or fitted with additional USB ports. The bottom is designed with a <strong>grid structure</strong> to ensure that any water leakage does not accumulate inside the case.</p>
         <p>The RGB fan can be inserted into the duct, effectively <strong>cooling</strong> the <strong>backside</strong> of both the graphics card and the Latte Panda. Additionally, the grid structure at the bottom functions as an air outlet.</p>
@@ -266,23 +269,22 @@ It was used simply because it was available, and to replicate the dimensions of 
         </div>
     </div>
     <div class="col-md-6 text-center">
-        <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/AnimationDevelopPc.gif?raw=true" alt="Animation Develop Pc" class="img-fluid rounded" style="width:90%;">
+        <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/AnimationDevelopPc.gif?raw=true" alt="Animation Develop Pc" class="img-fluid rounded" style="width:100%;">
     </div>
 </div>
 
 
 <div style="height: 50px;"></div>
 
-
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/skellet.PNG?raw=true" class="img-fluid rounded z-depth-1" zoomable=true %}
+        {% include figure.liquid loading="eager" path="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/skellet.PNG?raw=true" class="img-fluid rounded z-depth-1" style="max-width:80%;" zoomable=true %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/baseplate.PNG?raw=true" class="img-fluid rounded z-depth-1" zoomable=true %}
+        {% include figure.liquid loading="eager" path="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/baseplate.PNG?raw=true" class="img-fluid rounded z-depth-1" style="max-width:80%;" zoomable=true %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/back.PNG?raw=true" class="img-fluid rounded z-depth-1" zoomable=true %}
+        {% include figure.liquid loading="eager" path="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/back.PNG?raw=true" class="img-fluid rounded z-depth-1" style="max-width:80%;" zoomable=true %}
     </div>
 </div>
 <div class="caption"></div>
@@ -293,7 +295,7 @@ It was used simply because it was available, and to replicate the dimensions of 
 ---
 <div style="height: 20px;"></div>
 
-### **"Future Design additions"**
+# **"Future Design additions"**
 
 <div style="height: 20px;"></div>
 
