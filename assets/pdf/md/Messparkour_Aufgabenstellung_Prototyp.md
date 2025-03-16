@@ -183,7 +183,7 @@ Die Aufgabe umfasst folgende Schritte:
 
 ---
 
-## Messaufgabe: PWM-Messung und Filterkonstruktion
+## Messaufgabe 1: PWM-Messung und Filterkonstruktion
 
 1. **Schaltung aufbauen und Verkabelung prüfen:**  
     - Verbinde alle relevanten Komponenten vollständig.  
@@ -203,23 +203,18 @@ Die Aufgabe umfasst folgende Schritte:
     - Überprüfe mit dem Oszilloskop, ob das gefilterte Signal den theoretischen Erwartungen entspricht.  
     - Notiere eventuelle Abweichungen und diskutiere mögliche Ursachen.
 
-5. **Sensorik oder Aktuatorik: Implementierung und Visualisierung:**  
-    - Entwickle die Logik für das ausgewählte Bauteil (z. B. einen 4-Phasenmotor mit schrittweiser Ansteuerung bzw. Visualisierung durch einen 4-Kanal-Oszilloskop).  
-    - Entwickle die Logik für das ausgewählte Bauteil (z. B. einen LDR im Spannungsteiler-Verhältnis zur Lichtintensität).  
-    - Dokumentiere den gesamten Prozess!
-
 ---
 
-## Messung des Sensors oder Aktuators
+## Messaufgabe 2: Sensor oder Aktuator
 1. Bauteilauswahl: Wähle das zu messende Bauteil (Sensor oder Aktuator) aus.
 2. Messaufgabe festlegen: Bestimme die passende Messaufgabe, abhängig vom ausgewählten Bauteil.
-3. Messvorgehen dokumentieren: Dokumentiere das genaue Vorgehen der Messung, inklusive Aufbau, Durchführung und Analyse.
+3. Messvorgehen dokumentieren: inklusive Aufbau, Durchführung und Analyse.
 4. Ergebnisvisualisierung: Visualisiere das Messbild (z. B. mittels Diagrammen oder Oszilloskop-Screenshots), um die Ergebnisse anschaulich darzustellen.
 5. Analyse möglicher Bad Cases: Identifiziere und beschreibe potenzielle Fehlerfälle oder Störungen, die als Bad Cases auftreten können.
 
 ---
 
-## Messung der Kommunikationsschnittstelle
+## Messaufgabe 3: Kommunikationsschnittstelle
 
 1. Entwickelt eine Kommunikationslogik für den Austausch zu einem Sensor, Mikrocontroller oder Display (z. B. über I²C oder SPI).  
 2. Visualisiert die übertragenen Datenpakete mittels Oszilloskop, um typische Signalformen zu zeigen.  
