@@ -7,7 +7,7 @@
 2. **High-Pass-Filter bauen**
     - PWM-Signal glätten
 
-3. **PWM-Signal messtechnisch beweisen**
+3. **PWM-Signal messtechnisch verifizieren**
     - Mit Oszilloskop
     - Mit Microcrontroller erfassen 
     - Eventuell andere Filter inkludieren / poti Verwendung
@@ -16,7 +16,7 @@
 
 4. **Kommunikation zwischen Mikrocontrollern/Hardware**
     - Initialisiere Kommunikation über I²C, UART, SPI oder ähnliches
-    - Messtechnische Beweisführung der Kommunikation
+    - Messtechnische verifizierung der Kommunikation
     - Analyse der Schaltung und möglicher Fehlerquellen
 
 ---
@@ -25,7 +25,7 @@
     - Sensoren initialisieren und auslesen
     - Aktoren ansteuern und kontrollieren
     - Integration der Sensor- und Aktordaten in das Gesamtsystem
-    - Messtechnische Überprüfung der Sensor- und Aktorfunktionalität
+    - Überprüfung der Sensor- und Aktorfunktionalität
     - Analyse und Dokumentation der Ergebnisse
 
 6. **Integration und Test**
@@ -43,42 +43,47 @@
 ---
 
 
-## Arbeitsanweisung für den Studenten
+<figure>
+    <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/schaltungen/SymbolBild.jpg?raw=true" alt="symbolbild">
+    <figcaption>Symbolbild</figcaption>
+</figure>
 
-### Aufgabe: Entwicklung eines Gesamtsystems durch Integration von Sensorik, Aktorik und PWM-Signalverarbeitung
-
-#### Ziel:
-Die Aufgabe besteht darin, ein Gesamtsystem zu entwickeln, das durch die Integration von Sensorik, Aktorik und PWM-Signalverarbeitung entsteht. Dabei soll der Student in Zusammenarbeit mit einer anderen Gruppe ein funktionierendes System aufbauen, das Daten von Sensoren erfasst, entsprechende Aktionen durch Aktoren ausführt.
-
-#### Schritte:
-1. **Sensorik oder Aktorik auswählen**
-        - Entscheidung für einen spezifischen Sensor oder Aktor, der in das Gesamtsystem integriert werden soll.
-
-    2. **Sensoren initialisieren und auslesen**
-        - Initialisieren der Sensoren und programmieren des Mikrocontrollers, um die Sensordaten zu erhalten.
-        - Testen der Sensoren, um sicherzustellen, dass diese korrekte Daten liefern.
-
-    3. **Aktoren ansteuern**
-        - Ansteuerroutine programieren (4 Fasiger Motor | Steps) und auf Serielle/Input Daten reagieren.  
-
-    4. **PWM-Signal erzeugen und verarbeiten**
-        - Mikrocontroller Init PWM-Ausgabe.
-        - High-Pass- oder Low-Pass-Filter , um das PWM-Signal zu glätten.
-        - Überprüfen Sie das PWM-Signal messtechnisch mit einem Oszilloskop.
-
-    5. **Integration der Sensor-, Aktor- und PWM-Daten in ein Gesamtsystem**
-        - Kollab mit anderen Gruppe, um die Sensordaten, Aktorsteuerungen und PWM-Signale in ein gemeinsames System zu integrieren. (Kommunikation zwischen Microcontroller)
-
-    6. **Messtechnische Überprüfung der Sensor-, Aktor- und PWM-Funktionalität**
-        - Überprüfen der Funktionalität der Sensoren, Aktoren und PWM-Signale messtechnisch, um die Genauigkeit und Zuverlässigkeit des Gesamtsystems zu gewährleisten.
-        - Dokumentieren der Ergebnisse, der Überprüfung.
-
-    7. **Analyse und Dokumentation der Ergebnisse**
-        - Analysieren Sie die gesammelten Daten und die Leistung des Gesamtsystems.
-        - Dokumentieren Sie die Ergebnisse.
+## Arbeitsanweisung für die Gruppe (1-2 Studenten)
 
 
-        ## Verfügbare Hardware für Sensorik und Aktorik & Beinhaltende Aufgabe
+Die Aufgabe besteht darin, ein System zu bauen, das aus Integration von Sensorik, Aktorik entsteht. Dazu soll die eigene Gruppe in Zusammenarbeit mit einer anderen Gruppe ein funktionierendes System aufbauen, das Daten von Sensoren erfasst, entsprechende Aktionen durch Aktoren ausführt.
+
+Der Prozess ist mit Messprotokollen zu dokomentieren (z. B. mit Oszilloskop oder Vergleichsgerät).
+
+##### Schritte:
+1. **PWM-Signal erzeugen und verarbeiten | Prolog**
+    - Mikrocontroller Init PWM-Ausgabe.
+    - High-Pass- oder Low-Pass-Filter , um das PWM-Signal zu glätten.
+    - Überprüfen des PWM-Signals messtechnisch mit einem Oszilloskop.
+
+2. **Sensorik oder Aktorik auswählen**
+    - Entscheidung für einen spezifischen Sensor oder Aktor, der in das Gesamtsystem integriert werden soll.
+
+3. **Sensoren initialisieren und auslesen**
+    - Initialisieren der Sensoren und programmieren des Mikrocontrollers, um die Sensordaten zu erhalten.
+    - Testen der Sensoren, um sicherzustellen, dass diese korrekte Daten liefern.
+
+4. **Aktoren ansteuern**
+    - Ansteuerroutine programieren (4 Fasiger Motor | Steps) und auf Serielle/Input Daten reagieren.  
+
+5. **Integration der Sensor-, Aktor- und PWM-Daten in ein Gesamtsystem**
+    - Kollaboration mit anderen Gruppe, um die Sensordaten, Aktorsteuerungen und PWM-Signale in ein gemeinsames System zu integrieren. (Kommunikation zwischen Microcontroller)
+
+6. **Messtechnische Überprüfung der Sensor-, Aktor- und PWM-Funktionalität**
+    - Überprüfen der Funktionalität der Sensoren, Aktoren und PWM-Signale messtechnisch, um die Genauigkeit und Zuverlässigkeit des Gesamtsystems zu gewährleisten.
+    - Dokumentieren der Ergebnisse, der Überprüfung.
+
+7. **Analyse und Dokumentation der Ergebnisse**
+    - Analysieren Sie die gesammelten Daten und die Leistung des Gesamtsystems.
+    - Dokumentieren Sie die Ergebnisse.
+
+
+        ## Verfügbare Hardware, Sensorik und Aktorik & Beinhaltende Aufgabe
         >note : Hardware entweder auslebar oder steuerbar über UART (COM X, 9600baud) | Initial Seassion | Microcontroller ist der Atmega328P | Arduino Uno, Romeo v1.0
 
         - **Servomotoren**:präzise Ansteuerung von Winkelpositionen. | Mapping von PWM Periode auf Grad mit Oszi
@@ -87,12 +92,12 @@ Die Aufgabe besteht darin, ein Gesamtsystem zu entwickeln, das durch die Integra
         - **Digitale/Analoge Eingänge, Taster, Poti o.ä.**: Eingänge zur Erfassung von Inputs und Verwertung dieser.
         - **Ultraschallsensor**: Sensor zur Abstandsmessung mittels Ultraschallwellen | TOF Trigger & Inputsignal Oszi.
         - **Feuchtigkeitssensor**: Sensor zur Messung der Feuchtigkeit auf einer Ebene. | Spannungsteiler Messung im Verhältnis zur Feuchtigkeit 
-        - **LDR Sensor**: Spannungsteiler Messung im Verhältnis zur Lichtintensität. | Blinkinterface messtechnisch beweisen. -> Erstellen einer eigenen Tabelle, welche Blinkperiode welches Monitoring darstellt. ( Kaffee Maschine)
+        - **LDR Sensor**: Spannungsteiler Messung im Verhältnis zur Lichtintensität. | Blinkinterface messtechnisch verifizieren. -> Erstellen einer eigenen Tabelle, welche Blinkperiode welches Monitoring darstellt. ( Kaffee Maschine)
 
 
 # Ablauf wird vorgegeben
 
-Durch die Anwendung einer zeitgesteuerten Steuerung mittels Switch-Case-Struktur können die einzelnen Programmroutinen – etwa für Sensorik, Aktorik oder die PWM-Signalverarbeitung – separat angesteuert und getestet werden.
+Durch die Anwendung einer zeitgesteuerten Steuerung mittels Switch-Case-Struktur können die einzelnen Programmroutinen – etwa für Sensorik, Aktorik oder die Kommunikation – separat angesteuert und getestet werden.
 
 ```arduino
 // Arduino implementation using millis() 
@@ -163,7 +168,7 @@ void loop() {
 
 Die Aufgabe umfasst folgende Schritte:
 
-1. **Timer/PWM:**  
+1. **Timer/PWM | Prolog:**  
     - Erstelle einen Timer, der als Grundlage zur Ausgabe eines PWM-Signals auf einem Pin dient.  
     - Implementiere das eigentliche PWM.
 
@@ -193,7 +198,7 @@ Die Aufgabe umfasst folgende Schritte:
     - Berechne die optimalen Werte für Widerstand und Kondensator.  
     - Wähle die Bauteilwerte entsprechend der gewünschten Parameter aus.
 
-4. **Filter implementieren und messtechnisch validieren:**  
+4. **Filter bau und messtechnisch validieren:**  
     - Baue den ausgewählten Filter gemäß den berechneten Werten auf.  
     - Überprüfe mit dem Oszilloskop, ob das gefilterte Signal den theoretischen Erwartungen entspricht.  
     - Notiere eventuelle Abweichungen und diskutiere mögliche Ursachen.
@@ -202,6 +207,15 @@ Die Aufgabe umfasst folgende Schritte:
     - Entwickle die Logik für das ausgewählte Bauteil (z. B. einen 4-Phasenmotor mit schrittweiser Ansteuerung bzw. Visualisierung durch einen 4-Kanal-Oszilloskop).  
     - Entwickle die Logik für das ausgewählte Bauteil (z. B. einen LDR im Spannungsteiler-Verhältnis zur Lichtintensität).  
     - Dokumentiere den gesamten Prozess!
+
+---
+
+## Messung des Sensors oder Aktuators
+1. Bauteilauswahl: Wähle das zu messende Bauteil (Sensor oder Aktuator) aus.
+2. Messaufgabe festlegen: Bestimme die passende Messaufgabe, abhängig vom ausgewählten Bauteil.
+3. Messvorgehen dokumentieren: Dokumentiere das genaue Vorgehen der Messung, inklusive Aufbau, Durchführung und Analyse.
+4. Ergebnisvisualisierung: Visualisiere das Messbild (z. B. mittels Diagrammen oder Oszilloskop-Screenshots), um die Ergebnisse anschaulich darzustellen.
+5. Analyse möglicher Bad Cases: Identifiziere und beschreibe potenzielle Fehlerfälle oder Störungen, die als Bad Cases auftreten können.
 
 ---
 
@@ -214,4 +228,6 @@ Die Aufgabe umfasst folgende Schritte:
     - **Bad Case:** Störungen, die zu inkonsistenten Signalen führen.
 4. Dokumentiert beide Fälle anhand von Messprotokollen, Oszilloskop-Screenshots und analysiert die Ursachen bei Fehlern.
 
+
+---
 
