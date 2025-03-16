@@ -1,46 +1,4 @@
-# Aufgabenliste für den Studenten
 
-1. **Mikrocontroller initialisieren**
-    - Schnittstellen definieren
-    - PWM-Ausgabe erstellen
-
-2. **High-Pass-Filter bauen**
-    - PWM-Signal glätten
-
-3. **PWM-Signal messtechnisch verifizieren**
-    - Mit Oszilloskop
-    - Mit Microcrontroller erfassen 
-    - Eventuell andere Filter inkludieren / poti Verwendung
-
----
-
-4. **Kommunikation zwischen Mikrocontrollern/Hardware**
-    - Initialisiere Kommunikation über I²C, UART, SPI oder ähnliches
-    - Messtechnische verifizierung der Kommunikation
-    - Analyse der Schaltung und möglicher Fehlerquellen
-
----
-
-5. **Sensorik und Aktorik**
-    - Sensoren initialisieren und auslesen
-    - Aktoren ansteuern und kontrollieren
-    - Integration der Sensor- und Aktordaten in das Gesamtsystem
-    - Überprüfung der Sensor- und Aktorfunktionalität
-    - Analyse und Dokumentation der Ergebnisse
-
-6. **Integration und Test**
-        - Sensor- und Aktordaten über die definierte Schnittstelle austauschen
-        - Zusammenarbeit zwischen den Gruppen zur Sicherstellung der Interoperabilität
-        - Durchführung von Integrationstests zur Validierung der Gesamtsystemfunktionalität
-        - Dokumentation der Testergebnisse und eventueller Probleme
-        - Präsentation der Ergebnisse und Erkenntnisse
-
-7. **Projektabschluss**
-        - Erstellung einer Abschlussdokumentation
-
-
-
----
 
 
 <figure>
