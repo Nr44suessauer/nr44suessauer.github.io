@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/resume/";
           },
-        },{id: "post-neural-style-transfer-with-tensorflow",
+        },{id: "post-messparkour-sv2",
+      
+        title: "Messparkour SV2",
+      
+      description: "Ablaufplan des Praxisteils in Signalverarbeitung 2 | 3 Termine",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/MessParkour/";
+        
+      },
+    },{id: "post-neural-style-transfer-with-tensorflow",
       
         title: "Neural Style Transfer with TensorFlow",
       
