@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Neural Style Transfer with TensorFlow
-date: 2025-03-28 08:57:00-0400
+date: 2025-03-28 08:57:00
 description: jupyter notebook for Deep Learning 
 tags: jupyter_notebook TensorFlow DeepLearning SEM
 categories: Fun
