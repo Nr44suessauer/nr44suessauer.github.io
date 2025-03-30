@@ -59,6 +59,17 @@ ninja.data = [{
           window.location.href = "/blog/2025/Neural_Style_Transfer/";
         
       },
+    },{id: "post-cnn-digit-recognition-with-mnist",
+      
+        title: "CNN | Digit Recognition with Mnist",
+      
+      description: "jupyter notebook for Deep Learning",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/Mnist-Handwritten-digit-recognition/";
+        
+      },
     },{id: "post-die-studentische-werkstatt-hochschule-heilbronn",
       
         title: "Die Studentische Werkstatt | Hochschule Heilbronn",
