@@ -105,7 +105,7 @@ featured: false
 
 **Themen:**
 1. **I²C Protocoll**
-    - Studiere Adressierung, Clock Speed sowie Reed and Right Zyklen.
+    -  Adressierung, Clock Speed sowie Read and Write Funktionalitäten.
     - *Material & Referenz:* [I²C-Wikibooks](https://de.wikibooks.org/wiki/C-Programmierung_mit_AVR-GCC/_I2C), [Elektronik-Kompendium](https://www.elektronik-kompendium.de/sites/raspberry-pi/2612271.htm)
 
 2. **Programmieren des Mikrocontrollers**
