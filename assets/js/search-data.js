@@ -45,7 +45,7 @@ ninja.data = [{
       section: "Posts",
       handler: () => {
         
-          window.location.href = "/blog/2025/jupyter-notebook/";
+          window.location.href = "/blog/2025/Neural_Style_Transfer/";
         
       },
     },{id: "post-die-studentische-werkstatt-hochschule-heilbronn",
