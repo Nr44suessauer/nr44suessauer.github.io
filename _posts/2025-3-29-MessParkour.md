@@ -10,8 +10,8 @@ featured: false
 
 
 **Verantwortlicher: Marc Nauendorf** | **Bewertung: 50 Punkte (Praxisteil) + 50 Punkte (Theorie) bei Herr Klemm**  
-> Beide Teile müssen bestanden werden um SV2 im gesamten zu bestehen.
 
+> **Beide Teile müssen bestanden** werden um SV2 zu bestehen.
 
 <div style="display: flex; align-items: center; margin-top: 30px;">
     <p></p>
