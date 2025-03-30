@@ -27,13 +27,13 @@ featured: false
 <div style="display: flex; align-items: flex-start;">
     <div style="flex: 1;">
         <p>
-            im diesem <strong>Praxisteil von Signalverarbeitung 2</strong> erwartet euch ein spannender Messparkour, der in <strong>drei primären Präsenzterminen</strong> organisiert ist.
+            in diesem <strong>Praxisteil von Signalverarbeitung 2</strong> erwartet euch ein spannender Messparkour, der in <strong>drei primären Präsenzterminen</strong> organisiert ist.
         </p>
         <p>
             In diesen Terminen könnt ihr eigenständig eure Arbeiten durchführen, wie in den <strong>nachfolgenden Abschnitten beschrieben.</strong>
         </p>
         <p>
-            Die Labortermine sind in <strong>erster Linie</strong> dazu gedacht, offene Fragen zu klären, euch während des praktischen Vorgehens zu <strong>unterstützen</strong> und den Übergang von der theoretischen Vorbereitung zur realen Anwendung zu erleichtern.
+            Die Labortermine sind in <strong>erster Linie</strong> dazu gedacht, offene Fragen zu klären, euch während des praktischen Vorgehens zu <strong>unterstützen</strong> und den Übergang von der theoretischen Vorbereitung zur praktischen Anwendung zu erleichtern.
         </p>
         <p>
             Ich freue mich auf eure engagierte Mitarbeit und wünsche euch viel Erfolg bei der Durchführung des Messparkours.
@@ -44,7 +44,7 @@ featured: false
     </div>
 </div>
 
-> Note: Derjenige der mit seinem Microcontroller schon anfangen möchte, kann das gerne tun. Man kann die Arbeiten auch mit AtmelChips o.ä. bearbeiten. Wichtig: **Das Arduino Framework ist das einzige was ihr nicht nutzen dürft, sonst ist alles erlaubt.**
+> Bemerkung: Die jenigen die mit ihrem Microcontroller schon anfangen möchte, kann das gerne tun. Man kann die Arbeiten auch mit AtmelChips o.ä. bearbeiten. Wichtig: **Das Arduino Framework ist das einzige was ihr nicht nutzen dürft, sonst ist alles erlaubt.**
 
 **PS:** Zugang für Labor bei [Herr Ballein](https://www.hs-heilbronn.de/de/martin.ballein)
 
@@ -86,7 +86,7 @@ featured: false
 - Aufbauen eurer errechneten Schaltungen mit Freqenzgenerator & Netzteil
 - Bearbeiten der Themenfelder mit Osziloskop & Multimeter
 
-> Am Ende die Ausgabe von einem [Pi Pico](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html#pico-1-technical-specification) mit einem I²C Bauteil
+> Am Ende die Ausgabe eines [Pi Pico´s](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html#pico-1-technical-specification) mit einem I²C Bauteil
 
 #### **Nachbereitung**  
 - **Dokumentation**  
@@ -120,7 +120,7 @@ featured: false
 - Messtechnische Darstellung, Auslesung und Analyse der I²C Pakete **über das Oszilloskop**.
 - Identifiziere mögliche Fehlerquellen und erstelle Messbilder, die von positiven bis negativen Werten reichen.
 
->  Am Ende die Ausgabe von einem Servo für Termin 3
+>  Am Ende die Ausgabe von einem Servo-Motor für Termin 3
 
 #### **Nachbereitung**
 - **Dokumentation**

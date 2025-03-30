@@ -12,9 +12,9 @@ featured: false
 
 <div style="display: flex; align-items: flex-start;">
     <div style="flex: 1; padding-right: 10px;">
-        <h2><strong>About the MNIST Dataset</strong></h2>
+        <h3><strong>About the MNIST Dataset</strong></h3>
         <p>The MNIST dataset is a widely used collection of handwritten digits, serving as an introduction to deep learning and image processing. It consists of <strong>70,000 grayscale images</strong> divided into training and testing sets, with each image representing a single handwritten digit from 0 to 9.</p>
-        <h3><strong>Characteristics of the Dataset</strong></h3>
+        <h4><strong>Characteristics of the Dataset</strong></h4>
         <ul>
             <li><strong>Size:</strong> 70,000 images (60,000 training images and 10,000 testing images)</li>
             <li><strong>Image Format:</strong> 28x28 pixels in grayscale</li>
@@ -27,7 +27,7 @@ featured: false
     </div>
 </div>
 
-### **Significance in Deep Learning**
+#### **Significance in Deep Learning**
 
 MNIST is a standard dataset for beginners in machine learning. It effectively demonstrates basic concepts of Convolutional Neural Networks (CNNs) and other classification algorithms. Thanks to its simplicity and numerous benchmarks, it is an **ideal starting point** for training, evaluating, and optimizing models.
 
