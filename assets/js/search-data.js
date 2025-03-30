@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/resume/";
           },
-        },{id: "post-die-studentische-werkstatt-hochschule-heilbronn",
+        },{id: "post-neural-style-transfer-with-tensorflow",
+      
+        title: "Neural Style Transfer with TensorFlow",
+      
+      description: "jupyter notebook for Deep Learning",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/jupyter-notebook/";
+        
+      },
+    },{id: "post-die-studentische-werkstatt-hochschule-heilbronn",
       
         title: "Die Studentische Werkstatt | Hochschule Heilbronn",
       
