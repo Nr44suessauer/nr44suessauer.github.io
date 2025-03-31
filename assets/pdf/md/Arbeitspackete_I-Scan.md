@@ -5,7 +5,7 @@
 https://deadlinedriven.dev/projects/I-Scan/
 
 
-## Arbeitspaket 1: Server
+## Arbeitspaket 1: Django Server
 **Zielsetzung:**  
 Entwicklung einer stabilen Serverlösung zur Bereitstellung einer REST API und einer benutzerfreundlichen Single-Page Application.
 
