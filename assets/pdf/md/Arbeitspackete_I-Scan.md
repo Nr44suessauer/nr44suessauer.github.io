@@ -63,7 +63,7 @@ Ein sauber strukturierter Code, der eine einfache Erweiterung und Wartung ermög
 
 ## Arbeitspaket 4: Dokumentation
 **Zielsetzung:**  
-Erstellung einer kohärenten und übersichtlichen Dokumentation, die die Ergebnisse der Arbeitspakete kommuniziert.
+Erstellung einer übersichtlichen Dokumentation, die die Ergebnisse der Arbeitspakete kommuniziert.
 
 **Aufwand:**  
 40 Stunden (entspricht ca. 1,33 ECTS)
