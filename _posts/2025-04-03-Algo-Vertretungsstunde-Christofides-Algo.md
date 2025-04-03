@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Christofides Algorithm
-date: 2026-12-30 10:00:00
+date: 2025-04-02 10:00:00
 description: Algorithm & Datastructure
 tags: Algo Christofides NearestNeighbor BruteForce
 categories: lecture
@@ -26,7 +26,7 @@ featured: false
             font-family: sans-serif;
             font-size: 14px;
             overflow-y: auto;
-            max-height: 600px;
+            max-height: 900px;
         }
         canvas {
             border: 1px solid black;
@@ -76,7 +76,7 @@ featured: false
     </div>
     <script>
 class ChristofidesAnimation {
-    constructor(canvas, numNodes = 8) {
+    constructor(canvas, numNodes = 4) {
         this.canvas = canvas;
         this.ctx = canvas.getContext('2d');
         this.ctx.setTransform(1, 0, 0, 1, 0, 0);
@@ -99,7 +99,7 @@ class ChristofidesAnimation {
         // Verfolgte bereits gezeichnete Kanten.
         this.drawnEdges = new Map();
         this.init();
-        this.drawNodes(); 
+        this.drawNodes(true); // Draw coordinate system at initialization
     }
     // Zeichnet ein Koordinatensystem als Raster: X von 0 bis 100, Y von 0 bis 50
     drawCoordinateSystem() {
@@ -230,9 +230,11 @@ class ChristofidesAnimation {
         }
         this.tspPath.push(this.tspPath[0]);
     }
-    drawNodes() {
-        // Zeichnet zuerst das Koordinatensystem
-        this.drawCoordinateSystem();
+    drawNodes(showCoordinateSystem = false) {
+        // Draw coordinate system only if requested
+        if (showCoordinateSystem) {
+            this.drawCoordinateSystem();
+        }
         this.nodes.forEach(node => {
             this.ctx.beginPath();
             this.ctx.arc(node.x, node.y, 0.5, 0, Math.PI * 2);
@@ -317,7 +319,7 @@ class ChristofidesAnimation {
             // Lösche das Canvas bevor wir zur matching Phase wechseln
             this.ctx.clearRect(0, 0, 100, 50);
             this.drawnEdges.clear();
-            this.drawNodes();
+            this.drawNodes(false); // Don't draw coordinate system
             this.highlightOddNodes();
             this.phase = 'matching';
         }
@@ -343,7 +345,7 @@ class ChristofidesAnimation {
             // Übergang zur TSP-Phase: Lösche alle gezeichneten Pfade, behalte nur die Knoten
             this.ctx.clearRect(0, 0, 100, 50);
             this.drawnEdges.clear();
-            this.drawNodes();
+            this.drawNodes(false); // Don't draw coordinate system
             // Markiere nur die ungeraden Knoten, ohne MST oder Matching neu zu zeichnen
             this.highlightOddNodes();
             this.phase = 'tsp';
@@ -359,11 +361,10 @@ class ChristofidesAnimation {
         updateInfoPanel();
     }
 }
-let animation = new ChristofidesAnimation(document.getElementById('canvas'), 8);
+let animation = new ChristofidesAnimation(document.getElementById('canvas'), 4);
 let autoIntervalId = null;
 function updateInfoPanel() {
-    const dataOutput = document.getElementById('dataOutput');
-    
+    const dataOutput = document.getElementById('dataOutput'); 
     // Show current phase at the top
     let html = "<strong>Aktuelle Phase:</strong> ";
     const phases = {
@@ -375,8 +376,7 @@ function updateInfoPanel() {
         'tsp': 'Hamilton-Kreis durch Shortcutting'
     };
     html += phases[animation.phase] || animation.phase.toUpperCase();
-    html += "<hr>";
-    
+    html += "<hr>";  
     html += "<strong>Generierte Punkte:</strong><br>";
     html += animation.nodes.map(node => "P" + node.id + ": (" + node.x + ", " + node.y + ")").join("<br>") + "<hr>";
     // Show MST edges
@@ -492,7 +492,7 @@ function resetAnimation() {
         animation.currentEulerIndex = 1;
         animation.currentTSPIndex = 1;
         animation.drawnEdges.clear();
-        animation.drawNodes();
+        animation.drawNodes(true); // Show coordinate system on reset
         updateInfoPanel();
     }
 }
@@ -501,7 +501,7 @@ function updateNumPoints() {
     const numPoints = parseInt(document.getElementById('numPoints').value);
     animation = new ChristofidesAnimation(document.getElementById('canvas'), numPoints);
     animation.ctx.clearRect(0, 0, 100, 50);
-    animation.drawNodes();
+    animation.drawNodes(true); // Show coordinate system when updating points
     updateInfoPanel();
 }
 // Neue Funktion: Ermöglicht das Herunterladen des Graphen als PNG-Bild.
@@ -579,14 +579,17 @@ function drawGraphData() {
         ctx.restore();
     }
 }
-// Override nextStep so that after each animation step the data is updated.
-const originalNextStep = nextStep;
-nextStep = function() {
-    originalNextStep();
-    drawGraphData();
-};
+
+// Remove the override of nextStep to prevent drawing graph data when clicking "Nächster Schritt"
+// const originalNextStep = nextStep;
+// nextStep = function() {
+//     originalNextStep();
+//     drawGraphData();
+// };
     </script>
 </body>
+
+
 
 <div style="display: flex; align-items: center; margin-top: 10px;">
     <p></p>
