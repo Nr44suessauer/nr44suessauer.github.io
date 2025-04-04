@@ -107,6 +107,7 @@ featured: false
                     <input type="number" id="numPoints" min="3" max="25" value="4" style="width:50px; height:30px;">
                     <button onclick="updateNumPoints()">Zufällige Punkte</button>
                     <button onclick="importNNPoints()">NN-Punkte importieren</button>
+                    <!-- Für Christofides: Dropdown-Menü mit neuen Sternbilder-Optionen -->
                     <select id="constellationSelect" onchange="toggleConstellation(this.value)" style="height:30px;">
                         <option value="">Sternenbild wählen...</option>
                         <option value="libra">Waage (Libra) - 10 Punkte</option>
@@ -114,6 +115,12 @@ featured: false
                         <option value="ursa_minor">Kleiner Bär - 7 Punkte</option>
                         <option value="cassiopeia">Kassiopeia - 5 Punkte</option>
                         <option value="cygnus">Schwan - 9 Punkte</option>
+                        <option value="ursa_major">Großer Bär - 7 Punkte</option>
+                        <option value="leo">Löwe - 9 Punkte</option>
+                        <option value="draco">Drache - 11 Punkte</option>
+                        <option value="gemini">Zwillinge - 9 Punkte</option>
+                        <option value="southern_cross">Kreuz des Südens - 4 Punkte</option>
+                        <option value="pegasus">Pegasus - 5 Punkte</option>
                     </select>
                     <button onclick="downloadGraph()">Graph herunterladen</button>
                 </div>
@@ -146,6 +153,7 @@ featured: false
                     <input type="number" id="nnNumPoints" min="3" max="25" value="4" style="width:50px; height:30px;">
                     <button onclick="nnUpdateNumPoints()">Zufällige Punkte</button>
                     <button onclick="nnImportPoints()">Christofides Punkte importieren</button>
+                    <!-- Für Nearest Neighbor: Dropdown-Menü mit neuen Sternbilder-Optionen -->
                     <select id="nnConstellationSelect" onchange="nnToggleConstellation(this.value)" style="height:30px;">
                         <option value="">Sternenbild wählen...</option>
                         <option value="libra">Waage (Libra) - 10 Punkte</option>
@@ -153,6 +161,12 @@ featured: false
                         <option value="ursa_minor">Kleiner Bär - 7 Punkte</option>
                         <option value="cassiopeia">Kassiopeia - 5 Punkte</option>
                         <option value="cygnus">Schwan - 9 Punkte</option>
+                        <option value="ursa_major">Großer Bär - 7 Punkte</option>
+                        <option value="leo">Löwe - 9 Punkte</option>
+                        <option value="draco">Drache - 11 Punkte</option>
+                        <option value="gemini">Zwillinge - 9 Punkte</option>
+                        <option value="southern_cross">Kreuz des Südens - 4 Punkte</option>
+                        <option value="pegasus">Pegasus - 5 Punkte</option>
                     </select>
                     <button onclick="nnDownloadGraph()">Graph herunterladen</button>
                 </div>
@@ -231,6 +245,68 @@ featured: false
             { x: 13, y: 21 },
             { x: 37, y: 21 },
             { x: 45, y: 21 }
+        ],
+        // Großer Wagen (Ursa Major)
+        ursa_major: [
+            { x: 5, y: 5 },
+            { x: 15, y: 7 },
+            { x: 25, y: 10 },
+            { x: 30, y: 20 },
+            { x: 15, y: 35 },
+            { x: 5, y: 30 }
+        ],
+        // Löwe (Leo)
+        leo: [
+            { x: 10, y: 10 },
+            { x: 15, y: 5 },
+            { x: 25, y: 7 },
+            { x: 35, y: 5 },
+            { x: 40, y: 10 },
+            { x: 35, y: 20 },
+            { x: 25, y: 25 },
+            { x: 15, y: 20 },
+            { x: 10, y: 10 }
+        ],
+        // Drache (Draco)
+        draco: [
+            { x: 10, y: 40 },
+            { x: 15, y: 35 },
+            { x: 20, y: 30 },
+            { x: 25, y: 25 },
+            { x: 30, y: 20 },
+            { x: 35, y: 15 },
+            { x: 40, y: 10 },
+            { x: 35, y: 5 },
+            { x: 25, y: 5 },
+            { x: 15, y: 10 },
+            { x: 10, y: 15 }
+        ],
+        // Zwillinge (Gemini)
+        gemini: [
+            { x: 10, y: 10 },
+            { x: 15, y: 15 },
+            { x: 20, y: 20 },
+            { x: 25, y: 25 },
+            { x: 30, y: 30 },
+            { x: 35, y: 25 },
+            { x: 40, y: 20 },
+            { x: 35, y: 15 },
+            { x: 30, y: 10 }
+        ],
+        // Kreuz des Südens (Southern Cross)
+        southern_cross: [
+            { x: 25, y: 5 },
+            { x: 25, y: 25 },
+            { x: 15, y: 15 },
+            { x: 35, y: 15 }
+        ],
+        // Pegasus (Quadrat)
+        pegasus: [
+            { x: 10, y: 10 },
+            { x: 10, y: 40 },
+            { x: 40, y: 40 },
+            { x: 40, y: 10 },
+            { x: 10, y: 10 }
         ]
     };
 
