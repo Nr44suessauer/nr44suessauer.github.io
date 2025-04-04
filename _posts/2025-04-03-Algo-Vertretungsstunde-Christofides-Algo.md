@@ -108,7 +108,12 @@ featured: false
                     <button onclick="updateNumPoints()">Zufällige Punkte</button>
                     <button onclick="importNNPoints()">NN-Punkte importieren</button>
                     <select id="constellationSelect" onchange="toggleConstellation(this.value)" style="height:30px;">
-                        <!-- Optionen für Christofides -->
+                        <option value="">Sternenbild wählen...</option>
+                        <option value="libra">Waage (Libra) - 10 Punkte</option>
+                        <option value="orion">Orion - 10 Punkte</option>
+                        <option value="ursa_minor">Kleiner Bär - 7 Punkte</option>
+                        <option value="cassiopeia">Kassiopeia - 5 Punkte</option>
+                        <option value="cygnus">Schwan - 9 Punkte</option>
                     </select>
                     <button onclick="downloadGraph()">Graph herunterladen</button>
                 </div>
