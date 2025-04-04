@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://nr44suessauer.github.io/feed.xml" rel="self" type="application/atom+xml"/><link href="https://nr44suessauer.github.io/" rel="alternate" type="text/html" hreflang="en"/><updated>2025-04-04T16:23:04+00:00</updated><id>https://nr44suessauer.github.io/feed.xml</id><title type="html">DeadlineDriven.dev/elopment</title><subtitle>Personal blog of Marc Nauendorf, a computer scientist and software engineer. </subtitle><entry><title type="html">Christofides Algorithm &amp;amp; Nearest Neigbhor | Compare</title><link href="https://nr44suessauer.github.io/blog/2025/Algo-Vertretungsstunde-Christofides-Algo/" rel="alternate" type="text/html" title="Christofides Algorithm &amp;amp; Nearest Neigbhor | Compare"/><published>2025-04-02T10:00:00+00:00</published><updated>2025-04-02T10:00:00+00:00</updated><id>https://nr44suessauer.github.io/blog/2025/Algo-Vertretungsstunde-Christofides-Algo</id><content type="html" xml:base="https://nr44suessauer.github.io/blog/2025/Algo-Vertretungsstunde-Christofides-Algo/"><![CDATA[<h2 id="still-working-at--official-release-1004-">STILL WORKING AT : official Release 10.04 |</h2> <head> <title>Christofides Algorithm Animation</title> <style>.container{display:flex}.animation-container{flex:1}#infoPanel{flex:0 0 300px;margin-left:20px;background:#f2f2f2;padding:10px;font-family:sans-serif;font-size:14px;overflow-y:auto;max-height:900px}canvas{border:1px solid black;display:block}.controls>div{margin:10px 0}.controls>div>*{margin-right:10px}#speedSlider,#numPoints{transform:scale(1);transform-origin:left center}</style> </head> <body> <div class="container"> <div class="animation-container"> <div class="controls"> <div> <button onclick="nextStep()">Nächster Schritt</button> <button onclick="resetAnimation()">Reset</button> <button onclick="toggleAutoAnimation()">Animation Start/Stop</button> <label for="speedSlider">Geschwindigkeit:</label> <input type="range" id="speedSlider" min="50" max="200" step="1" value="100"/> </div> <div> <label for="numPoints">Anzahl der Punkte:</label> <input type="number" id="numPoints" min="3" max="25" value="4" style="width:50px; height:30px;"/> <button onclick="updateNumPoints()">Punkte Aktualisieren</button> <button onclick="toggleConstellation()">Sternenbild</button> <button onclick="downloadGraph()">Graph herunterladen</button> </div> </div> <canvas id="canvas" width="800" height="600"></canvas> </div> <div id="infoPanel"> <h3>Animationsdaten</h3> <div id="dataOutput">Warte auf den ersten Schritt...</div> </div> </div> <script>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://nr44suessauer.github.io/feed.xml" rel="self" type="application/atom+xml"/><link href="https://nr44suessauer.github.io/" rel="alternate" type="text/html" hreflang="en"/><updated>2025-04-04T16:44:18+00:00</updated><id>https://nr44suessauer.github.io/feed.xml</id><title type="html">DeadlineDriven.dev/elopment</title><subtitle>Personal blog of Marc Nauendorf, a computer scientist and software engineer. </subtitle><entry><title type="html">Christofides Algorithm &amp;amp; Nearest Neigbhor | Compare</title><link href="https://nr44suessauer.github.io/blog/2025/Algo-Vertretungsstunde-Christofides-Algo/" rel="alternate" type="text/html" title="Christofides Algorithm &amp;amp; Nearest Neigbhor | Compare"/><published>2025-04-02T10:00:00+00:00</published><updated>2025-04-02T10:00:00+00:00</updated><id>https://nr44suessauer.github.io/blog/2025/Algo-Vertretungsstunde-Christofides-Algo</id><content type="html" xml:base="https://nr44suessauer.github.io/blog/2025/Algo-Vertretungsstunde-Christofides-Algo/"><![CDATA[<h2 id="still-working-at--official-release-1004-">STILL WORKING AT : official Release 10.04 |</h2> <head> <title>Christofides Algorithm Animation</title> <style>.container{display:flex}.animation-container{flex:1}#infoPanel{flex:0 0 300px;margin-left:20px;background:#f2f2f2;padding:10px;font-family:sans-serif;font-size:14px;overflow-y:auto;max-height:900px}canvas{border:1px solid black;display:block}.controls>div{margin:10px 0}.controls>div>*{margin-right:10px}#speedSlider,#numPoints{transform:scale(1);transform-origin:left center}</style> </head> <body> <div class="container"> <div class="animation-container"> <div class="controls"> <div> <button onclick="nextStep()">Nächster Schritt</button> <button onclick="resetAnimation()">Reset</button> <button onclick="toggleAutoAnimation()">Animation Start/Stop</button> <label for="speedSlider">Geschwindigkeit:</label> <input type="range" id="speedSlider" min="50" max="200" step="1" value="100"/> </div> <div> <label for="numPoints">Anzahl der Punkte:</label> <input type="number" id="numPoints" min="3" max="25" value="4" style="width:50px; height:30px;"/> <button onclick="updateNumPoints()">Punkte Aktualisieren</button> <button onclick="toggleConstellation()">Sternenbild</button> <button onclick="downloadGraph()">Graph herunterladen</button> </div> </div> <canvas id="canvas" width="800" height="600"></canvas> </div> <div id="infoPanel"> <h3>Animationsdaten</h3> <div id="dataOutput">Warte auf den ersten Schritt...</div> </div> </div> <script>
 class ChristofidesAnimation {
     constructor(canvas, numNodes = 4) {
         this.canvas = canvas;
@@ -795,14 +795,20 @@ function nnUpdateInfoPanel() {
     const stepDropdown = document.getElementById('nnStepDropdown');
     const stepDetails = document.getElementById('nnStepDetails');
     const fullTable = document.getElementById('nnFullTable');
+    
     if (!dataOutput || !stepDropdown || !nnAnimation) return;
+    
     // Allgemeine Informationen
     let html = "<strong>Algorithmus:</strong> Nearest Neighbor<br>";
     html += "<hr>";
     html += "<strong>Punkte:</strong><br>";
     html += nnAnimation.nodes.map(node => "P" + node.id + ": (" + node.x + ", " + node.y + ")").join("<br>");
     html += "<hr>";
+    
+    // Details des aktuellen Pfads
+    const pathLength = Math.min(nnAnimation.currentPathIndex + 1, nnAnimation.nnPath.length);
     let path = nnAnimation.nnPath.slice(0, pathLength).map(node => "P" + node).join(" → ");
+    
     if (nnAnimation.currentPathIndex >= nnAnimation.selectionSteps.length) {
         let totalLength = 0;
         for (let i = 1; i < nnAnimation.nnPath.length; i++) {
@@ -813,17 +819,19 @@ function nnUpdateInfoPanel() {
         }
         path += `<br><br><span style='font-size: 1.2em;'><strong>Gesamtlänge: ${totalLength.toFixed(2)}</strong></span>`;
     }
+    
     html += `<strong>Aktueller Pfad:</strong><br>${path}`;
     dataOutput.innerHTML = html;
+    
     // Dropdown-Menü aktualisieren
     stepDropdown.innerHTML = '<option value="">Schritt auswählen...</option>';
     nnAnimation.selectionSteps.forEach((step, stepIndex) => {
         stepDropdown.innerHTML += `<option value="${stepIndex}">Schritt ${stepIndex + 1}: P${step.current}</option>`;
     });
-    // Details des aktuellen Pfads
-    const pathLength = Math.min(nnAnimation.currentPathIndex + 1, nnAnimation.nnPath.length);
+    
     // Schritt-Details zurücksetzen
     stepDetails.innerHTML = "";
+    
     // Gesamte Tabelle zurücksetzen
     fullTable.style.display = "none";
     fullTable.innerHTML = "";
