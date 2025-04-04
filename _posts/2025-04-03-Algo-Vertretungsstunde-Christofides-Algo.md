@@ -691,7 +691,6 @@ function drawGraphData() {
     <p></p>
 </div>
 
-
 <head>
     <title>Nearest Neighbor Animation</title>
     <style>
@@ -702,7 +701,7 @@ function drawGraphData() {
             flex: 1;
         }
         #nnInfoPanel {
-            flex: 0 0 300px;
+            flex: 0 0 500px;
             margin-left: 20px;
             background: #f2f2f2;
             padding: 10px;
@@ -720,6 +719,20 @@ function drawGraphData() {
         }
         .nn-controls > div > * {
             margin-right: 10px;
+        }
+        .selection-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+        .selection-table th, .selection-table td {
+            border: 1px solid #ddd;
+            padding: 4px;
+            text-align: center;
+        }
+        .selection-table .selected {
+            background-color: #d4ffd4;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -758,10 +771,12 @@ class NearestNeighborAnimation {
         this.numNodes = numNodes;
         this.nodes = [];
         this.nnPath = [];
-        this.currentPathIndex = 1;    
+        this.selectionSteps = []; // Store selection process
+        this.currentPathIndex = 0;    
         this.init();
         this.drawNodes(true);
     }
+
     drawCoordinateSystem() {
         this.ctx.strokeStyle = "#ccc";
         this.ctx.lineWidth = 0.1;   
@@ -778,10 +793,12 @@ class NearestNeighborAnimation {
             this.ctx.stroke();
         }
     }
+
     init() {
         this.generateNodes();
         this.computeNearestNeighborPath();
     } 
+
     generateNodes() {
         for (let i = 0; i < this.numNodes; i++) {
             this.nodes.push({
@@ -791,32 +808,61 @@ class NearestNeighborAnimation {
             });
         }
     }
+
     distance(a, b) {
         return Math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2);
     }
+
     computeNearestNeighborPath() {
         const startNode = 0;
         const visited = new Set([startNode]);
         this.nnPath = [startNode]; 
+        this.selectionSteps = [];
+        
         let current = startNode;
         while (visited.size < this.numNodes) {
             let nearest = null;
             let minDistance = Infinity;
+            
+            // Create a record for this selection step
+            const currentStep = {
+                current: current,
+                candidates: []
+            };
+            
             for (let i = 0; i < this.numNodes; i++) {
                 if (!visited.has(i)) {
                     const dist = this.distance(this.nodes[current], this.nodes[i]);
+                    
+                    // Store all candidates and their distances
+                    currentStep.candidates.push({
+                        node: i,
+                        distance: dist,
+                        isNearest: false
+                    });
+                    
                     if (dist < minDistance) {
                         minDistance = dist;
                         nearest = i;
                     }
                 }
-            } 
+            }
+            
+            // Mark the selected nearest neighbor
+            const nearestCandidate = currentStep.candidates.find(c => c.node === nearest);
+            if (nearestCandidate) {
+                nearestCandidate.isNearest = true;
+            }
+            
+            this.selectionSteps.push(currentStep);
             current = nearest;
             visited.add(current);
             this.nnPath.push(current);
         } 
-        this.nnPath.push(startNode);
+        
+        this.nnPath.push(startNode); // Return to start
     }  
+
     drawNodes(showCoordinateSystem = false) {
         if (showCoordinateSystem) {
             this.drawCoordinateSystem();
@@ -833,26 +879,83 @@ class NearestNeighborAnimation {
             this.ctx.fillText(label, node.x, node.y - 1.2);
         });
     }  
-    drawPath(index) {
-        if (index <= 0 || index >= this.nnPath.length) return;   
+
+    drawPath(steps) {
+        if (steps <= 0) return;   
+        
+        const pathSegments = Math.min(steps, this.nnPath.length - 1);
+        
         this.ctx.strokeStyle = 'red';
         this.ctx.lineWidth = 0.5;
         this.ctx.beginPath();  
+        
         const startNode = this.nodes[this.nnPath[0]];
         this.ctx.moveTo(startNode.x, startNode.y);  
-        for (let i = 1; i <= index; i++) {
+        
+        for (let i = 1; i <= pathSegments; i++) {
             const node = this.nodes[this.nnPath[i]];
             this.ctx.lineTo(node.x, node.y);
         }  
+        
         this.ctx.stroke();
-    } 
+    }
+    
+    drawSelectionStep(stepIndex) {
+        if (stepIndex < 0 || stepIndex >= this.selectionSteps.length) return;
+        
+        const step = this.selectionSteps[stepIndex];
+        const currentNode = this.nodes[step.current];
+        
+        // Highlight current node
+        this.ctx.beginPath();
+        this.ctx.arc(currentNode.x, currentNode.y, 0.8, 0, Math.PI * 2);
+        this.ctx.fillStyle = 'rgba(0, 128, 255, 0.6)';
+        this.ctx.fill();
+        
+        // Draw lines to all candidate nodes
+        step.candidates.forEach(candidate => {
+            const candidateNode = this.nodes[candidate.node];
+            
+            // Line style depends on whether this is the nearest
+            this.ctx.strokeStyle = candidate.isNearest ? 'green' : '#aaaaaa';
+            this.ctx.lineWidth = candidate.isNearest ? 0.3 : 0.1;
+            this.ctx.setLineDash(candidate.isNearest ? [] : [0.2, 0.2]);
+            
+            this.ctx.beginPath();
+            this.ctx.moveTo(currentNode.x, currentNode.y);
+            this.ctx.lineTo(candidateNode.x, candidateNode.y);
+            this.ctx.stroke();
+            this.ctx.setLineDash([]);
+            
+            // Highlight the nearest neighbor
+            if (candidate.isNearest) {
+                this.ctx.beginPath();
+                this.ctx.arc(candidateNode.x, candidateNode.y, 0.8, 0, Math.PI * 2);
+                this.ctx.fillStyle = 'rgba(0, 255, 0, 0.6)';
+                this.ctx.fill();
+            }
+        });
+    }
+
     nextStep() {
-        this.drawPath(this.currentPathIndex);
-        this.currentPathIndex++;   
-        if (this.currentPathIndex >= this.nnPath.length) {
+        // Clear and redraw
+        this.ctx.clearRect(0, 0, 100, 50);
+        this.drawNodes(true);
+        
+        if (this.currentPathIndex < this.selectionSteps.length) {
+            // Show selection process
+            this.drawSelectionStep(this.currentPathIndex);
+            this.drawPath(this.currentPathIndex);
+            this.currentPathIndex++;
+        } else if (this.currentPathIndex === this.selectionSteps.length) {
+            // Final path
+            this.drawPath(this.nnPath.length - 1);
+            this.currentPathIndex++;
+        } else {
             nnStopAutoAnimation();
         }
-    } 
+    }
+
     importChristofidesPoints() {
         // Check if the Christofides animation exists
         if (typeof animation !== 'undefined' && animation && animation.nodes) {
@@ -863,14 +966,16 @@ class NearestNeighborAnimation {
             this.computeNearestNeighborPath();
             // Reset the animation
             this.ctx.clearRect(0, 0, 100, 50);
-            this.currentPathIndex = 1;
+            this.currentPathIndex = 0;
             this.drawNodes(true);
         }
     }
 }
+
 // Global variables for Nearest Neighbor
 let nnAnimation = null;
 let nnAutoIntervalId = null;
+
 // Initialize when the page loads
 document.addEventListener('DOMContentLoaded', function() {
     const canvas = document.getElementById('nnCanvas');
@@ -879,44 +984,87 @@ document.addEventListener('DOMContentLoaded', function() {
         nnUpdateInfoPanel();
     }
 });
+
 function nnUpdateInfoPanel() {
     const dataOutput = document.getElementById('nnDataOutput');
     if (!dataOutput || !nnAnimation) return;
+
     let html = "<strong>Algorithmus:</strong> Nearest Neighbor<br>";
     html += "<hr>";
     html += "<strong>Punkte:</strong><br>";
     html += nnAnimation.nodes.map(node => "P" + node.id + ": (" + node.x + ", " + node.y + ")").join("<br>");
     html += "<hr>";
+
+    // Tabelle mit allen Schritten
+    html += "<strong>Schritte:</strong><br>";
+    html += "<table class='selection-table'>";
+    html += "<tr><th>Schritt</th><th>Aktueller Knoten</th><th>Kandidat</th><th>Entfernung</th><th>Ausgewählt</th></tr>";
+
+    nnAnimation.selectionSteps.forEach((step, stepIndex) => {
+        step.candidates.forEach(candidate => {
+            html += "<tr" + (candidate.isNearest ? " class='selected'" : "") + ">";
+            html += `<td>${stepIndex + 1}</td>`;
+            html += `<td>P${step.current}</td>`;
+            html += `<td>P${candidate.node}</td>`;
+            html += `<td>${candidate.distance.toFixed(2)}</td>`;
+            html += `<td>${candidate.isNearest ? "✓" : ""}</td>`;
+            html += "</tr>";
+        });
+    });
+
+    html += "</table>";
+    html += "<hr>";
+
+    // Aktueller Pfad
     html += "<strong>Aktueller Pfad:</strong><br>";
-    if (nnAnimation.currentPathIndex <= 1) {
-        html += "Beginne bei Knoten " + nnAnimation.nnPath[0];
-    } else {
-        let path = nnAnimation.nnPath.slice(0, nnAnimation.currentPathIndex).join(" → ");
-        if (nnAnimation.currentPathIndex >= nnAnimation.nnPath.length) {
-            let totalLength = 0;
-            for (let i = 1; i < nnAnimation.nnPath.length; i++) {
-                totalLength += nnAnimation.distance(nnAnimation.nodes[nnAnimation.nnPath[i-1]], nnAnimation.nodes[nnAnimation.nnPath[i]]);
-            }
-            path += "<br>Gesamtlänge: " + totalLength.toFixed(2);
+    const pathLength = Math.min(nnAnimation.currentPathIndex + 1, nnAnimation.nnPath.length);
+    let path = nnAnimation.nnPath.slice(0, pathLength).map(node => "P" + node).join(" → ");
+
+    if (nnAnimation.currentPathIndex >= nnAnimation.selectionSteps.length) {
+        let totalLength = 0;
+        for (let i = 1; i < nnAnimation.nnPath.length; i++) {
+            totalLength += nnAnimation.distance(
+                nnAnimation.nodes[nnAnimation.nnPath[i - 1]],
+                nnAnimation.nodes[nnAnimation.nnPath[i]]
+            );
         }
         html += path;
+        html += "<br><br>Gesamtlänge: <strong>" + totalLength.toFixed(2) + "</strong>";
+    } else {
+        html += path;
     }
+
     dataOutput.innerHTML = html;
 }
+
 function nnNextStep() {
     if (!nnAnimation) return;
+
+    // Zeichne den nächsten Schritt
     nnAnimation.nextStep();
+
+    // Aktualisiere das Info-Panel
     nnUpdateInfoPanel();
+
+    // Wenn die Animation abgeschlossen ist, zeige die vollständige Route
+    if (nnAnimation.currentPathIndex > nnAnimation.selectionSteps.length) {
+        nnAnimation.ctx.clearRect(0, 0, 100, 50); // Canvas bereinigen
+        nnAnimation.drawNodes(true); // Knoten erneut zeichnen
+        nnAnimation.drawPath(nnAnimation.nnPath.length - 1); // Finale Route zeichnen
+        nnUpdateInfoPanel(); // Finale Tabelle aktualisieren
+    }
 }
+
 function nnResetAnimation() {
     nnStopAutoAnimation();
     if (nnAnimation) {
         nnAnimation.ctx.clearRect(0, 0, 100, 50);
-        nnAnimation.currentPathIndex = 1;
+        nnAnimation.currentPathIndex = 0;
         nnAnimation.drawNodes(true);
         nnUpdateInfoPanel();
     }
 }
+
 function nnToggleAutoAnimation() {
     if (nnAutoIntervalId) {
         nnStopAutoAnimation();
@@ -924,6 +1072,7 @@ function nnToggleAutoAnimation() {
         nnStartAutoAnimation();
     }
 }
+
 function nnStartAutoAnimation() {
     if (nnAutoIntervalId) return;
     const slider = document.getElementById('nnSpeedSlider');
@@ -934,18 +1083,21 @@ function nnStartAutoAnimation() {
         nnNextStep();
     }, speed);
 }
+
 function nnStopAutoAnimation() {
     if (nnAutoIntervalId) {
         clearInterval(nnAutoIntervalId);
         nnAutoIntervalId = null;
     }
 }
+
 function nnImportPoints() {
     if (nnAnimation) {
         nnAnimation.importChristofidesPoints();
-        nnUpdateInfoPanel();
+        nnResetAnimation();
     }
 }
+
 function nnDownloadGraph() {
     const canvas = document.getElementById('nnCanvas');
     if (!canvas) return;
@@ -961,6 +1113,7 @@ function nnDownloadGraph() {
     link.href = tmpCanvas.toDataURL('image/png');
     link.click();
 }
+
 // Add event listener for speed slider
 document.getElementById('nnSpeedSlider')?.addEventListener('input', function() {
     if (nnAutoIntervalId) {
