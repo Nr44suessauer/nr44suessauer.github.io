@@ -787,8 +787,7 @@ function importNNPoints() {
                 <div>
                     <label for="nnNumPoints">Anzahl der Punkte:</label>
                     <input type="number" id="nnNumPoints" min="3" max="25" value="4" style="width:50px; height:30px;">
-                    <button onclick="nnUpdateNumPoints()">Punkte Aktualisieren</button>
-                    <button onclick="nnGenerateRandomPoints()">Zufällige Punkte</button>
+                    <button onclick="nnUpdateNumPoints()">Zufällige Punkte</button>
                     <button onclick="nnImportPoints()">Christofides Punkte importieren</button>
                     <button onclick="nnToggleConstellation()">Sternenbild</button>
                     <button onclick="nnDownloadGraph()">Graph herunterladen</button>
@@ -1331,6 +1330,24 @@ function nnGenerateConstellationNodes() {
     
     return nodes;
 }
+
+function nnGenerateRandomPoints() {
+    nnStopAutoAnimation();
+    
+    // Aktuelle Anzahl der Punkte beibehalten
+    const numPoints = nnAnimation.numNodes;
+    
+    // Neue Animation erstellen mit gleicher Punktanzahl
+    nnAnimation = new NearestNeighborAnimation(document.getElementById('nnCanvas'), numPoints);
+    
+    // Canvas löschen und neu zeichnen
+    nnAnimation.ctx.clearRect(0, 0, 100, 50);
+    nnAnimation.drawNodes(true);
+    
+    // Info-Panel aktualisieren
+    nnUpdateInfoPanel();
+}
+
 // Add event listener for speed slider
 document.getElementById('nnSpeedSlider')?.addEventListener('input', function() {
     if (nnAutoIntervalId) {
@@ -1342,5 +1359,28 @@ document.getElementById('nnSpeedSlider')?.addEventListener('input', function() {
         }, speed);
     }
 });
+
+function nnDownloadGraph() {
+    const canvas = document.getElementById('nnCanvas');
+    if (!canvas) return;
+    
+    const tmpCanvas = document.createElement('canvas');
+    tmpCanvas.width = canvas.width;
+    tmpCanvas.height = canvas.height;
+    const tmpCtx = tmpCanvas.getContext('2d');
+    
+    // Weißen Hintergrund zeichnen
+    tmpCtx.fillStyle = 'white';
+    tmpCtx.fillRect(0, 0, tmpCanvas.width, tmpCanvas.height);
+    
+    // Original Canvas auf temporäres Canvas kopieren
+    tmpCtx.drawImage(canvas, 0, 0);
+    
+    // Download initiieren
+    const link = document.createElement('a');
+    link.download = 'nearest-neighbor-graph.png';
+    link.href = tmpCanvas.toDataURL('image/png');
+    link.click();
+}
     </script>
 </body>
