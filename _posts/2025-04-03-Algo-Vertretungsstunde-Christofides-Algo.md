@@ -121,6 +121,13 @@ featured: false
                         <option value="gemini">Zwillinge - 9 Punkte</option>
                         <option value="southern_cross">Kreuz des Südens - 4 Punkte</option>
                         <option value="pegasus">Pegasus - 5 Punkte</option>
+                        <option value="andromeda">Andromeda - 7 Punkte</option>
+                        <option value="sagittarius">Schütze - 8 Punkte</option>
+                        <option value="scorpius">Skorpion - 10 Punkte</option>
+                        <option value="cancer">Krebs - 6 Punkte</option>
+                        <option value="pisces">Fische - 11 Punkte</option>
+                        <option value="aquila">Adler - 7 Punkte</option>
+                        <option value="hercules">Herkules - 8 Punkte</option>
                     </select>
                     <button onclick="downloadGraph()">Graph herunterladen</button>
                 </div>
@@ -167,6 +174,13 @@ featured: false
                         <option value="gemini">Zwillinge - 9 Punkte</option>
                         <option value="southern_cross">Kreuz des Südens - 4 Punkte</option>
                         <option value="pegasus">Pegasus - 5 Punkte</option>
+                        <option value="andromeda">Andromeda - 7 Punkte</option>
+                        <option value="sagittarius">Schütze - 8 Punkte</option>
+                        <option value="scorpius">Skorpion - 10 Punkte</option>
+                        <option value="cancer">Krebs - 6 Punkte</option>
+                        <option value="pisces">Fische - 11 Punkte</option>
+                        <option value="aquila">Adler - 7 Punkte</option>
+                        <option value="hercules">Herkules - 8 Punkte</option>
                     </select>
                     <button onclick="nnDownloadGraph()">Graph herunterladen</button>
                 </div>
@@ -306,6 +320,85 @@ featured: false
             { x: 10, y: 40 },
             { x: 40, y: 40 },
             { x: 40, y: 10 },
+            { x: 10, y: 10 }
+        ],
+        // Zusätzliche Sternbilder
+        // Andromeda
+        andromeda: [
+            { x: 5, y: 10 },
+            { x: 15, y: 15 },
+            { x: 25, y: 17 },
+            { x: 35, y: 15 },
+            { x: 40, y: 5 },
+            { x: 42, y: 12 },
+            { x: 45, y: 20 }
+        ],
+        // Schütze (Sagittarius) - stilisiert als Bogen und Pfeil
+        sagittarius: [
+            { x: 10, y: 40 },
+            { x: 20, y: 30 },
+            { x: 30, y: 25 },
+            { x: 40, y: 27 },
+            { x: 45, y: 35 },
+            { x: 35, y: 20 },
+            { x: 25, y: 15 },
+            { x: 15, y: 15 }
+        ],
+        // Skorpion (Scorpius)
+        scorpius: [
+            { x: 10, y: 35 },
+            { x: 15, y: 30 },
+            { x: 20, y: 25 },
+            { x: 25, y: 20 },
+            { x: 30, y: 15 },
+            { x: 35, y: 10 },
+            { x: 35, y: 15 },
+            { x: 40, y: 15 },
+            { x: 45, y: 10 },
+            { x: 45, y: 5 }
+        ],
+        // Krebs (Cancer)
+        cancer: [
+            { x: 15, y: 25 },
+            { x: 20, y: 15 },
+            { x: 25, y: 10 },
+            { x: 30, y: 15 },
+            { x: 35, y: 25 },
+            { x: 25, y: 35 }
+        ],
+        // Fische (Pisces)
+        pisces: [
+            { x: 5, y: 15 },
+            { x: 10, y: 10 },
+            { x: 15, y: 15 },
+            { x: 20, y: 20 },
+            { x: 25, y: 25 },
+            { x: 30, y: 30 },
+            { x: 35, y: 35 },
+            { x: 40, y: 30 },
+            { x: 45, y: 25 },
+            { x: 40, y: 20 },
+            { x: 35, y: 15 }
+        ],
+        // Adler (Aquila)
+        aquila: [
+            { x: 25, y: 5 },
+            { x: 20, y: 15 },
+            { x: 15, y: 25 },
+            { x: 25, y: 20 },
+            { x: 35, y: 25 },
+            { x: 30, y: 15 },
+            { x: 25, y: 5 }
+        ],
+        // Herkules
+        hercules: [
+            { x: 10, y: 10 },
+            { x: 15, y: 25 },
+            { x: 25, y: 30 },
+            { x: 35, y: 25 },
+            { x: 40, y: 10 },
+            { x: 30, y: 15 },
+            { x: 20, y: 15 },
             { x: 10, y: 10 }
         ]
     };
