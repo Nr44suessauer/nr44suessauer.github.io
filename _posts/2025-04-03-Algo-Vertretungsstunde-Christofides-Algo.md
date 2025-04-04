@@ -107,7 +107,9 @@ featured: false
                     <input type="number" id="numPoints" min="3" max="25" value="4" style="width:50px; height:30px;">
                     <button onclick="updateNumPoints()">Zufällige Punkte</button>
                     <button onclick="importNNPoints()">NN-Punkte importieren</button>
-                    <button onclick="toggleConstellation()">Sternenbild</button>
+                    <select id="constellationSelect" onchange="toggleConstellation(this.value)" style="height:30px;">
+                        <!-- Optionen für Christofides -->
+                    </select>
                     <button onclick="downloadGraph()">Graph herunterladen</button>
                 </div>
             </div>
@@ -137,9 +139,16 @@ featured: false
                 <div>
                     <label for="nnNumPoints">Anzahl der Punkte:</label>
                     <input type="number" id="nnNumPoints" min="3" max="25" value="4" style="width:50px; height:30px;">
-                    <button onclick="nnGenerateRandomPoints()">Zufällige Punkte</button>
+                    <button onclick="nnUpdateNumPoints()">Zufällige Punkte</button>
                     <button onclick="nnImportPoints()">Christofides Punkte importieren</button>
-                    <button onclick="nnToggleConstellation()">Sternenbild</button>
+                    <select id="nnConstellationSelect" onchange="nnToggleConstellation(this.value)" style="height:30px;">
+                        <option value="">Sternenbild wählen...</option>
+                        <option value="libra">Waage (Libra) - 10 Punkte</option>
+                        <option value="orion">Orion - 10 Punkte</option>
+                        <option value="ursa_minor">Kleiner Bär - 7 Punkte</option>
+                        <option value="cassiopeia">Kassiopeia - 5 Punkte</option>
+                        <option value="cygnus">Schwan - 9 Punkte</option>
+                    </select>
                     <button onclick="nnDownloadGraph()">Graph herunterladen</button>
                 </div>
             </div>
@@ -160,6 +169,95 @@ featured: false
     </div>
     <!-- ================ JAVASCRIPT CODE ================ -->
     <script>
+    // Gemeinsame Konstante für die Sternbildkoordinaten
+    const CONSTELLATIONS = {
+        // Waage (Libra)
+        libra: [
+            { x: 5, y: 21 },
+            { x: 13, y: 29 },
+            { x: 21, y: 25 },
+            { x: 29, y: 33 },
+            { x: 37, y: 25 },
+            { x: 45, y: 29 },
+            { x: 45, y: 21 },
+            { x: 37, y: 17 },
+            { x: 29, y: 13 },
+            { x: 21, y: 17 }
+        ],
+        // Orion (Der Jäger)
+        orion: [
+            { x: 21, y: 5 },
+            { x: 13, y: 13 },
+            { x: 5, y: 21 },
+            { x: 13, y: 29 },
+            { x: 21, y: 29 },
+            { x: 29, y: 29 },
+            { x: 37, y: 21 },
+            { x: 29, y: 13 },
+            { x: 21, y: 37 },
+            { x: 21, y: 45 }
+        ],
+        // Kleiner Wagen (Ursa Minor)
+        ursa_minor: [
+            { x: 5, y: 5 },
+            { x: 13, y: 17 },
+            { x: 21, y: 25 },
+            { x: 29, y: 33 },
+            { x: 21, y: 41 },
+            { x: 29, y: 45 },
+            { x: 45, y: 37 }
+        ],
+        // Kassiopeia (W-Form)
+        cassiopeia: [
+            { x: 5, y: 5 },
+            { x: 13, y: 29 },
+            { x: 25, y: 5 },
+            { x: 37, y: 29 },
+            { x: 45, y: 5 }
+        ],
+        // Schwan (Cygnus/Nördliches Kreuz)
+        cygnus: [
+            { x: 25, y: 5 },
+            { x: 25, y: 13 },
+            { x: 25, y: 21 },
+            { x: 25, y: 29 },
+            { x: 25, y: 45 },
+            { x: 5, y: 21 },
+            { x: 13, y: 21 },
+            { x: 37, y: 21 },
+            { x: 45, y: 21 }
+        ]
+    };
+
+    // Funktion zur Erstellung von Sternbild-Knoten für beide Algorithmen
+    function createConstellationNodes(selectedType, count) {
+        const baseNodes = CONSTELLATIONS[selectedType];
+        if (!baseNodes) return [];
+        
+        let nodes = [];
+        
+        if (count === baseNodes.length || count <= 0) {
+            // Wenn die Anzahl gleich ist oder keine Anzahl angegeben wurde, 
+            // verwenden wir alle Punkte des Sternbilds
+            nodes = baseNodes.map((pt, i) => ({ ...pt, id: i }));
+        } else {
+            // Interpolation für andere Anzahlen
+            const totalSegments = baseNodes.length - 1;
+            for (let i = 0; i < count; i++) {
+                const t = i / (count - 1);
+                const segment = Math.min(Math.floor(t * totalSegments), totalSegments - 1);
+                const localT = (t * totalSegments) - segment;
+                const p0 = baseNodes[segment];
+                const p1 = baseNodes[segment + 1];
+                const x = p0.x + (p1.x - p0.x) * localT;
+                const y = p0.y + (p1.y - p0.y) * localT;
+                nodes.push({ x: Math.round(x), y: Math.round(y), id: i });
+            }
+        }
+        
+        return nodes;
+    }
+
     // ================ CHRISTOFIDES ALGORITHMUS ================  
     // Christofides Animation Klasse
     class ChristofidesAnimation {
@@ -599,96 +697,38 @@ featured: false
         updateInfoPanel();
     }
 
-    function toggleConstellation() {
-        updateNumPoints()
-        animation.nodes = generateConstellationNodes();
-        animation.ctx.clearRect(0, 0, 50, 50);
+    function toggleConstellation(selectedType) {
+        stopAutoAnimation();
+        
+        if (!selectedType) return; // Wenn keine Auswahl getroffen wurde
+        
+        animation = new ChristofidesAnimation(document.getElementById('canvas'), 0); // 0, wird überschrieben
+        
+        // Nutze die gemeinsame Funktion, um die Sternbildknoten zu erstellen
+        // Mit 0 als count werden alle Originalpunkte des Sternbildes verwendet
+        animation.nodes = createConstellationNodes(selectedType, 0);
+        animation.numNodes = animation.nodes.length;
+        
+        animation.mstEdges = [];
+        animation.oddNodes = [];
+        animation.matchingEdges = [];
+        animation.eulerianCircuit = [];
+        animation.tspPath = [];
+        animation.drawnEdges.clear();
+        
+        // Neuberechnung
+        animation.computeMST();
+        animation.findOddNodes();
+        animation.computeMatching();
+        animation.computeEulerianCircuit();
+        animation.computeTSPPath();
+        
+        animation.ctx.clearRect(0, 0, 100, 50);
         animation.drawNodes(true);
-    }
-
-    function generateConstellationNodes() {
-        const constellationTypes = ['libra', 'orion', 'ursa_minor', 'cassiopeia', 'cygnus'];
-        const selectedType = constellationTypes[Math.floor(Math.random() * (5))];   
-        const count = parseInt(document.getElementById('numPoints').value, 10) || 10;   
+        updateInfoPanel();
         
-        const constellations = {
-            // Waage (Libra)
-            libra: [
-                { x: 5, y: 21 },
-                { x: 13, y: 29 },
-                { x: 21, y: 25 },
-                { x: 29, y: 33 },
-                { x: 37, y: 25 },
-                { x: 45, y: 29 },
-                { x: 45, y: 21 },
-                { x: 37, y: 17 },
-                { x: 29, y: 13 },
-                { x: 21, y: 17 }
-            ],
-            // Orion (Der Jäger)
-            orion: [
-                { x: 21, y: 5 },
-                { x: 13, y: 13 },
-                { x: 5, y: 21 },
-                { x: 13, y: 29 },
-                { x: 21, y: 29 },
-                { x: 29, y: 29 },
-                { x: 37, y: 21 },
-                { x: 29, y: 13 },
-                { x: 21, y: 37 },
-                { x: 21, y: 45 }
-            ],
-            // Kleiner Wagen (Ursa Minor)
-            ursa_minor: [
-                { x: 5, y: 5 },
-                { x: 13, y: 17 },
-                { x: 21, y: 25 },
-                { x: 29, y: 33 },
-                { x: 21, y: 41 },
-                { x: 29, y: 45 },
-                { x: 45, y: 37 }
-            ],
-            // Kassiopeia (W-Form)
-            cassiopeia: [
-                { x: 5, y: 5 },
-                { x: 13, y: 29 },
-                { x: 25, y: 5 },
-                { x: 37, y: 29 },
-                { x: 45, y: 5 }
-            ],
-            // Schwan (Cygnus/Nördliches Kreuz)
-            cygnus: [
-                { x: 25, y: 5 },
-                { x: 25, y: 13 },
-                { x: 25, y: 21 },
-                { x: 25, y: 29 },
-                { x: 25, y: 45 },
-                { x: 5, y: 21 },
-                { x: 13, y: 21 },
-                { x: 37, y: 21 },
-                { x: 45, y: 21 }
-            ]
-        };
-        
-        const baseNodes = constellations[selectedType];   
-        let nodes = [];
-        
-        if (count === baseNodes.length) {
-            nodes = baseNodes.map((pt, i) => ({ ...pt, id: i }));
-        } else {
-            const totalSegments = baseNodes.length - 1;
-            for (let i = 0; i < count; i++) {
-                const t = i / (count - 1);
-                const segment = Math.min(Math.floor(t * totalSegments), totalSegments - 1);
-                const localT = (t * totalSegments) - segment;
-                const p0 = baseNodes[segment];
-                const p1 = baseNodes[segment + 1];
-                const x = p0.x + (p1.x - p0.x) * localT;
-                const y = p0.y + (p1.y - p0.y) * localT;
-                nodes.push({ x: Math.round(x), y: Math.round(y), id: i });
-            }
-        }   
-        return nodes;
+        // Aktualisiere das Zahlenfeld mit der tatsächlichen Punktanzahl
+        document.getElementById('numPoints').value = animation.nodes.length;
     }
 
     function downloadGraph() {
@@ -1177,105 +1217,37 @@ featured: false
         }
     }
 
-    function nnToggleConstellation() {
+    function nnToggleConstellation(selectedType) {
+        console.log("nnToggleConstellation aufgerufen mit:", selectedType);
         nnStopAutoAnimation();
         
-        const numPoints = nnAnimation.numNodes;
-        
-        nnAnimation = new NearestNeighborAnimation(document.getElementById('nnCanvas'), numPoints);
-        
-        nnAnimation.nodes = nnGenerateConstellationNodes();
-        nnAnimation.numNodes = nnAnimation.nodes.length;
-        
-        nnAnimation.computeNearestNeighborPath();
-        
-        nnAnimation.currentPathIndex = 0;
-        nnAnimation.ctx.clearRect(0, 0, 100, 50);
-        nnAnimation.drawNodes(true);
-        
-        nnUpdateInfoPanel();
-    }
-
-    function nnGenerateConstellationNodes() {
-        const constellationTypes = ['libra', 'orion', 'ursa_minor', 'cassiopeia', 'cygnus'];
-        const selectedType = constellationTypes[Math.floor(Math.random() * constellationTypes.length)];
-        
-        const count = parseInt(document.getElementById('nnNumPoints').value, 10) || 4;
-        
-        const constellations = {
-            libra: [
-                { x: 5, y: 21 },
-                { x: 13, y: 29 },
-                { x: 21, y: 25 },
-                { x: 29, y: 33 },
-                { x: 37, y: 25 },
-                { x: 45, y: 29 },
-                { x: 45, y: 21 },
-                { x: 37, y: 17 },
-                { x: 29, y: 13 },
-                { x: 21, y: 17 }
-            ],
-            orion: [
-                { x: 21, y: 5 },
-                { x: 13, y: 13 },
-                { x: 5, y: 21 },
-                { x: 13, y: 29 },
-                { x: 21, y: 29 },
-                { x: 29, y: 29 },
-                { x: 37, y: 21 },
-                { x: 29, y: 13 },
-                { x: 21, y: 37 },
-                { x: 21, y: 45 }
-            ],
-            ursa_minor: [
-                { x: 5, y: 5 },
-                { x: 13, y: 17 },
-                { x: 21, y: 25 },
-                { x: 29, y: 33 },
-                { x: 21, y: 41 },
-                { x: 29, y: 45 },
-                { x: 45, y: 37 }
-            ],
-            cassiopeia: [
-                { x: 5, y: 5 },
-                { x: 13, y: 29 },
-                { x: 25, y: 5 },
-                { x: 37, y: 29 },
-                { x: 45, y: 5 }
-            ],
-            cygnus: [
-                { x: 25, y: 5 },
-                { x: 25, y: 13 },
-                { x: 25, y: 21 },
-                { x: 25, y: 29 },
-                { x: 25, y: 45 },
-                { x: 5, y: 21 },
-                { x: 13, y: 21 },
-                { x: 37, y: 21 },
-                { x: 45, y: 21 }
-            ]
-        };
-        
-        const baseNodes = constellations[selectedType];
-        let nodes = [];
-        
-        if (count === baseNodes.length) {
-            nodes = baseNodes.map((pt, i) => ({ ...pt, id: i }));
-        } else {
-            const totalSegments = baseNodes.length - 1;
-            for (let i = 0; i < count; i++) {
-                const t = i / (count - 1);
-                const segment = Math.min(Math.floor(t * totalSegments), totalSegments - 1);
-                const localT = (t * totalSegments) - segment;
-                const p0 = baseNodes[segment];
-                const p1 = baseNodes[segment + 1];
-                const x = p0.x + (p1.x - p0.x) * localT;
-                const y = p0.y + (p1.y - p0.y) * localT;
-                nodes.push({ x: Math.round(x), y: Math.round(y), id: i });
-            }
+        if (!selectedType) {
+            console.log("Kein Sternenbild ausgewählt");
+            return;
         }
         
-        return nodes;
+        try {
+            nnAnimation = new NearestNeighborAnimation(document.getElementById('nnCanvas'), 0);
+            console.log("Animation erstellt");
+            
+            nnAnimation.nodes = createConstellationNodes(selectedType, 0);
+            console.log("Knoten erzeugt:", nnAnimation.nodes.length);
+            nnAnimation.numNodes = nnAnimation.nodes.length;
+            
+            nnAnimation.computeNearestNeighborPath();
+            console.log("Pfad berechnet");
+            
+            nnAnimation.currentPathIndex = 0;
+            nnAnimation.ctx.clearRect(0, 0, 100, 50);
+            nnAnimation.drawNodes(true);
+            
+            nnUpdateInfoPanel();
+            console.log("UI aktualisiert");
+            
+            document.getElementById('nnNumPoints').value = nnAnimation.nodes.length;
+        } catch (error) {
+            console.error("Fehler in nnToggleConstellation:", error);
+        }
     }
 
     function nnGenerateRandomPoints() {
