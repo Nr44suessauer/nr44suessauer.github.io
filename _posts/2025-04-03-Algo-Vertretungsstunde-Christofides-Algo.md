@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Christofides Algorithm
+title: Christofides Algorithm & Nearest Neigbhor | Compare
 date: 2025-04-02 10:00:00
 description: Algorithm & Datastructure
 tags: Algo Christofides NearestNeighbor BruteForce
@@ -690,3 +690,287 @@ function drawGraphData() {
 <div style="display: flex; align-items: center; margin-top: 10px;">
     <p></p>
 </div>
+
+
+<head>
+    <title>Nearest Neighbor Animation</title>
+    <style>
+        .nn-container {
+            display: flex;
+        }
+        .nn-animation-container {
+            flex: 1;
+        }
+        #nnInfoPanel {
+            flex: 0 0 300px;
+            margin-left: 20px;
+            background: #f2f2f2;
+            padding: 10px;
+            font-family: sans-serif;
+            font-size: 14px;
+            overflow-y: auto;
+            max-height: 900px;
+        }
+        #nnCanvas {
+            border: 1px solid black;
+            display: block;
+        }
+        .nn-controls > div {
+            margin: 10px 0;
+        }
+        .nn-controls > div > * {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h3>Nearest Neighbor Algorithm</h3>
+    <div class="nn-container">
+        <div class="nn-animation-container">
+            <div class="nn-controls">
+                <div>
+                    <button onclick="nnNextStep()">Nächster Schritt</button>
+                    <button onclick="nnResetAnimation()">Reset</button>
+                    <button onclick="nnToggleAutoAnimation()">Animation Start/Stop</button>
+                    <label for="nnSpeedSlider">Geschwindigkeit:</label>
+                    <input type="range" id="nnSpeedSlider" min="50" max="200" step="1" value="100">
+                </div>
+                <div>
+                    <button onclick="nnImportPoints()">Punkte importieren</button>
+                    <button onclick="nnDownloadGraph()">Graph herunterladen</button>
+                </div>
+            </div>
+            <canvas id="nnCanvas" width="800" height="600"></canvas>
+        </div>
+        <div id="nnInfoPanel">
+            <h3>Nearest Neighbor Daten</h3>
+            <div id="nnDataOutput">Warte auf den ersten Schritt...</div>
+        </div>
+    </div>
+    <script>
+// Nearest Neighbor Animation Class
+class NearestNeighborAnimation {
+    constructor(canvas, numNodes = 4) {
+        this.canvas = canvas;
+        this.ctx = canvas.getContext('2d');
+        this.ctx.setTransform(1, 0, 0, 1, 0, 0);
+        this.ctx.scale(canvas.width / 50, canvas.height / 50);
+        this.numNodes = numNodes;
+        this.nodes = [];
+        this.nnPath = [];
+        this.currentPathIndex = 1;    
+        this.init();
+        this.drawNodes(true);
+    }
+    drawCoordinateSystem() {
+        this.ctx.strokeStyle = "#ccc";
+        this.ctx.lineWidth = 0.1;   
+        for (let x = 0; x <= 100; x += 10) {
+            this.ctx.beginPath();
+            this.ctx.moveTo(x, 0);
+            this.ctx.lineTo(x, 50);
+            this.ctx.stroke();
+        }  
+        for (let y = 0; y <= 50; y += 5) {
+            this.ctx.beginPath();
+            this.ctx.moveTo(0, y);
+            this.ctx.lineTo(100, y);
+            this.ctx.stroke();
+        }
+    }
+    init() {
+        this.generateNodes();
+        this.computeNearestNeighborPath();
+    } 
+    generateNodes() {
+        for (let i = 0; i < this.numNodes; i++) {
+            this.nodes.push({
+                x: Math.floor(Math.random() * (40 - 5 + 1)) + 5,
+                y: Math.floor(Math.random() * (40 - 5 + 1)) + 5,
+                id: i
+            });
+        }
+    }
+    distance(a, b) {
+        return Math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2);
+    }
+    computeNearestNeighborPath() {
+        const startNode = 0;
+        const visited = new Set([startNode]);
+        this.nnPath = [startNode]; 
+        let current = startNode;
+        while (visited.size < this.numNodes) {
+            let nearest = null;
+            let minDistance = Infinity;
+            for (let i = 0; i < this.numNodes; i++) {
+                if (!visited.has(i)) {
+                    const dist = this.distance(this.nodes[current], this.nodes[i]);
+                    if (dist < minDistance) {
+                        minDistance = dist;
+                        nearest = i;
+                    }
+                }
+            } 
+            current = nearest;
+            visited.add(current);
+            this.nnPath.push(current);
+        } 
+        this.nnPath.push(startNode);
+    }  
+    drawNodes(showCoordinateSystem = false) {
+        if (showCoordinateSystem) {
+            this.drawCoordinateSystem();
+        }   
+        this.nodes.forEach(node => {
+            this.ctx.beginPath();
+            this.ctx.arc(node.x, node.y, 0.5, 0, Math.PI * 2);
+            this.ctx.fillStyle = 'black';
+            this.ctx.fill();
+            this.ctx.font = "1.5px sans-serif";
+            this.ctx.fillStyle = 'black';
+            this.ctx.textAlign = "center";
+            const label = `P${node.id}`;
+            this.ctx.fillText(label, node.x, node.y - 1.2);
+        });
+    }  
+    drawPath(index) {
+        if (index <= 0 || index >= this.nnPath.length) return;   
+        this.ctx.strokeStyle = 'red';
+        this.ctx.lineWidth = 0.5;
+        this.ctx.beginPath();  
+        const startNode = this.nodes[this.nnPath[0]];
+        this.ctx.moveTo(startNode.x, startNode.y);  
+        for (let i = 1; i <= index; i++) {
+            const node = this.nodes[this.nnPath[i]];
+            this.ctx.lineTo(node.x, node.y);
+        }  
+        this.ctx.stroke();
+    } 
+    nextStep() {
+        this.drawPath(this.currentPathIndex);
+        this.currentPathIndex++;   
+        if (this.currentPathIndex >= this.nnPath.length) {
+            nnStopAutoAnimation();
+        }
+    } 
+    importChristofidesPoints() {
+        // Check if the Christofides animation exists
+        if (typeof animation !== 'undefined' && animation && animation.nodes) {
+            // Clone the nodes from Christofides
+            this.nodes = JSON.parse(JSON.stringify(animation.nodes));
+            this.numNodes = this.nodes.length;
+            // Recalculate the path with the new points
+            this.computeNearestNeighborPath();
+            // Reset the animation
+            this.ctx.clearRect(0, 0, 100, 50);
+            this.currentPathIndex = 1;
+            this.drawNodes(true);
+        }
+    }
+}
+// Global variables for Nearest Neighbor
+let nnAnimation = null;
+let nnAutoIntervalId = null;
+// Initialize when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+    const canvas = document.getElementById('nnCanvas');
+    if (canvas) {
+        nnAnimation = new NearestNeighborAnimation(canvas, 4);
+        nnUpdateInfoPanel();
+    }
+});
+function nnUpdateInfoPanel() {
+    const dataOutput = document.getElementById('nnDataOutput');
+    if (!dataOutput || !nnAnimation) return;
+    let html = "<strong>Algorithmus:</strong> Nearest Neighbor<br>";
+    html += "<hr>";
+    html += "<strong>Punkte:</strong><br>";
+    html += nnAnimation.nodes.map(node => "P" + node.id + ": (" + node.x + ", " + node.y + ")").join("<br>");
+    html += "<hr>";
+    html += "<strong>Aktueller Pfad:</strong><br>";
+    if (nnAnimation.currentPathIndex <= 1) {
+        html += "Beginne bei Knoten " + nnAnimation.nnPath[0];
+    } else {
+        let path = nnAnimation.nnPath.slice(0, nnAnimation.currentPathIndex).join(" → ");
+        if (nnAnimation.currentPathIndex >= nnAnimation.nnPath.length) {
+            let totalLength = 0;
+            for (let i = 1; i < nnAnimation.nnPath.length; i++) {
+                totalLength += nnAnimation.distance(nnAnimation.nodes[nnAnimation.nnPath[i-1]], nnAnimation.nodes[nnAnimation.nnPath[i]]);
+            }
+            path += "<br>Gesamtlänge: " + totalLength.toFixed(2);
+        }
+        html += path;
+    }
+    dataOutput.innerHTML = html;
+}
+function nnNextStep() {
+    if (!nnAnimation) return;
+    nnAnimation.nextStep();
+    nnUpdateInfoPanel();
+}
+function nnResetAnimation() {
+    nnStopAutoAnimation();
+    if (nnAnimation) {
+        nnAnimation.ctx.clearRect(0, 0, 100, 50);
+        nnAnimation.currentPathIndex = 1;
+        nnAnimation.drawNodes(true);
+        nnUpdateInfoPanel();
+    }
+}
+function nnToggleAutoAnimation() {
+    if (nnAutoIntervalId) {
+        nnStopAutoAnimation();
+    } else {
+        nnStartAutoAnimation();
+    }
+}
+function nnStartAutoAnimation() {
+    if (nnAutoIntervalId) return;
+    const slider = document.getElementById('nnSpeedSlider');
+    if (!slider) return;
+    const percent = parseInt(slider.value);
+    const speed = 1000 * (100 / percent);
+    nnAutoIntervalId = setInterval(() => {
+        nnNextStep();
+    }, speed);
+}
+function nnStopAutoAnimation() {
+    if (nnAutoIntervalId) {
+        clearInterval(nnAutoIntervalId);
+        nnAutoIntervalId = null;
+    }
+}
+function nnImportPoints() {
+    if (nnAnimation) {
+        nnAnimation.importChristofidesPoints();
+        nnUpdateInfoPanel();
+    }
+}
+function nnDownloadGraph() {
+    const canvas = document.getElementById('nnCanvas');
+    if (!canvas) return;
+    const tmpCanvas = document.createElement('canvas');
+    tmpCanvas.width = canvas.width;
+    tmpCanvas.height = canvas.height;
+    const tmpCtx = tmpCanvas.getContext('2d');
+    tmpCtx.fillStyle = 'white';
+    tmpCtx.fillRect(0, 0, tmpCanvas.width, tmpCanvas.height);
+    tmpCtx.drawImage(canvas, 0, 0);
+    const link = document.createElement('a');
+    link.download = 'nearest-neighbor-graph.png';
+    link.href = tmpCanvas.toDataURL('image/png');
+    link.click();
+}
+// Add event listener for speed slider
+document.getElementById('nnSpeedSlider')?.addEventListener('input', function() {
+    if (nnAutoIntervalId) {
+        clearInterval(nnAutoIntervalId);
+        const percent = parseInt(this.value);
+        const speed = 1000 * (100 / percent);
+        nnAutoIntervalId = setInterval(() => {
+            nnNextStep();
+        }, speed);
+    }
+});
+    </script>
+</body>
