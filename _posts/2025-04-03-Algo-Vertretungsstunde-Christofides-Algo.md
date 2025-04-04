@@ -9,6 +9,8 @@ disqus_comments: true
 featured: false
 ---
 
+## STILL WORKING AT : official Release 10.04 | 
+
 <head>
     <title>Christofides Algorithm Animation</title>
     <style>
@@ -64,6 +66,7 @@ featured: false
                     <!-- Das Eingabefeld wurde auf doppelte Breite vergrößert und die standardmäßig angezeigte Zahl um 100% erhöht -->
                     <input type="number" id="numPoints" min="3" max="25" value="4" style="width:50px; height:30px;">
                     <button onclick="updateNumPoints()">Punkte Aktualisieren</button>
+                    <button onclick="toggleConstellation()">Sternenbild</button>
                     <button onclick="downloadGraph()">Graph herunterladen</button>
                 </div>
             </div>
@@ -504,6 +507,100 @@ function updateNumPoints() {
     animation.drawNodes(true); // Show coordinate system when updating points
     updateInfoPanel();
 }
+function toggleConstellation() {
+    updateNumPoints()
+    // Ersetze zufällige Knoten durch fest definierte Punkte eines Sternenbilds
+    animation.nodes = generateConstellationNodes();
+    // Lösche das Canvas und zeichne das Koordinatensystem
+    animation.ctx.clearRect(0, 0, 50, 50);
+    animation.drawNodes(true);
+}
+function generateConstellationNodes() {
+    // Zufällig eines von 5 Sternenbildern auswählen
+    const constellationTypes = ['libra', 'orion', 'ursa_minor', 'cassiopeia', 'cygnus'];
+    const selectedType = constellationTypes[Math.floor(Math.random() * constellationTypes.length)];   
+    // Aktuelle Anzahl der gewünschten Punkte auslesen
+    const count = parseInt(document.getElementById('numPoints').value, 10) || 10;   
+    // Definition der 5 verschiedenen Sternbilder
+        const constellations = {
+            // Waage (Libra)
+            libra: [
+                { x: 5, y: 21 },
+                { x: 13, y: 29 },
+                { x: 21, y: 25 },
+                { x: 29, y: 33 },
+                { x: 37, y: 25 },
+                { x: 45, y: 29 },
+                { x: 45, y: 21 },
+                { x: 37, y: 17 },
+                { x: 29, y: 13 },
+                { x: 21, y: 17 }
+            ],
+            // Orion (Der Jäger)
+            orion: [
+                { x: 21, y: 5 },  // Beteigeuze
+                { x: 13, y: 13 },
+                { x: 5, y: 21 },  // Bellatrix
+                { x: 13, y: 29 }, // Orion-Gürtel 1
+                { x: 21, y: 29 }, // Orion-Gürtel 2
+                { x: 29, y: 29 }, // Orion-Gürtel 3
+                { x: 37, y: 21 }, // Rigel
+                { x: 29, y: 13 },
+                { x: 21, y: 37 }, // Schwert
+                { x: 21, y: 45 }  // Schwertspitze
+            ],
+            // Kleiner Wagen (Ursa Minor)
+            ursa_minor: [
+                { x: 5, y: 5 },   // Polarstern
+                { x: 13, y: 17 },
+                { x: 21, y: 25 },
+                { x: 29, y: 33 },
+                { x: 21, y: 41 },
+                { x: 29, y: 45 },
+                { x: 45, y: 37 }
+            ],
+            // Kassiopeia (W-Form)
+            cassiopeia: [
+                { x: 5, y: 5 },
+                { x: 13, y: 29 },
+                { x: 25, y: 5 },
+                { x: 37, y: 29 },
+                { x: 45, y: 5 }
+            ],
+            // Schwan (Cygnus/Nördliches Kreuz)
+            cygnus: [
+                { x: 25, y: 5 },
+                { x: 25, y: 13 },
+                { x: 25, y: 21 },
+                { x: 25, y: 29 },
+                { x: 25, y: 45 },
+                { x: 5, y: 21 },
+                { x: 13, y: 21 },
+                { x: 37, y: 21 },
+                { x: 45, y: 21 }
+            ]
+        };
+    // Basispunkte für das gewählte Sternbild auswählen
+    const baseNodes = constellations[selectedType];   
+    let nodes = [];
+    if (count === baseNodes.length) {
+        nodes = baseNodes.map((pt, i) => ({ ...pt, id: i }));
+    } else {
+        // Interpoliere entlang des definierten Pfades, um die gewünschte Anzahl an Punkten zu erhalten
+        const totalSegments = baseNodes.length - 1;
+        for (let i = 0; i < count; i++) {
+            const t = i / (count - 1);
+            const segment = Math.min(Math.floor(t * totalSegments), totalSegments - 1);
+            const localT = (t * totalSegments) - segment;
+            const p0 = baseNodes[segment];
+            const p1 = baseNodes[segment + 1];
+            const x = p0.x + (p1.x - p0.x) * localT;
+            const y = p0.y + (p1.y - p0.y) * localT;
+            nodes.push({ x: Math.round(x), y: Math.round(y), id: i });
+        }
+    }   
+    return nodes;
+}
 // Neue Funktion: Ermöglicht das Herunterladen des Graphen als PNG-Bild.
 // Hintergrund wird weiß gesetzt, bevor der Graph heruntergeladen wird.
 function downloadGraph() {
@@ -579,13 +676,6 @@ function drawGraphData() {
         ctx.restore();
     }
 }
-
-// Remove the override of nextStep to prevent drawing graph data when clicking "Nächster Schritt"
-// const originalNextStep = nextStep;
-// nextStep = function() {
-//     originalNextStep();
-//     drawGraphData();
-// };
     </script>
 </body>
 
@@ -595,83 +685,8 @@ function drawGraphData() {
     <p></p>
 </div>
 
-
 --- 
 
 <div style="display: flex; align-items: center; margin-top: 10px;">
     <p></p>
 </div>
-
-
-
-# Ausführliche Beschreibung und grafische Darstellung 
-
-## 1. Minimum Spanning Tree (MST)
-**Ziel:**  
-Erstelle einen Baum, der alle Knoten verbindet und dabei die Gesamtlänge aller Kanten minimiert.
-
-**Beschreibung:**  
-- Wir wählen einen Startknoten und erweitern schrittweise den Baum, indem immer die kürzeste Kante zu einem noch nicht verbundenen Knoten hinzugefügt wird (Prim-Algorithmus).  
-- Der resultierende Baum enthält genau n–1 Kanten, wobei n die Anzahl der Knoten ist.
-
----
-
-## 2. Identifikation ungerader Knoten
-**Ziel:**  
-Bestimme alle Knoten im MST, deren Anzahl der Verbindungen (Grad) ungerade ist.
-
-**Beschreibung:**  
-- Nach dem Aufbau des MST wird gezählt, wie viele Verbindungen jeder Knoten hat.  
-- Das Handshaking-Lemma garantiert, dass die Anzahl der ungeraden Knoten immer gerade ist.  
-- Diese ungeraden Knoten bilden die Basis, um das Matching im nächsten Schritt durchzuführen.
-
----
-
-## 3. Minimales perfektes Matching (MWPM)
-**Ziel:**  
-Bilde Paare aus allen ungeraden Knoten, sodass die Summe der Kantenlängen minimal ist.
-
-**Beschreibung:**  
-- Alle möglichen Paarungen der ungeraden Knoten werden analysiert.  
-- Die Paarung mit der geringsten Gesamtdistanz wird gewählt.  
-- Damit wird sichergestellt, dass nicht unnötig teure Verbindungen in die spätere Tour aufgenommen werden.
-
----
-
-## 4. Euler-Kreis im Multigraphen
-**Ziel:**  
-Verknüpfe MST und Matching zu einem multigraphischen Netzwerk, in dem alle Knoten einen geraden Grad besitzen, um einen Euler-Kreis zu bilden.
-
-**Beschreibung:**  
-- Durch Addition der Matching-Kanten zum MST wird ein Graph geschaffen, in dem jeder Knoten einen geraden Grad hat.  
-- Aufgrund des Euler-Theorems existiert in einem solchen Graphen ein geschlossener Pfad (Euler-Kreis), der jede Kante genau einmal durchläuft.
-
----
-
-## 5. Hamilton-Kreis durch Shortcutting
-**Ziel:**  
-Erzeuge aus dem Euler-Kreis eine gültige TSP-Tour, indem bereits besuchte Knoten übersprungen werden.
-
-**Beschreibung:**  
-- Beginne mit dem Euler-Kreis und entferne Wiederholungen, um eine einfache Rundreise zu bilden.  
-- Die Dreiecksungleichung garantiert, dass das Überspringen von Knoten keine längere Strecke verursacht als die ursprüngliche Verbindung.
-
----
-
-## Approximationsgarantie
-**Mathematische Begründung:**  
-- Durch die Kombination der oben genannten Schritte kann gezeigt werden, dass  
-    w(Tₐₚₚᵣₒₓ) ≤ w(MST) + w(M) ≤ w(Tₒₚₜ) + ½ · w(Tₒₚₜ) = 1.5 · w(Tₒₚₜ)  
-- Damit erhält man eine TSP-Lösung, die höchstens 1.5‐mal so lang ist wie die optimale Tour.
-
----
-
-## Zusammenfassung der Darstellung
-
-| Schritt                      | Beschreibung                                                       |
-|------------------------------|--------------------------------------------------------------------|
-| **MST bilden**               | Minimale Kantenbefüllung, die alle Knoten verbindet                |
-| **Ungerade Knoten finden**   | Knoten mit ungeradem Grad im MST identifizieren                      |
-| **Minimales Matching**       | Optimales Kantenpaar-Design, um ungerade Knoten zu verbinden         |
-| **Euler-Kreis konstruieren** | Kombination zu einem Graphen, in dem ein Euler-Kreis existiert        |
-| **Hamilton-Kreis erzeugen**  | Entferne Wiederholungen aus dem Euler-Kreis, um eine Rundtour zu formen |
