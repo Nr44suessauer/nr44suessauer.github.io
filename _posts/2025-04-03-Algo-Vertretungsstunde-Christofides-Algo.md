@@ -758,6 +758,14 @@ function drawGraphData() {
         <div id="nnInfoPanel">
             <h3>Nearest Neighbor Daten</h3>
             <div id="nnDataOutput">Warte auf den ersten Schritt...</div>
+            <hr>
+            <label for="nnStepDropdown"><strong>Schritte:</strong></label>
+            <select id="nnStepDropdown" onchange="nnShowStepDetails()">
+                <option value="">Schritt auswählen...</option>
+            </select>
+            <button onclick="nnToggleFullTable()">Tabelle ein-/ausblenden</button>
+            <div id="nnStepDetails"></div>
+            <div id="nnFullTable" style="display: none; margin-top: 20px;"></div>
         </div>
     </div>
     <script>
@@ -987,39 +995,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function nnUpdateInfoPanel() {
     const dataOutput = document.getElementById('nnDataOutput');
-    if (!dataOutput || !nnAnimation) return;
+    const stepDropdown = document.getElementById('nnStepDropdown');
+    const stepDetails = document.getElementById('nnStepDetails');
+    const fullTable = document.getElementById('nnFullTable');
 
+    if (!dataOutput || !stepDropdown || !nnAnimation) return;
+
+    // Allgemeine Informationen
     let html = "<strong>Algorithmus:</strong> Nearest Neighbor<br>";
     html += "<hr>";
     html += "<strong>Punkte:</strong><br>";
     html += nnAnimation.nodes.map(node => "P" + node.id + ": (" + node.x + ", " + node.y + ")").join("<br>");
     html += "<hr>";
+    dataOutput.innerHTML = html;
 
-    // Tabelle mit allen Schritten
-    html += "<strong>Schritte:</strong><br>";
-    html += "<table class='selection-table'>";
-    html += "<tr><th>Schritt</th><th>Aktueller Knoten</th><th>Kandidat</th><th>Entfernung</th><th>Ausgewählt</th></tr>";
-
+    // Dropdown-Menü aktualisieren
+    stepDropdown.innerHTML = '<option value="">Schritt auswählen...</option>';
     nnAnimation.selectionSteps.forEach((step, stepIndex) => {
-        step.candidates.forEach(candidate => {
-            html += "<tr" + (candidate.isNearest ? " class='selected'" : "") + ">";
-            html += `<td>${stepIndex + 1}</td>`;
-            html += `<td>P${step.current}</td>`;
-            html += `<td>P${candidate.node}</td>`;
-            html += `<td>${candidate.distance.toFixed(2)}</td>`;
-            html += `<td>${candidate.isNearest ? "✓" : ""}</td>`;
-            html += "</tr>";
-        });
+        stepDropdown.innerHTML += `<option value="${stepIndex}">Schritt ${stepIndex + 1}: P${step.current}</option>`;
     });
 
-    html += "</table>";
-    html += "<hr>";
-
-    // Aktueller Pfad
-    html += "<strong>Aktueller Pfad:</strong><br>";
+    // Details des aktuellen Pfads
     const pathLength = Math.min(nnAnimation.currentPathIndex + 1, nnAnimation.nnPath.length);
     let path = nnAnimation.nnPath.slice(0, pathLength).map(node => "P" + node).join(" → ");
-
     if (nnAnimation.currentPathIndex >= nnAnimation.selectionSteps.length) {
         let totalLength = 0;
         for (let i = 1; i < nnAnimation.nnPath.length; i++) {
@@ -1028,13 +1026,84 @@ function nnUpdateInfoPanel() {
                 nnAnimation.nodes[nnAnimation.nnPath[i]]
             );
         }
-        html += path;
-        html += "<br><br>Gesamtlänge: <strong>" + totalLength.toFixed(2) + "</strong>";
-    } else {
-        html += path;
+        path += `<br><br>Gesamtlänge: <strong>${totalLength.toFixed(2)}</strong>`;
+    }
+    html += `<strong>Aktueller Pfad:</strong><br>${path}`;
+    dataOutput.innerHTML = html;
+
+    // Schritt-Details zurücksetzen
+    stepDetails.innerHTML = "";
+
+    // Gesamte Tabelle zurücksetzen
+    fullTable.style.display = "none";
+    fullTable.innerHTML = "";
+}
+
+function nnShowStepDetails() {
+    const stepDropdown = document.getElementById('nnStepDropdown');
+    const stepDetails = document.getElementById('nnStepDetails');
+
+    if (!stepDropdown || !stepDetails || !nnAnimation) return;
+
+    const stepIndex = parseInt(stepDropdown.value);
+    if (isNaN(stepIndex) || stepIndex < 0 || stepIndex >= nnAnimation.selectionSteps.length) {
+        stepDetails.innerHTML = "";
+        return;
     }
 
-    dataOutput.innerHTML = html;
+    const step = nnAnimation.selectionSteps[stepIndex];
+    let html = `<strong>Schritt ${stepIndex + 1}:</strong><br>`;
+    html += `<strong>Aktueller Knoten:</strong> P${step.current}<br>`;
+    html += "<strong>Kandidaten:</strong><br>";
+    html += "<ul>";
+    step.candidates.forEach(candidate => {
+        html += `<li>P${candidate.node}: Entfernung = ${candidate.distance.toFixed(2)} ${
+            candidate.isNearest ? "(Ausgewählt)" : ""
+        }</li>`;
+    });
+    html += "</ul>";
+    stepDetails.innerHTML = html;
+}
+
+function nnShowFullTable() {
+    const fullTableDiv = document.getElementById('nnFullTable');
+    if (!fullTableDiv || !nnAnimation) return;
+
+    // Generiere die Tabelle
+    let html = "<h4>Gesamte Tabelle der Schritte</h4>";
+    html += "<table style='width: 100%; border-collapse: collapse;'>";
+    html += "<tr><th>Schritt</th><th>Aktueller Knoten</th><th>Kandidat</th><th>Entfernung</th><th>Ausgewählt</th></tr>";
+
+    nnAnimation.selectionSteps.forEach((step, stepIndex) => {
+        step.candidates.forEach(candidate => {
+            html += "<tr>";
+            html += `<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">${stepIndex + 1}</td>`;
+            html += `<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">P${step.current}</td>`;
+            html += `<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">P${candidate.node}</td>`;
+            html += `<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">${candidate.distance.toFixed(2)}</td>`;
+            html += `<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">${candidate.isNearest ? "✓" : ""}</td>`;
+            html += "</tr>";
+        });
+    });
+
+    html += "</table>";
+
+    // Zeige die Tabelle an
+    fullTableDiv.innerHTML = html;
+    fullTableDiv.style.display = 'block';
+}
+
+function nnToggleFullTable() {
+    const fullTableDiv = document.getElementById('nnFullTable');
+    if (!fullTableDiv) return;
+    
+    if (fullTableDiv.style.display === 'none' || !fullTableDiv.innerHTML.trim()) {
+        // Wenn die Tabelle ausgeblendet oder leer ist, fülle sie und zeige sie an
+        nnShowFullTable();
+    } else {
+        // Sonst blende sie aus
+        fullTableDiv.style.display = 'none';
+    }
 }
 
 function nnNextStep() {
