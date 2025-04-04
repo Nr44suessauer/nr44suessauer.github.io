@@ -100,7 +100,7 @@ featured: false
                     <button onclick="resetAnimation()">Reset</button>
                     <button onclick="toggleAutoAnimation()">Animation Start/Stop</button>
                     <label for="speedSlider">Geschwindigkeit:</label>
-                    <input type="range" id="speedSlider" min="50" max="200" step="1" value="100">
+                    <input type="range" id="speedSlider" min="50" max="2000" step="1" value="1000">
                 </div>
                 <div>
                     <label for="numPoints">Anzahl der Punkte:</label>
@@ -153,7 +153,7 @@ featured: false
                     <button onclick="nnResetAnimation()">Reset</button>
                     <button onclick="nnToggleAutoAnimation()">Animation Start/Stop</button>
                     <label for="nnSpeedSlider">Geschwindigkeit:</label>
-                    <input type="range" id="nnSpeedSlider" min="50" max="200" step="1" value="100">
+                    <input type="range" id="nnSpeedSlider" min="50" max="2000" step="1" value="1000">
                 </div>
                 <div>
                     <label for="nnNumPoints">Anzahl der Punkte:</label>
