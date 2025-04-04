@@ -53,17 +53,15 @@ featured: false
                 <div>
                     <button onclick="nextStep()">Nächster Schritt</button>
                     <button onclick="resetAnimation()">Reset</button>
-                    <!-- Button mit Toggle-Funktion: startet oder stoppt die Animation -->
                     <button onclick="toggleAutoAnimation()">Animation Start/Stop</button>
                     <label for="speedSlider">Geschwindigkeit:</label>
-                    <!-- Der Slider wird jetzt in Prozent angegeben: 50% verlangsamt (2000ms) und 200% beschleunigt (500ms). -->
                     <input type="range" id="speedSlider" min="50" max="200" step="1" value="100">
                 </div>
                 <div>
                     <label for="numPoints">Anzahl der Punkte:</label>
-                    <!-- Das Eingabefeld wurde auf doppelte Breite vergrößert und die standardmäßig angezeigte Zahl um 100% erhöht -->
                     <input type="number" id="numPoints" min="3" max="25" value="4" style="width:50px; height:30px;">
-                    <button onclick="updateNumPoints()">Punkte Aktualisieren</button>
+                    <button onclick="updateNumPoints()">Zufällige Punkte</button>
+                    <button onclick="importNNPoints()">NN-Punkte importieren</button>
                     <button onclick="toggleConstellation()">Sternenbild</button>
                     <button onclick="downloadGraph()">Graph herunterladen</button>
                 </div>
@@ -516,7 +514,7 @@ function toggleConstellation() {
 function generateConstellationNodes() {
     // Zufällig eines von 5 Sternenbildern auswählen
     const constellationTypes = ['libra', 'orion', 'ursa_minor', 'cassiopeia', 'cygnus'];
-    const selectedType = constellationTypes[Math.floor(Math.random() * constellationTypes.length)];   
+    const selectedType = constellationTypes[Math.floor(Math.random() * (5))];   
     // Aktuelle Anzahl der gewünschten Punkte auslesen
     const count = parseInt(document.getElementById('numPoints').value, 10) || 10;   
     // Definition der 5 verschiedenen Sternbilder
@@ -674,6 +672,52 @@ function drawGraphData() {
         ctx.restore();
     }
 }
+function importNNPoints() {
+    // Überprüfen, ob die NN-Animation existiert
+    if (typeof nnAnimation !== 'undefined' && nnAnimation && nnAnimation.nodes) {
+        // Stoppe aktuelle Animationen
+        stopAutoAnimation();
+        
+        // Speichere die Anzahl der Knoten
+        const numPoints = nnAnimation.nodes.length;
+        
+        // Erstelle neue Christofides-Animation mit der gleichen Anzahl an Knoten
+        animation = new ChristofidesAnimation(document.getElementById('canvas'), numPoints);
+        
+        // Knoten aus NN-Animation klonen
+        animation.nodes = JSON.parse(JSON.stringify(nnAnimation.nodes));
+        
+        // Neu initialisieren mit den importierten Knoten
+        animation.mstEdges = [];
+        animation.oddNodes = [];
+        animation.matchingEdges = [];
+        animation.eulerianCircuit = [];
+        animation.tspPath = [];
+        animation.phase = 'mst';
+        animation.lastPhase = null;
+        animation.currentMSTIndex = 0;
+        animation.currentMatchingIndex = 0;
+        animation.currentEulerIndex = 1;
+        animation.currentTSPIndex = 1;
+        animation.drawnEdges.clear();
+        
+        // Berechnungen mit den neuen Punkten durchführen
+        animation.computeMST();
+        animation.findOddNodes();
+        animation.computeMatching();
+        animation.computeEulerianCircuit();
+        animation.computeTSPPath();
+        
+        // Canvas löschen und neu zeichnen
+        animation.ctx.clearRect(0, 0, 100, 50);
+        animation.drawNodes(true);
+        
+        // Info-Panel aktualisieren
+        updateInfoPanel();
+    } else {
+        console.log("NN-Animation nicht gefunden oder keine Punkte verfügbar");
+    }
+}
     </script>
 </body>
 <div style="display: flex; align-items: center; margin-top: 10px;">
@@ -741,7 +785,12 @@ function drawGraphData() {
                     <input type="range" id="nnSpeedSlider" min="50" max="200" step="1" value="100">
                 </div>
                 <div>
-                    <button onclick="nnImportPoints()">Punkte importieren</button>
+                    <label for="nnNumPoints">Anzahl der Punkte:</label>
+                    <input type="number" id="nnNumPoints" min="3" max="25" value="4" style="width:50px; height:30px;">
+                    <button onclick="nnUpdateNumPoints()">Punkte Aktualisieren</button>
+                    <button onclick="nnGenerateRandomPoints()">Zufällige Punkte</button>
+                    <button onclick="nnImportPoints()">Christofides Punkte importieren</button>
+                    <button onclick="nnToggleConstellation()">Sternenbild</button>
                     <button onclick="nnDownloadGraph()">Graph herunterladen</button>
                 </div>
             </div>
@@ -945,11 +994,13 @@ class NearestNeighborAnimation {
 // Global variables for Nearest Neighbor
 let nnAnimation = null;
 let nnAutoIntervalId = null;
-// Initialize when the page loads
+// Sicherstellen, dass die NN-Animation beim Laden initialisiert wird
 document.addEventListener('DOMContentLoaded', function() {
     const canvas = document.getElementById('nnCanvas');
     if (canvas) {
         nnAnimation = new NearestNeighborAnimation(canvas, 4);
+        // Sofort die Punkte zeichnen und Info-Panel aktualisieren
+        nnAnimation.drawNodes(true);
         nnUpdateInfoPanel();
     }
 });
@@ -1132,26 +1183,153 @@ function nnStopAutoAnimation() {
         nnAutoIntervalId = null;
     }
 }
+function nnUpdateNumPoints() {
+    nnStopAutoAnimation();
+    const numPoints = parseInt(document.getElementById('nnNumPoints').value);
+    
+    if (isNaN(numPoints) || numPoints < 3 || numPoints > 25) {
+        alert("Bitte geben Sie eine gültige Anzahl von Punkten zwischen 3 und 25 ein.");
+        return;
+    }
+    
+    // Neue Animation mit der angegebenen Anzahl von Punkten erstellen
+    nnAnimation = new NearestNeighborAnimation(document.getElementById('nnCanvas'), numPoints);
+    
+    // Canvas löschen und neu zeichnen
+    nnAnimation.ctx.clearRect(0, 0, 100, 50);
+    nnAnimation.drawNodes(true);
+    
+    // Info-Panel aktualisieren
+    nnUpdateInfoPanel();
+}
+
 function nnImportPoints() {
-    if (nnAnimation) {
-        nnAnimation.importChristofidesPoints();
-        nnResetAnimation();
+    if (typeof animation !== 'undefined' && animation && animation.nodes) {
+        // Importiere Punkte von Christofides
+        if (nnAnimation) {
+            nnAnimation.importChristofidesPoints();
+            nnResetAnimation();
+            nnUpdateInfoPanel();
+        }
+    } else {
+        console.log("Christofides-Animation nicht gefunden oder keine Punkte verfügbar");
     }
 }
-function nnDownloadGraph() {
-    const canvas = document.getElementById('nnCanvas');
-    if (!canvas) return;
-    const tmpCanvas = document.createElement('canvas');
-    tmpCanvas.width = canvas.width;
-    tmpCanvas.height = canvas.height;
-    const tmpCtx = tmpCanvas.getContext('2d');
-    tmpCtx.fillStyle = 'white';
-    tmpCtx.fillRect(0, 0, tmpCanvas.width, tmpCanvas.height);
-    tmpCtx.drawImage(canvas, 0, 0);
-    const link = document.createElement('a');
-    link.download = 'nearest-neighbor-graph.png';
-    link.href = tmpCanvas.toDataURL('image/png');
-    link.click();
+
+function nnToggleConstellation() {
+    nnStopAutoAnimation();
+    
+    // Aktuelle Anzahl der Punkte beibehalten
+    const numPoints = nnAnimation.numNodes;
+    
+    // Neue Animation erstellen
+    nnAnimation = new NearestNeighborAnimation(document.getElementById('nnCanvas'), numPoints);
+    
+    // Ersetze Knoten durch Sternbild-Punkte
+    nnAnimation.nodes = nnGenerateConstellationNodes();
+    nnAnimation.numNodes = nnAnimation.nodes.length;
+    
+    // Neuberechnung des Pfades
+    nnAnimation.computeNearestNeighborPath();
+    
+    // Setze Animation zurück
+    nnAnimation.currentPathIndex = 0;
+    nnAnimation.ctx.clearRect(0, 0, 100, 50);
+    nnAnimation.drawNodes(true);
+    
+    // Info-Panel aktualisieren
+    nnUpdateInfoPanel();
+}
+
+function nnGenerateConstellationNodes() {
+    // Gleiche Sternbilder wie in der Christofides-Animation verwenden
+    const constellationTypes = ['libra', 'orion', 'ursa_minor', 'cassiopeia', 'cygnus'];
+    const selectedType = constellationTypes[Math.floor(Math.random() * constellationTypes.length)];
+    
+    const count = parseInt(document.getElementById('nnNumPoints').value, 10) || 4;
+    
+    // Definition der 5 verschiedenen Sternbilder (gleich wie in Christofides)
+    const constellations = {
+        // Waage (Libra)
+        libra: [
+            { x: 5, y: 21 },
+            { x: 13, y: 29 },
+            { x: 21, y: 25 },
+            { x: 29, y: 33 },
+            { x: 37, y: 25 },
+            { x: 45, y: 29 },
+            { x: 45, y: 21 },
+            { x: 37, y: 17 },
+            { x: 29, y: 13 },
+            { x: 21, y: 17 }
+        ],
+        // Orion (Der Jäger)
+        orion: [
+            { x: 21, y: 5 },
+            { x: 13, y: 13 },
+            { x: 5, y: 21 },
+            { x: 13, y: 29 },
+            { x: 21, y: 29 },
+            { x: 29, y: 29 },
+            { x: 37, y: 21 },
+            { x: 29, y: 13 },
+            { x: 21, y: 37 },
+            { x: 21, y: 45 }
+        ],
+        // Kleiner Wagen (Ursa Minor)
+        ursa_minor: [
+            { x: 5, y: 5 },
+            { x: 13, y: 17 },
+            { x: 21, y: 25 },
+            { x: 29, y: 33 },
+            { x: 21, y: 41 },
+            { x: 29, y: 45 },
+            { x: 45, y: 37 }
+        ],
+        // Kassiopeia (W-Form)
+        cassiopeia: [
+            { x: 5, y: 5 },
+            { x: 13, y: 29 },
+            { x: 25, y: 5 },
+            { x: 37, y: 29 },
+            { x: 45, y: 5 }
+        ],
+        // Schwan (Cygnus/Nördliches Kreuz)
+        cygnus: [
+            { x: 25, y: 5 },
+            { x: 25, y: 13 },
+            { x: 25, y: 21 },
+            { x: 25, y: 29 },
+            { x: 25, y: 45 },
+            { x: 5, y: 21 },
+            { x: 13, y: 21 },
+            { x: 37, y: 21 },
+            { x: 45, y: 21 }
+        ]
+    };
+    
+    // Basispunkte für das gewählte Sternbild auswählen
+    const baseNodes = constellations[selectedType];
+    let nodes = [];
+    
+    if (count === baseNodes.length) {
+        nodes = baseNodes.map((pt, i) => ({ ...pt, id: i }));
+    } else {
+        // Interpoliere entlang des definierten Pfades
+        const totalSegments = baseNodes.length - 1;
+        for (let i = 0; i < count; i++) {
+            const t = i / (count - 1);
+            const segment = Math.min(Math.floor(t * totalSegments), totalSegments - 1);
+            const localT = (t * totalSegments) - segment;
+            const p0 = baseNodes[segment];
+            const p1 = baseNodes[segment + 1];
+            const x = p0.x + (p1.x - p0.x) * localT;
+            const y = p0.y + (p1.y - p0.y) * localT;
+            nodes.push({ x: Math.round(x), y: Math.round(y), id: i });
+        }
+    }
+    
+    return nodes;
 }
 // Add event listener for speed slider
 document.getElementById('nnSpeedSlider')?.addEventListener('input', function() {
