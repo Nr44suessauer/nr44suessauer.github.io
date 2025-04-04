@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://nr44suessauer.github.io/feed.xml" rel="self" type="application/atom+xml"/><link href="https://nr44suessauer.github.io/" rel="alternate" type="text/html" hreflang="en"/><updated>2025-04-04T15:25:58+00:00</updated><id>https://nr44suessauer.github.io/feed.xml</id><title type="html">DeadlineDriven.dev/elopment</title><subtitle>Personal blog of Marc Nauendorf, a computer scientist and software engineer. </subtitle><entry><title type="html">Christofides Algorithm &amp;amp; Nearest Neigbhor | Compare</title><link href="https://nr44suessauer.github.io/blog/2025/Algo-Vertretungsstunde-Christofides-Algo/" rel="alternate" type="text/html" title="Christofides Algorithm &amp;amp; Nearest Neigbhor | Compare"/><published>2025-04-02T10:00:00+00:00</published><updated>2025-04-02T10:00:00+00:00</updated><id>https://nr44suessauer.github.io/blog/2025/Algo-Vertretungsstunde-Christofides-Algo</id><content type="html" xml:base="https://nr44suessauer.github.io/blog/2025/Algo-Vertretungsstunde-Christofides-Algo/"><![CDATA[<h2 id="still-working-at--official-release-1004-">STILL WORKING AT : official Release 10.04 |</h2> <head> <title>Christofides Algorithm Animation</title> <style>.container{display:flex}.animation-container{flex:1}#infoPanel{flex:0 0 300px;margin-left:20px;background:#f2f2f2;padding:10px;font-family:sans-serif;font-size:14px;overflow-y:auto;max-height:900px}canvas{border:1px solid black;display:block}.controls>div{margin:10px 0}.controls>div>*{margin-right:10px}#speedSlider,#numPoints{transform:scale(1);transform-origin:left center}</style> </head> <body> <div class="container"> <div class="animation-container"> <div class="controls"> <div> <button onclick="nextStep()">Nächster Schritt</button> <button onclick="resetAnimation()">Reset</button> <button onclick="toggleAutoAnimation()">Animation Start/Stop</button> <label for="speedSlider">Geschwindigkeit:</label> <input type="range" id="speedSlider" min="50" max="200" step="1" value="100"/> </div> <div> <label for="numPoints">Anzahl der Punkte:</label> <input type="number" id="numPoints" min="3" max="25" value="4" style="width:50px; height:30px;"/> <button onclick="updateNumPoints()">Punkte Aktualisieren</button> <button onclick="toggleConstellation()">Sternenbild</button> <button onclick="downloadGraph()">Graph herunterladen</button> </div> </div> <canvas id="canvas" width="800" height="600"></canvas> </div> <div id="infoPanel"> <h3>Animationsdaten</h3> <div id="dataOutput">Warte auf den ersten Schritt...</div> </div> </div> <script>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://nr44suessauer.github.io/feed.xml" rel="self" type="application/atom+xml"/><link href="https://nr44suessauer.github.io/" rel="alternate" type="text/html" hreflang="en"/><updated>2025-04-04T16:23:04+00:00</updated><id>https://nr44suessauer.github.io/feed.xml</id><title type="html">DeadlineDriven.dev/elopment</title><subtitle>Personal blog of Marc Nauendorf, a computer scientist and software engineer. </subtitle><entry><title type="html">Christofides Algorithm &amp;amp; Nearest Neigbhor | Compare</title><link href="https://nr44suessauer.github.io/blog/2025/Algo-Vertretungsstunde-Christofides-Algo/" rel="alternate" type="text/html" title="Christofides Algorithm &amp;amp; Nearest Neigbhor | Compare"/><published>2025-04-02T10:00:00+00:00</published><updated>2025-04-02T10:00:00+00:00</updated><id>https://nr44suessauer.github.io/blog/2025/Algo-Vertretungsstunde-Christofides-Algo</id><content type="html" xml:base="https://nr44suessauer.github.io/blog/2025/Algo-Vertretungsstunde-Christofides-Algo/"><![CDATA[<h2 id="still-working-at--official-release-1004-">STILL WORKING AT : official Release 10.04 |</h2> <head> <title>Christofides Algorithm Animation</title> <style>.container{display:flex}.animation-container{flex:1}#infoPanel{flex:0 0 300px;margin-left:20px;background:#f2f2f2;padding:10px;font-family:sans-serif;font-size:14px;overflow-y:auto;max-height:900px}canvas{border:1px solid black;display:block}.controls>div{margin:10px 0}.controls>div>*{margin-right:10px}#speedSlider,#numPoints{transform:scale(1);transform-origin:left center}</style> </head> <body> <div class="container"> <div class="animation-container"> <div class="controls"> <div> <button onclick="nextStep()">Nächster Schritt</button> <button onclick="resetAnimation()">Reset</button> <button onclick="toggleAutoAnimation()">Animation Start/Stop</button> <label for="speedSlider">Geschwindigkeit:</label> <input type="range" id="speedSlider" min="50" max="200" step="1" value="100"/> </div> <div> <label for="numPoints">Anzahl der Punkte:</label> <input type="number" id="numPoints" min="3" max="25" value="4" style="width:50px; height:30px;"/> <button onclick="updateNumPoints()">Punkte Aktualisieren</button> <button onclick="toggleConstellation()">Sternenbild</button> <button onclick="downloadGraph()">Graph herunterladen</button> </div> </div> <canvas id="canvas" width="800" height="600"></canvas> </div> <div id="infoPanel"> <h3>Animationsdaten</h3> <div id="dataOutput">Warte auf den ersten Schritt...</div> </div> </div> <script>
 class ChristofidesAnimation {
     constructor(canvas, numNodes = 4) {
         this.canvas = canvas;
@@ -358,7 +358,7 @@ function updateInfoPanel() {
             for (let i = 1; i < animation.tspPath.length; i++) {
                 totalLength += animation.distance(animation.nodes[animation.tspPath[i-1]], animation.nodes[animation.tspPath[i]]);
             }
-            path += "<br>Gesamtlänge: " + totalLength.toFixed(2);
+            path += "<br><br><span style='font-size: 1.2em;'><strong>Gesamtlänge: " + totalLength.toFixed(2) + "</strong></span>";
         }
         html += path;
     }
@@ -613,7 +613,6 @@ class NearestNeighborAnimation {
         this.init();
         this.drawNodes(true);
     }
-
     drawCoordinateSystem() {
         this.ctx.strokeStyle = "#ccc";
         this.ctx.lineWidth = 0.1;   
@@ -630,12 +629,10 @@ class NearestNeighborAnimation {
             this.ctx.stroke();
         }
     }
-
     init() {
         this.generateNodes();
         this.computeNearestNeighborPath();
     } 
-
     generateNodes() {
         for (let i = 0; i < this.numNodes; i++) {
             this.nodes.push({
@@ -645,61 +642,50 @@ class NearestNeighborAnimation {
             });
         }
     }
-
     distance(a, b) {
         return Math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2);
     }
-
     computeNearestNeighborPath() {
         const startNode = 0;
         const visited = new Set([startNode]);
         this.nnPath = [startNode]; 
         this.selectionSteps = [];
-        
         let current = startNode;
         while (visited.size < this.numNodes) {
             let nearest = null;
             let minDistance = Infinity;
-            
             // Create a record for this selection step
             const currentStep = {
                 current: current,
                 candidates: []
             };
-            
             for (let i = 0; i < this.numNodes; i++) {
                 if (!visited.has(i)) {
                     const dist = this.distance(this.nodes[current], this.nodes[i]);
-                    
                     // Store all candidates and their distances
                     currentStep.candidates.push({
                         node: i,
                         distance: dist,
                         isNearest: false
                     });
-                    
                     if (dist < minDistance) {
                         minDistance = dist;
                         nearest = i;
                     }
                 }
             }
-            
             // Mark the selected nearest neighbor
             const nearestCandidate = currentStep.candidates.find(c => c.node === nearest);
             if (nearestCandidate) {
                 nearestCandidate.isNearest = true;
             }
-            
             this.selectionSteps.push(currentStep);
             current = nearest;
             visited.add(current);
             this.nnPath.push(current);
         } 
-        
         this.nnPath.push(startNode); // Return to start
     }  
-
     drawNodes(showCoordinateSystem = false) {
         if (showCoordinateSystem) {
             this.drawCoordinateSystem();
@@ -716,54 +702,42 @@ class NearestNeighborAnimation {
             this.ctx.fillText(label, node.x, node.y - 1.2);
         });
     }  
-
     drawPath(steps) {
         if (steps <= 0) return;   
-        
         const pathSegments = Math.min(steps, this.nnPath.length - 1);
-        
         this.ctx.strokeStyle = 'red';
         this.ctx.lineWidth = 0.5;
         this.ctx.beginPath();  
-        
         const startNode = this.nodes[this.nnPath[0]];
         this.ctx.moveTo(startNode.x, startNode.y);  
-        
         for (let i = 1; i <= pathSegments; i++) {
             const node = this.nodes[this.nnPath[i]];
             this.ctx.lineTo(node.x, node.y);
         }  
-        
         this.ctx.stroke();
     }
-    
     drawSelectionStep(stepIndex) {
         if (stepIndex < 0 || stepIndex >= this.selectionSteps.length) return;
-        
         const step = this.selectionSteps[stepIndex];
         const currentNode = this.nodes[step.current];
-        
         // Highlight current node
         this.ctx.beginPath();
         this.ctx.arc(currentNode.x, currentNode.y, 0.8, 0, Math.PI * 2);
         this.ctx.fillStyle = 'rgba(0, 128, 255, 0.6)';
         this.ctx.fill();
-        
         // Draw lines to all candidate nodes
         step.candidates.forEach(candidate => {
             const candidateNode = this.nodes[candidate.node];
-            
             // Line style depends on whether this is the nearest
-            this.ctx.strokeStyle = candidate.isNearest ? 'green' : '#aaaaaa';
+            // Hier wird die Farbe für nicht-ausgewählte Kanten auf blau gesetzt
+            this.ctx.strokeStyle = candidate.isNearest ? 'green' : 'blue';
             this.ctx.lineWidth = candidate.isNearest ? 0.3 : 0.1;
             this.ctx.setLineDash(candidate.isNearest ? [] : [0.2, 0.2]);
-            
             this.ctx.beginPath();
             this.ctx.moveTo(currentNode.x, currentNode.y);
             this.ctx.lineTo(candidateNode.x, candidateNode.y);
             this.ctx.stroke();
             this.ctx.setLineDash([]);
-            
             // Highlight the nearest neighbor
             if (candidate.isNearest) {
                 this.ctx.beginPath();
@@ -773,12 +747,10 @@ class NearestNeighborAnimation {
             }
         });
     }
-
     nextStep() {
         // Clear and redraw
         this.ctx.clearRect(0, 0, 100, 50);
         this.drawNodes(true);
-        
         if (this.currentPathIndex < this.selectionSteps.length) {
             // Show selection process
             this.drawSelectionStep(this.currentPathIndex);
@@ -792,7 +764,6 @@ class NearestNeighborAnimation {
             nnStopAutoAnimation();
         }
     }
-
     importChristofidesPoints() {
         // Check if the Christofides animation exists
         if (typeof animation !== 'undefined' && animation && animation.nodes) {
@@ -808,11 +779,9 @@ class NearestNeighborAnimation {
         }
     }
 }
-
 // Global variables for Nearest Neighbor
 let nnAnimation = null;
 let nnAutoIntervalId = null;
-
 // Initialize when the page loads
 document.addEventListener('DOMContentLoaded', function() {
     const canvas = document.getElementById('nnCanvas');
@@ -821,31 +790,18 @@ document.addEventListener('DOMContentLoaded', function() {
         nnUpdateInfoPanel();
     }
 });
-
 function nnUpdateInfoPanel() {
     const dataOutput = document.getElementById('nnDataOutput');
     const stepDropdown = document.getElementById('nnStepDropdown');
     const stepDetails = document.getElementById('nnStepDetails');
     const fullTable = document.getElementById('nnFullTable');
-
     if (!dataOutput || !stepDropdown || !nnAnimation) return;
-
     // Allgemeine Informationen
     let html = "<strong>Algorithmus:</strong> Nearest Neighbor<br>";
     html += "<hr>";
     html += "<strong>Punkte:</strong><br>";
     html += nnAnimation.nodes.map(node => "P" + node.id + ": (" + node.x + ", " + node.y + ")").join("<br>");
     html += "<hr>";
-    dataOutput.innerHTML = html;
-
-    // Dropdown-Menü aktualisieren
-    stepDropdown.innerHTML = '<option value="">Schritt auswählen...</option>';
-    nnAnimation.selectionSteps.forEach((step, stepIndex) => {
-        stepDropdown.innerHTML += `<option value="${stepIndex}">Schritt ${stepIndex + 1}: P${step.current}</option>`;
-    });
-
-    // Details des aktuellen Pfads
-    const pathLength = Math.min(nnAnimation.currentPathIndex + 1, nnAnimation.nnPath.length);
     let path = nnAnimation.nnPath.slice(0, pathLength).map(node => "P" + node).join(" → ");
     if (nnAnimation.currentPathIndex >= nnAnimation.selectionSteps.length) {
         let totalLength = 0;
@@ -855,31 +811,32 @@ function nnUpdateInfoPanel() {
                 nnAnimation.nodes[nnAnimation.nnPath[i]]
             );
         }
-        path += `<br><br>Gesamtlänge: <strong>${totalLength.toFixed(2)}</strong>`;
+        path += `<br><br><span style='font-size: 1.2em;'><strong>Gesamtlänge: ${totalLength.toFixed(2)}</strong></span>`;
     }
     html += `<strong>Aktueller Pfad:</strong><br>${path}`;
     dataOutput.innerHTML = html;
-
+    // Dropdown-Menü aktualisieren
+    stepDropdown.innerHTML = '<option value="">Schritt auswählen...</option>';
+    nnAnimation.selectionSteps.forEach((step, stepIndex) => {
+        stepDropdown.innerHTML += `<option value="${stepIndex}">Schritt ${stepIndex + 1}: P${step.current}</option>`;
+    });
+    // Details des aktuellen Pfads
+    const pathLength = Math.min(nnAnimation.currentPathIndex + 1, nnAnimation.nnPath.length);
     // Schritt-Details zurücksetzen
     stepDetails.innerHTML = "";
-
     // Gesamte Tabelle zurücksetzen
     fullTable.style.display = "none";
     fullTable.innerHTML = "";
 }
-
 function nnShowStepDetails() {
     const stepDropdown = document.getElementById('nnStepDropdown');
     const stepDetails = document.getElementById('nnStepDetails');
-
     if (!stepDropdown || !stepDetails || !nnAnimation) return;
-
     const stepIndex = parseInt(stepDropdown.value);
     if (isNaN(stepIndex) || stepIndex < 0 || stepIndex >= nnAnimation.selectionSteps.length) {
         stepDetails.innerHTML = "";
         return;
     }
-
     const step = nnAnimation.selectionSteps[stepIndex];
     let html = `<strong>Schritt ${stepIndex + 1}:</strong><br>`;
     html += `<strong>Aktueller Knoten:</strong> P${step.current}<br>`;
@@ -893,19 +850,20 @@ function nnShowStepDetails() {
     html += "</ul>";
     stepDetails.innerHTML = html;
 }
-
 function nnShowFullTable() {
     const fullTableDiv = document.getElementById('nnFullTable');
     if (!fullTableDiv || !nnAnimation) return;
-
+    
     // Generiere die Tabelle
-    let html = "<h4>Gesamte Tabelle der Schritte</h4>";
-    html += "<table style='width: 100%; border-collapse: collapse;'>";
+    let html = "<h4></h4>";
+    html += "<table class='selection-table' style='width: 100%; border-collapse: collapse;'>";
     html += "<tr><th>Schritt</th><th>Aktueller Knoten</th><th>Kandidat</th><th>Entfernung</th><th>Ausgewählt</th></tr>";
-
+    
     nnAnimation.selectionSteps.forEach((step, stepIndex) => {
         step.candidates.forEach(candidate => {
-            html += "<tr>";
+            // Füge die CSS-Klasse 'selected' hinzu, wenn es der nächste Nachbar ist
+            html += candidate.isNearest ? "<tr class='selected'>" : "<tr>";
+            
             html += `<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">${stepIndex + 1}</td>`;
             html += `<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">P${step.current}</td>`;
             html += `<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">P${candidate.node}</td>`;
@@ -914,18 +872,16 @@ function nnShowFullTable() {
             html += "</tr>";
         });
     });
-
+    
     html += "</table>";
-
+    
     // Zeige die Tabelle an
     fullTableDiv.innerHTML = html;
     fullTableDiv.style.display = 'block';
 }
-
 function nnToggleFullTable() {
     const fullTableDiv = document.getElementById('nnFullTable');
     if (!fullTableDiv) return;
-    
     if (fullTableDiv.style.display === 'none' || !fullTableDiv.innerHTML.trim()) {
         // Wenn die Tabelle ausgeblendet oder leer ist, fülle sie und zeige sie an
         nnShowFullTable();
@@ -934,25 +890,45 @@ function nnToggleFullTable() {
         fullTableDiv.style.display = 'none';
     }
 }
-
 function nnNextStep() {
     if (!nnAnimation) return;
-
+    
+    // Wenn wir bereits am Ende sind, zeichnen wir erneut den finalen Pfad
+    if (nnAnimation.currentPathIndex > nnAnimation.selectionSteps.length) {
+        nnAnimation.ctx.clearRect(0, 0, 100, 50);
+        nnAnimation.drawNodes(true);
+        nnAnimation.drawPath(nnAnimation.nnPath.length - 1); // Finale Route zeichnen
+        return;
+    }
+    
     // Zeichne den nächsten Schritt
     nnAnimation.nextStep();
-
+    
     // Aktualisiere das Info-Panel
     nnUpdateInfoPanel();
-
+    
     // Wenn die Animation abgeschlossen ist, zeige die vollständige Route
     if (nnAnimation.currentPathIndex > nnAnimation.selectionSteps.length) {
         nnAnimation.ctx.clearRect(0, 0, 100, 50); // Canvas bereinigen
         nnAnimation.drawNodes(true); // Knoten erneut zeichnen
         nnAnimation.drawPath(nnAnimation.nnPath.length - 1); // Finale Route zeichnen
-        nnUpdateInfoPanel(); // Finale Tabelle aktualisieren
+        
+        // Zusätzlich sicherstellen, dass die Gesamtlänge angezeigt wird
+        let totalLength = 0;
+        for (let i = 1; i < nnAnimation.nnPath.length; i++) {
+            totalLength += nnAnimation.distance(
+                nnAnimation.nodes[nnAnimation.nnPath[i - 1]],
+                nnAnimation.nodes[nnAnimation.nnPath[i]]
+            );
+        }
+        
+        // Info-Panel mit finaler Route und Gesamtlänge aktualisieren
+        nnUpdateInfoPanel();
+        
+        // Animation stoppen
+        nnStopAutoAnimation();
     }
 }
-
 function nnResetAnimation() {
     nnStopAutoAnimation();
     if (nnAnimation) {
@@ -962,7 +938,6 @@ function nnResetAnimation() {
         nnUpdateInfoPanel();
     }
 }
-
 function nnToggleAutoAnimation() {
     if (nnAutoIntervalId) {
         nnStopAutoAnimation();
@@ -970,7 +945,6 @@ function nnToggleAutoAnimation() {
         nnStartAutoAnimation();
     }
 }
-
 function nnStartAutoAnimation() {
     if (nnAutoIntervalId) return;
     const slider = document.getElementById('nnSpeedSlider');
@@ -981,21 +955,18 @@ function nnStartAutoAnimation() {
         nnNextStep();
     }, speed);
 }
-
 function nnStopAutoAnimation() {
     if (nnAutoIntervalId) {
         clearInterval(nnAutoIntervalId);
         nnAutoIntervalId = null;
     }
 }
-
 function nnImportPoints() {
     if (nnAnimation) {
         nnAnimation.importChristofidesPoints();
         nnResetAnimation();
     }
 }
-
 function nnDownloadGraph() {
     const canvas = document.getElementById('nnCanvas');
     if (!canvas) return;
@@ -1011,7 +982,6 @@ function nnDownloadGraph() {
     link.href = tmpCanvas.toDataURL('image/png');
     link.click();
 }
-
 // Add event listener for speed slider
 document.getElementById('nnSpeedSlider')?.addEventListener('input', function() {
     if (nnAutoIntervalId) {
