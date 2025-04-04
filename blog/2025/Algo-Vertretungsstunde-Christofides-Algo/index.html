@@ -1,6 +1,6 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Christofides Algorithm | DeadlineDriven.dev/elopment </title> <meta name="author" content="Marc Nauendorf"> <meta name="description" content="Algorithm &amp; Datastructure"> <link rel="stylesheet" href="/assets/css/bootstrap.min.css?a4b3f509e79c54a512b890d73235ef04"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="/assets/css/academicons.min.css?f0b7046b84e425c55f3463ac249818f5"> <link defer rel="stylesheet" href="/assets/css/scholar-icons.css?62b2ac103a88034e6882a5be5f3e2772"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%98%A3%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e"> <link rel="canonical" href="https://nr44suessauer.github.io/blog/2025/Algo-Vertretungsstunde-Christofides-Algo/"> <script src="/assets/js/theme.js?9a0c749ec5240d9cda97bc72359a72c0"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Christofides Algorithm &amp; Nearest Neigbhor | Compare | DeadlineDriven.dev/elopment </title> <meta name="author" content="Marc Nauendorf"> <meta name="description" content="Algorithm &amp; Datastructure"> <link rel="stylesheet" href="/assets/css/bootstrap.min.css?a4b3f509e79c54a512b890d73235ef04"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="/assets/css/academicons.min.css?f0b7046b84e425c55f3463ac249818f5"> <link defer rel="stylesheet" href="/assets/css/scholar-icons.css?62b2ac103a88034e6882a5be5f3e2772"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%98%A3%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e"> <link rel="canonical" href="https://nr44suessauer.github.io/blog/2025/Algo-Vertretungsstunde-Christofides-Algo/"> <script src="/assets/js/theme.js?9a0c749ec5240d9cda97bc72359a72c0"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
     initTheme();
-  </script> </head> <body class="fixed-top-nav sticky-bottom-footer"> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> DeadlineDriven.dev/elopment </a> <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse text-right" id="navbarNav"> <ul class="navbar-nav ml-auto flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item active"> <a class="nav-link" href="/blog/">blog </a> </li> <li class="nav-item "> <a class="nav-link" href="/projects/">projects </a> </li> <li class="nav-item "> <a class="nav-link" href="/calculator/">Calculator </a> </li> <li class="nav-item "> <a class="nav-link" href="/resume/">resume </a> </li> <li class="nav-item"> <button id="search-toggle" title="Search" onclick="openSearchModal()"> <span class="nav-link">ctrl k <i class="ti ti-search"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" title="Change theme"> <i class="ti ti-sun-moon" id="light-toggle-system"></i> <i class="ti ti-moon-filled" id="light-toggle-dark"></i> <i class="ti ti-sun-filled" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Christofides Algorithm</h1> <p class="post-meta"> Created in April 02, 2025 </p> <p class="post-tags"> <a href="/blog/2025"> <i class="fa-solid fa-calendar fa-sm"></i> 2025 </a>   ·   <a href="/blog/tag/algo"> <i class="fa-solid fa-hashtag fa-sm"></i> Algo</a>   <a href="/blog/tag/christofides"> <i class="fa-solid fa-hashtag fa-sm"></i> Christofides</a>   <a href="/blog/tag/nearestneighbor"> <i class="fa-solid fa-hashtag fa-sm"></i> NearestNeighbor</a>   <a href="/blog/tag/bruteforce"> <i class="fa-solid fa-hashtag fa-sm"></i> BruteForce</a>   ·   <a href="/blog/category/lecture"> <i class="fa-solid fa-tag fa-sm"></i> lecture</a> </p> </header> <article class="post-content"> <div id="markdown-content"> <h2 id="still-working-at--official-release-1004-">STILL WORKING AT : official Release 10.04 |</h2> <title>Christofides Algorithm Animation</title> <style>.container{display:flex}.animation-container{flex:1}#infoPanel{flex:0 0 300px;margin-left:20px;background:#f2f2f2;padding:10px;font-family:sans-serif;font-size:14px;overflow-y:auto;max-height:900px}canvas{border:1px solid black;display:block}.controls>div{margin:10px 0}.controls>div>*{margin-right:10px}#speedSlider,#numPoints{transform:scale(1);transform-origin:left center}</style> <div class="container"> <div class="animation-container"> <div class="controls"> <div> <button onclick="nextStep()">Nächster Schritt</button> <button onclick="resetAnimation()">Reset</button> <button onclick="toggleAutoAnimation()">Animation Start/Stop</button> <label for="speedSlider">Geschwindigkeit:</label> <input type="range" id="speedSlider" min="50" max="200" step="1" value="100"> </div> <div> <label for="numPoints">Anzahl der Punkte:</label> <input type="number" id="numPoints" min="3" max="25" value="4" style="width:50px; height:30px;"> <button onclick="updateNumPoints()">Punkte Aktualisieren</button> <button onclick="toggleConstellation()">Sternenbild</button> <button onclick="downloadGraph()">Graph herunterladen</button> </div> </div> <canvas id="canvas" width="800" height="600"></canvas> </div> <div id="infoPanel"> <h3>Animationsdaten</h3> <div id="dataOutput">Warte auf den ersten Schritt...</div> </div> </div> <script>
+  </script> </head> <body class="fixed-top-nav sticky-bottom-footer"> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> DeadlineDriven.dev/elopment </a> <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse text-right" id="navbarNav"> <ul class="navbar-nav ml-auto flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item active"> <a class="nav-link" href="/blog/">blog </a> </li> <li class="nav-item "> <a class="nav-link" href="/projects/">projects </a> </li> <li class="nav-item "> <a class="nav-link" href="/calculator/">Calculator </a> </li> <li class="nav-item "> <a class="nav-link" href="/resume/">resume </a> </li> <li class="nav-item"> <button id="search-toggle" title="Search" onclick="openSearchModal()"> <span class="nav-link">ctrl k <i class="ti ti-search"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" title="Change theme"> <i class="ti ti-sun-moon" id="light-toggle-system"></i> <i class="ti ti-moon-filled" id="light-toggle-dark"></i> <i class="ti ti-sun-filled" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Christofides Algorithm &amp; Nearest Neigbhor | Compare</h1> <p class="post-meta"> Created in April 02, 2025 </p> <p class="post-tags"> <a href="/blog/2025"> <i class="fa-solid fa-calendar fa-sm"></i> 2025 </a>   ·   <a href="/blog/tag/algo"> <i class="fa-solid fa-hashtag fa-sm"></i> Algo</a>   <a href="/blog/tag/christofides"> <i class="fa-solid fa-hashtag fa-sm"></i> Christofides</a>   <a href="/blog/tag/nearestneighbor"> <i class="fa-solid fa-hashtag fa-sm"></i> NearestNeighbor</a>   <a href="/blog/tag/bruteforce"> <i class="fa-solid fa-hashtag fa-sm"></i> BruteForce</a>   ·   <a href="/blog/category/lecture"> <i class="fa-solid fa-tag fa-sm"></i> lecture</a> </p> </header> <article class="post-content"> <div id="markdown-content"> <h2 id="still-working-at--official-release-1004-">STILL WORKING AT : official Release 10.04 |</h2> <title>Christofides Algorithm Animation</title> <style>.container{display:flex}.animation-container{flex:1}#infoPanel{flex:0 0 300px;margin-left:20px;background:#f2f2f2;padding:10px;font-family:sans-serif;font-size:14px;overflow-y:auto;max-height:900px}canvas{border:1px solid black;display:block}.controls>div{margin:10px 0}.controls>div>*{margin-right:10px}#speedSlider,#numPoints{transform:scale(1);transform-origin:left center}</style> <div class="container"> <div class="animation-container"> <div class="controls"> <div> <button onclick="nextStep()">Nächster Schritt</button> <button onclick="resetAnimation()">Reset</button> <button onclick="toggleAutoAnimation()">Animation Start/Stop</button> <label for="speedSlider">Geschwindigkeit:</label> <input type="range" id="speedSlider" min="50" max="200" step="1" value="100"> </div> <div> <label for="numPoints">Anzahl der Punkte:</label> <input type="number" id="numPoints" min="3" max="25" value="4" style="width:50px; height:30px;"> <button onclick="updateNumPoints()">Punkte Aktualisieren</button> <button onclick="toggleConstellation()">Sternenbild</button> <button onclick="downloadGraph()">Graph herunterladen</button> </div> </div> <canvas id="canvas" width="800" height="600"></canvas> </div> <div id="infoPanel"> <h3>Animationsdaten</h3> <div id="dataOutput">Warte auf den ersten Schritt...</div> </div> </div> <script>
 class ChristofidesAnimation {
     constructor(canvas, numNodes = 4) {
         this.canvas = canvas;
@@ -599,10 +599,235 @@ function drawGraphData() {
         ctx.restore();
     }
 }
-    </script> <div style="display: flex; align-items: center; margin-top: 10px;"> <p></p> </div> <hr> <div style="display: flex; align-items: center; margin-top: 10px;"> <p></p> </div> </div> </article> <br> <hr> <br> <ul class="list-disc pl-8"></ul> <p class="mb-2">Here are some more articles you might like to read next:</p> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2025/MessParkour/">Messparkour SV2</a> </li> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2025/Neural_Style_Transfer/">Neural Style Transfer with TensorFlow</a> </li> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2025/Mnist-Handwritten-digit-recognition/">CNN | Digit Recognition with Mnist</a> </li> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2025/studentische-werkstatt/">Die Studentische Werkstatt | Hochschule Heilbronn</a> </li> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2025/Makerspace/">Innovationsräume | DigiLab &amp; Makerspace</a> </li> <div id="disqus_thread" style="max-width: 1000px; margin: 0 auto;"> <script type="text/javascript">
+    </script> <div style="display: flex; align-items: center; margin-top: 10px;"> <p></p> </div> <hr> <div style="display: flex; align-items: center; margin-top: 10px;"> <p></p> </div> <title>Nearest Neighbor Animation</title> <style>.nn-container{display:flex}.nn-animation-container{flex:1}#nnInfoPanel{flex:0 0 300px;margin-left:20px;background:#f2f2f2;padding:10px;font-family:sans-serif;font-size:14px;overflow-y:auto;max-height:900px}#nnCanvas{border:1px solid black;display:block}.nn-controls>div{margin:10px 0}.nn-controls>div>*{margin-right:10px}</style> <h3>Nearest Neighbor Algorithm</h3> <div class="nn-container"> <div class="nn-animation-container"> <div class="nn-controls"> <div> <button onclick="nnNextStep()">Nächster Schritt</button> <button onclick="nnResetAnimation()">Reset</button> <button onclick="nnToggleAutoAnimation()">Animation Start/Stop</button> <label for="nnSpeedSlider">Geschwindigkeit:</label> <input type="range" id="nnSpeedSlider" min="50" max="200" step="1" value="100"> </div> <div> <button onclick="nnImportPoints()">Punkte importieren</button> <button onclick="nnDownloadGraph()">Graph herunterladen</button> </div> </div> <canvas id="nnCanvas" width="800" height="600"></canvas> </div> <div id="nnInfoPanel"> <h3>Nearest Neighbor Daten</h3> <div id="nnDataOutput">Warte auf den ersten Schritt...</div> </div> </div> <script>
+// Nearest Neighbor Animation Class
+class NearestNeighborAnimation {
+    constructor(canvas, numNodes = 4) {
+        this.canvas = canvas;
+        this.ctx = canvas.getContext('2d');
+        this.ctx.setTransform(1, 0, 0, 1, 0, 0);
+        this.ctx.scale(canvas.width / 50, canvas.height / 50);
+        this.numNodes = numNodes;
+        this.nodes = [];
+        this.nnPath = [];
+        this.currentPathIndex = 1;    
+        this.init();
+        this.drawNodes(true);
+    }
+    drawCoordinateSystem() {
+        this.ctx.strokeStyle = "#ccc";
+        this.ctx.lineWidth = 0.1;   
+        for (let x = 0; x <= 100; x += 10) {
+            this.ctx.beginPath();
+            this.ctx.moveTo(x, 0);
+            this.ctx.lineTo(x, 50);
+            this.ctx.stroke();
+        }  
+        for (let y = 0; y <= 50; y += 5) {
+            this.ctx.beginPath();
+            this.ctx.moveTo(0, y);
+            this.ctx.lineTo(100, y);
+            this.ctx.stroke();
+        }
+    }
+    init() {
+        this.generateNodes();
+        this.computeNearestNeighborPath();
+    } 
+    generateNodes() {
+        for (let i = 0; i < this.numNodes; i++) {
+            this.nodes.push({
+                x: Math.floor(Math.random() * (40 - 5 + 1)) + 5,
+                y: Math.floor(Math.random() * (40 - 5 + 1)) + 5,
+                id: i
+            });
+        }
+    }
+    distance(a, b) {
+        return Math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2);
+    }
+    computeNearestNeighborPath() {
+        const startNode = 0;
+        const visited = new Set([startNode]);
+        this.nnPath = [startNode]; 
+        let current = startNode;
+        while (visited.size < this.numNodes) {
+            let nearest = null;
+            let minDistance = Infinity;
+            for (let i = 0; i < this.numNodes; i++) {
+                if (!visited.has(i)) {
+                    const dist = this.distance(this.nodes[current], this.nodes[i]);
+                    if (dist < minDistance) {
+                        minDistance = dist;
+                        nearest = i;
+                    }
+                }
+            } 
+            current = nearest;
+            visited.add(current);
+            this.nnPath.push(current);
+        } 
+        this.nnPath.push(startNode);
+    }  
+    drawNodes(showCoordinateSystem = false) {
+        if (showCoordinateSystem) {
+            this.drawCoordinateSystem();
+        }   
+        this.nodes.forEach(node => {
+            this.ctx.beginPath();
+            this.ctx.arc(node.x, node.y, 0.5, 0, Math.PI * 2);
+            this.ctx.fillStyle = 'black';
+            this.ctx.fill();
+            this.ctx.font = "1.5px sans-serif";
+            this.ctx.fillStyle = 'black';
+            this.ctx.textAlign = "center";
+            const label = `P${node.id}`;
+            this.ctx.fillText(label, node.x, node.y - 1.2);
+        });
+    }  
+    drawPath(index) {
+        if (index <= 0 || index >= this.nnPath.length) return;   
+        this.ctx.strokeStyle = 'red';
+        this.ctx.lineWidth = 0.5;
+        this.ctx.beginPath();  
+        const startNode = this.nodes[this.nnPath[0]];
+        this.ctx.moveTo(startNode.x, startNode.y);  
+        for (let i = 1; i <= index; i++) {
+            const node = this.nodes[this.nnPath[i]];
+            this.ctx.lineTo(node.x, node.y);
+        }  
+        this.ctx.stroke();
+    } 
+    nextStep() {
+        this.drawPath(this.currentPathIndex);
+        this.currentPathIndex++;   
+        if (this.currentPathIndex >= this.nnPath.length) {
+            nnStopAutoAnimation();
+        }
+    } 
+    importChristofidesPoints() {
+        // Check if the Christofides animation exists
+        if (typeof animation !== 'undefined' && animation && animation.nodes) {
+            // Clone the nodes from Christofides
+            this.nodes = JSON.parse(JSON.stringify(animation.nodes));
+            this.numNodes = this.nodes.length;
+            // Recalculate the path with the new points
+            this.computeNearestNeighborPath();
+            // Reset the animation
+            this.ctx.clearRect(0, 0, 100, 50);
+            this.currentPathIndex = 1;
+            this.drawNodes(true);
+        }
+    }
+}
+// Global variables for Nearest Neighbor
+let nnAnimation = null;
+let nnAutoIntervalId = null;
+// Initialize when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+    const canvas = document.getElementById('nnCanvas');
+    if (canvas) {
+        nnAnimation = new NearestNeighborAnimation(canvas, 4);
+        nnUpdateInfoPanel();
+    }
+});
+function nnUpdateInfoPanel() {
+    const dataOutput = document.getElementById('nnDataOutput');
+    if (!dataOutput || !nnAnimation) return;
+    let html = "<strong>Algorithmus:</strong> Nearest Neighbor<br>";
+    html += "<hr>";
+    html += "<strong>Punkte:</strong><br>";
+    html += nnAnimation.nodes.map(node => "P" + node.id + ": (" + node.x + ", " + node.y + ")").join("<br>");
+    html += "<hr>";
+    html += "<strong>Aktueller Pfad:</strong><br>";
+    if (nnAnimation.currentPathIndex <= 1) {
+        html += "Beginne bei Knoten " + nnAnimation.nnPath[0];
+    } else {
+        let path = nnAnimation.nnPath.slice(0, nnAnimation.currentPathIndex).join(" → ");
+        if (nnAnimation.currentPathIndex >= nnAnimation.nnPath.length) {
+            let totalLength = 0;
+            for (let i = 1; i < nnAnimation.nnPath.length; i++) {
+                totalLength += nnAnimation.distance(nnAnimation.nodes[nnAnimation.nnPath[i-1]], nnAnimation.nodes[nnAnimation.nnPath[i]]);
+            }
+            path += "<br>Gesamtlänge: " + totalLength.toFixed(2);
+        }
+        html += path;
+    }
+    dataOutput.innerHTML = html;
+}
+function nnNextStep() {
+    if (!nnAnimation) return;
+    nnAnimation.nextStep();
+    nnUpdateInfoPanel();
+}
+function nnResetAnimation() {
+    nnStopAutoAnimation();
+    if (nnAnimation) {
+        nnAnimation.ctx.clearRect(0, 0, 100, 50);
+        nnAnimation.currentPathIndex = 1;
+        nnAnimation.drawNodes(true);
+        nnUpdateInfoPanel();
+    }
+}
+function nnToggleAutoAnimation() {
+    if (nnAutoIntervalId) {
+        nnStopAutoAnimation();
+    } else {
+        nnStartAutoAnimation();
+    }
+}
+function nnStartAutoAnimation() {
+    if (nnAutoIntervalId) return;
+    const slider = document.getElementById('nnSpeedSlider');
+    if (!slider) return;
+    const percent = parseInt(slider.value);
+    const speed = 1000 * (100 / percent);
+    nnAutoIntervalId = setInterval(() => {
+        nnNextStep();
+    }, speed);
+}
+function nnStopAutoAnimation() {
+    if (nnAutoIntervalId) {
+        clearInterval(nnAutoIntervalId);
+        nnAutoIntervalId = null;
+    }
+}
+function nnImportPoints() {
+    if (nnAnimation) {
+        nnAnimation.importChristofidesPoints();
+        nnUpdateInfoPanel();
+    }
+}
+function nnDownloadGraph() {
+    const canvas = document.getElementById('nnCanvas');
+    if (!canvas) return;
+    const tmpCanvas = document.createElement('canvas');
+    tmpCanvas.width = canvas.width;
+    tmpCanvas.height = canvas.height;
+    const tmpCtx = tmpCanvas.getContext('2d');
+    tmpCtx.fillStyle = 'white';
+    tmpCtx.fillRect(0, 0, tmpCanvas.width, tmpCanvas.height);
+    tmpCtx.drawImage(canvas, 0, 0);
+    const link = document.createElement('a');
+    link.download = 'nearest-neighbor-graph.png';
+    link.href = tmpCanvas.toDataURL('image/png');
+    link.click();
+}
+// Add event listener for speed slider
+document.getElementById('nnSpeedSlider')?.addEventListener('input', function() {
+    if (nnAutoIntervalId) {
+        clearInterval(nnAutoIntervalId);
+        const percent = parseInt(this.value);
+        const speed = 1000 * (100 / percent);
+        nnAutoIntervalId = setInterval(() => {
+            nnNextStep();
+        }, speed);
+    }
+});
+    </script> </div> </article> <br> <hr> <br> <ul class="list-disc pl-8"></ul> <p class="mb-2">Here are some more articles you might like to read next:</p> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2025/MessParkour/">Messparkour SV2</a> </li> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2025/Neural_Style_Transfer/">Neural Style Transfer with TensorFlow</a> </li> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2025/Mnist-Handwritten-digit-recognition/">CNN | Digit Recognition with Mnist</a> </li> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2025/studentische-werkstatt/">Die Studentische Werkstatt | Hochschule Heilbronn</a> </li> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2025/Makerspace/">Innovationsräume | DigiLab &amp; Makerspace</a> </li> <div id="disqus_thread" style="max-width: 1000px; margin: 0 auto;"> <script type="text/javascript">
     var disqus_shortname  = 'deadlinedrivenden';
     var disqus_identifier = '/blog/2025/Algo-Vertretungsstunde-Christofides-Algo';
-    var disqus_title      = "Christofides Algorithm";
+    var disqus_title      = "Christofides Algorithm \u0026 Nearest Neigbhor | Compare";
     (function() {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
@@ -611,7 +836,7 @@ function drawGraphData() {
   </script> <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript" rel="external nofollow noopener" target="_blank">comments powered by Disqus.</a> </noscript> </div> </div> </div> <footer class="sticky-bottom mt-5" role="contentinfo"> </footer> <div id="disqus_thread" style="max-width: 1000px; margin: 0 auto;"> <script type="text/javascript">
     var disqus_shortname  = 'deadlinedrivenden';
     var disqus_identifier = '/blog/2025/Algo-Vertretungsstunde-Christofides-Algo';
-    var disqus_title      = "Christofides Algorithm";
+    var disqus_title      = "Christofides Algorithm \u0026 Nearest Neigbhor | Compare";
     (function() {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';

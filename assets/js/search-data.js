@@ -37,9 +37,9 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/resume/";
           },
-        },{id: "post-christofides-algorithm",
+        },{id: "post-christofides-algorithm-amp-nearest-neigbhor-compare",
       
-        title: "Christofides Algorithm",
+        title: "Christofides Algorithm &amp; Nearest Neigbhor | Compare",
       
       description: "Algorithm &amp; Datastructure",
       section: "Posts",
