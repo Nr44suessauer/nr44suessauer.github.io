@@ -645,7 +645,7 @@ function importNNPoints() {
         console.log("NN-Animation nicht gefunden oder keine Punkte verfügbar");
     }
 }
-    </script> <div style="display: flex; align-items: center; margin-top: 10px;"> <p></p> </div> <hr> <div style="display: flex; align-items: center; margin-top: 10px;"> <p></p> </div> <title>Nearest Neighbor Animation</title> <style>.nn-container{display:flex}.nn-animation-container{flex:1}#nnInfoPanel{flex:0 0 500px;margin-left:20px;background:#f2f2f2;padding:10px;font-family:sans-serif;font-size:14px;overflow-y:auto;max-height:900px}#nnCanvas{border:1px solid black;display:block}.nn-controls>div{margin:10px 0}.nn-controls>div>*{margin-right:10px}.selection-table{width:100%;border-collapse:collapse;margin:10px 0}.selection-table th,.selection-table td{border:1px solid #ddd;padding:4px;text-align:center}.selection-table .selected{background-color:#d4ffd4;font-weight:bold}</style> <h3>Nearest Neighbor Algorithm</h3> <div class="nn-container"> <div class="nn-animation-container"> <div class="nn-controls"> <div> <button onclick="nnNextStep()">Nächster Schritt</button> <button onclick="nnResetAnimation()">Reset</button> <button onclick="nnToggleAutoAnimation()">Animation Start/Stop</button> <label for="nnSpeedSlider">Geschwindigkeit:</label> <input type="range" id="nnSpeedSlider" min="50" max="200" step="1" value="100"> </div> <div> <label for="nnNumPoints">Anzahl der Punkte:</label> <input type="number" id="nnNumPoints" min="3" max="25" value="4" style="width:50px; height:30px;"> <button onclick="nnUpdateNumPoints()">Punkte Aktualisieren</button> <button onclick="nnGenerateRandomPoints()">Zufällige Punkte</button> <button onclick="nnImportPoints()">Christofides Punkte importieren</button> <button onclick="nnToggleConstellation()">Sternenbild</button> <button onclick="nnDownloadGraph()">Graph herunterladen</button> </div> </div> <canvas id="nnCanvas" width="800" height="600"></canvas> </div> <div id="nnInfoPanel"> <h3>Nearest Neighbor Daten</h3> <div id="nnDataOutput">Warte auf den ersten Schritt...</div> <hr> <label for="nnStepDropdown"><strong>Schritte:</strong></label> <select id="nnStepDropdown" onchange="nnShowStepDetails()"> <option value="">Schritt auswählen...</option> </select> <button onclick="nnToggleFullTable()">Tabelle ein-/ausblenden</button> <div id="nnStepDetails"></div> <div id="nnFullTable" style="display: none; margin-top: 20px;"></div> </div> </div> <script>
+    </script> <div style="display: flex; align-items: center; margin-top: 10px;"> <p></p> </div> <hr> <div style="display: flex; align-items: center; margin-top: 10px;"> <p></p> </div> <title>Nearest Neighbor Animation</title> <style>.nn-container{display:flex}.nn-animation-container{flex:1}#nnInfoPanel{flex:0 0 500px;margin-left:20px;background:#f2f2f2;padding:10px;font-family:sans-serif;font-size:14px;overflow-y:auto;max-height:900px}#nnCanvas{border:1px solid black;display:block}.nn-controls>div{margin:10px 0}.nn-controls>div>*{margin-right:10px}.selection-table{width:100%;border-collapse:collapse;margin:10px 0}.selection-table th,.selection-table td{border:1px solid #ddd;padding:4px;text-align:center}.selection-table .selected{background-color:#d4ffd4;font-weight:bold}</style> <h3>Nearest Neighbor Algorithm</h3> <div class="nn-container"> <div class="nn-animation-container"> <div class="nn-controls"> <div> <button onclick="nnNextStep()">Nächster Schritt</button> <button onclick="nnResetAnimation()">Reset</button> <button onclick="nnToggleAutoAnimation()">Animation Start/Stop</button> <label for="nnSpeedSlider">Geschwindigkeit:</label> <input type="range" id="nnSpeedSlider" min="50" max="200" step="1" value="100"> </div> <div> <label for="nnNumPoints">Anzahl der Punkte:</label> <input type="number" id="nnNumPoints" min="3" max="25" value="4" style="width:50px; height:30px;"> <button onclick="nnUpdateNumPoints()">Zufällige Punkte</button> <button onclick="nnImportPoints()">Christofides Punkte importieren</button> <button onclick="nnToggleConstellation()">Sternenbild</button> <button onclick="nnDownloadGraph()">Graph herunterladen</button> </div> </div> <canvas id="nnCanvas" width="800" height="600"></canvas> </div> <div id="nnInfoPanel"> <h3>Nearest Neighbor Daten</h3> <div id="nnDataOutput">Warte auf den ersten Schritt...</div> <hr> <label for="nnStepDropdown"><strong>Schritte:</strong></label> <select id="nnStepDropdown" onchange="nnShowStepDetails()"> <option value="">Schritt auswählen...</option> </select> <button onclick="nnToggleFullTable()">Tabelle ein-/ausblenden</button> <div id="nnStepDetails"></div> <div id="nnFullTable" style="display: none; margin-top: 20px;"></div> </div> </div> <script>
 // Nearest Neighbor Animation Class
 class NearestNeighborAnimation {
     constructor(canvas, numNodes = 4) {
@@ -1167,6 +1167,24 @@ function nnGenerateConstellationNodes() {
     
     return nodes;
 }
+
+function nnGenerateRandomPoints() {
+    nnStopAutoAnimation();
+    
+    // Aktuelle Anzahl der Punkte beibehalten
+    const numPoints = nnAnimation.numNodes;
+    
+    // Neue Animation erstellen mit gleicher Punktanzahl
+    nnAnimation = new NearestNeighborAnimation(document.getElementById('nnCanvas'), numPoints);
+    
+    // Canvas löschen und neu zeichnen
+    nnAnimation.ctx.clearRect(0, 0, 100, 50);
+    nnAnimation.drawNodes(true);
+    
+    // Info-Panel aktualisieren
+    nnUpdateInfoPanel();
+}
+
 // Add event listener for speed slider
 document.getElementById('nnSpeedSlider')?.addEventListener('input', function() {
     if (nnAutoIntervalId) {
@@ -1178,6 +1196,29 @@ document.getElementById('nnSpeedSlider')?.addEventListener('input', function() {
         }, speed);
     }
 });
+
+function nnDownloadGraph() {
+    const canvas = document.getElementById('nnCanvas');
+    if (!canvas) return;
+    
+    const tmpCanvas = document.createElement('canvas');
+    tmpCanvas.width = canvas.width;
+    tmpCanvas.height = canvas.height;
+    const tmpCtx = tmpCanvas.getContext('2d');
+    
+    // Weißen Hintergrund zeichnen
+    tmpCtx.fillStyle = 'white';
+    tmpCtx.fillRect(0, 0, tmpCanvas.width, tmpCanvas.height);
+    
+    // Original Canvas auf temporäres Canvas kopieren
+    tmpCtx.drawImage(canvas, 0, 0);
+    
+    // Download initiieren
+    const link = document.createElement('a');
+    link.download = 'nearest-neighbor-graph.png';
+    link.href = tmpCanvas.toDataURL('image/png');
+    link.click();
+}
     </script> </div> </article> <br> <hr> <br> <ul class="list-disc pl-8"></ul> <p class="mb-2">Here are some more articles you might like to read next:</p> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2025/MessParkour/">Messparkour SV2</a> </li> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2025/Neural_Style_Transfer/">Neural Style Transfer with TensorFlow</a> </li> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2025/Mnist-Handwritten-digit-recognition/">CNN | Digit Recognition with Mnist</a> </li> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2025/studentische-werkstatt/">Die Studentische Werkstatt | Hochschule Heilbronn</a> </li> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2025/Makerspace/">Innovationsräume | DigiLab &amp; Makerspace</a> </li> <div id="disqus_thread" style="max-width: 1000px; margin: 0 auto;"> <script type="text/javascript">
     var disqus_shortname  = 'deadlinedrivenden';
     var disqus_identifier = '/blog/2025/Algo-Vertretungsstunde-Christofides-Algo';
