@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/resume/";
           },
-        },{id: "post-messparkour-sv2",
+        },{id: "post-christofides-algorithm",
+      
+        title: "Christofides Algorithm",
+      
+      description: "Algorithm &amp; Datastructure",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/Algo-Vertretungsstunde-Christofides-Algo/";
+        
+      },
+    },{id: "post-messparkour-sv2",
       
         title: "Messparkour SV2",
       
