@@ -958,14 +958,20 @@ function nnUpdateInfoPanel() {
     const stepDropdown = document.getElementById('nnStepDropdown');
     const stepDetails = document.getElementById('nnStepDetails');
     const fullTable = document.getElementById('nnFullTable');
+    
     if (!dataOutput || !stepDropdown || !nnAnimation) return;
+    
     // Allgemeine Informationen
     let html = "<strong>Algorithmus:</strong> Nearest Neighbor<br>";
     html += "<hr>";
     html += "<strong>Punkte:</strong><br>";
     html += nnAnimation.nodes.map(node => "P" + node.id + ": (" + node.x + ", " + node.y + ")").join("<br>");
     html += "<hr>";
+    
+    // Details des aktuellen Pfads
+    const pathLength = Math.min(nnAnimation.currentPathIndex + 1, nnAnimation.nnPath.length);
     let path = nnAnimation.nnPath.slice(0, pathLength).map(node => "P" + node).join(" → ");
+    
     if (nnAnimation.currentPathIndex >= nnAnimation.selectionSteps.length) {
         let totalLength = 0;
         for (let i = 1; i < nnAnimation.nnPath.length; i++) {
@@ -976,17 +982,19 @@ function nnUpdateInfoPanel() {
         }
         path += `<br><br><span style='font-size: 1.2em;'><strong>Gesamtlänge: ${totalLength.toFixed(2)}</strong></span>`;
     }
+    
     html += `<strong>Aktueller Pfad:</strong><br>${path}`;
     dataOutput.innerHTML = html;
+    
     // Dropdown-Menü aktualisieren
     stepDropdown.innerHTML = '<option value="">Schritt auswählen...</option>';
     nnAnimation.selectionSteps.forEach((step, stepIndex) => {
         stepDropdown.innerHTML += `<option value="${stepIndex}">Schritt ${stepIndex + 1}: P${step.current}</option>`;
     });
-    // Details des aktuellen Pfads
-    const pathLength = Math.min(nnAnimation.currentPathIndex + 1, nnAnimation.nnPath.length);
+    
     // Schritt-Details zurücksetzen
     stepDetails.innerHTML = "";
+    
     // Gesamte Tabelle zurücksetzen
     fullTable.style.display = "none";
     fullTable.innerHTML = "";
