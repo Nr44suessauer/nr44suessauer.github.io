@@ -252,7 +252,7 @@ featured: false
                 </div>
                 <div>
                     <label for="bfNumPoints">Anzahl der Punkte:</label>
-                    <input type="number" id="bfNumPoints" min="3" max="10" value="4" style="width:50px; height:30px;">
+                    <input type="number" id="bfNumPoints" min="3" max="25" value="4" style="width:50px; height:30px;">
                     <button onclick="bfUpdateNumPoints()">Zufällige Punkte</button>
                     <button onclick="bfImportChristofidesPoints()">Christofides Punkte importieren</button>
                     <button onclick="bfImportNNPoints()">NN-Punkte importieren</button>
@@ -1639,14 +1639,25 @@ featured: false
     function nnGenerateRandomPoints() {
         nnStopAutoAnimation();
         
-        const numPoints = nnAnimation.numNodes;
+        // Die Anzahl der Punkte aus dem Eingabefeld lesen
+        const numPoints = parseInt(document.getElementById('nnNumPoints').value);
+        // Startpunkt aus dem Eingabefeld lesen
         const startPoint = parseInt(document.getElementById('nnStartPoint').value);
         
+        // Prüfen ob die Anzahl der Punkte gültig ist
+        if (isNaN(numPoints) || numPoints < 3 || numPoints > 25) {
+            alert("Bitte geben Sie eine gültige Anzahl von Punkten zwischen 3 und 25 ein.");
+            return;
+        }
+        
+        // Neue Animation mit den angegebenen Parametern erstellen
         nnAnimation = new NearestNeighborAnimation(document.getElementById('nnCanvas'), numPoints, startPoint);
         
+        // Canvas löschen und neu zeichnen
         nnAnimation.ctx.clearRect(0, 0, 100, 50);
         nnAnimation.drawNodes(true);
         
+        // Infopanel aktualisieren
         nnUpdateInfoPanel();
     }
 
@@ -1838,13 +1849,10 @@ featured: false
                 // Zeichne nur den kürzesten Pfad in grün
                 if (this.shortestPath) {
                     this.drawPath(this.shortestPath, 'green');
-
-                    // Gebe den kürzesten Pfad und die Länge aus
-                    const dataOutput = document.getElementById('bfDataOutput');
-                    let html = `<strong>Kürzester Pfad:</strong> ${this.shortestPath.map(p => `P${p}`).join(' → ')}<br>`;
-                    html += `<strong>Länge des kürzesten Pfads:</strong> ${this.shortestDistance.toFixed(2)}`;
-                    dataOutput.innerHTML = html;
                 }
+                
+                // Die Punkte und Parameter werden durch die updateInfoPanel-Methode angezeigt
+                this.updateInfoPanel(true);
                 return;
             }
 
@@ -1867,22 +1875,82 @@ featured: false
             this.updateInfoPanel();
         }
 
-        updateInfoPanel() {
+        updateInfoPanel(isFinished = false) {
             const dataOutput = document.getElementById('bfDataOutput');
-            let html = `<strong>Anzahl der Permutationen:</strong> ${this.permutations.length}<br>`;
-            html += `<strong>Aktuelle Permutation:</strong> ${this.currentPermutationIndex + 1} von ${this.permutations.length}<br>`;
+            let html = `<strong>Punkte:</strong><br>`;
+            html += this.nodes.map(node => "P" + node.id + ": (" + node.x + ", " + node.y + ")").join("<br>");
+            html += "<hr>";
             
-            if (this.currentPermutationIndex < this.permutations.length) {
-                html += `<strong>Aktueller Pfad:</strong> ${this.permutations[this.currentPermutationIndex].map(p => `P${p}`).join(' → ')}<br>`;
-                html += `<strong>Distanz der aktuellen Permutation:</strong> ${this.calculatePathDistance(this.permutations[this.currentPermutationIndex]).toFixed(2)}<br>`;
+            html += `<strong>Anzahl der Permutationen:</strong> ${this.permutations.length}<br>`;
+            
+            if (!isFinished) {
+                html += `<strong>Aktuelle Permutation:</strong> ${this.currentPermutationIndex} von ${this.permutations.length}<br><hr>`;
+                
+                if (this.currentPermutationIndex < this.permutations.length) {
+                    html += `<strong>Aktueller Pfad:</strong> ${this.permutations[this.currentPermutationIndex].map(p => `P${p}`).join(' → ')}<br>`;
+                    html += `<strong>Distanz der aktuellen Permutation:</strong> ${this.calculatePathDistance(this.permutations[this.currentPermutationIndex]).toFixed(2)}<br>`;
+                } else {
+                    html += "<strong>Alle Permutationen geprüft</strong><br>";
+                }
             } else {
-                html += "<strong>Alle Permutationen geprüft</strong><br>";
+                html += `<strong>Alle Permutationen geprüft:</strong> ${this.permutations.length} von ${this.permutations.length}<br><hr>`;
             }
             
-            html += `<strong>Kürzeste Distanz:</strong> ${this.shortestDistance !== Infinity ? this.shortestDistance.toFixed(2) : "Noch nicht gefunden"}<br>`;
+            html += `<hr><strong>Kürzeste Distanz:</strong> ${this.shortestDistance !== Infinity ? this.shortestDistance.toFixed(2) : "Noch nicht gefunden"}<br>`;
             
             if (this.shortestPath) {
-                html += `<strong>Kürzester Pfad:</strong> ${this.shortestPath.map(p => `P${p}`).join(' → ')}`;
+                html += `<strong>Kürzester Pfad:</strong> ${this.shortestPath.map(p => `P${p}`).join(' → ')}<br>`;
+                
+                // Zeige detaillierte Ergebnisse an, wenn alle Permutationen geprüft wurden
+                if (isFinished || this.currentPermutationIndex >= this.permutations.length) {
+                    html += `<hr><h4>Ergebnisanalyse:</h4>`;
+                    
+                    // Berechne Faktoriell für Vergleich
+                    const factorial = n => n <= 1 ? 1 : n * factorial(n - 1);
+                    const totalPermsWithoutFix = factorial(this.numNodes);
+                    const totalPermsWithFix = factorial(this.numNodes - 1);
+                    
+                    html += `<strong>Geprüfte Permutationen:</strong> ${this.permutations.length}<br>`;
+                    html += `<strong>Gesamtpermutationen ohne festen Startpunkt:</strong> ${totalPermsWithoutFix}<br>`;
+                    html += `<strong>Ersparnis durch festen Startpunkt:</strong> ${totalPermsWithoutFix - totalPermsWithFix} Permutationen (${Math.round((1 - totalPermsWithFix/totalPermsWithoutFix) * 100)}%)<br><br>`;
+                    
+                    html += `<strong style="font-size: 1.2em;">Gefundener optimaler Pfad:</strong><br>`;
+                    html += `<span style="font-size: 1.1em;">${this.shortestPath.map(p => `P${p}`).join(' → ')} → P${this.shortestPath[0]}</span><br>`;
+                    html += `<strong>Gesamtlänge:</strong> <span style="color: green; font-weight: bold;">${this.shortestDistance.toFixed(2)}</span><br>`;
+                    
+                    // Einzelne Wegstücke mit Distanzen anzeigen
+                    html += `<br><strong>Einzelne Abschnitte:</strong><br>`;
+                    html += `<table class="selection-table" style="width: 100%;">`;
+                    html += `<tr><th>Von</th><th>Nach</th><th>Distanz</th></tr>`;
+                    
+                    // Füge alle Segmente des kürzesten Pfades hinzu
+                    for (let i = 0; i < this.shortestPath.length - 1; i++) {
+                        const from = this.shortestPath[i];
+                        const to = this.shortestPath[i + 1];
+                        const dist = this.distance(this.nodes[from], this.nodes[to]);
+                        html += `<tr>
+                            <td style="text-align: center;">P${from}</td>
+                            <td style="text-align: center;">P${to}</td>
+                            <td style="text-align: center;">${dist.toFixed(2)}</td>
+                        </tr>`;
+                    }
+                    
+                    // Füge den Rückweg zum Startpunkt hinzu
+                    const from = this.shortestPath[this.shortestPath.length - 1];
+                    const to = this.shortestPath[0];
+                    const dist = this.distance(this.nodes[from], this.nodes[to]);
+                    html += `<tr>
+                        <td style="text-align: center;">P${from}</td>
+                        <td style="text-align: center;">P${to}</td>
+                        <td style="text-align: center;">${dist.toFixed(2)}</td>
+                    </tr>`;
+                    
+                    html += `<tr style="font-weight: bold;">
+                        <td colspan="2" style="text-align: right;">Gesamtlänge:</td>
+                        <td style="text-align: center;">${this.shortestDistance.toFixed(2)}</td>
+                    </tr>`;
+                    html += `</table>`;
+                }
             } else {
                 html += "<strong>Kürzester Pfad:</strong> Noch nicht gefunden";
             }
@@ -1961,8 +2029,8 @@ featured: false
     function bfUpdateNumPoints() {
         const numPoints = parseInt(document.getElementById('bfNumPoints').value, 10);
         const startPoint = parseInt(document.getElementById('bfStartPoint').value, 10);
-        if (isNaN(numPoints) || numPoints < 3 || numPoints > 10) {
-            alert("Bitte eine gültige Anzahl zwischen 3 und 10 eingeben");
+        if (isNaN(numPoints) || numPoints < 3 || numPoints > 25) {
+            alert("Bitte eine gültige Anzahl zwischen 3 und 25 eingeben");
             return;
         }
         bfAnimation = new BruteForceAnimation(document.getElementById('bfCanvas'), numPoints, startPoint);
