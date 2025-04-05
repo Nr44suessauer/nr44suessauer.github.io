@@ -134,6 +134,7 @@ featured: false
                     <input type="number" id="numPoints" min="3" max="25" value="4" style="width:50px; height:30px;">
                     <button onclick="updateNumPoints()">Zufällige Punkte</button>
                     <button onclick="importNNPoints()">NN-Punkte importieren</button>
+                    <button onclick="importBFPoints()">BF-Punkte importieren</button>
                     <!-- Für Christofides: Dropdown-Menü mit neuen Sternbilder-Optionen -->
                     <select id="constellationSelect" onchange="toggleConstellation(this.value)" style="height:30px;">
                         <option value="">Sternenbild wählen...</option>
@@ -185,8 +186,9 @@ featured: false
                 <div>
                     <label for="nnNumPoints">Anzahl der Punkte:</label>
                     <input type="number" id="nnNumPoints" min="3" max="25" value="4" style="width:50px; height:30px;">
-                    <button onclick="nnUpdateNumPoints()">Zufällige Punkte</button>
+                    <button onclick="nnGenerateRandomPoints()">Zufällige Punkte</button>
                     <button onclick="nnImportPoints()">Christofides Punkte importieren</button>
+                    <button onclick="nnImportBFPoints()">BF-Punkte importieren</button>
                     <!-- Für Nearest Neighbor: Dropdown-Menü mit neuen Sternbilder-Optionen -->
                     <select id="nnConstellationSelect" onchange="nnToggleConstellation(this.value)" style="height:30px;">
                         <option value="">Sternenbild wählen...</option>
@@ -243,6 +245,8 @@ featured: false
                     <label for="bfNumPoints">Anzahl der Punkte:</label>
                     <input type="number" id="bfNumPoints" min="3" max="10" value="4" style="width:50px; height:30px;">
                     <button onclick="bfUpdateNumPoints()">Zufällige Punkte</button>
+                    <button onclick="bfImportChristofidesPoints()">Christofides Punkte importieren</button>
+                    <button onclick="bfImportNNPoints()">NN-Punkte importieren</button>
                     <select id="bfConstellationSelect" onchange="bfToggleConstellation(this.value)" style="height:30px;">
                         <option value="">Sternenbild wählen...</option>
                         <option value="libra">Waage (Libra) - 10 Punkte</option>
@@ -1069,6 +1073,37 @@ featured: false
             console.log("NN-Animation nicht gefunden oder keine Punkte verfügbar");
         }
     }
+
+    function importBFPoints() {
+        if (typeof bfAnimation !== 'undefined' && bfAnimation && bfAnimation.nodes) {
+            stopAutoAnimation();
+            const numPoints = bfAnimation.nodes.length;
+            animation = new ChristofidesAnimation(document.getElementById('canvas'), numPoints);
+            animation.nodes = JSON.parse(JSON.stringify(bfAnimation.nodes));
+            animation.mstEdges = [];
+            animation.oddNodes = [];
+            animation.matchingEdges = [];
+            animation.eulerianCircuit = [];
+            animation.tspPath = [];
+            animation.phase = 'mst';
+            animation.lastPhase = null;
+            animation.currentMSTIndex = 0;
+            animation.currentMatchingIndex = 0;
+            animation.currentEulerIndex = 1;
+            animation.currentTSPIndex = 1;
+            animation.drawnEdges.clear();
+            animation.computeMST();
+            animation.findOddNodes();
+            animation.computeMatching();
+            animation.computeEulerianCircuit();
+            animation.computeTSPPath();
+            animation.ctx.clearRect(0, 0, 100, 50);
+            animation.drawNodes(true);
+            updateInfoPanel();
+        } else {
+            console.log("BF-Animation nicht gefunden oder keine Punkte verfügbar");
+        }
+    }
     
     // Event-Listener
     document.getElementById('speedSlider').addEventListener('input', function() {
@@ -1259,6 +1294,17 @@ featured: false
                 this.drawNodes(true);
             }
         }
+
+        importBFPoints() {
+            if (typeof bfAnimation !== 'undefined' && bfAnimation && bfAnimation.nodes) {
+                this.nodes = JSON.parse(JSON.stringify(bfAnimation.nodes));
+                this.numNodes = this.nodes.length;
+                this.computeNearestNeighborPath();
+                this.ctx.clearRect(0, 0, 100, 50);
+                this.currentPathIndex = 0;
+                this.drawNodes(true);
+            }
+        }
     }
     
     // Globale Variablen für Nearest Neighbor
@@ -1287,7 +1333,7 @@ featured: false
             let totalLength = 0;
             for (let i = 1; i < nnAnimation.nnPath.length; i++) {
                 totalLength += nnAnimation.distance(
-                    nnAnimation.nodes[nnAnimation.nnPath[i - 1]],
+                    nnAnimation.nodes[nnAnimation.nnPath[i - 1]], 
                     nnAnimation.nodes[nnAnimation.nnPath[i]]
                 );
             }
@@ -1389,7 +1435,7 @@ featured: false
             let totalLength = 0;
             for (let i = 1; i < nnAnimation.nnPath.length; i++) {
                 totalLength += nnAnimation.distance(
-                    nnAnimation.nodes[nnAnimation.nnPath[i - 1]],
+                    nnAnimation.nodes[nnAnimation.nnPath[i - 1]], 
                     nnAnimation.nodes[nnAnimation.nnPath[i]]
                 );
             }
@@ -1462,6 +1508,18 @@ featured: false
             }
         } else {
             console.log("Christofides-Animation nicht gefunden oder keine Punkte verfügbar");
+        }
+    }
+
+    function nnImportBFPoints() {
+        if (typeof bfAnimation !== 'undefined' && bfAnimation && bfAnimation.nodes) {
+            if (nnAnimation) {
+                nnAnimation.importBFPoints();
+                nnResetAnimation();
+                nnUpdateInfoPanel();
+            }
+        } else {
+            console.log("BF-Animation nicht gefunden oder keine Punkte verfügbar");
         }
     }
 
@@ -1716,6 +1774,24 @@ featured: false
             this.drawNodes(true);
             this.updateInfoPanel();
         }
+
+        importChristofidesPoints() {
+            if (typeof animation !== 'undefined' && animation && animation.nodes) {
+                this.nodes = JSON.parse(JSON.stringify(animation.nodes));
+                this.numNodes = this.nodes.length;
+                this.permutations = this.generatePermutations([...Array(this.numNodes).keys()]);
+                this.reset();
+            }
+        }
+
+        importNNPoints() {
+            if (typeof nnAnimation !== 'undefined' && nnAnimation && nnAnimation.nodes) {
+                this.nodes = JSON.parse(JSON.stringify(nnAnimation.nodes));
+                this.numNodes = this.nodes.length;
+                this.permutations = this.generatePermutations([...Array(this.numNodes).keys()]);
+                this.reset();
+            }
+        }
     }
 
     let bfAnimation = new BruteForceAnimation(document.getElementById('bfCanvas'), 4);
@@ -1768,11 +1844,30 @@ featured: false
         bfAnimation.reset();
     }
 
+    function bfImportChristofidesPoints() {
+        if (bfAnimation) {
+            bfAnimation.importChristofidesPoints();
+        }
+    }
+
+    function bfImportNNPoints() {
+        if (bfAnimation) {
+            bfAnimation.importNNPoints();
+        }
+    }
+
     function bfToggleConstellation(selectedType) {
         if (!selectedType) return;
+
+        // Erstelle eine neue BruteForceAnimation-Instanz
         bfAnimation = new BruteForceAnimation(document.getElementById('bfCanvas'), 0);
+
+        // Setze die Knoten basierend auf dem ausgewählten Sternbild
         bfAnimation.nodes = createConstellationNodes(selectedType, 0);
         bfAnimation.numNodes = bfAnimation.nodes.length;
+
+        // Initialisiere die Permutationen und setze die Animation zurück
+        bfAnimation.permutations = bfAnimation.generatePermutations([...Array(bfAnimation.numNodes).keys()]);
         bfAnimation.reset();
     }
 
@@ -1827,3 +1922,4 @@ featured: false
     }
     </script>
 </body>
+```
