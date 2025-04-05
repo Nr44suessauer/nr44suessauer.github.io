@@ -1,6 +1,6 @@
 <!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Christofides Algorithm &amp; Nearest Neigbhor | Compare | DeadlineDriven.dev/elopment </title> <meta name="author" content="Marc Nauendorf"> <meta name="description" content="Algorithm &amp; Datastructure"> <link rel="stylesheet" href="/assets/css/bootstrap.min.css?a4b3f509e79c54a512b890d73235ef04"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="/assets/css/academicons.min.css?f0b7046b84e425c55f3463ac249818f5"> <link defer rel="stylesheet" href="/assets/css/scholar-icons.css?62b2ac103a88034e6882a5be5f3e2772"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%98%A3%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e"> <link rel="canonical" href="https://nr44suessauer.github.io/blog/2025/Algo-Vertretungsstunde-Christofides-Algo/"> <script src="/assets/js/theme.js?9a0c749ec5240d9cda97bc72359a72c0"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
     initTheme();
-  </script> </head> <body class="fixed-top-nav sticky-bottom-footer"> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> DeadlineDriven.dev/elopment </a> <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse text-right" id="navbarNav"> <ul class="navbar-nav ml-auto flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item active"> <a class="nav-link" href="/blog/">blog </a> </li> <li class="nav-item "> <a class="nav-link" href="/projects/">projects </a> </li> <li class="nav-item "> <a class="nav-link" href="/calculator/">Calculator </a> </li> <li class="nav-item "> <a class="nav-link" href="/resume/">resume </a> </li> <li class="nav-item"> <button id="search-toggle" title="Search" onclick="openSearchModal()"> <span class="nav-link">ctrl k <i class="ti ti-search"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" title="Change theme"> <i class="ti ti-sun-moon" id="light-toggle-system"></i> <i class="ti ti-moon-filled" id="light-toggle-dark"></i> <i class="ti ti-sun-filled" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Christofides Algorithm &amp; Nearest Neigbhor | Compare</h1> <p class="post-meta"> Created in April 02, 2025 </p> <p class="post-tags"> <a href="/blog/2025"> <i class="fa-solid fa-calendar fa-sm"></i> 2025 </a>   ·   <a href="/blog/tag/algo"> <i class="fa-solid fa-hashtag fa-sm"></i> Algo</a>   <a href="/blog/tag/christofides"> <i class="fa-solid fa-hashtag fa-sm"></i> Christofides</a>   <a href="/blog/tag/nearestneighbor"> <i class="fa-solid fa-hashtag fa-sm"></i> NearestNeighbor</a>   <a href="/blog/tag/bruteforce"> <i class="fa-solid fa-hashtag fa-sm"></i> BruteForce</a>   ·   <a href="/blog/category/lecture"> <i class="fa-solid fa-tag fa-sm"></i> lecture</a> </p> </header> <article class="post-content"> <div id="markdown-content"> <h2 id="still-working-at--official-release-1004-">STILL WORKING AT : official Release 10.04 |</h2> <title>Algorithmus-Animationen</title> <style>canvas{border:1px solid black;display:block}.container{display:flex}.animation-container{flex:1}#infoPanel{flex:0 0 300px;margin-left:20px;background:#f2f2f2;padding:10px;font-family:sans-serif;font-size:14px;overflow-y:auto;max-height:900px}.controls>div{margin:10px 0}.controls>div>*{margin-right:10px}#speedSlider,#numPoints{transform:scale(1);transform-origin:left center}.nn-container{display:flex}.nn-animation-container{flex:1}#nnInfoPanel{flex:0 0 500px;margin-left:20px;background:#f2f2f2;padding:10px;font-family:sans-serif;font-size:14px;overflow-y:auto;max-height:900px}#nnCanvas{border:1px solid black;display:block}.nn-controls>div{margin:10px 0}.nn-controls>div>*{margin-right:10px}.selection-table{width:100%;border-collapse:collapse;margin:10px 0}.selection-table th,.selection-table td{border:1px solid #ddd;padding:4px;text-align:center}.selection-table .selected{background-color:#d4ffd4;font-weight:bold}</style> <div class="container"> <div class="animation-container"> <div class="controls"> <div> <button onclick="nextStep()">Nächster Schritt</button> <button onclick="resetAnimation()">Reset</button> <button onclick="toggleAutoAnimation()">Animation Start/Stop</button> <label for="speedSlider">Geschwindigkeit:</label> <input type="range" id="speedSlider" min="50" max="4000" step="1" value="300"> </div> <div> <label for="numPoints">Anzahl der Punkte:</label> <input type="number" id="numPoints" min="3" max="25" value="4" style="width:50px; height:30px;"> <button onclick="updateNumPoints()">Zufällige Punkte</button> <button onclick="importNNPoints()">NN-Punkte importieren</button> <select id="constellationSelect" onchange="toggleConstellation(this.value)" style="height:30px;"> <option value="">Sternenbild wählen...</option> <option value="libra">Waage (Libra) - 10 Punkte</option> <option value="orion">Orion - 10 Punkte</option> <option value="ursa_minor">Kleiner Bär - 7 Punkte</option> <option value="cassiopeia">Kassiopeia - 5 Punkte</option> <option value="cygnus">Schwan - 9 Punkte</option> <option value="ursa_major">Großer Bär - 7 Punkte</option> <option value="leo">Löwe - 9 Punkte</option> <option value="draco">Drache - 11 Punkte</option> <option value="gemini">Zwillinge - 9 Punkte</option> <option value="southern_cross">Kreuz des Südens - 4 Punkte</option> <option value="pegasus">Pegasus - 5 Punkte</option> <option value="andromeda">Andromeda - 7 Punkte</option> <option value="sagittarius">Schütze - 8 Punkte</option> <option value="scorpius">Skorpion - 10 Punkte</option> <option value="cancer">Krebs - 6 Punkte</option> <option value="pisces">Fische - 11 Punkte</option> <option value="aquila">Adler - 7 Punkte</option> <option value="hercules">Herkules - 8 Punkte</option> </select> <button onclick="downloadGraph()">Graph herunterladen</button> </div> </div> <canvas id="canvas" width="800" height="600"></canvas> </div> <div id="infoPanel"> <h3>Animationsdaten</h3> <div id="dataOutput">Warte auf den ersten Schritt...</div> </div> </div> <div style="display: flex; align-items: center; margin-top: 10px;"><p></p></div> --- <div style="display: flex; align-items: center; margin-top: 10px;"><p></p></div> <h3>Nearest Neighbor Algorithm</h3> <div class="nn-container"> <div class="nn-animation-container"> <div class="nn-controls"> <div> <button onclick="nnNextStep()">Nächster Schritt</button> <button onclick="nnResetAnimation()">Reset</button> <button onclick="nnToggleAutoAnimation()">Animation Start/Stop</button> <label for="nnSpeedSlider">Geschwindigkeit:</label> <input type="range" id="nnSpeedSlider" min="50" max="4000" step="1" value="300"> </div> <div> <label for="nnNumPoints">Anzahl der Punkte:</label> <input type="number" id="nnNumPoints" min="3" max="25" value="4" style="width:50px; height:30px;"> <button onclick="nnUpdateNumPoints()">Zufällige Punkte</button> <button onclick="nnImportPoints()">Christofides Punkte importieren</button> <select id="nnConstellationSelect" onchange="nnToggleConstellation(this.value)" style="height:30px;"> <option value="">Sternenbild wählen...</option> <option value="libra">Waage (Libra) - 10 Punkte</option> <option value="orion">Orion - 10 Punkte</option> <option value="ursa_minor">Kleiner Bär - 7 Punkte</option> <option value="cassiopeia">Kassiopeia - 5 Punkte</option> <option value="cygnus">Schwan - 9 Punkte</option> <option value="ursa_major">Großer Bär - 7 Punkte</option> <option value="leo">Löwe - 9 Punkte</option> <option value="draco">Drache - 11 Punkte</option> <option value="gemini">Zwillinge - 9 Punkte</option> <option value="southern_cross">Kreuz des Südens - 4 Punkte</option> <option value="pegasus">Pegasus - 5 Punkte</option> <option value="andromeda">Andromeda - 7 Punkte</option> <option value="sagittarius">Schütze - 8 Punkte</option> <option value="scorpius">Skorpion - 10 Punkte</option> <option value="cancer">Krebs - 6 Punkte</option> <option value="pisces">Fische - 11 Punkte</option> <option value="aquila">Adler - 7 Punkte</option> <option value="hercules">Herkules - 8 Punkte</option> </select> <button onclick="nnDownloadGraph()">Graph herunterladen</button> </div> </div> <canvas id="nnCanvas" width="800" height="600"></canvas> </div> <div id="nnInfoPanel"> <h3>Nearest Neighbor Daten</h3> <div id="nnDataOutput">Warte auf den ersten Schritt...</div> <hr> <label for="nnStepDropdown"><strong>Schritte:</strong></label> <select id="nnStepDropdown" onchange="nnShowStepDetails()"> <option value="">Schritt auswählen...</option> </select> <button onclick="nnToggleFullTable()">Tabelle ein-/ausblenden</button> <div id="nnStepDetails"></div> <div id="nnFullTable" style="display: none; margin-top: 20px;"></div> </div> </div> <script>
+  </script> </head> <body class="fixed-top-nav sticky-bottom-footer"> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> DeadlineDriven.dev/elopment </a> <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse text-right" id="navbarNav"> <ul class="navbar-nav ml-auto flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item active"> <a class="nav-link" href="/blog/">blog </a> </li> <li class="nav-item "> <a class="nav-link" href="/projects/">projects </a> </li> <li class="nav-item "> <a class="nav-link" href="/calculator/">Calculator </a> </li> <li class="nav-item "> <a class="nav-link" href="/resume/">resume </a> </li> <li class="nav-item"> <button id="search-toggle" title="Search" onclick="openSearchModal()"> <span class="nav-link">ctrl k <i class="ti ti-search"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" title="Change theme"> <i class="ti ti-sun-moon" id="light-toggle-system"></i> <i class="ti ti-moon-filled" id="light-toggle-dark"></i> <i class="ti ti-sun-filled" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Christofides Algorithm &amp; Nearest Neigbhor | Compare</h1> <p class="post-meta"> Created in April 02, 2025 </p> <p class="post-tags"> <a href="/blog/2025"> <i class="fa-solid fa-calendar fa-sm"></i> 2025 </a>   ·   <a href="/blog/tag/algo"> <i class="fa-solid fa-hashtag fa-sm"></i> Algo</a>   <a href="/blog/tag/christofides"> <i class="fa-solid fa-hashtag fa-sm"></i> Christofides</a>   <a href="/blog/tag/nearestneighbor"> <i class="fa-solid fa-hashtag fa-sm"></i> NearestNeighbor</a>   <a href="/blog/tag/bruteforce"> <i class="fa-solid fa-hashtag fa-sm"></i> BruteForce</a>   ·   <a href="/blog/category/lecture"> <i class="fa-solid fa-tag fa-sm"></i> lecture</a> </p> </header> <article class="post-content"> <div id="markdown-content"> <h2 id="still-working-at--official-release-1004-">STILL WORKING AT : official Release 10.04 |</h2> <title>Algorithmus-Animationen</title> <style>canvas{border:1px solid black;display:block}.container{display:flex}.animation-container{flex:1}#infoPanel{flex:0 0 300px;margin-left:20px;background:#f2f2f2;padding:10px;font-family:sans-serif;font-size:14px;overflow-y:auto;max-height:900px}.controls>div{margin:10px 0}.controls>div>*{margin-right:10px}#speedSlider,#numPoints{transform:scale(1);transform-origin:left center}.nn-container{display:flex}.nn-animation-container{flex:1}#nnInfoPanel{flex:0 0 500px;margin-left:20px;background:#f2f2f2;padding:10px;font-family:sans-serif;font-size:14px;overflow-y:auto;max-height:900px}#nnCanvas{border:1px solid black;display:block}.nn-controls>div{margin:10px 0}.nn-controls>div>*{margin-right:10px}.selection-table{width:100%;border-collapse:collapse;margin:10px 0}.selection-table th,.selection-table td{border:1px solid #ddd;padding:4px;text-align:center}.selection-table .selected{background-color:#d4ffd4;font-weight:bold}.bf-container{display:flex}.bf-animation-container{flex:1}#bfInfoPanel{flex:0 0 500px;margin-left:20px;background:#f2f2f2;padding:10px;font-family:sans-serif;font-size:14px;overflow-y:auto;max-height:900px}#bfCanvas{border:1px solid black;display:block}.bf-controls>div{margin:10px 0}.bf-controls>div>*{margin-right:10px}</style> <div class="container"> <div class="animation-container"> <div class="controls"> <div> <button onclick="nextStep()">Nächster Schritt</button> <button onclick="resetAnimation()">Reset</button> <button onclick="toggleAutoAnimation()">Animation Start/Stop</button> <label for="speedSlider">Geschwindigkeit:</label> <input type="range" id="speedSlider" min="50" max="4000" step="1" value="300"> </div> <div> <label for="numPoints">Anzahl der Punkte:</label> <input type="number" id="numPoints" min="3" max="25" value="4" style="width:50px; height:30px;"> <button onclick="updateNumPoints()">Zufällige Punkte</button> <button onclick="importNNPoints()">NN-Punkte importieren</button> <select id="constellationSelect" onchange="toggleConstellation(this.value)" style="height:30px;"> <option value="">Sternenbild wählen...</option> <option value="libra">Waage (Libra) - 10 Punkte</option> <option value="orion">Orion - 10 Punkte</option> <option value="ursa_minor">Kleiner Bär - 7 Punkte</option> <option value="cassiopeia">Kassiopeia - 5 Punkte</option> <option value="cygnus">Schwan - 9 Punkte</option> <option value="ursa_major">Großer Bär - 7 Punkte</option> <option value="leo">Löwe - 9 Punkte</option> <option value="draco">Drache - 11 Punkte</option> <option value="gemini">Zwillinge - 9 Punkte</option> <option value="southern_cross">Kreuz des Südens - 4 Punkte</option> <option value="pegasus">Pegasus - 5 Punkte</option> <option value="andromeda">Andromeda - 7 Punkte</option> <option value="sagittarius">Schütze - 8 Punkte</option> <option value="scorpius">Skorpion - 10 Punkte</option> <option value="cancer">Krebs - 6 Punkte</option> <option value="pisces">Fische - 11 Punkte</option> <option value="aquila">Adler - 7 Punkte</option> <option value="hercules">Herkules - 8 Punkte</option> </select> <button onclick="downloadGraph()">Graph herunterladen</button> </div> </div> <canvas id="canvas" width="800" height="600"></canvas> </div> <div id="infoPanel"> <h3>Animationsdaten</h3> <div id="dataOutput">Warte auf den ersten Schritt...</div> </div> </div> <div style="display: flex; align-items: center; margin-top: 10px;"><p></p></div> --- <div style="display: flex; align-items: center; margin-top: 10px;"><p></p></div> <h3>Nearest Neighbor Algorithm</h3> <div class="nn-container"> <div class="nn-animation-container"> <div class="nn-controls"> <div> <button onclick="nnNextStep()">Nächster Schritt</button> <button onclick="nnResetAnimation()">Reset</button> <button onclick="nnToggleAutoAnimation()">Animation Start/Stop</button> <label for="nnSpeedSlider">Geschwindigkeit:</label> <input type="range" id="nnSpeedSlider" min="50" max="4000" step="1" value="300"> </div> <div> <label for="nnNumPoints">Anzahl der Punkte:</label> <input type="number" id="nnNumPoints" min="3" max="25" value="4" style="width:50px; height:30px;"> <button onclick="nnUpdateNumPoints()">Zufällige Punkte</button> <button onclick="nnImportPoints()">Christofides Punkte importieren</button> <select id="nnConstellationSelect" onchange="nnToggleConstellation(this.value)" style="height:30px;"> <option value="">Sternenbild wählen...</option> <option value="libra">Waage (Libra) - 10 Punkte</option> <option value="orion">Orion - 10 Punkte</option> <option value="ursa_minor">Kleiner Bär - 7 Punkte</option> <option value="cassiopeia">Kassiopeia - 5 Punkte</option> <option value="cygnus">Schwan - 9 Punkte</option> <option value="ursa_major">Großer Bär - 7 Punkte</option> <option value="leo">Löwe - 9 Punkte</option> <option value="draco">Drache - 11 Punkte</option> <option value="gemini">Zwillinge - 9 Punkte</option> <option value="southern_cross">Kreuz des Südens - 4 Punkte</option> <option value="pegasus">Pegasus - 5 Punkte</option> <option value="andromeda">Andromeda - 7 Punkte</option> <option value="sagittarius">Schütze - 8 Punkte</option> <option value="scorpius">Skorpion - 10 Punkte</option> <option value="cancer">Krebs - 6 Punkte</option> <option value="pisces">Fische - 11 Punkte</option> <option value="aquila">Adler - 7 Punkte</option> <option value="hercules">Herkules - 8 Punkte</option> </select> <button onclick="nnDownloadGraph()">Graph herunterladen</button> </div> </div> <canvas id="nnCanvas" width="800" height="600"></canvas> </div> <div id="nnInfoPanel"> <h3>Nearest Neighbor Daten</h3> <div id="nnDataOutput">Warte auf den ersten Schritt...</div> <hr> <label for="nnStepDropdown"><strong>Schritte:</strong></label> <select id="nnStepDropdown" onchange="nnShowStepDetails()"> <option value="">Schritt auswählen...</option> </select> <button onclick="nnToggleFullTable()">Tabelle ein-/ausblenden</button> <div id="nnStepDetails"></div> <div id="nnFullTable" style="display: none; margin-top: 20px;"></div> </div> </div> <h3>Brute Force Algorithm</h3> <div class="bf-container"> <div class="bf-animation-container"> <div class="bf-controls"> <div> <button onclick="bfNextStep()">Nächster Schritt</button> <button onclick="bfResetAnimation()">Reset</button> <button onclick="bfToggleAutoAnimation()">Animation Start/Stop</button> <label for="bfSpeedSlider">Geschwindigkeit:</label> <input type="range" id="bfSpeedSlider" min="50" max="4000" step="1" value="300"> </div> <div> <label for="bfNumPoints">Anzahl der Punkte:</label> <input type="number" id="bfNumPoints" min="3" max="10" value="4" style="width:50px; height:30px;"> <button onclick="bfUpdateNumPoints()">Zufällige Punkte</button> <select id="bfConstellationSelect" onchange="bfToggleConstellation(this.value)" style="height:30px;"> <option value="">Sternenbild wählen...</option> <option value="libra">Waage (Libra) - 10 Punkte</option> <option value="orion">Orion - 10 Punkte</option> <option value="ursa_minor">Kleiner Bär - 7 Punkte</option> <option value="cassiopeia">Kassiopeia - 5 Punkte</option> <option value="cygnus">Schwan - 9 Punkte</option> <option value="ursa_major">Großer Bär - 7 Punkte</option> <option value="leo">Löwe - 9 Punkte</option> <option value="draco">Drache - 11 Punkte</option> <option value="gemini">Zwillinge - 9 Punkte</option> <option value="southern_cross">Kreuz des Südens - 4 Punkte</option> <option value="pegasus">Pegasus - 5 Punkte</option> <option value="andromeda">Andromeda - 7 Punkte</option> <option value="sagittarius">Schütze - 8 Punkte</option> <option value="scorpius">Skorpion - 10 Punkte</option> <option value="cancer">Krebs - 6 Punkte</option> <option value="pisces">Fische - 11 Punkte</option> <option value="aquila">Adler - 7 Punkte</option> <option value="hercules">Herkules - 8 Punkte</option> </select> <button onclick="bfDownloadGraph()">Graph herunterladen</button> </div> </div> <canvas id="bfCanvas" width="800" height="600"></canvas> </div> <div id="bfInfoPanel"> <h3>Brute Force Daten</h3> <div id="bfDataOutput">Warte auf den ersten Schritt...</div> <button onclick="bfToggleFullTable()">Tabelle ein-/ausblenden</button> <div id="bfFullTable" style="display: none; margin-top: 20px;"></div> </div> </div> <script>
     // Gemeinsame Konstante für die Sternbildkoordinaten
     const CONSTELLATIONS = {
         // Waage (Libra)
@@ -1275,6 +1275,279 @@
             nnUpdateInfoPanel();
         }
     });
+
+    // ================ BRUTE FORCE ALGORITHMUS ================
+
+    // Brute Force Animation Klasse
+    class BruteForceAnimation {
+        constructor(canvas, numNodes = 4) {
+            this.canvas = canvas;
+            this.ctx = canvas.getContext('2d');
+            this.ctx.setTransform(1, 0, 0, 1, 0, 0);
+            this.ctx.scale(canvas.width / 50, canvas.height / 50);
+            this.numNodes = numNodes;
+            this.nodes = [];
+            this.permutations = [];
+            this.currentPermutationIndex = 0;
+            this.shortestPath = null;
+            this.shortestDistance = Infinity;
+            this.init();
+            this.drawNodes(true);
+        }
+
+        drawCoordinateSystem() {
+            this.ctx.strokeStyle = "#ccc";
+            this.ctx.lineWidth = 0.1;
+            for (let x = 0; x <= 50; x += 5) {
+                this.ctx.beginPath();
+                this.ctx.moveTo(x, 0);
+                this.ctx.lineTo(x, 50);
+                this.ctx.stroke();
+            }
+            for (let y = 0; y <= 50; y += 5) {
+                this.ctx.beginPath();
+                this.ctx.moveTo(0, y);
+                this.ctx.lineTo(50, y);
+                this.ctx.stroke();
+            }
+        }
+
+        init() {
+            this.generateNodes();
+            this.permutations = this.generatePermutations([...Array(this.numNodes).keys()]);
+        }
+
+        generateNodes() {
+            for (let i = 0; i < this.numNodes; i++) {
+                this.nodes.push({
+                    x: Math.floor(Math.random() * 40) + 5,
+                    y: Math.floor(Math.random() * 40) + 5,
+                    id: i
+                });
+            }
+        }
+
+        generatePermutations(array) {
+            if (array.length === 1) return [array];
+            const perms = [];
+            for (let i = 0; i < array.length; i++) {
+                const rest = [...array.slice(0, i), ...array.slice(i + 1)];
+                const restPerms = this.generatePermutations(rest);
+                for (const perm of restPerms) {
+                    perms.push([array[i], ...perm]);
+                }
+            }
+            return perms;
+        }
+
+        distance(a, b) {
+            return Math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2);
+        }
+
+        calculatePathDistance(path) {
+            let distance = 0;
+            for (let i = 0; i < path.length - 1; i++) {
+                distance += this.distance(this.nodes[path[i]], this.nodes[path[i + 1]]);
+            }
+            distance += this.distance(this.nodes[path[path.length - 1]], this.nodes[path[0]]);
+            return distance;
+        }
+
+        drawNodes(showCoordinateSystem = false) {
+            if (showCoordinateSystem) {
+                this.drawCoordinateSystem();
+            }
+            this.nodes.forEach(node => {
+                this.ctx.beginPath();
+                this.ctx.arc(node.x, node.y, 0.5, 0, Math.PI * 2);
+                this.ctx.fillStyle = 'black';
+                this.ctx.fill();
+                this.ctx.font = "1.5px sans-serif";
+                this.ctx.fillStyle = 'black';
+                this.ctx.textAlign = "center";
+                const label = `P${node.id}`;
+                this.ctx.fillText(label, node.x, node.y - 1.2);
+            });
+        }
+
+        drawPath(path, color = 'blue') {
+            this.ctx.strokeStyle = color;
+            this.ctx.lineWidth = 0.3;
+            this.ctx.beginPath();
+            const startNode = this.nodes[path[0]];
+            this.ctx.moveTo(startNode.x, startNode.y);
+            for (let i = 1; i < path.length; i++) {
+                const node = this.nodes[path[i]];
+                this.ctx.lineTo(node.x, node.y);
+            }
+            this.ctx.lineTo(startNode.x, startNode.y);
+            this.ctx.stroke();
+        }
+
+        nextStep() {
+            if (this.currentPermutationIndex >= this.permutations.length) {
+                // Wenn alle Permutationen getestet wurden, lösche alle roten Geraden
+                this.ctx.clearRect(0, 0, 50, 50);
+                this.drawNodes(true);
+
+                // Zeichne nur den kürzesten Pfad in grün
+                if (this.shortestPath) {
+                    this.drawPath(this.shortestPath, 'green');
+
+                    // Gebe den kürzesten Pfad und die Länge aus
+                    const dataOutput = document.getElementById('bfDataOutput');
+                    let html = `<strong>Kürzester Pfad:</strong> ${this.shortestPath.map(p => `P${p}`).join(' → ')}<br>`;
+                    html += `<strong>Länge des kürzesten Pfads:</strong> ${this.shortestDistance.toFixed(2)}`;
+                    dataOutput.innerHTML = html;
+                }
+                return;
+            }
+
+            const currentPath = this.permutations[this.currentPermutationIndex];
+            const currentDistance = this.calculatePathDistance(currentPath);
+
+            if (currentDistance < this.shortestDistance) {
+                this.shortestDistance = currentDistance;
+                this.shortestPath = currentPath;
+            }
+
+            this.ctx.clearRect(0, 0, 50, 50);
+            this.drawNodes(true);
+            this.drawPath(currentPath, 'red');
+            if (this.shortestPath) {
+                this.drawPath(this.shortestPath, 'green');
+            }
+
+            this.currentPermutationIndex++;
+            this.updateInfoPanel();
+        }
+
+        updateInfoPanel() {
+            const dataOutput = document.getElementById('bfDataOutput');
+            let html = `<strong>Aktuelle Permutation:</strong> ${this.permutations[this.currentPermutationIndex] || 'Fertig'}<br>`;
+            html += `<strong>Distanz der aktuellen Permutation:</strong> ${this.calculatePathDistance(this.permutations[this.currentPermutationIndex] || [])}<br>`;
+            html += `<strong>Kürzeste Distanz:</strong> ${this.shortestDistance}<br>`;
+            html += `<strong>Kürzester Pfad:</strong> ${this.shortestPath || 'Noch nicht gefunden'}`;
+            dataOutput.innerHTML = html;
+        }
+
+        reset() {
+            this.currentPermutationIndex = 0;
+            this.shortestPath = null;
+            this.shortestDistance = Infinity;
+            this.ctx.clearRect(0, 0, 50, 50);
+            this.drawNodes(true);
+            this.updateInfoPanel();
+        }
+    }
+
+    let bfAnimation = new BruteForceAnimation(document.getElementById('bfCanvas'), 4);
+    let bfAutoIntervalId = null;
+
+    function bfNextStep() {
+        if (!bfAnimation) return;
+        bfAnimation.nextStep();
+    }
+
+    function bfStartAutoAnimation() {
+        if (bfAutoIntervalId) return;
+        const slider = document.getElementById('bfSpeedSlider');
+        const percent = parseInt(slider.value);
+        const speed = 1000 * (100 / percent);
+        bfAutoIntervalId = setInterval(() => {
+            bfAnimation.nextStep();
+        }, speed);
+    }
+
+    function bfToggleAutoAnimation() {
+        if (bfAutoIntervalId) {
+            bfStopAutoAnimation();
+        } else {
+            bfStartAutoAnimation();
+        }
+    }
+
+    function bfStopAutoAnimation() {
+        if (bfAutoIntervalId) {
+            clearInterval(bfAutoIntervalId);
+            bfAutoIntervalId = null;
+        }
+    }
+
+    function bfResetAnimation() {
+        bfStopAutoAnimation();
+        if (bfAnimation) {
+            bfAnimation.reset();
+        }
+    }
+
+    function bfUpdateNumPoints() {
+        const numPoints = parseInt(document.getElementById('bfNumPoints').value, 10);
+        if (isNaN(numPoints) || numPoints < 3 || numPoints > 10) {
+            alert("Bitte eine gültige Anzahl zwischen 3 und 10 eingeben");
+            return;
+        }
+        bfAnimation = new BruteForceAnimation(document.getElementById('bfCanvas'), numPoints);
+        bfAnimation.reset();
+    }
+
+    function bfToggleConstellation(selectedType) {
+        if (!selectedType) return;
+        bfAnimation = new BruteForceAnimation(document.getElementById('bfCanvas'), 0);
+        bfAnimation.nodes = createConstellationNodes(selectedType, 0);
+        bfAnimation.numNodes = bfAnimation.nodes.length;
+        bfAnimation.reset();
+    }
+
+    function bfDownloadGraph() {
+        const canvas = document.getElementById('bfCanvas');
+        const tmpCanvas = document.createElement('canvas');
+        tmpCanvas.width = canvas.width;
+        tmpCanvas.height = canvas.height;
+        const tmpCtx = tmpCanvas.getContext('2d');
+        tmpCtx.fillStyle = 'white';
+        tmpCtx.fillRect(0, 0, tmpCanvas.width, tmpCanvas.height);
+        tmpCtx.drawImage(canvas, 0, 0);
+        const link = document.createElement('a');
+        link.download = 'brute-force-graph.png';
+        link.href = tmpCanvas.toDataURL('image/png');
+        link.click();
+    }
+
+    function bfShowFullTable() {
+        const fullTableDiv = document.getElementById('bfFullTable');
+        if (!fullTableDiv || !bfAnimation) return;
+
+        let html = "<h4>Alle getesteten Pfade</h4>";
+        html += "<table class='selection-table' style='width: 100%; border-collapse: collapse;'>";
+        html += "<tr><th>Pfad</th><th>Distanz</th><th>Kürzester Pfad</th></tr>";
+
+        bfAnimation.permutations.forEach((path, index) => {
+            const distance = bfAnimation.calculatePathDistance(path).toFixed(2);
+            const isShortest = bfAnimation.shortestPath && bfAnimation.shortestPath.join(',') === path.join(',');
+
+            html += isShortest ? "<tr class='selected'>" : "<tr>";
+            html += `<td style='border: 1px solid #ddd; padding: 4px; text-align: center;'>${path.map(p => `P${p}`).join(' → ')}</td>`;
+            html += `<td style='border: 1px solid #ddd; padding: 4px; text-align: center;'>${distance}</td>`;
+            html += `<td style='border: 1px solid #ddd; padding: 4px; text-align: center;'>${isShortest ? "✓" : ""}</td>`;
+            html += "</tr>";
+        });
+
+        html += "</table>";
+
+        fullTableDiv.innerHTML = html;
+        fullTableDiv.style.display = 'block';
+    }
+
+    function bfToggleFullTable() {
+        const fullTableDiv = document.getElementById('bfFullTable');
+        if (!fullTableDiv) return;
+        if (fullTableDiv.style.display === 'none' || !fullTableDiv.innerHTML.trim()) {
+            bfShowFullTable();
+        } else {
+            fullTableDiv.style.display = 'none';
+        }
+    }
     </script> </div> </article> <br> <hr> <br> <ul class="list-disc pl-8"></ul> <p class="mb-2">Here are some more articles you might like to read next:</p> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2025/MessParkour/">Messparkour SV2</a> </li> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2025/Neural_Style_Transfer/">Neural Style Transfer with TensorFlow</a> </li> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2025/Mnist-Handwritten-digit-recognition/">CNN | Digit Recognition with Mnist</a> </li> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2025/studentische-werkstatt/">Die Studentische Werkstatt | Hochschule Heilbronn</a> </li> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2025/Makerspace/">Innovationsräume | DigiLab &amp; Makerspace</a> </li> <div id="disqus_thread" style="max-width: 1000px; margin: 0 auto;"> <script type="text/javascript">
     var disqus_shortname  = 'deadlinedrivenden';
     var disqus_identifier = '/blog/2025/Algo-Vertretungsstunde-Christofides-Algo';
