@@ -88,6 +88,33 @@ featured: false
             background-color: #d4ffd4;
             font-weight: bold;
         }
+        /* Brute Force Stile */
+        .bf-container {
+            display: flex;
+        }
+        .bf-animation-container {
+            flex: 1;
+        }
+        #bfInfoPanel {
+            flex: 0 0 500px;
+            margin-left: 20px;
+            background: #f2f2f2;
+            padding: 10px;
+            font-family: sans-serif;
+            font-size: 14px;
+            overflow-y: auto;
+            max-height: 900px;
+        }
+        #bfCanvas {
+            border: 1px solid black;
+            display: block;
+        }
+        .bf-controls > div {
+            margin: 10px 0;
+        }
+        .bf-controls > div > * {
+            margin-right: 10px;
+        }
     </style>
 </head>
 <!-- ================ CHRISTOFIDES ALGORITHMUS ================ -->
@@ -200,7 +227,56 @@ featured: false
             <div id="nnFullTable" style="display: none; margin-top: 20px;"></div>
         </div>
     </div>
-    <!-- ================ JAVASCRIPT CODE ================ -->
+    <!-- ================ BRUTE FORCE ALGORITHMUS ================ -->
+    <h3>Brute Force Algorithm</h3>
+    <div class="bf-container">
+        <div class="bf-animation-container">
+            <div class="bf-controls">
+                <div>
+                    <button onclick="bfNextStep()">Nächster Schritt</button>
+                    <button onclick="bfResetAnimation()">Reset</button>
+                    <button onclick="bfToggleAutoAnimation()">Animation Start/Stop</button>
+                    <label for="bfSpeedSlider">Geschwindigkeit:</label>
+                    <input type="range" id="bfSpeedSlider" min="50" max="4000" step="1" value="300">
+                </div>
+                <div>
+                    <label for="bfNumPoints">Anzahl der Punkte:</label>
+                    <input type="number" id="bfNumPoints" min="3" max="10" value="4" style="width:50px; height:30px;">
+                    <button onclick="bfUpdateNumPoints()">Zufällige Punkte</button>
+                    <select id="bfConstellationSelect" onchange="bfToggleConstellation(this.value)" style="height:30px;">
+                        <option value="">Sternenbild wählen...</option>
+                        <option value="libra">Waage (Libra) - 10 Punkte</option>
+                        <option value="orion">Orion - 10 Punkte</option>
+                        <option value="ursa_minor">Kleiner Bär - 7 Punkte</option>
+                        <option value="cassiopeia">Kassiopeia - 5 Punkte</option>
+                        <option value="cygnus">Schwan - 9 Punkte</option>
+                        <option value="ursa_major">Großer Bär - 7 Punkte</option>
+                        <option value="leo">Löwe - 9 Punkte</option>
+                        <option value="draco">Drache - 11 Punkte</option>
+                        <option value="gemini">Zwillinge - 9 Punkte</option>
+                        <option value="southern_cross">Kreuz des Südens - 4 Punkte</option>
+                        <option value="pegasus">Pegasus - 5 Punkte</option>
+                        <option value="andromeda">Andromeda - 7 Punkte</option>
+                        <option value="sagittarius">Schütze - 8 Punkte</option>
+                        <option value="scorpius">Skorpion - 10 Punkte</option>
+                        <option value="cancer">Krebs - 6 Punkte</option>
+                        <option value="pisces">Fische - 11 Punkte</option>
+                        <option value="aquila">Adler - 7 Punkte</option>
+                        <option value="hercules">Herkules - 8 Punkte</option>
+                    </select>
+                    <button onclick="bfDownloadGraph()">Graph herunterladen</button>
+                </div>
+            </div>
+            <canvas id="bfCanvas" width="800" height="600"></canvas>
+        </div>
+        <div id="bfInfoPanel">
+            <h3>Brute Force Daten</h3>
+            <div id="bfDataOutput">Warte auf den ersten Schritt...</div>
+            <button onclick="bfToggleFullTable()">Tabelle ein-/ausblenden</button>
+            <div id="bfFullTable" style="display: none; margin-top: 20px;"></div>
+        </div>
+    </div>
+
     <script>
     // Gemeinsame Konstante für die Sternbildkoordinaten
     const CONSTELLATIONS = {
@@ -1476,5 +1552,278 @@ featured: false
             nnUpdateInfoPanel();
         }
     });
+
+    // ================ BRUTE FORCE ALGORITHMUS ================
+
+    // Brute Force Animation Klasse
+    class BruteForceAnimation {
+        constructor(canvas, numNodes = 4) {
+            this.canvas = canvas;
+            this.ctx = canvas.getContext('2d');
+            this.ctx.setTransform(1, 0, 0, 1, 0, 0);
+            this.ctx.scale(canvas.width / 50, canvas.height / 50);
+            this.numNodes = numNodes;
+            this.nodes = [];
+            this.permutations = [];
+            this.currentPermutationIndex = 0;
+            this.shortestPath = null;
+            this.shortestDistance = Infinity;
+            this.init();
+            this.drawNodes(true);
+        }
+
+        drawCoordinateSystem() {
+            this.ctx.strokeStyle = "#ccc";
+            this.ctx.lineWidth = 0.1;
+            for (let x = 0; x <= 50; x += 5) {
+                this.ctx.beginPath();
+                this.ctx.moveTo(x, 0);
+                this.ctx.lineTo(x, 50);
+                this.ctx.stroke();
+            }
+            for (let y = 0; y <= 50; y += 5) {
+                this.ctx.beginPath();
+                this.ctx.moveTo(0, y);
+                this.ctx.lineTo(50, y);
+                this.ctx.stroke();
+            }
+        }
+
+        init() {
+            this.generateNodes();
+            this.permutations = this.generatePermutations([...Array(this.numNodes).keys()]);
+        }
+
+        generateNodes() {
+            for (let i = 0; i < this.numNodes; i++) {
+                this.nodes.push({
+                    x: Math.floor(Math.random() * 40) + 5,
+                    y: Math.floor(Math.random() * 40) + 5,
+                    id: i
+                });
+            }
+        }
+
+        generatePermutations(array) {
+            if (array.length === 1) return [array];
+            const perms = [];
+            for (let i = 0; i < array.length; i++) {
+                const rest = [...array.slice(0, i), ...array.slice(i + 1)];
+                const restPerms = this.generatePermutations(rest);
+                for (const perm of restPerms) {
+                    perms.push([array[i], ...perm]);
+                }
+            }
+            return perms;
+        }
+
+        distance(a, b) {
+            return Math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2);
+        }
+
+        calculatePathDistance(path) {
+            let distance = 0;
+            for (let i = 0; i < path.length - 1; i++) {
+                distance += this.distance(this.nodes[path[i]], this.nodes[path[i + 1]]);
+            }
+            distance += this.distance(this.nodes[path[path.length - 1]], this.nodes[path[0]]);
+            return distance;
+        }
+
+        drawNodes(showCoordinateSystem = false) {
+            if (showCoordinateSystem) {
+                this.drawCoordinateSystem();
+            }
+            this.nodes.forEach(node => {
+                this.ctx.beginPath();
+                this.ctx.arc(node.x, node.y, 0.5, 0, Math.PI * 2);
+                this.ctx.fillStyle = 'black';
+                this.ctx.fill();
+                this.ctx.font = "1.5px sans-serif";
+                this.ctx.fillStyle = 'black';
+                this.ctx.textAlign = "center";
+                const label = `P${node.id}`;
+                this.ctx.fillText(label, node.x, node.y - 1.2);
+            });
+        }
+
+        drawPath(path, color = 'blue') {
+            this.ctx.strokeStyle = color;
+            this.ctx.lineWidth = 0.3;
+            this.ctx.beginPath();
+            const startNode = this.nodes[path[0]];
+            this.ctx.moveTo(startNode.x, startNode.y);
+            for (let i = 1; i < path.length; i++) {
+                const node = this.nodes[path[i]];
+                this.ctx.lineTo(node.x, node.y);
+            }
+            this.ctx.lineTo(startNode.x, startNode.y);
+            this.ctx.stroke();
+        }
+
+        nextStep() {
+            if (this.currentPermutationIndex >= this.permutations.length) {
+                // Wenn alle Permutationen getestet wurden, lösche alle roten Geraden
+                this.ctx.clearRect(0, 0, 50, 50);
+                this.drawNodes(true);
+
+                // Zeichne nur den kürzesten Pfad in grün
+                if (this.shortestPath) {
+                    this.drawPath(this.shortestPath, 'green');
+
+                    // Gebe den kürzesten Pfad und die Länge aus
+                    const dataOutput = document.getElementById('bfDataOutput');
+                    let html = `<strong>Kürzester Pfad:</strong> ${this.shortestPath.map(p => `P${p}`).join(' → ')}<br>`;
+                    html += `<strong>Länge des kürzesten Pfads:</strong> ${this.shortestDistance.toFixed(2)}`;
+                    dataOutput.innerHTML = html;
+                }
+                return;
+            }
+
+            const currentPath = this.permutations[this.currentPermutationIndex];
+            const currentDistance = this.calculatePathDistance(currentPath);
+
+            if (currentDistance < this.shortestDistance) {
+                this.shortestDistance = currentDistance;
+                this.shortestPath = currentPath;
+            }
+
+            this.ctx.clearRect(0, 0, 50, 50);
+            this.drawNodes(true);
+            this.drawPath(currentPath, 'red');
+            if (this.shortestPath) {
+                this.drawPath(this.shortestPath, 'green');
+            }
+
+            this.currentPermutationIndex++;
+            this.updateInfoPanel();
+        }
+
+        updateInfoPanel() {
+            const dataOutput = document.getElementById('bfDataOutput');
+            let html = `<strong>Aktuelle Permutation:</strong> ${this.permutations[this.currentPermutationIndex] || 'Fertig'}<br>`;
+            html += `<strong>Distanz der aktuellen Permutation:</strong> ${this.calculatePathDistance(this.permutations[this.currentPermutationIndex] || [])}<br>`;
+            html += `<strong>Kürzeste Distanz:</strong> ${this.shortestDistance}<br>`;
+            html += `<strong>Kürzester Pfad:</strong> ${this.shortestPath || 'Noch nicht gefunden'}`;
+            dataOutput.innerHTML = html;
+        }
+
+        reset() {
+            this.currentPermutationIndex = 0;
+            this.shortestPath = null;
+            this.shortestDistance = Infinity;
+            this.ctx.clearRect(0, 0, 50, 50);
+            this.drawNodes(true);
+            this.updateInfoPanel();
+        }
+    }
+
+    let bfAnimation = new BruteForceAnimation(document.getElementById('bfCanvas'), 4);
+    let bfAutoIntervalId = null;
+
+    function bfNextStep() {
+        if (!bfAnimation) return;
+        bfAnimation.nextStep();
+    }
+
+    function bfStartAutoAnimation() {
+        if (bfAutoIntervalId) return;
+        const slider = document.getElementById('bfSpeedSlider');
+        const percent = parseInt(slider.value);
+        const speed = 1000 * (100 / percent);
+        bfAutoIntervalId = setInterval(() => {
+            bfAnimation.nextStep();
+        }, speed);
+    }
+
+    function bfToggleAutoAnimation() {
+        if (bfAutoIntervalId) {
+            bfStopAutoAnimation();
+        } else {
+            bfStartAutoAnimation();
+        }
+    }
+
+    function bfStopAutoAnimation() {
+        if (bfAutoIntervalId) {
+            clearInterval(bfAutoIntervalId);
+            bfAutoIntervalId = null;
+        }
+    }
+
+    function bfResetAnimation() {
+        bfStopAutoAnimation();
+        if (bfAnimation) {
+            bfAnimation.reset();
+        }
+    }
+
+    function bfUpdateNumPoints() {
+        const numPoints = parseInt(document.getElementById('bfNumPoints').value, 10);
+        if (isNaN(numPoints) || numPoints < 3 || numPoints > 10) {
+            alert("Bitte eine gültige Anzahl zwischen 3 und 10 eingeben");
+            return;
+        }
+        bfAnimation = new BruteForceAnimation(document.getElementById('bfCanvas'), numPoints);
+        bfAnimation.reset();
+    }
+
+    function bfToggleConstellation(selectedType) {
+        if (!selectedType) return;
+        bfAnimation = new BruteForceAnimation(document.getElementById('bfCanvas'), 0);
+        bfAnimation.nodes = createConstellationNodes(selectedType, 0);
+        bfAnimation.numNodes = bfAnimation.nodes.length;
+        bfAnimation.reset();
+    }
+
+    function bfDownloadGraph() {
+        const canvas = document.getElementById('bfCanvas');
+        const tmpCanvas = document.createElement('canvas');
+        tmpCanvas.width = canvas.width;
+        tmpCanvas.height = canvas.height;
+        const tmpCtx = tmpCanvas.getContext('2d');
+        tmpCtx.fillStyle = 'white';
+        tmpCtx.fillRect(0, 0, tmpCanvas.width, tmpCanvas.height);
+        tmpCtx.drawImage(canvas, 0, 0);
+        const link = document.createElement('a');
+        link.download = 'brute-force-graph.png';
+        link.href = tmpCanvas.toDataURL('image/png');
+        link.click();
+    }
+
+    function bfShowFullTable() {
+        const fullTableDiv = document.getElementById('bfFullTable');
+        if (!fullTableDiv || !bfAnimation) return;
+
+        let html = "<h4>Alle getesteten Pfade</h4>";
+        html += "<table class='selection-table' style='width: 100%; border-collapse: collapse;'>";
+        html += "<tr><th>Pfad</th><th>Distanz</th><th>Kürzester Pfad</th></tr>";
+
+        bfAnimation.permutations.forEach((path, index) => {
+            const distance = bfAnimation.calculatePathDistance(path).toFixed(2);
+            const isShortest = bfAnimation.shortestPath && bfAnimation.shortestPath.join(',') === path.join(',');
+
+            html += isShortest ? "<tr class='selected'>" : "<tr>";
+            html += `<td style='border: 1px solid #ddd; padding: 4px; text-align: center;'>${path.map(p => `P${p}`).join(' → ')}</td>`;
+            html += `<td style='border: 1px solid #ddd; padding: 4px; text-align: center;'>${distance}</td>`;
+            html += `<td style='border: 1px solid #ddd; padding: 4px; text-align: center;'>${isShortest ? "✓" : ""}</td>`;
+            html += "</tr>";
+        });
+
+        html += "</table>";
+
+        fullTableDiv.innerHTML = html;
+        fullTableDiv.style.display = 'block';
+    }
+
+    function bfToggleFullTable() {
+        const fullTableDiv = document.getElementById('bfFullTable');
+        if (!fullTableDiv) return;
+        if (fullTableDiv.style.display === 'none' || !fullTableDiv.innerHTML.trim()) {
+            bfShowFullTable();
+        } else {
+            fullTableDiv.style.display = 'none';
+        }
+    }
     </script>
 </body>
