@@ -135,6 +135,9 @@ featured: false
                     <button onclick="updateNumPoints()">Zufällige Punkte</button>
                     <button onclick="importNNPoints()">NN-Punkte importieren</button>
                     <button onclick="importBFPoints()">BF-Punkte importieren</button>
+                    <label for="startPointChristofides">Startpunkt:</label>
+                    <input type="number" id="startPointChristofides" min="0" max="24" value="0" style="width:50px; height:30px;">
+                    <button onclick="updateStartPoint()">Startpunkt setzen</button>
                     <!-- Für Christofides: Dropdown-Menü mit neuen Sternbilder-Optionen -->
                     <select id="constellationSelect" onchange="toggleConstellation(this.value)" style="height:30px;">
                         <option value="">Sternenbild wählen...</option>
@@ -189,6 +192,9 @@ featured: false
                     <button onclick="nnGenerateRandomPoints()">Zufällige Punkte</button>
                     <button onclick="nnImportPoints()">Christofides Punkte importieren</button>
                     <button onclick="nnImportBFPoints()">BF-Punkte importieren</button>
+                    <label for="nnStartPoint">Startpunkt:</label>
+                    <input type="number" id="nnStartPoint" min="0" max="24" value="0" style="width:50px; height:30px;">
+                    <button onclick="nnUpdateStartPoint()">Startpunkt setzen</button>
                     <!-- Für Nearest Neighbor: Dropdown-Menü mit neuen Sternbilder-Optionen -->
                     <select id="nnConstellationSelect" onchange="nnToggleConstellation(this.value)" style="height:30px;">
                         <option value="">Sternenbild wählen...</option>
@@ -247,6 +253,9 @@ featured: false
                     <button onclick="bfUpdateNumPoints()">Zufällige Punkte</button>
                     <button onclick="bfImportChristofidesPoints()">Christofides Punkte importieren</button>
                     <button onclick="bfImportNNPoints()">NN-Punkte importieren</button>
+                    <label for="bfStartPoint">Startpunkt:</label>
+                    <input type="number" id="bfStartPoint" min="0" max="24" value="0" style="width:50px; height:30px;">
+                    <button onclick="bfUpdateStartPoint()">Startpunkt setzen</button>
                     <select id="bfConstellationSelect" onchange="bfToggleConstellation(this.value)" style="height:30px;">
                         <option value="">Sternenbild wählen...</option>
                         <option value="libra">Waage (Libra) - 10 Punkte</option>
@@ -513,12 +522,13 @@ featured: false
     // ================ CHRISTOFIDES ALGORITHMUS ================  
     // Christofides Animation Klasse
     class ChristofidesAnimation {
-        constructor(canvas, numNodes = 4) {
+        constructor(canvas, numNodes = 4, startNode = 0) {
             this.canvas = canvas;
             this.ctx = canvas.getContext('2d');
             this.ctx.setTransform(1, 0, 0, 1, 0, 0);
             this.ctx.scale(canvas.width / 50, canvas.height / 50);
             this.numNodes = numNodes;
+            this.startNode = startNode;
             this.nodes = [];
             this.mstEdges = [];
             this.oddNodes = [];
@@ -577,7 +587,7 @@ featured: false
         }
         
         computeMST() {
-            const inTree = new Set([0]);
+            const inTree = new Set([this.startNode]);
             this.mstEdges = [];
             while (inTree.size < this.numNodes) {
                 let minEdge = null;
@@ -645,7 +655,7 @@ featured: false
                 addEdge(edge.from, edge.to);
                 addEdge(edge.to, edge.from);
             });
-            const stack = [0];
+            const stack = [this.startNode];
             const circuit = [];
             while (stack.length) {
                 let current = stack[stack.length - 1];
@@ -805,7 +815,7 @@ featured: false
     }
     
     // Globale Variablen für Christofides
-    let animation = new ChristofidesAnimation(document.getElementById('canvas'), 4);
+    let animation = new ChristofidesAnimation(document.getElementById('canvas'), 4, 0);
     let autoIntervalId = null;
     
     // Christofides Funktionen
@@ -943,7 +953,45 @@ featured: false
     function updateNumPoints() {
         stopAutoAnimation();
         const numPoints = parseInt(document.getElementById('numPoints').value);
-        animation = new ChristofidesAnimation(document.getElementById('canvas'), numPoints);
+        const startPoint = parseInt(document.getElementById('startPointChristofides').value);
+        animation = new ChristofidesAnimation(document.getElementById('canvas'), numPoints, startPoint);
+        animation.ctx.clearRect(0, 0, 100, 50);
+        animation.drawNodes(true);
+        updateInfoPanel();
+    }
+
+    function updateStartPoint() {
+        stopAutoAnimation();
+        const startPoint = parseInt(document.getElementById('startPointChristofides').value);
+        
+        // Prüfen ob der Startpunkt gültig ist
+        if (isNaN(startPoint) || startPoint < 0 || startPoint >= animation.nodes.length) {
+            alert(`Bitte geben Sie einen gültigen Startpunkt zwischen 0 und ${animation.nodes.length - 1} ein.`);
+            return;
+        }
+        
+        // Speichern der aktuellen Knoten
+        const currentNodes = JSON.parse(JSON.stringify(animation.nodes));
+        
+        // Erstellen einer neuen Animation mit dem neuen Startpunkt aber den bestehenden Knoten
+        animation = new ChristofidesAnimation(document.getElementById('canvas'), animation.numNodes, startPoint);
+        animation.nodes = currentNodes; // Bestehende Knoten übernehmen
+        
+        // Berechnen der neuen Pfade mit dem aktuellen Startpunkt
+        animation.mstEdges = [];
+        animation.oddNodes = [];
+        animation.matchingEdges = [];
+        animation.eulerianCircuit = [];
+        animation.tspPath = [];
+        animation.drawnEdges.clear();
+        
+        // Neuberechnung basierend auf den vorhandenen Knoten
+        animation.computeMST();
+        animation.findOddNodes();
+        animation.computeMatching();
+        animation.computeEulerianCircuit();
+        animation.computeTSPPath();
+        
         animation.ctx.clearRect(0, 0, 100, 50);
         animation.drawNodes(true);
         updateInfoPanel();
@@ -1047,7 +1095,8 @@ featured: false
         if (typeof nnAnimation !== 'undefined' && nnAnimation && nnAnimation.nodes) {
             stopAutoAnimation();
             const numPoints = nnAnimation.nodes.length;
-            animation = new ChristofidesAnimation(document.getElementById('canvas'), numPoints);
+            const startPoint = parseInt(document.getElementById('startPointChristofides').value);
+            animation = new ChristofidesAnimation(document.getElementById('canvas'), numPoints, startPoint);
             animation.nodes = JSON.parse(JSON.stringify(nnAnimation.nodes));
             animation.mstEdges = [];
             animation.oddNodes = [];
@@ -1078,7 +1127,8 @@ featured: false
         if (typeof bfAnimation !== 'undefined' && bfAnimation && bfAnimation.nodes) {
             stopAutoAnimation();
             const numPoints = bfAnimation.nodes.length;
-            animation = new ChristofidesAnimation(document.getElementById('canvas'), numPoints);
+            const startPoint = parseInt(document.getElementById('startPointChristofides').value);
+            animation = new ChristofidesAnimation(document.getElementById('canvas'), numPoints, startPoint);
             animation.nodes = JSON.parse(JSON.stringify(bfAnimation.nodes));
             animation.mstEdges = [];
             animation.oddNodes = [];
@@ -1121,12 +1171,13 @@ featured: false
     
     // Nearest Neighbor Animation Klasse
     class NearestNeighborAnimation {
-        constructor(canvas, numNodes = 4) {
+        constructor(canvas, numNodes = 4, startNode = 0) {
             this.canvas = canvas;
             this.ctx = canvas.getContext('2d');
             this.ctx.setTransform(1, 0, 0, 1, 0, 0);
             this.ctx.scale(canvas.width / 50, canvas.height / 50);
             this.numNodes = numNodes;
+            this.startNode = startNode;
             this.nodes = [];
             this.nnPath = [];
             this.selectionSteps = []; 
@@ -1172,11 +1223,10 @@ featured: false
         }
         
         computeNearestNeighborPath() {
-            const startNode = 0;
-            const visited = new Set([startNode]);
-            this.nnPath = [startNode]; 
+            const visited = new Set([this.startNode]);
+            this.nnPath = [this.startNode]; 
             this.selectionSteps = [];
-            let current = startNode;
+            let current = this.startNode;
             while (visited.size < this.numNodes) {
                 let nearest = null;
                 let minDistance = Infinity;
@@ -1207,7 +1257,7 @@ featured: false
                 visited.add(current);
                 this.nnPath.push(current);
             } 
-            this.nnPath.push(startNode);
+            this.nnPath.push(this.startNode);
         }
         
         drawNodes(showCoordinateSystem = false) {
@@ -1491,11 +1541,37 @@ featured: false
             return;
         }
         
-        nnAnimation = new NearestNeighborAnimation(document.getElementById('nnCanvas'), numPoints);
+        const startPoint = parseInt(document.getElementById('nnStartPoint').value);
+        nnAnimation = new NearestNeighborAnimation(document.getElementById('nnCanvas'), numPoints, startPoint);
         
         nnAnimation.ctx.clearRect(0, 0, 100, 50);
         nnAnimation.drawNodes(true);
         
+        nnUpdateInfoPanel();
+    }
+
+    function nnUpdateStartPoint() {
+        nnStopAutoAnimation();
+        const startPoint = parseInt(document.getElementById('nnStartPoint').value);
+        
+        // Prüfen ob der Startpunkt gültig ist
+        if (isNaN(startPoint) || startPoint < 0 || startPoint >= nnAnimation.nodes.length) {
+            alert(`Bitte geben Sie einen gültigen Startpunkt zwischen 0 und ${nnAnimation.nodes.length - 1} ein.`);
+            return;
+        }
+        
+        // Speichern der aktuellen Knoten
+        const currentNodes = JSON.parse(JSON.stringify(nnAnimation.nodes));
+        
+        // Erstellen einer neuen Animation mit dem neuen Startpunkt aber den bestehenden Knoten
+        nnAnimation = new NearestNeighborAnimation(document.getElementById('nnCanvas'), nnAnimation.numNodes, startPoint);
+        nnAnimation.nodes = currentNodes; // Bestehende Knoten übernehmen
+        
+        // Neuberechnung des Nearest-Neighbor-Pfades mit dem neuen Startpunkt
+        nnAnimation.computeNearestNeighborPath();
+        
+        nnAnimation.ctx.clearRect(0, 0, 100, 50);
+        nnAnimation.drawNodes(true);
         nnUpdateInfoPanel();
     }
 
@@ -1533,7 +1609,8 @@ featured: false
         }
         
         try {
-            nnAnimation = new NearestNeighborAnimation(document.getElementById('nnCanvas'), 0);
+            const startPoint = parseInt(document.getElementById('nnStartPoint').value);
+            nnAnimation = new NearestNeighborAnimation(document.getElementById('nnCanvas'), 0, startPoint);
             console.log("Animation erstellt");
             
             nnAnimation.nodes = createConstellationNodes(selectedType, 0);
@@ -1560,8 +1637,9 @@ featured: false
         nnStopAutoAnimation();
         
         const numPoints = nnAnimation.numNodes;
+        const startPoint = parseInt(document.getElementById('nnStartPoint').value);
         
-        nnAnimation = new NearestNeighborAnimation(document.getElementById('nnCanvas'), numPoints);
+        nnAnimation = new NearestNeighborAnimation(document.getElementById('nnCanvas'), numPoints, startPoint);
         
         nnAnimation.ctx.clearRect(0, 0, 100, 50);
         nnAnimation.drawNodes(true);
@@ -1605,7 +1683,7 @@ featured: false
     document.addEventListener('DOMContentLoaded', function() {
         const canvas = document.getElementById('nnCanvas');
         if (canvas) {
-            nnAnimation = new NearestNeighborAnimation(canvas, 4);
+            nnAnimation = new NearestNeighborAnimation(canvas, 4, 0);
             nnAnimation.drawNodes(true);
             nnUpdateInfoPanel();
         }
@@ -1615,12 +1693,13 @@ featured: false
 
     // Brute Force Animation Klasse
     class BruteForceAnimation {
-        constructor(canvas, numNodes = 4) {
+        constructor(canvas, numNodes = 4, startNode = 0) {
             this.canvas = canvas;
             this.ctx = canvas.getContext('2d');
             this.ctx.setTransform(1, 0, 0, 1, 0, 0);
             this.ctx.scale(canvas.width / 50, canvas.height / 50);
             this.numNodes = numNodes;
+            this.startNode = startNode;
             this.nodes = [];
             this.permutations = [];
             this.currentPermutationIndex = 0;
@@ -1663,11 +1742,39 @@ featured: false
         }
 
         generatePermutations(array) {
+            // Wenn ein Startknoten festgelegt ist, generieren wir nur Permutationen, die mit dem Startknoten beginnen
+            const permutations = [];
+            
+            // Wir fixieren den Startknoten
+            const startNode = this.startNode;
+            
+            // Entferne den Startknoten aus dem Array
+            const remainingNodes = array.filter(node => node !== startNode);
+            
+            // Generiere alle Permutationen für die verbleibenden Knoten
+            if (remainingNodes.length === 0) {
+                return [[startNode]];
+            } else if (remainingNodes.length === 1) {
+                return [[startNode, remainingNodes[0]]];
+            }
+            
+            const restPerms = this.generateAllPermutations(remainingNodes);
+            
+            // Füge den Startknoten am Anfang jeder Permutation hinzu
+            for (const perm of restPerms) {
+                permutations.push([startNode, ...perm]);
+            }
+            
+            return permutations;
+        }
+        
+        // Hilfsfunktion zum Generieren aller Permutationen ohne festen Startpunkt
+        generateAllPermutations(array) {
             if (array.length === 1) return [array];
             const perms = [];
             for (let i = 0; i < array.length; i++) {
                 const rest = [...array.slice(0, i), ...array.slice(i + 1)];
-                const restPerms = this.generatePermutations(rest);
+                const restPerms = this.generateAllPermutations(rest);
                 for (const perm of restPerms) {
                     perms.push([array[i], ...perm]);
                 }
@@ -1759,10 +1866,24 @@ featured: false
 
         updateInfoPanel() {
             const dataOutput = document.getElementById('bfDataOutput');
-            let html = `<strong>Aktuelle Permutation:</strong> ${this.permutations[this.currentPermutationIndex] || 'Fertig'}<br>`;
-            html += `<strong>Distanz der aktuellen Permutation:</strong> ${this.calculatePathDistance(this.permutations[this.currentPermutationIndex] || [])}<br>`;
-            html += `<strong>Kürzeste Distanz:</strong> ${this.shortestDistance}<br>`;
-            html += `<strong>Kürzester Pfad:</strong> ${this.shortestPath || 'Noch nicht gefunden'}`;
+            let html = `<strong>Anzahl der Permutationen:</strong> ${this.permutations.length}<br>`;
+            html += `<strong>Aktuelle Permutation:</strong> ${this.currentPermutationIndex + 1} von ${this.permutations.length}<br>`;
+            
+            if (this.currentPermutationIndex < this.permutations.length) {
+                html += `<strong>Aktueller Pfad:</strong> ${this.permutations[this.currentPermutationIndex].map(p => `P${p}`).join(' → ')}<br>`;
+                html += `<strong>Distanz der aktuellen Permutation:</strong> ${this.calculatePathDistance(this.permutations[this.currentPermutationIndex]).toFixed(2)}<br>`;
+            } else {
+                html += "<strong>Alle Permutationen geprüft</strong><br>";
+            }
+            
+            html += `<strong>Kürzeste Distanz:</strong> ${this.shortestDistance !== Infinity ? this.shortestDistance.toFixed(2) : "Noch nicht gefunden"}<br>`;
+            
+            if (this.shortestPath) {
+                html += `<strong>Kürzester Pfad:</strong> ${this.shortestPath.map(p => `P${p}`).join(' → ')}`;
+            } else {
+                html += "<strong>Kürzester Pfad:</strong> Noch nicht gefunden";
+            }
+            
             dataOutput.innerHTML = html;
         }
 
@@ -1794,7 +1915,7 @@ featured: false
         }
     }
 
-    let bfAnimation = new BruteForceAnimation(document.getElementById('bfCanvas'), 4);
+    let bfAnimation = new BruteForceAnimation(document.getElementById('bfCanvas'), 4, 0);
     let bfAutoIntervalId = null;
 
     function bfNextStep() {
@@ -1836,11 +1957,38 @@ featured: false
 
     function bfUpdateNumPoints() {
         const numPoints = parseInt(document.getElementById('bfNumPoints').value, 10);
+        const startPoint = parseInt(document.getElementById('bfStartPoint').value, 10);
         if (isNaN(numPoints) || numPoints < 3 || numPoints > 10) {
             alert("Bitte eine gültige Anzahl zwischen 3 und 10 eingeben");
             return;
         }
-        bfAnimation = new BruteForceAnimation(document.getElementById('bfCanvas'), numPoints);
+        bfAnimation = new BruteForceAnimation(document.getElementById('bfCanvas'), numPoints, startPoint);
+        bfAnimation.reset();
+    }
+
+    function bfUpdateStartPoint() {
+        bfStopAutoAnimation();
+        const startPoint = parseInt(document.getElementById('bfStartPoint').value);
+        
+        // Prüfen ob der Startpunkt gültig ist
+        if (isNaN(startPoint) || startPoint < 0 || startPoint >= bfAnimation.nodes.length) {
+            alert(`Bitte geben Sie einen gültigen Startpunkt zwischen 0 und ${bfAnimation.nodes.length - 1} ein.`);
+            return;
+        }
+        
+        // Speichern der aktuellen Knoten
+        const currentNodes = JSON.parse(JSON.stringify(bfAnimation.nodes));
+        
+        // Neue Animation mit dem neuen Startpunkt erstellen
+        bfAnimation = new BruteForceAnimation(document.getElementById('bfCanvas'), bfAnimation.numNodes, startPoint);
+        
+        // Bestehende Knoten übernehmen
+        bfAnimation.nodes = currentNodes;
+        
+        // Permutationen neu berechnen
+        bfAnimation.permutations = bfAnimation.generatePermutations([...Array(bfAnimation.numNodes).keys()]);
+        
+        // Animation zurücksetzen
         bfAnimation.reset();
     }
 
@@ -1922,4 +2070,3 @@ featured: false
     }
     </script>
 </body>
-```
