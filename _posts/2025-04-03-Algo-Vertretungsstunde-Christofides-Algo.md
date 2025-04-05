@@ -235,6 +235,9 @@ featured: false
             <div id="nnFullTable" style="display: none; margin-top: 20px;"></div>
         </div>
     </div>
+    <div style="display: flex; align-items: center; margin-top: 10px;"><p></p></div>
+    --- 
+    <div style="display: flex; align-items: center; margin-top: 10px;"><p></p></div>
     <!-- ================ BRUTE FORCE ALGORITHMUS ================ -->
     <h3>Brute Force Algorithm</h3>
     <div class="bf-container">
