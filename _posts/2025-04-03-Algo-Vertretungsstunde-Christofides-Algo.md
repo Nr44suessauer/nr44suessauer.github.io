@@ -27,7 +27,7 @@ featured: false
             flex: 1;
         }
         #infoPanel {
-            flex: 0 0 300px;
+            flex: 0 0 500px;
             margin-left: 20px;
             background: #f2f2f2;
             padding: 10px;
