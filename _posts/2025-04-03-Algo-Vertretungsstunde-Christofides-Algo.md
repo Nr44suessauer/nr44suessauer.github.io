@@ -100,7 +100,7 @@ featured: false
                     <button onclick="resetAnimation()">Reset</button>
                     <button onclick="toggleAutoAnimation()">Animation Start/Stop</button>
                     <label for="speedSlider">Geschwindigkeit:</label>
-                    <input type="range" id="speedSlider" min="50" max="2000" step="1" value="1000">
+                    <input type="range" id="speedSlider" min="50" max="4000" step="1" value="300">
                 </div>
                 <div>
                     <label for="numPoints">Anzahl der Punkte:</label>
@@ -153,7 +153,7 @@ featured: false
                     <button onclick="nnResetAnimation()">Reset</button>
                     <button onclick="nnToggleAutoAnimation()">Animation Start/Stop</button>
                     <label for="nnSpeedSlider">Geschwindigkeit:</label>
-                    <input type="range" id="nnSpeedSlider" min="50" max="2000" step="1" value="1000">
+                    <input type="range" id="nnSpeedSlider" min="50" max="4000" step="1" value="300">
                 </div>
                 <div>
                     <label for="nnNumPoints">Anzahl der Punkte:</label>
@@ -206,16 +206,16 @@ featured: false
     const CONSTELLATIONS = {
         // Waage (Libra)
         libra: [
+            { x: 21, y: 5 },
+            { x: 13, y: 13 },
             { x: 5, y: 21 },
             { x: 13, y: 29 },
-            { x: 21, y: 25 },
-            { x: 29, y: 33 },
-            { x: 37, y: 25 },
-            { x: 45, y: 29 },
-            { x: 45, y: 21 },
-            { x: 37, y: 17 },
+            { x: 21, y: 29 },
+            { x: 29, y: 29 },
+            { x: 37, y: 21 },
             { x: 29, y: 13 },
-            { x: 21, y: 17 }
+            { x: 21, y: 21 },
+            { x: 29, y: 37 }
         ],
         // Orion (Der Jäger)
         orion: [
@@ -232,21 +232,21 @@ featured: false
         ],
         // Kleiner Wagen (Ursa Minor)
         ursa_minor: [
-            { x: 5, y: 5 },
-            { x: 13, y: 17 },
-            { x: 21, y: 25 },
-            { x: 29, y: 33 },
-            { x: 21, y: 41 },
-            { x: 29, y: 45 },
-            { x: 45, y: 37 }
+            { x: 15, y: 15 },
+            { x: 13, y: 25 },
+            { x: 21, y: 29 },
+            { x: 25, y: 35 },
+            { x: 35, y: 39 },
+            { x: 45, y: 45 },
+            { x: 39, y: 25 }
         ],
         // Kassiopeia (W-Form)
         cassiopeia: [
-            { x: 5, y: 5 },
-            { x: 13, y: 29 },
-            { x: 25, y: 5 },
-            { x: 37, y: 29 },
-            { x: 45, y: 5 }
+            { x: 7, y: 10 },
+            { x: 13, y: 25 },
+            { x: 21, y: 10 },
+            { x: 33, y: 25 },
+            { x: 43, y: 10 }
         ],
         // Schwan (Cygnus/Nördliches Kreuz)
         cygnus: [
@@ -263,37 +263,37 @@ featured: false
         // Großer Wagen (Ursa Major)
         ursa_major: [
             { x: 5, y: 5 },
-            { x: 15, y: 7 },
-            { x: 25, y: 10 },
-            { x: 30, y: 20 },
-            { x: 15, y: 35 },
-            { x: 5, y: 30 }
+            { x: 13, y: 15 },
+            { x: 21, y: 20 },
+            { x: 30, y: 25 },
+            { x: 35, y: 35 },
+            { x: 40, y: 45 }
         ],
         // Löwe (Leo)
         leo: [
             { x: 10, y: 10 },
-            { x: 15, y: 5 },
-            { x: 25, y: 7 },
-            { x: 35, y: 5 },
-            { x: 40, y: 10 },
-            { x: 35, y: 20 },
-            { x: 25, y: 25 },
-            { x: 15, y: 20 },
+            { x: 15, y: 15 },
+            { x: 25, y: 20 },
+            { x: 35, y: 25 },
+            { x: 45, y: 30 },
+            { x: 35, y: 35 },
+            { x: 25, y: 30 },
+            { x: 15, y: 25 },
             { x: 10, y: 10 }
         ],
         // Drache (Draco)
         draco: [
-            { x: 10, y: 40 },
-            { x: 15, y: 35 },
-            { x: 20, y: 30 },
-            { x: 25, y: 25 },
-            { x: 30, y: 20 },
-            { x: 35, y: 15 },
-            { x: 40, y: 10 },
-            { x: 35, y: 5 },
-            { x: 25, y: 5 },
-            { x: 15, y: 10 },
-            { x: 10, y: 15 }
+            { x: 5, y: 45 },
+            { x: 10, y: 35 },
+            { x: 15, y: 30 },
+            { x: 20, y: 25 },
+            { x: 25, y: 20 },
+            { x: 30, y: 15 },
+            { x: 35, y: 10 },
+            { x: 30, y: 5 },
+            { x: 20, y: 5 },
+            { x: 10, y: 10 },
+            { x: 5, y: 15 }
         ],
         // Zwillinge (Gemini)
         gemini: [
@@ -322,7 +322,6 @@ featured: false
             { x: 40, y: 10 },
             { x: 10, y: 10 }
         ],
-        // Zusätzliche Sternbilder
         // Andromeda
         andromeda: [
             { x: 5, y: 10 },
@@ -333,7 +332,7 @@ featured: false
             { x: 42, y: 12 },
             { x: 45, y: 20 }
         ],
-        // Schütze (Sagittarius) - stilisiert als Bogen und Pfeil
+        // Schütze (Sagittarius)
         sagittarius: [
             { x: 10, y: 40 },
             { x: 20, y: 30 },
@@ -358,15 +357,14 @@ featured: false
             { x: 45, y: 5 }
         ],
         // Krebs (Cancer)
-        cancer: [
-            { x: 15, y: 25 },
-            { x: 20, y: 15 },
-            { x: 25, y: 10 },
-            { x: 30, y: 15 },
-            { x: 35, y: 25 },
-            { x: 25, y: 35 }
-        ],
-        // Fische (Pisces)
+            cancer: [
+                { x: 25, y: 5 },
+                { x: 20, y: 15 },
+                { x: 30, y: 15 },
+                { x: 15, y: 25 },
+                { x: 35, y: 25 },
+                { x: 25, y: 35 }
+            ],     // Fische (Pisces)
         pisces: [
             { x: 5, y: 15 },
             { x: 10, y: 10 },
