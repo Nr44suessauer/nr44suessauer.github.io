@@ -8,7 +8,10 @@ categories: lecture
 disqus_comments: true
 featured: false
 ---
-## STILL WORKING AT : official Release 10.04 | 
+
+## STILL WORKING AT : official Release 10.04  
+Disclaimer: Sternenbilder werden noch angepasst & paar Formeln werden im jupyter Notebook nicht dargestellt.
+
 
 <!-- ================ STYLING ================ -->
 <head>
@@ -125,7 +128,7 @@ featured: false
             <div class="bf-controls">
                 <div>
                     <button onclick="bfNextStep()">Nächster Schritt</button>
-                    <button onclick="bfResetAnimation()">Reset</button>
+                    <button onclick="bfResetAnimation()" style="background-color: #ff5555; color: white;">Reset</button>
                     <button onclick="bfToggleAutoAnimation()">Animation Start/Stop</button>
                     <label for="bfSpeedSlider">Geschwindigkeit:</label>
                     <input type="range" id="bfSpeedSlider" min="50" max="4000" step="1" value="300">
@@ -172,7 +175,28 @@ featured: false
             <div id="bfFullTable" style="display: none; margin-top: 20px;"></div>
         </div>
     </div>
-    <!-- Trennlinie zwischen den Algorithmen -->
+    <!-- Jupyter Notebook einbinden (aufklappbar) -->
+    <div class="notebook-container" style="margin-top: 20px; margin-bottom: 20px;">
+        <details>
+            <summary style="cursor: pointer; font-weight: bold; padding: 10px; background-color: #f0f0f0; border: 1px solid #ccc; border-radius: 5px;">
+                Jupyter Notebook: Brute Force TSP Implementation (Klicken zum Anzeigen/Ausblenden)
+            </summary>
+            <div style="border: 1px solid #ddd; padding: 15px; margin-top: 10px; background-color: #f9f9f9;">
+                <iframe
+                    src="https://nbviewer.org/github/Nr44suessauer/SalesMan/blob/main/BruteForce_TSP.ipynb"
+                    width="100%"
+                    height="800"
+                    style="border: none;"
+                    allowfullscreen>
+                </iframe>
+                <p style="text-align: center; margin-top: 10px;">
+                    <a href="https://github.com/Nr44suessauer/SalesMan/blob/main/BruteForce_TSP.ipynb" target="_blank">
+                        Notebook auf GitHub öffnen
+                    </a>
+                </p>
+            </div>
+        </details>
+    </div>
     <div style="display: flex; align-items: center; margin-top: 10px;"><p></p></div>
     --- 
     <div style="display: flex; align-items: center; margin-top: 10px;"><p></p></div>
@@ -183,7 +207,7 @@ featured: false
             <div class="nn-controls">
                 <div>
                     <button onclick="nnNextStep()">Nächster Schritt</button>
-                    <button onclick="nnResetAnimation()">Reset</button>
+                    <button onclick="nnResetAnimation()" style="background-color: #ff5555; color: white;">Reset</button>
                     <button onclick="nnToggleAutoAnimation()">Animation Start/Stop</button>
                     <label for="nnSpeedSlider">Geschwindigkeit:</label>
                     <input type="range" id="nnSpeedSlider" min="50" max="4000" step="1" value="300">
@@ -197,6 +221,7 @@ featured: false
                     <label for="nnStartPoint">Startpunkt:</label>
                     <input type="number" id="nnStartPoint" min="0" max="24" value="0" style="width:50px; height:30px;">
                     <button onclick="nnUpdateStartPoint()">Startpunkt setzen</button>
+                    <button onclick="nnFindBestStartPoint()" style="background-color: #4CAF50; color: white;">Besten Startpunkt finden</button>
                     <!-- Für Nearest Neighbor: Dropdown-Menü mit neuen Sternbilder-Optionen -->
                     <select id="nnConstellationSelect" onchange="nnToggleConstellation(this.value)" style="height:30px;">
                         <option value="">Sternenbild wählen...</option>
@@ -237,16 +262,38 @@ featured: false
             <div id="nnFullTable" style="display: none; margin-top: 20px;"></div>
         </div>
     </div>
+    <!-- Jupyter Notebook einbinden (aufklappbar) -->
+    <div class="notebook-container" style="margin-top: 20px; margin-bottom: 20px;">
+        <details>
+            <summary style="cursor: pointer; font-weight: bold; padding: 10px; background-color: #f0f0f0; border: 1px solid #ccc; border-radius: 5px;">
+                Jupyter Notebook: Nearest Neighbor TSP Implementation (Klicken zum Anzeigen/Ausblenden)
+            </summary>
+            <div style="border: 1px solid #ddd; padding: 15px; margin-top: 10px; background-color: #f9f9f9; width: 100%;">
+                <iframe
+                    src="https://nbviewer.org/github/Nr44suessauer/SalesMan/blob/main/NearestNeighbor_TSP.ipynb"
+                    width="100%"
+                    height="800"
+                    style="border: none;"
+                    allowfullscreen>
+                </iframe>
+            </div>     <p style="text-align: center; margin-top: 10px;">
+                    <a href="https://github.com/Nr44suessauer/SalesMan/blob/main/NearestNeighbor_TSP.ipynb" target="_blank">
+                        Notebook auf GitHub öffnen
+                    </a>
+                </p>
+        </details>
+    </div>
     <div style="display: flex; align-items: center; margin-top: 10px;"><p></p></div>
     --- 
     <div style="display: flex; align-items: center; margin-top: 10px;"><p></p></div>
     <!-- ================ CHRISTOFIDES ALGORITHMUS ================ -->
+    <h3>Christofides Algorithm</h3>
     <div class="container">
         <div class="animation-container">
             <div class="controls">
                 <div>
                     <button onclick="nextStep()">Nächster Schritt</button>
-                    <button onclick="resetAnimation()">Reset</button>
+                    <button onclick="resetAnimation()" style="background-color: #ff5555; color: white;">Reset</button>
                     <button onclick="toggleAutoAnimation()">Animation Start/Stop</button>
                     <label for="speedSlider">Geschwindigkeit:</label>
                     <input type="range" id="speedSlider" min="50" max="4000" step="1" value="300">
@@ -265,7 +312,6 @@ featured: false
                         <option value="">Sternenbild wählen...</option>
                         <option value="libra">Waage (Libra) - 10 Punkte</option>
                         <option value="orion">Orion - 10 Punkte</option>
-                        <option value="ursa_minor">Kleiner Bär - 7 Punkte</option>
                         <option value="cassiopeia">Kassiopeia - 5 Punkte</option>
                         <option value="cygnus">Schwan - 9 Punkte</option>
                         <option value="ursa_major">Großer Bär - 7 Punkte</option>
@@ -288,9 +334,31 @@ featured: false
             <canvas id="canvas" width="800" height="600"></canvas>
         </div>
         <div id="infoPanel">
-            <h3>Animationsdaten</h3>
+            <h3>Christofides Algorithm Daten</h3>
             <div id="dataOutput">Warte auf den ersten Schritt...</div>
         </div>
+    </div>
+    <!-- Jupyter Notebook einbinden (aufklappbar) -->
+    <div class="notebook-container" style="margin-top: 20px; margin-bottom: 20px;">
+        <details>
+            <summary style="cursor: pointer; font-weight: bold; padding: 10px; background-color: #f0f0f0; border: 1px solid #ccc; border-radius: 5px;">
+                Jupyter Notebook: Christofides TSP Implementation (Klicken zum Anzeigen/Ausblenden)
+            </summary>
+            <div style="border: 1px solid #ddd; padding: 15px; margin-top: 10px; background-color: #f9f9f9; width: 100%;">
+                <iframe
+                    src="https://nbviewer.org/github/Nr44suessauer/SalesMan/blob/main/Christofides_TSP.ipynb"
+                    width="100%"
+                    height="800"
+                    style="border: none;"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <p style="text-align: center; margin-top: 10px;">
+                <a href="https://github.com/Nr44suessauer/SalesMan/blob/main/Christofides_TSP.ipynb" target="_blank">
+                    Notebook auf GitHub öffnen
+                </a>
+            </p>
+        </details>
     </div>
     <!-- ================ Code ================ -->
     <script>
@@ -1317,6 +1385,8 @@ featured: false
                 );
             }
             path += `<br><br><span style='font-size: 1.2em;'><strong>Gesamtlänge: ${totalLength.toFixed(2)}</strong></span>`;
+            // Anzeige des aktuellen Startpunkts
+            path += `<br><strong>Aktueller Startpunkt:</strong> P${nnAnimation.startNode}`;
         }       
         html += `<strong>Aktueller Pfad:</strong><br>${path}`;
         dataOutput.innerHTML = html;        
@@ -1551,6 +1621,138 @@ featured: false
         link.href = tmpCanvas.toDataURL('image/png');
         link.click();
     } 
+    function nnFindBestStartPoint() {
+        if (!nnAnimation || !nnAnimation.nodes || nnAnimation.nodes.length < 2) return; 
+        nnStopAutoAnimation();  
+        // Speichern der aktuellen Knoten
+        const currentNodes = JSON.parse(JSON.stringify(nnAnimation.nodes));
+        const numNodes = currentNodes.length;   
+        // Für jeden möglichen Startpunkt die Tourlänge berechnen
+        let bestStartPoint = 0;
+        let shortestDistance = Infinity;
+        const results = [];   
+        for (let startPoint = 0; startPoint < numNodes; startPoint++) {
+            // Nearest Neighbor Pfad für diesen Startpunkt berechnen
+            const visited = new Set([startPoint]);
+            const path = [startPoint];
+            let current = startPoint;       
+            while (visited.size < numNodes) {
+                let nearest = null;
+                let minDistance = Infinity;
+                
+                for (let i = 0; i < numNodes; i++) {
+                    if (!visited.has(i)) {
+                        const dist = nnAnimation.distance(currentNodes[current], currentNodes[i]);
+                        if (dist < minDistance) {
+                            minDistance = dist;
+                            nearest = i;
+                        }
+                    }
+                }
+                
+                current = nearest;
+                visited.add(current);
+                path.push(current);
+            }
+            
+            // Gesamtpfadlänge berechnen (einschließlich Rückweg zum Startpunkt)
+            let totalDistance = 0;
+            for (let i = 0; i < path.length - 1; i++) {
+                totalDistance += nnAnimation.distance(
+                    currentNodes[path[i]], 
+                    currentNodes[path[i + 1]]
+                );
+            }
+            // Rückweg zum Startpunkt
+            totalDistance += nnAnimation.distance(
+                currentNodes[path[path.length - 1]], 
+                currentNodes[startPoint]
+            );
+            
+            // Pfad und Distanz speichern
+            results.push({
+                startPoint: startPoint,
+                distance: totalDistance,
+                path: [...path, startPoint]
+            });
+            
+            // Prüfen, ob dieser Startpunkt besser ist
+            if (totalDistance < shortestDistance) {
+                shortestDistance = totalDistance;
+                bestStartPoint = startPoint;
+            }
+        }
+        
+        // Sortiere die Ergebnisse nach Pfadlänge
+        results.sort((a, b) => a.distance - b.distance);
+        
+        // Ergebnisanzeige im Panel
+        const dataOutput = document.getElementById('nnDataOutput');
+        if (dataOutput) {
+            let resultHTML = `
+                <div style="margin: 15px 0; padding: 15px; background-color: #e8ffe8; border: 2px solid #4CAF50; border-radius: 5px;">
+                    <h4 style="margin-top: 0; color: #2E7D32;">Optimaler Startpunkt gefunden!</h4>
+                    <p><strong>Bester Startpunkt:</strong> P${bestStartPoint}</p>
+                    <p><strong>Pfadlänge:</strong> ${shortestDistance.toFixed(2)}</p>
+                    <p><strong>Optimaler Pfad:</strong> ${results[0].path.map(p => `P${p}`).join(' → ')}</p>
+                    <hr>
+                    <h5>Alle Startpunkte im Vergleich:</h5>
+                    <table class="selection-table" style="width: 100%; margin-top: 10px;">
+                        <tr>
+                            <th>Rang</th>
+                            <th>Startpunkt</th>
+                            <th>Pfadlänge</th>
+                            <th>Vergleich zum Optimum</th>
+                        </tr>
+            `;
+            
+            // Füge alle Ergebnisse in die Tabelle ein
+            results.forEach((result, index) => {
+                const difference = ((result.distance / shortestDistance - 1) * 100).toFixed(2);
+                const rowClass = result.startPoint === bestStartPoint ? 'selected' : '';
+                
+                resultHTML += `
+                    <tr class="${rowClass}">
+                        <td style="text-align: center;">${index + 1}</td>
+                        <td style="text-align: center;">P${result.startPoint}</td>
+                        <td style="text-align: center;">${result.distance.toFixed(2)}</td>
+                        <td style="text-align: center;">${index === 0 ? 'Optimum' : '+' + difference + '%'}</td>
+                    </tr>
+                `;
+            });
+            
+            resultHTML += `
+                    </table>
+                </div>
+            `;
+            
+            dataOutput.innerHTML = resultHTML;
+        }
+        
+        // Besten Startpunkt in das Eingabefeld setzen
+        document.getElementById('nnStartPoint').value = bestStartPoint;
+        
+        // Animation mit dem besten Startpunkt neu starten
+        nnAnimation = new NearestNeighborAnimation(document.getElementById('nnCanvas'), numNodes, bestStartPoint);
+        nnAnimation.nodes = currentNodes; // Bestehende Knoten übernehmen
+        nnAnimation.computeNearestNeighborPath();
+        nnAnimation.ctx.clearRect(0, 0, 100, 50);
+        nnAnimation.drawNodes(true);
+        nnAnimation.drawPath(nnAnimation.nnPath.length - 1); // Zeige sofort den kompletten optimalen Pfad
+        
+        // Aktualisiere den Fortschritt der Animation, um den vollständigen Pfad anzuzeigen
+        nnAnimation.currentPathIndex = nnAnimation.selectionSteps.length + 1;
+        
+        // Aktualisiere das Info-Panel mit dem vollständigen Pfad und Startpunktinfo
+        const pathInfo = document.createElement('div');
+        pathInfo.innerHTML = `
+            <div style="margin-top: 15px;">
+                <h5>Optimaler Pfad wurde automatisch angewendet</h5>
+                <p>Der Startpunkt P${bestStartPoint} wurde als Optimum ermittelt und die Animation zeigt nun den entsprechenden Pfad.</p>
+            </div>
+        `;
+        dataOutput.appendChild(pathInfo);
+    }
     // Event-Listener
     document.getElementById('nnSpeedSlider')?.addEventListener('input', function() {
         if (nnAutoIntervalId) {
