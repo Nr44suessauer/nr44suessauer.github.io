@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Christofides Algorithm & Nearest Neigbhor | Compare
+title: Brute Force, Nearest Neigbhor & Christofides Algorithm
 date: 2025-04-02 10:00:00
 description: Algorithm & Datastructure
-tags: Algo Christofides NearestNeighbor BruteForce
+tags: Algo Christofides NearestNeighbor BruteForce jupyternotebook 
 categories: lecture
 disqus_comments: true
 featured: false
