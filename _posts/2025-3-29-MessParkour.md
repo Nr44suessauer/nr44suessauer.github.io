@@ -55,9 +55,9 @@ featured: false
 
 | Datum               | Uhrzeit           | Thema                                                                     |
 |---------------------|-------------------|---------------------------------------------------------------------------|
-| 16.04.25            | 10:00 - 11:30 Uhr | Spannungsteiler & Low/High pass filter                                    |
-| 30.04.25            | 10:00 - 11:30 Uhr | I²C                                                                       |
-| 21.05.25            | 10:00 - 11:30 Uhr | PWM & Servo                                                               |
+| 16.04.25            | 09:45 - 13:00 Uhr | Spannungsteiler & Low/High pass filter                                    |
+| 30.04.25            | 09:45 - 13:00 Uhr | I²C                                                                       |
+| 21.05.25            | 09:45 - 13:00 Uhr | PWM & Servo                                                               |
 | **Abgabezeitpunkt** | bis 01.07.2025 | [Hochzuladen im Ilias Kurs](https://ilias.hs-heilbronn.de/ilias.php?baseClass=ilrepositorygui&cmdNode=yc:ni&cmdClass=ilObjFolderGUI&ref_id=918744) |
 
 ---
