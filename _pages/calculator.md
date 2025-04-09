@@ -2,7 +2,7 @@
 layout: page
 title: Calculator
 permalink: /calculator/
-nav: true
+nav: false
 nav_order: 5
 ---
 
@@ -20,8 +20,8 @@ nav_order: 5
             <line x1="0" y1="0" x2="0" y2="200" stroke="black" stroke-width="1" />
             
             <g id="canvas" transform="scale(1,-1) translate(0,-200)">
-                <text x="10" y="-10" font-size="12" fill="#333">X-Achse</text>
-                <text x="-30" y="10" font-size="12" fill="#333">Y-Achse</text>
+                <text x="10" y="-10" font-size="12" fill="#333">X-Axis</text>
+                <text x="-30" y="10" font-size="12" fill="#333">Y-Axis</text>
                 
                 <polyline id="greenPolyline" points="150,75 0,75 0,150 150,75" stroke="green" stroke-dasharray="4" fill="none" />
                 <polyline id="redPolyline" points="0,0 150,75 0,75 0,0" stroke="red" stroke-dasharray="5,3,1,3" fill="none" />
@@ -59,7 +59,7 @@ nav_order: 5
     <!-- Other controls remain below -->
     <div class="controls">
         <fieldset>
-            <legend>Punkt P </legend>
+            <legend>Point P </legend>
             <div>
                 <label for="pX">X:</label>
                 <input type="number" id="pX" value="0" min="0" max="200" step="1" class="small-input">
@@ -73,7 +73,7 @@ nav_order: 5
         </fieldset>
 
         <fieldset>
-            <legend>Punkt M</legend>
+            <legend>Point M</legend>
             <div>
                 <label for="mX">X:</label>
                 <input type="number" id="mX" value="0" min="0" max="200" step="1" class="small-input">
@@ -115,7 +115,7 @@ nav_order: 5
         </fieldset>
 
         <fieldset>
-            <legend>Z-Modul</legend>
+            <legend>Z-Module</legend>
             <div>
                 <label for="zX">X:</label>
                 <input type="number" id="zX" value="0" min="0" max="200" step="1" class="small-input">
@@ -153,7 +153,7 @@ For example, add it right after the closing </div> of the "controls" section. --
 function generateResultsTable() {
     const numberOfMeasurements = parseInt(document.getElementById('numberOfMeasurements').value, 10);
     const pY = parseFloat(document.getElementById('pY').value);
-    const zX = parseFloat(document.getElementById('zX').value); // Fester X-Wert des Z-Moduls
+    const zX = parseFloat(document.getElementById('zX').value); // Fixed X-value of the Z-Module
     const nX = parseFloat(document.getElementById('nX').value);  // New Center X
     const nY = parseFloat(document.getElementById('nY').value);  // New Center Y
     
@@ -167,14 +167,14 @@ function generateResultsTable() {
     table += '<tr><th>Angle (°)</th><th>Zmodule (Coordinates)</th></tr>';
     
     for (let i = 0; i < numberOfMeasurements; i++) {
-        // Y-Wert für diese Zeile berechnen
+        // Calculate Y-value for this row
         const currentY = pY + result * i;
         
-        // Winkelberechnung MIT AKTUELLEM Y-WERT
-        const dx = nX - zX;                  // X-Distanz (konstant)
-        const dy = nY - currentY;             // Y-Distanz (variiert pro Zeile)
+        // Angle calculation WITH CURRENT Y-VALUE
+        const dx = nX - zX;                  // X-distance (constant)
+        const dy = nY - currentY;             // Y-distance (varies per row)
         let angle = Math.atan2(dy, dx) * 180 / Math.PI;
-        angle = Math.abs(90 - angle);         // Winkelkorrektur
+        angle = Math.abs(90 - angle);         // Angle correction
         
         table += `<tr>
             <td>${angle.toFixed(1)}</td>

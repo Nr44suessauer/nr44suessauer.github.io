@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Brute Force, Nearest Neigbhor & Christofides Algorithm
+title: Brute Force, Nearest Neighbor & Christofides Algorithm
 date: 2025-04-02 10:00:00
 description: Algorithm & Datastructure
 tags: Algo Christofides NearestNeighbor BruteForce jupyternotebook 
@@ -10,19 +10,19 @@ featured: false
 ---
 
 ## STILL WORKING AT : official Release 10.04  
-Disclaimer: Sternenbilder werden noch angepasst & paar Formeln werden im jupyter Notebook nicht dargestellt.
+Disclaimer: Star constellations will be adjusted & some formulas are not displayed in the Jupyter Notebook.
 
 
 <!-- ================ STYLING ================ -->
 <head>
-    <title>Algorithmus-Animationen</title>
+    <title>Algorithm Animations</title>
     <style>
-        /* Gemeinsame Stile */
+        /* Common styles */
         canvas {
             border: 1px solid black;
             display: block;
         }   
-        /* Christofides Stile */
+        /* Christofides styles */
         .container {
             display: flex;
         }
@@ -50,7 +50,7 @@ Disclaimer: Sternenbilder werden noch angepasst & paar Formeln werden im jupyter
             transform: scale(1);
             transform-origin: left center;
         }     
-        /* Nearest Neighbor Stile */
+        /* Nearest Neighbor styles */
         .nn-container {
             display: flex;
         }
@@ -91,7 +91,7 @@ Disclaimer: Sternenbilder werden noch angepasst & paar Formeln werden im jupyter
             background-color: #d4ffd4;
             font-weight: bold;
         }
-        /* Brute Force Stile */
+        /* Brute Force styles */
         .bf-container {
             display: flex;
         }
@@ -120,66 +120,66 @@ Disclaimer: Sternenbilder werden noch angepasst & paar Formeln werden im jupyter
         }
     </style>
 </head>
- <!-- ================ BRUTE FORCE ALGORITHMUS ================ -->
+ <!-- ================ BRUTE FORCE ALGORITHM ================ -->
  <body>
     <h3>Brute Force Algorithm</h3>
     <div class="bf-container">
         <div class="bf-animation-container">
             <div class="bf-controls">
                 <div>
-                    <button onclick="bfNextStep()">Nächster Schritt</button>
+                    <button onclick="bfNextStep()">Next Step</button>
                     <button onclick="bfResetAnimation()" style="background-color: #ff5555; color: white;">Reset</button>
-                    <button onclick="bfToggleAutoAnimation()">Animation Start/Stop</button>
-                    <label for="bfSpeedSlider">Geschwindigkeit:</label>
+                    <button onclick="bfToggleAutoAnimation()">Start/Stop Animation</button>
+                    <label for="bfSpeedSlider">Speed:</label>
                     <input type="range" id="bfSpeedSlider" min="50" max="4000" step="1" value="300">
                 </div>
                 <div>
-                    <label for="bfNumPoints">Anzahl der Punkte:</label>
+                    <label for="bfNumPoints">Number of points:</label>
                     <input type="number" id="bfNumPoints" min="3" max="25" value="4" style="width:50px; height:30px;">
-                    <button onclick="bfUpdateNumPoints()">Zufällige Punkte</button>
-                    <button onclick="bfImportChristofidesPoints()">Christofides Punkte importieren</button>
-                    <button onclick="bfImportNNPoints()">NN-Punkte importieren</button>
-                    <label for="bfStartPoint">Startpunkt:</label>
+                    <button onclick="bfUpdateNumPoints()">Random Points</button>
+                    <button onclick="bfImportChristofidesPoints()">Import Christofides Points</button>
+                    <button onclick="bfImportNNPoints()">Import NN-Points</button>
+                    <label for="bfStartPoint">Start point:</label>
                     <input type="number" id="bfStartPoint" min="0" max="24" value="0" style="width:50px; height:30px;">
-                    <button onclick="bfUpdateStartPoint()">Startpunkt setzen</button>
+                    <button onclick="bfUpdateStartPoint()">Set Start Point</button>
                     <select id="bfConstellationSelect" onchange="bfToggleConstellation(this.value)" style="height:30px;">
-                        <option value="">Sternenbild wählen...</option>
-                        <option value="libra">Waage (Libra) - 10 Punkte</option>
-                        <option value="orion">Orion - 10 Punkte</option>
-                        <option value="ursa_minor">Kleiner Bär - 7 Punkte</option>
-                        <option value="cassiopeia">Kassiopeia - 5 Punkte</option>
-                        <option value="cygnus">Schwan - 9 Punkte</option>
-                        <option value="ursa_major">Großer Bär - 7 Punkte</option>
-                        <option value="leo">Löwe - 9 Punkte</option>
-                        <option value="draco">Drache - 11 Punkte</option>
-                        <option value="gemini">Zwillinge - 9 Punkte</option>
-                        <option value="southern_cross">Kreuz des Südens - 4 Punkte</option>
-                        <option value="pegasus">Pegasus - 5 Punkte</option>
-                        <option value="andromeda">Andromeda - 7 Punkte</option>
-                        <option value="sagittarius">Schütze - 8 Punkte</option>
-                        <option value="scorpius">Skorpion - 10 Punkte</option>
-                        <option value="cancer">Krebs - 6 Punkte</option>
-                        <option value="pisces">Fische - 11 Punkte</option>
-                        <option value="aquila">Adler - 7 Punkte</option>
-                        <option value="hercules">Herkules - 8 Punkte</option>
+                        <option value="">Choose constellation...</option>
+                        <option value="libra">Libra - 10 points</option>
+                        <option value="orion">Orion - 10 points</option>
+                        <option value="ursa_minor">Ursa Minor - 7 points</option>
+                        <option value="cassiopeia">Cassiopeia - 5 points</option>
+                        <option value="cygnus">Cygnus - 9 points</option>
+                        <option value="ursa_major">Ursa Major - 7 points</option>
+                        <option value="leo">Leo - 9 points</option>
+                        <option value="draco">Draco - 11 points</option>
+                        <option value="gemini">Gemini - 9 points</option>
+                        <option value="southern_cross">Southern Cross - 4 points</option>
+                        <option value="pegasus">Pegasus - 5 points</option>
+                        <option value="andromeda">Andromeda - 7 points</option>
+                        <option value="sagittarius">Sagittarius - 8 points</option>
+                        <option value="scorpius">Scorpius - 10 points</option>
+                        <option value="cancer">Cancer - 6 points</option>
+                        <option value="pisces">Pisces - 11 points</option>
+                        <option value="aquila">Aquila - 7 points</option>
+                        <option value="hercules">Hercules - 8 points</option>
                     </select>
-                    <button onclick="bfDownloadGraph()">Graph herunterladen</button>
+                    <button onclick="bfDownloadGraph()">Download Graph</button>
                 </div>
             </div>
             <canvas id="bfCanvas" width="800" height="600"></canvas>
         </div>
         <div id="bfInfoPanel">
-            <h3>Brute Force Daten</h3>
-            <div id="bfDataOutput">Warte auf den ersten Schritt...</div>
-            <button onclick="bfToggleFullTable()">Tabelle ein-/ausblenden</button>
+            <h3>Brute Force Data</h3>
+            <div id="bfDataOutput">Waiting for the first step...</div>
+            <button onclick="bfToggleFullTable()">Show/Hide Table</button>
             <div id="bfFullTable" style="display: none; margin-top: 20px;"></div>
         </div>
     </div>
-    <!-- Jupyter Notebook einbinden (aufklappbar) -->
+    <!-- Include Jupyter Notebook (collapsible) -->
     <div class="notebook-container" style="margin-top: 20px; margin-bottom: 20px;">
         <details>
             <summary style="cursor: pointer; font-weight: bold; padding: 10px; background-color: #f0f0f0; border: 1px solid #ccc; border-radius: 5px;">
-                Jupyter Notebook: Brute Force TSP Implementation (Klicken zum Anzeigen/Ausblenden)
+                Jupyter Notebook: Brute Force TSP Implementation (Click to Show/Hide)
             </summary>
             <div style="border: 1px solid #ddd; padding: 15px; margin-top: 10px; background-color: #f9f9f9;">
                 <iframe
@@ -191,7 +191,7 @@ Disclaimer: Sternenbilder werden noch angepasst & paar Formeln werden im jupyter
                 </iframe>
                 <p style="text-align: center; margin-top: 10px;">
                     <a href="https://github.com/Nr44suessauer/SalesMan/blob/main/BruteForce_TSP.ipynb" target="_blank">
-                        Notebook auf GitHub öffnen
+                        Open Notebook on GitHub
                     </a>
                 </p>
             </div>
@@ -200,7 +200,7 @@ Disclaimer: Sternenbilder werden noch angepasst & paar Formeln werden im jupyter
     <div style="display: flex; align-items: center; margin-top: 10px;"><p></p></div>
     --- 
     <div style="display: flex; align-items: center; margin-top: 10px;"><p></p></div>
-    <!-- ================ NEAREST NEIGHBOR ALGORITHMUS ================ -->
+    <!-- ================ NEAREST NEIGHBOR ALGORITHM ================ -->
     <h3>Nearest Neighbor Algorithm</h3>
     <div class="nn-container">
         <div class="nn-animation-container">
