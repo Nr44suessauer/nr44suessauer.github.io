@@ -1,6 +1,126 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Brute Force, Nearest Neighbor &amp; Christofides Algorithm | DeadlineDriven.dev/elopment </title> <meta name="author" content="Marc Nauendorf"> <meta name="description" content="Algorithm &amp; Datastructure"> <link rel="stylesheet" href="/assets/css/bootstrap.min.css?a4b3f509e79c54a512b890d73235ef04"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="/assets/css/academicons.min.css?f0b7046b84e425c55f3463ac249818f5"> <link defer rel="stylesheet" href="/assets/css/scholar-icons.css?62b2ac103a88034e6882a5be5f3e2772"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%98%A3%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e"> <link rel="canonical" href="https://nr44suessauer.github.io/blog/2025/Algo-Vertretungsstunde-Christofides-Algo/"> <script src="/assets/js/theme.js?b5453bbba857c246e259ab370e6567b8"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Brute Force, Nearest Neighbor &amp; Christofides Algorithm | DeadlineDriven.dev/elopment </title> <meta name="author" content="Marc Nauendorf"> <meta name="description" content="Algorithm &amp; Datastructure"> <link rel="stylesheet" href="/assets/css/bootstrap.min.css?a4b3f509e79c54a512b890d73235ef04"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="/assets/css/academicons.min.css?f0b7046b84e425c55f3463ac249818f5"> <link defer rel="stylesheet" href="/assets/css/scholar-icons.css?62b2ac103a88034e6882a5be5f3e2772"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%98%A3%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e"> <link rel="canonical" href="https://nr44suessauer.github.io/blog/2025/Algo-Vertretungsstunde-Christofides-Algo/"> <script src="/assets/js/theme.js?f64d285bec4171c6c82861a402f1222b"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
     initTheme();
-  </script> </head> <body class="fixed-top-nav sticky-bottom-footer"> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> DeadlineDriven.dev/elopment </a> <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse text-right" id="navbarNav"> <ul class="navbar-nav ml-auto flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item active"> <a class="nav-link" href="/blog/">blog </a> </li> <li class="nav-item "> <a class="nav-link" href="/TechnicalContent/">Technical Content </a> </li> <li class="nav-item "> <a class="nav-link" href="/resume/">resume </a> </li> <li class="nav-item"> <button id="search-toggle" title="Search" onclick="openSearchModal()"> <span class="nav-link">ctrl k <i class="ti ti-search"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" title="Change theme"> <i class="ti ti-sun-moon" id="light-toggle-system"></i> <i class="ti ti-moon-filled" id="light-toggle-dark"></i> <i class="ti ti-sun-filled" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Brute Force, Nearest Neighbor &amp; Christofides Algorithm</h1> <p class="post-meta"> Created in April 02, 2025 </p> <p class="post-tags"> <a href="/blog/2025"> <i class="fa-solid fa-calendar fa-sm"></i> 2025 </a>   ·   <a href="/blog/tag/algo"> <i class="fa-solid fa-hashtag fa-sm"></i> Algo</a>   <a href="/blog/tag/christofides"> <i class="fa-solid fa-hashtag fa-sm"></i> Christofides</a>   <a href="/blog/tag/nearestneighbor"> <i class="fa-solid fa-hashtag fa-sm"></i> NearestNeighbor</a>   <a href="/blog/tag/bruteforce"> <i class="fa-solid fa-hashtag fa-sm"></i> BruteForce</a>   <a href="/blog/tag/jupyternotebook"> <i class="fa-solid fa-hashtag fa-sm"></i> jupyternotebook</a>   ·   <a href="/blog/category/lecture"> <i class="fa-solid fa-tag fa-sm"></i> lecture</a> </p> </header> <article class="post-content"> <div id="markdown-content"> <h2 id="still-working-at--official-release-1004">STILL WORKING AT : official Release 10.04</h2> <p>Disclaimer: Star constellations will be adjusted &amp; some formulas are not displayed in the Jupyter Notebook.</p> <title>Algorithm Animations</title> <style>canvas{border:1px solid black;display:block}.container{display:flex}.animation-container{flex:1}#infoPanel{flex:0 0 500px;margin-left:20px;background:#f2f2f2;padding:10px;font-family:sans-serif;font-size:14px;overflow-y:auto;max-height:900px}.controls>div{margin:10px 0}.controls>div>*{margin-right:10px}#speedSlider,#numPoints{transform:scale(1);transform-origin:left center}.nn-container{display:flex}.nn-animation-container{flex:1}#nnInfoPanel{flex:0 0 500px;margin-left:20px;background:#f2f2f2;padding:10px;font-family:sans-serif;font-size:14px;overflow-y:auto;max-height:900px}#nnCanvas{border:1px solid black;display:block}.nn-controls>div{margin:10px 0}.nn-controls>div>*{margin-right:10px}.selection-table{width:100%;border-collapse:collapse;margin:10px 0}.selection-table th,.selection-table td{border:1px solid #ddd;padding:4px;text-align:center}.selection-table .selected{background-color:#d4ffd4;font-weight:bold}.bf-container{display:flex}.bf-animation-container{flex:1}#bfInfoPanel{flex:0 0 500px;margin-left:20px;background:#f2f2f2;padding:10px;font-family:sans-serif;font-size:14px;overflow-y:auto;max-height:900px}#bfCanvas{border:1px solid black;display:block}.bf-controls>div{margin:10px 0}.bf-controls>div>*{margin-right:10px}</style> <p></p> <h3>Brute Force Algorithm</h3> <div class="bf-container"> <div class="bf-animation-container"> <div class="bf-controls"> <div> <button onclick="bfNextStep()">Next Step</button> <button onclick="bfResetAnimation()" style="background-color: #ff5555; color: white;">Reset</button> <button onclick="bfToggleAutoAnimation()">Start/Stop Animation</button> <label for="bfSpeedSlider">Speed:</label> <input type="range" id="bfSpeedSlider" min="50" max="4000" step="1" value="300"> </div> <div> <label for="bfNumPoints">Number of points:</label> <input type="number" id="bfNumPoints" min="3" max="25" value="4" style="width:50px; height:30px;"> <button onclick="bfUpdateNumPoints()">Random Points</button> <button onclick="bfImportChristofidesPoints()">Import Christofides Points</button> <button onclick="bfImportNNPoints()">Import NN-Points</button> <label for="bfStartPoint">Start point:</label> <input type="number" id="bfStartPoint" min="0" max="24" value="0" style="width:50px; height:30px;"> <button onclick="bfUpdateStartPoint()">Set Start Point</button> <select id="bfConstellationSelect" onchange="bfToggleConstellation(this.value)" style="height:30px;"> <option value="">Choose constellation...</option> <option value="libra">Libra - 10 points</option> <option value="orion">Orion - 10 points</option> <option value="ursa_minor">Ursa Minor - 7 points</option> <option value="cassiopeia">Cassiopeia - 5 points</option> <option value="cygnus">Cygnus - 9 points</option> <option value="ursa_major">Ursa Major - 7 points</option> <option value="leo">Leo - 9 points</option> <option value="draco">Draco - 11 points</option> <option value="gemini">Gemini - 9 points</option> <option value="southern_cross">Southern Cross - 4 points</option> <option value="pegasus">Pegasus - 5 points</option> <option value="andromeda">Andromeda - 7 points</option> <option value="sagittarius">Sagittarius - 8 points</option> <option value="scorpius">Scorpius - 10 points</option> <option value="cancer">Cancer - 6 points</option> <option value="pisces">Pisces - 11 points</option> <option value="aquila">Aquila - 7 points</option> <option value="hercules">Hercules - 8 points</option> </select> <button onclick="bfDownloadGraph()">Download Graph</button> </div> </div> <canvas id="bfCanvas" width="800" height="600"></canvas> </div> <div id="bfInfoPanel"> <h3>Brute Force Data</h3> <div id="bfDataOutput">Waiting for the first step...</div> <button onclick="bfToggleFullTable()">Show/Hide Table</button> <div id="bfFullTable" style="display: none; margin-top: 20px;"></div> </div> </div> <div class="notebook-container" style="margin-top: 20px; margin-bottom: 20px;"> <details> <summary style="cursor: pointer; font-weight: bold; padding: 10px; background-color: #f0f0f0; border: 1px solid #ccc; border-radius: 5px;"> Jupyter Notebook: Brute Force TSP Implementation (Click to Show/Hide) </summary> <div style="border: 1px solid #ddd; padding: 15px; margin-top: 10px; background-color: #f9f9f9;"> <iframe src="https://nbviewer.org/github/Nr44suessauer/SalesMan/blob/main/BruteForce_TSP.ipynb" width="100%" height="800" style="border: none;" allowfullscreen=""> </iframe> <p style="text-align: center; margin-top: 10px;"> <a href="https://github.com/Nr44suessauer/SalesMan/blob/main/BruteForce_TSP.ipynb" target="_blank" rel="external nofollow noopener"> Open Notebook on GitHub </a> </p> </div> </details> </div> <div style="display: flex; align-items: center; margin-top: 10px;"><p></p></div> --- <div style="display: flex; align-items: center; margin-top: 10px;"><p></p></div> <h3>Nearest Neighbor Algorithm</h3> <div class="nn-container"> <div class="nn-animation-container"> <div class="nn-controls"> <div> <button onclick="nnNextStep()">Nächster Schritt</button> <button onclick="nnResetAnimation()" style="background-color: #ff5555; color: white;">Reset</button> <button onclick="nnToggleAutoAnimation()">Animation Start/Stop</button> <label for="nnSpeedSlider">Geschwindigkeit:</label> <input type="range" id="nnSpeedSlider" min="50" max="4000" step="1" value="300"> </div> <div> <label for="nnNumPoints">Anzahl der Punkte:</label> <input type="number" id="nnNumPoints" min="3" max="25" value="4" style="width:50px; height:30px;"> <button onclick="nnGenerateRandomPoints()">Zufällige Punkte</button> <button onclick="nnImportPoints()">Christofides Punkte importieren</button> <button onclick="nnImportBFPoints()">BF-Punkte importieren</button> <label for="nnStartPoint">Startpunkt:</label> <input type="number" id="nnStartPoint" min="0" max="24" value="0" style="width:50px; height:30px;"> <button onclick="nnUpdateStartPoint()">Startpunkt setzen</button> <button onclick="nnFindBestStartPoint()" style="background-color: #4CAF50; color: white;">Besten Startpunkt finden</button> <select id="nnConstellationSelect" onchange="nnToggleConstellation(this.value)" style="height:30px;"> <option value="">Sternenbild wählen...</option> <option value="libra">Waage (Libra) - 10 Punkte</option> <option value="orion">Orion - 10 Punkte</option> <option value="ursa_minor">Kleiner Bär - 7 Punkte</option> <option value="cassiopeia">Kassiopeia - 5 Punkte</option> <option value="cygnus">Schwan - 9 Punkte</option> <option value="ursa_major">Großer Bär - 7 Punkte</option> <option value="leo">Löwe - 9 Punkte</option> <option value="draco">Drache - 11 Punkte</option> <option value="gemini">Zwillinge - 9 Punkte</option> <option value="southern_cross">Kreuz des Südens - 4 Punkte</option> <option value="pegasus">Pegasus - 5 Punkte</option> <option value="andromeda">Andromeda - 7 Punkte</option> <option value="sagittarius">Schütze - 8 Punkte</option> <option value="scorpius">Skorpion - 10 Punkte</option> <option value="cancer">Krebs - 6 Punkte</option> <option value="pisces">Fische - 11 Punkte</option> <option value="aquila">Adler - 7 Punkte</option> <option value="hercules">Herkules - 8 Punkte</option> </select> <button onclick="nnDownloadGraph()">Graph herunterladen</button> </div> </div> <canvas id="nnCanvas" width="800" height="600"></canvas> </div> <div id="nnInfoPanel"> <h3>Nearest Neighbor Daten</h3> <div id="nnDataOutput">Warte auf den ersten Schritt...</div> <hr> <label for="nnStepDropdown"><strong>Schritte:</strong></label> <select id="nnStepDropdown" onchange="nnShowStepDetails()"> <option value="">Schritt auswählen...</option> </select> <button onclick="nnToggleFullTable()">Tabelle ein-/ausblenden</button> <div id="nnStepDetails"></div> <div id="nnFullTable" style="display: none; margin-top: 20px;"></div> </div> </div> <div class="notebook-container" style="margin-top: 20px; margin-bottom: 20px;"> <details> <summary style="cursor: pointer; font-weight: bold; padding: 10px; background-color: #f0f0f0; border: 1px solid #ccc; border-radius: 5px;"> Jupyter Notebook: Nearest Neighbor TSP Implementation (Klicken zum Anzeigen/Ausblenden) </summary> <div style="border: 1px solid #ddd; padding: 15px; margin-top: 10px; background-color: #f9f9f9; width: 100%;"> <iframe src="https://nbviewer.org/github/Nr44suessauer/SalesMan/blob/main/NearestNeighbor_TSP.ipynb" width="100%" height="800" style="border: none;" allowfullscreen=""> </iframe> </div> <p style="text-align: center; margin-top: 10px;"> <a href="https://github.com/Nr44suessauer/SalesMan/blob/main/NearestNeighbor_TSP.ipynb" target="_blank" rel="external nofollow noopener"> Notebook auf GitHub öffnen </a> </p> </details> </div> <div style="display: flex; align-items: center; margin-top: 10px;"><p></p></div> --- <div style="display: flex; align-items: center; margin-top: 10px;"><p></p></div> <h3>Christofides Algorithm</h3> <div class="container"> <div class="animation-container"> <div class="controls"> <div> <button onclick="nextStep()">Nächster Schritt</button> <button onclick="resetAnimation()" style="background-color: #ff5555; color: white;">Reset</button> <button onclick="toggleAutoAnimation()">Animation Start/Stop</button> <label for="speedSlider">Geschwindigkeit:</label> <input type="range" id="speedSlider" min="50" max="4000" step="1" value="300"> </div> <div> <label for="numPoints">Anzahl der Punkte:</label> <input type="number" id="numPoints" min="3" max="25" value="4" style="width:50px; height:30px;"> <button onclick="updateNumPoints()">Zufällige Punkte</button> <button onclick="importNNPoints()">NN-Punkte importieren</button> <button onclick="importBFPoints()">BF-Punkte importieren</button> <label for="startPointChristofides">Startpunkt:</label> <input type="number" id="startPointChristofides" min="0" max="24" value="0" style="width:50px; height:30px;"> <button onclick="updateStartPoint()">Startpunkt setzen</button> <select id="constellationSelect" onchange="toggleConstellation(this.value)" style="height:30px;"> <option value="">Sternenbild wählen...</option> <option value="libra">Waage (Libra) - 10 Punkte</option> <option value="orion">Orion - 10 Punkte</option> <option value="cassiopeia">Kassiopeia - 5 Punkte</option> <option value="cygnus">Schwan - 9 Punkte</option> <option value="ursa_major">Großer Bär - 7 Punkte</option> <option value="leo">Löwe - 9 Punkte</option> <option value="draco">Drache - 11 Punkte</option> <option value="gemini">Zwillinge - 9 Punkte</option> <option value="southern_cross">Kreuz des Südens - 4 Punkte</option> <option value="pegasus">Pegasus - 5 Punkte</option> <option value="andromeda">Andromeda - 7 Punkte</option> <option value="sagittarius">Schütze - 8 Punkte</option> <option value="scorpius">Skorpion - 10 Punkte</option> <option value="cancer">Krebs - 6 Punkte</option> <option value="pisces">Fische - 11 Punkte</option> <option value="aquila">Adler - 7 Punkte</option> <option value="hercules">Herkules - 8 Punkte</option> </select> <button onclick="downloadGraph()">Graph herunterladen</button> </div> </div> <canvas id="canvas" width="800" height="600"></canvas> </div> <div id="infoPanel"> <h3>Christofides Algorithm Daten</h3> <div id="dataOutput">Warte auf den ersten Schritt...</div> </div> </div> <div class="notebook-container" style="margin-top: 20px; margin-bottom: 20px;"> <details> <summary style="cursor: pointer; font-weight: bold; padding: 10px; background-color: #f0f0f0; border: 1px solid #ccc; border-radius: 5px;"> Jupyter Notebook: Christofides TSP Implementation (Klicken zum Anzeigen/Ausblenden) </summary> <div style="border: 1px solid #ddd; padding: 15px; margin-top: 10px; background-color: #f9f9f9; width: 100%;"> <iframe src="https://nbviewer.org/github/Nr44suessauer/SalesMan/blob/main/Christofides_TSP.ipynb" width="100%" height="800" style="border: none;" allowfullscreen=""> </iframe> </div> <p style="text-align: center; margin-top: 10px;"> <a href="https://github.com/Nr44suessauer/SalesMan/blob/main/Christofides_TSP.ipynb" target="_blank" rel="external nofollow noopener"> Notebook auf GitHub öffnen </a> </p> </details> </div> <script>
+  </script> </head> <body class="fixed-top-nav sticky-bottom-footer"> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> DeadlineDriven.dev/elopment </a> <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse text-right" id="navbarNav"> <ul class="navbar-nav ml-auto flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item active"> <a class="nav-link" href="/blog/">blog </a> </li> <li class="nav-item "> <a class="nav-link" href="/TechnicalContent/">Technical Content </a> </li> <li class="nav-item "> <a class="nav-link" href="/resume/">resume </a> </li> <li class="nav-item"> <button id="search-toggle" title="Search" onclick="openSearchModal()"> <span class="nav-link">ctrl k <i class="ti ti-search"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" title="Change theme"> <i class="ti ti-sun-moon" id="light-toggle-system"></i> <i class="ti ti-moon-filled" id="light-toggle-dark"></i> <i class="ti ti-sun-filled" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Brute Force, Nearest Neighbor &amp; Christofides Algorithm</h1> <p class="post-meta"> Created in April 02, 2025 </p> <p class="post-tags"> <a href="/blog/2025"> <i class="fa-solid fa-calendar fa-sm"></i> 2025 </a>   ·   <a href="/blog/tag/algo"> <i class="fa-solid fa-hashtag fa-sm"></i> Algo</a>   <a href="/blog/tag/christofides"> <i class="fa-solid fa-hashtag fa-sm"></i> Christofides</a>   <a href="/blog/tag/nearestneighbor"> <i class="fa-solid fa-hashtag fa-sm"></i> NearestNeighbor</a>   <a href="/blog/tag/bruteforce"> <i class="fa-solid fa-hashtag fa-sm"></i> BruteForce</a>   <a href="/blog/tag/jupyternotebook"> <i class="fa-solid fa-hashtag fa-sm"></i> jupyternotebook</a>   ·   <a href="/blog/category/lecture"> <i class="fa-solid fa-tag fa-sm"></i> lecture</a> </p> </header> <article class="post-content"> <div id="markdown-content"> <h2 id="still-working-at--official-release-1004">STILL WORKING AT : official Release 10.04</h2> <p>Disclaimer: Star constellations will be adjusted &amp; some formulas are not displayed in the Jupyter Notebook.</p> <title>Algorithm Animations</title> <style>canvas{border:1px solid black;display:block}.container{display:flex}.animation-container{flex:1}#infoPanel{flex:0 0 500px;margin-left:20px;background:#f2f2f2;padding:10px;font-family:sans-serif;font-size:14px;overflow-y:auto;max-height:900px}.controls>div{margin:10px 0}.controls>div>*{margin-right:10px}#speedSlider,#numPoints{transform:scale(1);transform-origin:left center}.nn-container{display:flex}.nn-animation-container{flex:1}#nnInfoPanel{flex:0 0 500px;margin-left:20px;background:#f2f2f2;padding:10px;font-family:sans-serif;font-size:14px;overflow-y:auto;max-height:900px}#nnCanvas{border:1px solid black;display:block}.nn-controls>div{margin:10px 0}.nn-controls>div>*{margin-right:10px}.selection-table{width:100%;border-collapse:collapse;margin:10px 0}.selection-table th,.selection-table td{border:1px solid #ddd;padding:4px;text-align:center}.selection-table .selected{background-color:#d4ffd4;font-weight:bold}@media(prefers-color-scheme:dark){.selection-table th,.selection-table td{border-color:#555}.selection-table .selected{background-color:#2a472a;font-weight:bold}.selection-table td:last-child{color:#fff}.selection-table .selected td:last-child{color:#4caf50;font-size:1.2em;font-weight:bold}.notebook-container details summary,details.notebook-details summary,body.dark-mode .notebook-container details summary,body.dark-theme .notebook-container details summary{background-color:#444!important;color:#fff!important;border-color:#666!important}}.bf-container{display:flex}.bf-animation-container{flex:1}#bfInfoPanel{flex:0 0 500px;margin-left:20px;background:#f2f2f2;padding:10px;font-family:sans-serif;font-size:14px;overflow-y:auto;max-height:900px}#bfCanvas{border:1px solid black;display:block}.bf-controls>div{margin:10px 0}.bf-controls>div>*{margin-right:10px}</style> <p></p> <h3>Brute Force Algorithm</h3> <div class="bf-container"> <div class="bf-animation-container"> <div class="bf-controls"> <div> <button onclick="bfNextStep()">Next Step</button> <button onclick="bfResetAnimation()" style="background-color: #ff5555; color: white;">Reset</button> <button onclick="bfToggleAutoAnimation()">Start/Stop Animation</button> <label for="bfSpeedSlider">Speed:</label> <input type="range" id="bfSpeedSlider" min="50" max="4000" step="1" value="300"> </div> <div> <label for="bfNumPoints">Number of points:</label> <input type="number" id="bfNumPoints" min="3" max="25" value="4" style="width:50px; height:30px;"> <button onclick="bfUpdateNumPoints()">Random Points</button> <button onclick="bfImportChristofidesPoints()">Import Christofides Points</button> <button onclick="bfImportNNPoints()">Import NN-Points</button> <label for="bfStartPoint">Start point:</label> <input type="number" id="bfStartPoint" min="0" max="24" value="0" style="width:50px; height:30px;"> <button onclick="bfUpdateStartPoint()">Set Start Point</button> <select id="bfConstellationSelect" onchange="bfToggleConstellation(this.value)" style="height:30px;"> <option value="">Choose constellation...</option> <option value="libra">Libra - 10 points</option> <option value="orion">Orion - 10 points</option> <option value="ursa_minor">Ursa Minor - 7 points</option> <option value="cassiopeia">Cassiopeia - 5 points</option> <option value="cygnus">Cygnus - 9 points</option> <option value="ursa_major">Ursa Major - 7 points</option> <option value="leo">Leo - 9 points</option> <option value="draco">Draco - 11 points</option> <option value="gemini">Gemini - 9 points</option> <option value="southern_cross">Southern Cross - 4 points</option> <option value="pegasus">Pegasus - 5 points</option> <option value="andromeda">Andromeda - 7 points</option> <option value="sagittarius">Sagittarius - 8 points</option> <option value="scorpius">Scorpius - 10 points</option> <option value="cancer">Cancer - 6 points</option> <option value="pisces">Pisces - 11 points</option> <option value="aquila">Aquila - 7 points</option> <option value="hercules">Hercules - 8 points</option> </select> <button onclick="bfDownloadGraph()">Download Graph</button> </div> </div> <canvas id="bfCanvas" width="800" height="600"></canvas> </div> <div id="bfInfoPanel"> <h3>Brute Force Data</h3> <div id="bfDataOutput">Waiting for the first step...</div> <button onclick="bfToggleFullTable()">Show/Hide Table</button> <div id="bfFullTable" style="display: none; margin-top: 20px;"></div> </div> </div> <div class="notebook-container" style="margin-top: 20px; margin-bottom: 20px;"> <details> <summary style="cursor: pointer; font-weight: bold; padding: 10px; background-color: #f0f0f0; border: 1px solid #ccc; border-radius: 5px;"> Jupyter Notebook: Brute Force TSP Implementation (Click to Show/Hide) </summary> <div style="border: 1px solid #ddd; padding: 15px; margin-top: 10px; background-color: #f9f9f9;"> <iframe src="https://nbviewer.org/github/Nr44suessauer/SalesMan/blob/main/BruteForce_TSP.ipynb" width="100%" height="800" style="border: none;" allowfullscreen=""> </iframe> <p style="text-align: center; margin-top: 10px;"> <a href="https://github.com/Nr44suessauer/SalesMan/blob/main/BruteForce_TSP.ipynb" target="_blank" rel="external nofollow noopener"> Open Notebook on GitHub </a> </p> </div> </details> </div> <div style="display: flex; align-items: center; margin-top: 30px;"><p></p></div> <div style="display: flex; align-items: center; margin-top: 10px;"><p></p></div> <h3>Nearest Neighbor Algorithm</h3> <div class="nn-container"> <div class="nn-animation-container"> <div class="nn-controls"> <div> <button onclick="nnNextStep()">Nächster Schritt</button> <button onclick="nnResetAnimation()" style="background-color: #ff5555; color: white;">Reset</button> <button onclick="nnToggleAutoAnimation()">Animation Start/Stop</button> <label for="nnSpeedSlider">Geschwindigkeit:</label> <input type="range" id="nnSpeedSlider" min="50" max="4000" step="1" value="300"> </div> <div> <label for="nnNumPoints">Anzahl der Punkte:</label> <input type="number" id="nnNumPoints" min="3" max="25" value="4" style="width:50px; height:30px;"> <button onclick="nnGenerateRandomPoints()">Zufällige Punkte</button> <button onclick="nnImportPoints()">Christofides Punkte importieren</button> <button onclick="nnImportBFPoints()">BF-Punkte importieren</button> <label for="nnStartPoint">Startpunkt:</label> <input type="number" id="nnStartPoint" min="0" max="24" value="0" style="width:50px; height:30px;"> <button onclick="nnUpdateStartPoint()">Startpunkt setzen</button> <button onclick="nnFindBestStartPoint()" style="background-color: #4CAF50; color: white;">Besten Startpunkt finden</button> <select id="nnConstellationSelect" onchange="nnToggleConstellation(this.value)" style="height:30px;"> <option value="">Sternenbild wählen...</option> <option value="libra">Waage (Libra) - 10 Punkte</option> <option value="orion">Orion - 10 Punkte</option> <option value="ursa_minor">Kleiner Bär - 7 Punkte</option> <option value="cassiopeia">Kassiopeia - 5 Punkte</option> <option value="cygnus">Schwan - 9 Punkte</option> <option value="ursa_major">Großer Bär - 7 Punkte</option> <option value="leo">Löwe - 9 Punkte</option> <option value="draco">Drache - 11 Punkte</option> <option value="gemini">Zwillinge - 9 Punkte</option> <option value="southern_cross">Kreuz des Südens - 4 Punkte</option> <option value="pegasus">Pegasus - 5 Punkte</option> <option value="andromeda">Andromeda - 7 Punkte</option> <option value="sagittarius">Schütze - 8 Punkte</option> <option value="scorpius">Skorpion - 10 Punkte</option> <option value="cancer">Krebs - 6 Punkte</option> <option value="pisces">Fische - 11 Punkte</option> <option value="aquila">Adler - 7 Punkte</option> <option value="hercules">Herkules - 8 Punkte</option> </select> <button onclick="nnDownloadGraph()">Graph herunterladen</button> </div> </div> <canvas id="nnCanvas" width="800" height="600"></canvas> </div> <div id="nnInfoPanel"> <h3>Nearest Neighbor Daten</h3> <div id="nnDataOutput">Warte auf den ersten Schritt...</div> <hr> <label for="nnStepDropdown"><strong>Schritte:</strong></label> <select id="nnStepDropdown" onchange="nnShowStepDetails()"> <option value="">Schritt auswählen...</option> </select> <button onclick="nnToggleFullTable()">Tabelle ein-/ausblenden</button> <div id="nnStepDetails"></div> <div id="nnFullTable" style="display: none; margin-top: 20px;"></div> </div> </div> <div class="notebook-container" style="margin-top: 20px; margin-bottom: 20px;"> <details> <summary style="cursor: pointer; font-weight: bold; padding: 10px; background-color: #f0f0f0; border: 1px solid #ccc; border-radius: 5px;"> Jupyter Notebook: Nearest Neighbor TSP Implementation (Klicken zum Anzeigen/Ausblenden) </summary> <div style="border: 1px solid #ddd; padding: 15px; margin-top: 10px; background-color: #f9f9f9; width: 100%;"> <iframe src="https://nbviewer.org/github/Nr44suessauer/SalesMan/blob/main/NearestNeighbor_TSP.ipynb" width="100%" height="800" style="border: none;" allowfullscreen=""> </iframe> </div> <p style="text-align: center; margin-top: 10px;"> <a href="https://github.com/Nr44suessauer/SalesMan/blob/main/NearestNeighbor_TSP.ipynb" target="_blank" rel="external nofollow noopener"> Notebook auf GitHub öffnen </a> </p> </details> </div> <div style="display: flex; align-items: center; margin-top: 30px;"><p></p></div> <div style="display: flex; align-items: center; margin-top: 10px;"><p></p></div> <h3>Christofides Algorithm</h3> <div class="container"> <div class="animation-container"> <div class="controls"> <div> <button onclick="nextStep()">Nächster Schritt</button> <button onclick="resetAnimation()" style="background-color: #ff5555; color: white;">Reset</button> <button onclick="toggleAutoAnimation()">Animation Start/Stop</button> <label for="speedSlider">Geschwindigkeit:</label> <input type="range" id="speedSlider" min="50" max="4000" step="1" value="300"> </div> <div> <label for="numPoints">Anzahl der Punkte:</label> <input type="number" id="numPoints" min="3" max="25" value="4" style="width:50px; height:30px;"> <button onclick="updateNumPoints()">Zufällige Punkte</button> <button onclick="importNNPoints()">NN-Punkte importieren</button> <button onclick="importBFPoints()">BF-Punkte importieren</button> <label for="startPointChristofides">Startpunkt:</label> <input type="number" id="startPointChristofides" min="0" max="24" value="0" style="width:50px; height:30px;"> <button onclick="updateStartPoint()">Startpunkt setzen</button> <select id="constellationSelect" onchange="toggleConstellation(this.value)" style="height:30px;"> <option value="">Sternenbild wählen...</option> <option value="libra">Waage (Libra) - 10 Punkte</option> <option value="orion">Orion - 10 Punkte</option> <option value="cassiopeia">Kassiopeia - 5 Punkte</option> <option value="cygnus">Schwan - 9 Punkte</option> <option value="ursa_major">Großer Bär - 7 Punkte</option> <option value="leo">Löwe - 9 Punkte</option> <option value="draco">Drache - 11 Punkte</option> <option value="gemini">Zwillinge - 9 Punkte</option> <option value="southern_cross">Kreuz des Südens - 4 Punkte</option> <option value="pegasus">Pegasus - 5 Punkte</option> <option value="andromeda">Andromeda - 7 Punkte</option> <option value="sagittarius">Schütze - 8 Punkte</option> <option value="scorpius">Skorpion - 10 Punkte</option> <option value="cancer">Krebs - 6 Punkte</option> <option value="pisces">Fische - 11 Punkte</option> <option value="aquila">Adler - 7 Punkte</option> <option value="hercules">Herkules - 8 Punkte</option> </select> <button onclick="downloadGraph()">Graph herunterladen</button> </div> </div> <canvas id="canvas" width="800" height="600"></canvas> </div> <div id="infoPanel"> <h3>Christofides Algorithm Daten</h3> <div id="dataOutput">Warte auf den ersten Schritt...</div> </div> </div> <div class="notebook-container" style="margin-top: 20px; margin-bottom: 20px;"> <details> <summary style="cursor: pointer; font-weight: bold; padding: 10px; background-color: #f0f0f0; border: 1px solid #ccc; border-radius: 5px;"> Jupyter Notebook: Christofides TSP Implementation (Klicken zum Anzeigen/Ausblenden) </summary> <div style="border: 1px solid #ddd; padding: 15px; margin-top: 10px; background-color: #f9f9f9; width: 100%;"> <iframe src="https://nbviewer.org/github/Nr44suessauer/SalesMan/blob/main/Christofides_TSP.ipynb" width="100%" height="800" style="border: none;" allowfullscreen=""> </iframe> </div> <p style="text-align: center; margin-top: 10px;"> <a href="https://github.com/Nr44suessauer/SalesMan/blob/main/Christofides_TSP.ipynb" target="_blank" rel="external nofollow noopener"> Notebook auf GitHub öffnen </a> </p> </details> </div> <script>
+    // Funktion zur Erkennung des Dark Mode
+    function isDarkMode() {
+        return document.documentElement.getAttribute('data-theme-setting') === "dark" ||
+            (document.documentElement.getAttribute('data-theme-setting') === null && 
+             window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    }
+    
+    // Funktion zur Bestimmung der Koordinatensystemfarbe basierend auf dem Theme
+    
+    // Funktion zur Bestimmung der Koordinatensystemfarbe basierend auf dem Theme
+    function getGridColor() {
+        // Im Light Mode die Standardfarbe verwenden
+        return isDarkMode() ? "#999" : "#ccc";
+    }
+    
+    // Funktion zur Bestimmung der Textfarbe basierend auf dem Theme
+    function getTextColor() {
+        // Im Light Mode die Standardfarbe "black" verwenden
+        return isDarkMode() ? "#fff" : "black";
+    }
+    
+    // Funktion zur Bestimmung der Punktfarbe basierend auf dem Theme
+    function getPointColor() {
+        // Explizit schwarz im Light Mode, weiß im Dark Mode
+        return isDarkMode() ? "#ffffff" : "#000000";
+    }
+    
+    // Funktion zur Anpassung der Info-Panels basierend auf dem Theme
+    function updateInfoPanelsStyle() {
+        const isDark = isDarkMode();
+        const panels = [
+            document.getElementById('infoPanel'),
+            document.getElementById('nnInfoPanel'),
+            document.getElementById('bfInfoPanel')
+        ];
+        
+        panels.forEach(panel => {
+            if (panel) {
+                if (isDark) {
+                    // Im Dark Mode dunklerer Hintergrund und heller Text
+                    panel.style.backgroundColor = "#222";
+                    panel.style.color = "#fff";
+                    // Tabellenfarben im Dark Mode anpassen
+                    const tables = panel.querySelectorAll('table');
+                    tables.forEach(table => {
+                        table.style.borderColor = "#555";
+                        const cells = table.querySelectorAll('td, th');
+                        cells.forEach(cell => {
+                            cell.style.borderColor = "#555";
+                        });
+                    });
+                } else {
+                    // Im Light Mode heller Hintergrund und dunkler Text
+                    panel.style.backgroundColor = "#f2f2f2";
+                    panel.style.color = "#000"; 
+                    // Standardstile für Tabellen wiederherstellen
+                    const tables = panel.querySelectorAll('table');
+                    tables.forEach(table => {
+                        table.style.borderColor = "#ddd";
+                        const cells = table.querySelectorAll('td, th');
+                        cells.forEach(cell => {
+                            cell.style.borderColor = "#ddd";
+                        });
+                    });
+                }
+                
+                // Sicherstellen, dass die Änderungen übernommen werden
+                panel.style.transition = "background-color 0.3s, color 0.3s";
+            }
+        });
+    }
+    
+    // Direkte Ausführung nach dem Laden - außerhalb des DOMContentLoaded-Events
+    (function immediateStyleUpdate() {
+        // Sofortige Ausführung der Stilanpassungen
+        setTimeout(function() {
+            updateInfoPanelsStyle();
+            
+            // Stellen Sie sicher, dass die Canvas-Elemente korrekt gezeichnet werden
+            if (animation) {
+                animation.ctx.clearRect(0, 0, 100, 50);
+                animation.drawNodes(true);
+            }
+            if (nnAnimation) {
+                nnAnimation.ctx.clearRect(0, 0, 100, 50);
+                nnAnimation.drawNodes(true);
+            }
+            if (bfAnimation) {
+                bfAnimation.ctx.clearRect(0, 0, 50, 50);
+                bfAnimation.drawNodes(true);
+            }
+        }, 100);
+    })();
+    
+    // Theme-Anpassungen beim Laden der Seite und bei Änderungen durchführen
+    document.addEventListener('DOMContentLoaded', function() {
+        updateInfoPanelsStyle();
+        
+        // Beobachte Theme-Änderungen
+        if (window.matchMedia) {
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function() {
+                updateInfoPanelsStyle();
+                
+                // Nach Änderung des Themes neu zeichnen
+                if (animation) {
+                    animation.ctx.clearRect(0, 0, 100, 50);
+                    animation.drawNodes(true);
+                }
+                if (nnAnimation) {
+                    nnAnimation.ctx.clearRect(0, 0, 100, 50);
+                    nnAnimation.drawNodes(true);
+                }
+                if (bfAnimation) {
+                    bfAnimation.ctx.clearRect(0, 0, 50, 50);
+                    bfAnimation.drawNodes(true);
+                }
+            });
+        }
+    });
+
     // Gemeinsame Konstante für die Sternbildkoordinaten
     const CONSTELLATIONS = {
         // Waage (Libra)
@@ -252,9 +372,9 @@
         }
         // Zeichnet ein Koordinatensystem als Raster
         drawCoordinateSystem() {
-            this.ctx.strokeStyle = "#ccc";
+            this.ctx.strokeStyle = getGridColor();
             this.ctx.lineWidth = 0.1;
-            for (let x = 0; x <= 100; x += 10) {
+            for (let x = 0; x <= 50; x += 5) {
                 this.ctx.beginPath();
                 this.ctx.moveTo(x, 0);
                 this.ctx.lineTo(x, 50);
@@ -263,7 +383,7 @@
             for (let y = 0; y <= 50; y += 5) {
                 this.ctx.beginPath();
                 this.ctx.moveTo(0, y);
-                this.ctx.lineTo(100, y);
+                this.ctx.lineTo(50, y);
                 this.ctx.stroke();
             }
         }       
@@ -383,10 +503,10 @@
             this.nodes.forEach(node => {
                 this.ctx.beginPath();
                 this.ctx.arc(node.x, node.y, 0.5, 0, Math.PI * 2);
-                this.ctx.fillStyle = 'black';
+                this.ctx.fillStyle = getPointColor();
                 this.ctx.fill();
                 this.ctx.font = "1.5px sans-serif";
-                this.ctx.fillStyle = 'black';
+                this.ctx.fillStyle = getTextColor();
                 this.ctx.textAlign = "center";
                 const label = `P${node.id}`;
                 this.ctx.fillText(label, node.x, node.y - 1.2);
@@ -496,6 +616,10 @@
                 this.drawTSPPath(this.currentTSPIndex);
                 this.currentTSPIndex++;
                 if (this.currentTSPIndex >= this.tspPath.length) {
+                    // Das Koordinatensystem neu zeichnen, wenn die Animation fertig ist
+                    this.ctx.clearRect(0, 0, 100, 50);
+                    this.drawNodes(true); // true als Parameter, um das Koordinatensystem zu zeichnen
+                    this.drawTSPPath(this.tspPath.length - 1); // Finalen Pfad zeichnen
                     stopAutoAnimation();
                 }
             }
@@ -839,7 +963,7 @@
             this.drawNodes(true);
         }    
         drawCoordinateSystem() {
-            this.ctx.strokeStyle = "#ccc";
+            this.ctx.strokeStyle = getGridColor();
             this.ctx.lineWidth = 0.1;   
             for (let x = 0; x <= 100; x += 10) {
                 this.ctx.beginPath();
@@ -914,10 +1038,10 @@
             this.nodes.forEach(node => {
                 this.ctx.beginPath();
                 this.ctx.arc(node.x, node.y, 0.5, 0, Math.PI * 2);
-                this.ctx.fillStyle = 'black';
+                this.ctx.fillStyle = getPointColor();
                 this.ctx.fill();
                 this.ctx.font = "1.5px sans-serif";
-                this.ctx.fillStyle = 'black';
+                this.ctx.fillStyle = getTextColor();
                 this.ctx.textAlign = "center";
                 const label = `P${node.id}`;
                 this.ctx.fillText(label, node.x, node.y - 1.2);
@@ -1036,6 +1160,17 @@
         stepDetails.innerHTML = "";        
         fullTable.style.display = "none";
         fullTable.innerHTML = "";
+        
+        // Manuelle Anwendung der Textfarbe für nnDataOutput im Dark Mode
+        if (isDarkMode()) {
+            dataOutput.style.color = getTextColor();
+            const elements = dataOutput.querySelectorAll('*');
+            elements.forEach(el => {
+                if (!el.style.color || el.style.color === "") {
+                    el.style.color = getTextColor();
+                }
+            });
+        }
     }
     function nnShowStepDetails() {
         const stepDropdown = document.getElementById('nnStepDropdown');
@@ -1325,18 +1460,25 @@
         // Sortiere die Ergebnisse nach Pfadlänge
         results.sort((a, b) => a.distance - b.distance);
         
+        // Theme-abhängige Farben
+        const isDark = isDarkMode();
+        const bgColor = isDark ? "#1e3b1e" : "#e8ffe8";
+        const borderColor = isDark ? "#4CAF50" : "#4CAF50";
+        const textColor = isDark ? "#fff" : "#2E7D32";
+        const tableHeaderBgColor = isDark ? "#2a472a" : "#d4ffd4";
+        
         // Ergebnisanzeige im Panel
         const dataOutput = document.getElementById('nnDataOutput');
         if (dataOutput) {
             let resultHTML = `
-                <div style="margin: 15px 0; padding: 15px; background-color: #e8ffe8; border: 2px solid #4CAF50; border-radius: 5px;">
-                    <h4 style="margin-top: 0; color: #2E7D32;">Optimaler Startpunkt gefunden!</h4>
+                <div style="margin: 15px 0; padding: 15px; background-color: ${bgColor}; border: 2px solid ${borderColor}; border-radius: 5px;">
+                    <h4 style="margin-top: 0; color: ${textColor};">Optimaler Startpunkt gefunden!</h4>
                     <p><strong>Bester Startpunkt:</strong> P${bestStartPoint}</p>
                     <p><strong>Pfadlänge:</strong> ${shortestDistance.toFixed(2)}</p>
                     <p><strong>Optimaler Pfad:</strong> ${results[0].path.map(p => `P${p}`).join(' → ')}</p>
                     <hr>
                     <h5>Alle Startpunkte im Vergleich:</h5>
-                    <table class="selection-table" style="width: 100%; margin-top: 10px;">
+                    <table class="selection-table" style="width: 100%; margin-top: 10px; ${isDark ? 'color: ' + textColor + ';' : ''}">
                         <tr>
                             <th>Rang</th>
                             <th>Startpunkt</th>
@@ -1349,9 +1491,11 @@
             results.forEach((result, index) => {
                 const difference = ((result.distance / shortestDistance - 1) * 100).toFixed(2);
                 const rowClass = result.startPoint === bestStartPoint ? 'selected' : '';
+                const rowStyle = result.startPoint === bestStartPoint && isDark ? 
+                    `background-color: ${tableHeaderBgColor};` : '';
                 
                 resultHTML += `
-                    <tr class="${rowClass}">
+                    <tr class="${rowClass}" style="${rowStyle}">
                         <td style="text-align: center;">${index + 1}</td>
                         <td style="text-align: center;">P${result.startPoint}</td>
                         <td style="text-align: center;">${result.distance.toFixed(2)}</td>
@@ -1366,6 +1510,20 @@
             `;
             
             dataOutput.innerHTML = resultHTML;
+            
+            // Sicherstellen, dass die Textfarbe im Dark Mode korrekt ist
+            if (isDark) {
+                const resultDiv = dataOutput.querySelector('div');
+                if (resultDiv) {
+                    // Alle Text-Elemente in der Tabelle auf die richtige Farbe setzen
+                    const textElements = resultDiv.querySelectorAll('p, td, th, h5');
+                    textElements.forEach(el => {
+                        if (!el.style.color) {
+                            el.style.color = getTextColor();
+                        }
+                    });
+                }
+            }
         }
         
         // Besten Startpunkt in das Eingabefeld setzen
@@ -1382,15 +1540,8 @@
         // Aktualisiere den Fortschritt der Animation, um den vollständigen Pfad anzuzeigen
         nnAnimation.currentPathIndex = nnAnimation.selectionSteps.length + 1;
         
-        // Aktualisiere das Info-Panel mit dem vollständigen Pfad und Startpunktinfo
-        const pathInfo = document.createElement('div');
-        pathInfo.innerHTML = `
-            <div style="margin-top: 15px;">
-                <h5>Optimaler Pfad wurde automatisch angewendet</h5>
-                <p>Der Startpunkt P${bestStartPoint} wurde als Optimum ermittelt und die Animation zeigt nun den entsprechenden Pfad.</p>
-            </div>
-        `;
-        dataOutput.appendChild(pathInfo);
+        // Erneut das Theme anwenden für sicheren Dark Mode-Support
+        updateInfoPanelsStyle();
     }
     // Event-Listener
     document.getElementById('nnSpeedSlider')?.addEventListener('input', function() {
@@ -1431,7 +1582,7 @@
             this.drawNodes(true);
         }
         drawCoordinateSystem() {
-            this.ctx.strokeStyle = "#ccc";
+            this.ctx.strokeStyle = getGridColor();
             this.ctx.lineWidth = 0.1;
             for (let x = 0; x <= 50; x += 5) {
                 this.ctx.beginPath();
@@ -1510,10 +1661,10 @@
             this.nodes.forEach(node => {
                 this.ctx.beginPath();
                 this.ctx.arc(node.x, node.y, 0.5, 0, Math.PI * 2);
-                this.ctx.fillStyle = 'black';
+                this.ctx.fillStyle = getPointColor();
                 this.ctx.fill();
                 this.ctx.font = "1.5px sans-serif";
-                this.ctx.fillStyle = 'black';
+                this.ctx.fillStyle = getTextColor();
                 this.ctx.textAlign = "center";
                 const label = `P${node.id}`;
                 this.ctx.fillText(label, node.x, node.y - 1.2);
