@@ -9,7 +9,7 @@ disqus_comments: true
 featured: false
 ---
 
-## STILL WORKING AT : official Release 10.04  
+## STILL WORKING AT : official Release 11.04  
 Disclaimer: Star constellations will be adjusted & some formulas are not displayed in the Jupyter Notebook.
 
 
