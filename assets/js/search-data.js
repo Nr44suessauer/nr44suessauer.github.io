@@ -16,19 +16,12 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/blog/";
           },
-        },{id: "nav-projects",
-          title: "projects",
-          description: "A growing collection of stuff",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/projects/";
-          },
-        },{id: "nav-calculator",
-          title: "Calculator",
+        },{id: "nav-technical-content",
+          title: "Technical Content",
           description: "",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/calculator/";
+            window.location.href = "/TechnicalContent/";
           },
         },{id: "nav-resume",
           title: "resume",
@@ -37,9 +30,9 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/resume/";
           },
-        },{id: "post-brute-force-nearest-neigbhor-amp-christofides-algorithm",
+        },{id: "post-brute-force-nearest-neighbor-amp-christofides-algorithm",
       
-        title: "Brute Force, Nearest Neigbhor &amp; Christofides Algorithm",
+        title: "Brute Force, Nearest Neighbor &amp; Christofides Algorithm",
       
       description: "Algorithm &amp; Datastructure",
       section: "Posts",
