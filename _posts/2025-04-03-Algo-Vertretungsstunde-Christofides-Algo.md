@@ -1950,6 +1950,17 @@ Disclaimer: Star constellations will be adjusted & some formulas are not display
             nnAnimation.drawNodes(true);
             nnUpdateInfoPanel();
         }
+        
+        // Brute Force Animation initialisieren und Info-Panel aktualisieren
+        const bfCanvas = document.getElementById('bfCanvas');
+        if (bfCanvas) {
+            if (bfAnimation) {
+                bfAnimation.updateInfoPanel();
+            } else {
+                bfAnimation = new BruteForceAnimation(bfCanvas, 4, 0);
+                bfAnimation.updateInfoPanel();
+            }
+        }
     });
     // ================ BRUTE FORCE ALGORITHMUS ================
     // Brute Force Animation Klasse
@@ -1968,6 +1979,7 @@ Disclaimer: Star constellations will be adjusted & some formulas are not display
             this.shortestDistance = Infinity;
             this.init();
             this.drawNodes(true);
+            this.updateInfoPanel(); // Info-Panel beim Initialisieren aktualisieren
         }
         drawCoordinateSystem() {
             this.ctx.strokeStyle = getGridColor();
