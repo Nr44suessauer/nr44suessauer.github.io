@@ -91,6 +91,35 @@ Disclaimer: Star constellations will be adjusted & some formulas are not display
             background-color: #d4ffd4;
             font-weight: bold;
         }
+        /* Dark Mode anpassungen für Tabellen */
+        @media (prefers-color-scheme: dark) {
+            .selection-table th, .selection-table td {
+                border-color: #555;
+            }
+            .selection-table .selected {
+                background-color: #2a472a;
+                font-weight: bold;
+            }
+            /* Verbesserte Sichtbarkeit für den Haken im Dark Mode */
+            .selection-table td:last-child {
+                color: #fff;
+            }
+            /* Hervorgehobene Markierung für den kürzesten Pfad */
+            .selection-table .selected td:last-child {
+                color: #4CAF50;
+                font-size: 1.2em;
+                font-weight: bold;
+            }
+            /* Verbesserte Sichtbarkeit für die Jupyter Notebook Buttons im Dark Mode */
+            .notebook-container details summary, 
+            details.notebook-details summary, 
+            body.dark-mode .notebook-container details summary,
+            body.dark-theme .notebook-container details summary {
+                background-color: #444 !important;
+                color: #fff !important;
+                border-color: #666 !important;
+            }
+        }
         /* Brute Force styles */
         .bf-container {
             display: flex;
@@ -197,8 +226,7 @@ Disclaimer: Star constellations will be adjusted & some formulas are not display
             </div>
         </details>
     </div>
-    <div style="display: flex; align-items: center; margin-top: 10px;"><p></p></div>
-    --- 
+    <div style="display: flex; align-items: center; margin-top: 30px;"><p></p></div>
     <div style="display: flex; align-items: center; margin-top: 10px;"><p></p></div>
     <!-- ================ NEAREST NEIGHBOR ALGORITHM ================ -->
     <h3>Nearest Neighbor Algorithm</h3>
@@ -283,8 +311,7 @@ Disclaimer: Star constellations will be adjusted & some formulas are not display
                 </p>
         </details>
     </div>
-    <div style="display: flex; align-items: center; margin-top: 10px;"><p></p></div>
-    --- 
+    <div style="display: flex; align-items: center; margin-top: 30px;"><p></p></div>
     <div style="display: flex; align-items: center; margin-top: 10px;"><p></p></div>
     <!-- ================ CHRISTOFIDES ALGORITHMUS ================ -->
     <h3>Christofides Algorithm</h3>
@@ -362,6 +389,126 @@ Disclaimer: Star constellations will be adjusted & some formulas are not display
     </div>
     <!-- ================ Code ================ -->
     <script>
+    // Funktion zur Erkennung des Dark Mode
+    function isDarkMode() {
+        return document.documentElement.getAttribute('data-theme-setting') === "dark" ||
+            (document.documentElement.getAttribute('data-theme-setting') === null && 
+             window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    }
+    
+    // Funktion zur Bestimmung der Koordinatensystemfarbe basierend auf dem Theme
+    
+    // Funktion zur Bestimmung der Koordinatensystemfarbe basierend auf dem Theme
+    function getGridColor() {
+        // Im Light Mode die Standardfarbe verwenden
+        return isDarkMode() ? "#999" : "#ccc";
+    }
+    
+    // Funktion zur Bestimmung der Textfarbe basierend auf dem Theme
+    function getTextColor() {
+        // Im Light Mode die Standardfarbe "black" verwenden
+        return isDarkMode() ? "#fff" : "black";
+    }
+    
+    // Funktion zur Bestimmung der Punktfarbe basierend auf dem Theme
+    function getPointColor() {
+        // Explizit schwarz im Light Mode, weiß im Dark Mode
+        return isDarkMode() ? "#ffffff" : "#000000";
+    }
+    
+    // Funktion zur Anpassung der Info-Panels basierend auf dem Theme
+    function updateInfoPanelsStyle() {
+        const isDark = isDarkMode();
+        const panels = [
+            document.getElementById('infoPanel'),
+            document.getElementById('nnInfoPanel'),
+            document.getElementById('bfInfoPanel')
+        ];
+        
+        panels.forEach(panel => {
+            if (panel) {
+                if (isDark) {
+                    // Im Dark Mode dunklerer Hintergrund und heller Text
+                    panel.style.backgroundColor = "#222";
+                    panel.style.color = "#fff";
+                    // Tabellenfarben im Dark Mode anpassen
+                    const tables = panel.querySelectorAll('table');
+                    tables.forEach(table => {
+                        table.style.borderColor = "#555";
+                        const cells = table.querySelectorAll('td, th');
+                        cells.forEach(cell => {
+                            cell.style.borderColor = "#555";
+                        });
+                    });
+                } else {
+                    // Im Light Mode heller Hintergrund und dunkler Text
+                    panel.style.backgroundColor = "#f2f2f2";
+                    panel.style.color = "#000"; 
+                    // Standardstile für Tabellen wiederherstellen
+                    const tables = panel.querySelectorAll('table');
+                    tables.forEach(table => {
+                        table.style.borderColor = "#ddd";
+                        const cells = table.querySelectorAll('td, th');
+                        cells.forEach(cell => {
+                            cell.style.borderColor = "#ddd";
+                        });
+                    });
+                }
+                
+                // Sicherstellen, dass die Änderungen übernommen werden
+                panel.style.transition = "background-color 0.3s, color 0.3s";
+            }
+        });
+    }
+    
+    // Direkte Ausführung nach dem Laden - außerhalb des DOMContentLoaded-Events
+    (function immediateStyleUpdate() {
+        // Sofortige Ausführung der Stilanpassungen
+        setTimeout(function() {
+            updateInfoPanelsStyle();
+            
+            // Stellen Sie sicher, dass die Canvas-Elemente korrekt gezeichnet werden
+            if (animation) {
+                animation.ctx.clearRect(0, 0, 100, 50);
+                animation.drawNodes(true);
+            }
+            if (nnAnimation) {
+                nnAnimation.ctx.clearRect(0, 0, 100, 50);
+                nnAnimation.drawNodes(true);
+            }
+            if (bfAnimation) {
+                bfAnimation.ctx.clearRect(0, 0, 50, 50);
+                bfAnimation.drawNodes(true);
+            }
+        }, 100);
+    })();
+    
+    // Theme-Anpassungen beim Laden der Seite und bei Änderungen durchführen
+    document.addEventListener('DOMContentLoaded', function() {
+        updateInfoPanelsStyle();
+        
+        // Beobachte Theme-Änderungen
+        if (window.matchMedia) {
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function() {
+                updateInfoPanelsStyle();
+                
+                // Nach Änderung des Themes neu zeichnen
+                if (animation) {
+                    animation.ctx.clearRect(0, 0, 100, 50);
+                    animation.drawNodes(true);
+                }
+                if (nnAnimation) {
+                    nnAnimation.ctx.clearRect(0, 0, 100, 50);
+                    nnAnimation.drawNodes(true);
+                }
+                if (bfAnimation) {
+                    bfAnimation.ctx.clearRect(0, 0, 50, 50);
+                    bfAnimation.drawNodes(true);
+                }
+            });
+        }
+    });
+
     // Gemeinsame Konstante für die Sternbildkoordinaten
     const CONSTELLATIONS = {
         // Waage (Libra)
@@ -613,9 +760,9 @@ Disclaimer: Star constellations will be adjusted & some formulas are not display
         }
         // Zeichnet ein Koordinatensystem als Raster
         drawCoordinateSystem() {
-            this.ctx.strokeStyle = "#ccc";
+            this.ctx.strokeStyle = getGridColor();
             this.ctx.lineWidth = 0.1;
-            for (let x = 0; x <= 100; x += 10) {
+            for (let x = 0; x <= 50; x += 5) {
                 this.ctx.beginPath();
                 this.ctx.moveTo(x, 0);
                 this.ctx.lineTo(x, 50);
@@ -624,7 +771,7 @@ Disclaimer: Star constellations will be adjusted & some formulas are not display
             for (let y = 0; y <= 50; y += 5) {
                 this.ctx.beginPath();
                 this.ctx.moveTo(0, y);
-                this.ctx.lineTo(100, y);
+                this.ctx.lineTo(50, y);
                 this.ctx.stroke();
             }
         }       
@@ -744,10 +891,10 @@ Disclaimer: Star constellations will be adjusted & some formulas are not display
             this.nodes.forEach(node => {
                 this.ctx.beginPath();
                 this.ctx.arc(node.x, node.y, 0.5, 0, Math.PI * 2);
-                this.ctx.fillStyle = 'black';
+                this.ctx.fillStyle = getPointColor();
                 this.ctx.fill();
                 this.ctx.font = "1.5px sans-serif";
-                this.ctx.fillStyle = 'black';
+                this.ctx.fillStyle = getTextColor();
                 this.ctx.textAlign = "center";
                 const label = `P${node.id}`;
                 this.ctx.fillText(label, node.x, node.y - 1.2);
@@ -857,6 +1004,10 @@ Disclaimer: Star constellations will be adjusted & some formulas are not display
                 this.drawTSPPath(this.currentTSPIndex);
                 this.currentTSPIndex++;
                 if (this.currentTSPIndex >= this.tspPath.length) {
+                    // Das Koordinatensystem neu zeichnen, wenn die Animation fertig ist
+                    this.ctx.clearRect(0, 0, 100, 50);
+                    this.drawNodes(true); // true als Parameter, um das Koordinatensystem zu zeichnen
+                    this.drawTSPPath(this.tspPath.length - 1); // Finalen Pfad zeichnen
                     stopAutoAnimation();
                 }
             }
@@ -1200,7 +1351,7 @@ Disclaimer: Star constellations will be adjusted & some formulas are not display
             this.drawNodes(true);
         }    
         drawCoordinateSystem() {
-            this.ctx.strokeStyle = "#ccc";
+            this.ctx.strokeStyle = getGridColor();
             this.ctx.lineWidth = 0.1;   
             for (let x = 0; x <= 100; x += 10) {
                 this.ctx.beginPath();
@@ -1275,10 +1426,10 @@ Disclaimer: Star constellations will be adjusted & some formulas are not display
             this.nodes.forEach(node => {
                 this.ctx.beginPath();
                 this.ctx.arc(node.x, node.y, 0.5, 0, Math.PI * 2);
-                this.ctx.fillStyle = 'black';
+                this.ctx.fillStyle = getPointColor();
                 this.ctx.fill();
                 this.ctx.font = "1.5px sans-serif";
-                this.ctx.fillStyle = 'black';
+                this.ctx.fillStyle = getTextColor();
                 this.ctx.textAlign = "center";
                 const label = `P${node.id}`;
                 this.ctx.fillText(label, node.x, node.y - 1.2);
@@ -1397,6 +1548,17 @@ Disclaimer: Star constellations will be adjusted & some formulas are not display
         stepDetails.innerHTML = "";        
         fullTable.style.display = "none";
         fullTable.innerHTML = "";
+        
+        // Manuelle Anwendung der Textfarbe für nnDataOutput im Dark Mode
+        if (isDarkMode()) {
+            dataOutput.style.color = getTextColor();
+            const elements = dataOutput.querySelectorAll('*');
+            elements.forEach(el => {
+                if (!el.style.color || el.style.color === "") {
+                    el.style.color = getTextColor();
+                }
+            });
+        }
     }
     function nnShowStepDetails() {
         const stepDropdown = document.getElementById('nnStepDropdown');
@@ -1686,18 +1848,25 @@ Disclaimer: Star constellations will be adjusted & some formulas are not display
         // Sortiere die Ergebnisse nach Pfadlänge
         results.sort((a, b) => a.distance - b.distance);
         
+        // Theme-abhängige Farben
+        const isDark = isDarkMode();
+        const bgColor = isDark ? "#1e3b1e" : "#e8ffe8";
+        const borderColor = isDark ? "#4CAF50" : "#4CAF50";
+        const textColor = isDark ? "#fff" : "#2E7D32";
+        const tableHeaderBgColor = isDark ? "#2a472a" : "#d4ffd4";
+        
         // Ergebnisanzeige im Panel
         const dataOutput = document.getElementById('nnDataOutput');
         if (dataOutput) {
             let resultHTML = `
-                <div style="margin: 15px 0; padding: 15px; background-color: #e8ffe8; border: 2px solid #4CAF50; border-radius: 5px;">
-                    <h4 style="margin-top: 0; color: #2E7D32;">Optimaler Startpunkt gefunden!</h4>
+                <div style="margin: 15px 0; padding: 15px; background-color: ${bgColor}; border: 2px solid ${borderColor}; border-radius: 5px;">
+                    <h4 style="margin-top: 0; color: ${textColor};">Optimaler Startpunkt gefunden!</h4>
                     <p><strong>Bester Startpunkt:</strong> P${bestStartPoint}</p>
                     <p><strong>Pfadlänge:</strong> ${shortestDistance.toFixed(2)}</p>
                     <p><strong>Optimaler Pfad:</strong> ${results[0].path.map(p => `P${p}`).join(' → ')}</p>
                     <hr>
                     <h5>Alle Startpunkte im Vergleich:</h5>
-                    <table class="selection-table" style="width: 100%; margin-top: 10px;">
+                    <table class="selection-table" style="width: 100%; margin-top: 10px; ${isDark ? 'color: ' + textColor + ';' : ''}">
                         <tr>
                             <th>Rang</th>
                             <th>Startpunkt</th>
@@ -1710,9 +1879,11 @@ Disclaimer: Star constellations will be adjusted & some formulas are not display
             results.forEach((result, index) => {
                 const difference = ((result.distance / shortestDistance - 1) * 100).toFixed(2);
                 const rowClass = result.startPoint === bestStartPoint ? 'selected' : '';
+                const rowStyle = result.startPoint === bestStartPoint && isDark ? 
+                    `background-color: ${tableHeaderBgColor};` : '';
                 
                 resultHTML += `
-                    <tr class="${rowClass}">
+                    <tr class="${rowClass}" style="${rowStyle}">
                         <td style="text-align: center;">${index + 1}</td>
                         <td style="text-align: center;">P${result.startPoint}</td>
                         <td style="text-align: center;">${result.distance.toFixed(2)}</td>
@@ -1727,6 +1898,20 @@ Disclaimer: Star constellations will be adjusted & some formulas are not display
             `;
             
             dataOutput.innerHTML = resultHTML;
+            
+            // Sicherstellen, dass die Textfarbe im Dark Mode korrekt ist
+            if (isDark) {
+                const resultDiv = dataOutput.querySelector('div');
+                if (resultDiv) {
+                    // Alle Text-Elemente in der Tabelle auf die richtige Farbe setzen
+                    const textElements = resultDiv.querySelectorAll('p, td, th, h5');
+                    textElements.forEach(el => {
+                        if (!el.style.color) {
+                            el.style.color = getTextColor();
+                        }
+                    });
+                }
+            }
         }
         
         // Besten Startpunkt in das Eingabefeld setzen
@@ -1743,15 +1928,8 @@ Disclaimer: Star constellations will be adjusted & some formulas are not display
         // Aktualisiere den Fortschritt der Animation, um den vollständigen Pfad anzuzeigen
         nnAnimation.currentPathIndex = nnAnimation.selectionSteps.length + 1;
         
-        // Aktualisiere das Info-Panel mit dem vollständigen Pfad und Startpunktinfo
-        const pathInfo = document.createElement('div');
-        pathInfo.innerHTML = `
-            <div style="margin-top: 15px;">
-                <h5>Optimaler Pfad wurde automatisch angewendet</h5>
-                <p>Der Startpunkt P${bestStartPoint} wurde als Optimum ermittelt und die Animation zeigt nun den entsprechenden Pfad.</p>
-            </div>
-        `;
-        dataOutput.appendChild(pathInfo);
+        // Erneut das Theme anwenden für sicheren Dark Mode-Support
+        updateInfoPanelsStyle();
     }
     // Event-Listener
     document.getElementById('nnSpeedSlider')?.addEventListener('input', function() {
@@ -1792,7 +1970,7 @@ Disclaimer: Star constellations will be adjusted & some formulas are not display
             this.drawNodes(true);
         }
         drawCoordinateSystem() {
-            this.ctx.strokeStyle = "#ccc";
+            this.ctx.strokeStyle = getGridColor();
             this.ctx.lineWidth = 0.1;
             for (let x = 0; x <= 50; x += 5) {
                 this.ctx.beginPath();
@@ -1871,10 +2049,10 @@ Disclaimer: Star constellations will be adjusted & some formulas are not display
             this.nodes.forEach(node => {
                 this.ctx.beginPath();
                 this.ctx.arc(node.x, node.y, 0.5, 0, Math.PI * 2);
-                this.ctx.fillStyle = 'black';
+                this.ctx.fillStyle = getPointColor();
                 this.ctx.fill();
                 this.ctx.font = "1.5px sans-serif";
-                this.ctx.fillStyle = 'black';
+                this.ctx.fillStyle = getTextColor();
                 this.ctx.textAlign = "center";
                 const label = `P${node.id}`;
                 this.ctx.fillText(label, node.x, node.y - 1.2);
