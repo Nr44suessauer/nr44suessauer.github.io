@@ -232,9 +232,8 @@ let determineComputedTheme = () => {
 };
 
 let initTheme = () => {
-  let themeSetting = determineThemeSetting();
-
-  setThemeSetting(themeSetting);
+  // Immer das dunkle Theme beim ersten Laden der Seite aktivieren
+  setThemeSetting("dark");
 
   // Add event listener to the theme toggle button.
   document.addEventListener("DOMContentLoaded", function () {
