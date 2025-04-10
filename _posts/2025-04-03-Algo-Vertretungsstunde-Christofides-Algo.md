@@ -7,6 +7,7 @@ tags: Algo Christofides NearestNeighbor BruteForce jupyternotebook
 categories: lecture
 disqus_comments: true
 featured: false
+hidden: true
 ---
 
 ## STILL WORKING AT : official Release 11.04  
