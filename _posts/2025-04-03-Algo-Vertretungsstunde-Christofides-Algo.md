@@ -2305,21 +2305,46 @@ Disclaimer: Star constellations will be adjusted & some formulas are not display
     function bfShowFullTable() {
         const fullTableDiv = document.getElementById('bfFullTable');
         if (!fullTableDiv || !bfAnimation) return;
+        
+        // Theme-abhängige Farben
+        const isDark = isDarkMode();
+        const bgColor = isDark ? "#2a472a" : "#d4ffd4";
+        const textColor = isDark ? "#fff" : "#000";
+        const highlightTextColor = isDark ? "#4CAF50" : "#006400";
+        
         let html = "<h4>Alle getesteten Pfade</h4>";
         html += "<table class='selection-table' style='width: 100%; border-collapse: collapse;'>";
         html += "<tr><th>Pfad</th><th>Distanz</th><th>Kürzester Pfad</th></tr>";
+        
         bfAnimation.permutations.forEach((path, index) => {
             const distance = bfAnimation.calculatePathDistance(path).toFixed(2);
             const isShortest = bfAnimation.shortestPath && bfAnimation.shortestPath.join(',') === path.join(',');
-            html += isShortest ? "<tr class='selected'>" : "<tr>";
+            
+            // Verbesserte Stilisierung für den kürzesten Pfad
+            const rowStyle = isShortest ? 
+                `background-color: ${bgColor}; font-weight: bold;` : '';
+                
+            const checkmarkStyle = isShortest ? 
+                `color: ${highlightTextColor}; font-size: 1.2em; font-weight: bold;` : '';
+                
+            html += `<tr style="${rowStyle}" class="${isShortest ? 'selected' : ''}">`;
             html += `<td style='border: 1px solid #ddd; padding: 4px; text-align: center;'>${path.map(p => `P${p}`).join(' → ')}</td>`;
             html += `<td style='border: 1px solid #ddd; padding: 4px; text-align: center;'>${distance}</td>`;
-            html += `<td style='border: 1px solid #ddd; padding: 4px; text-align: center;'>${isShortest ? "✓" : ""}</td>`;
+            html += `<td style='border: 1px solid #ddd; padding: 4px; text-align: center; ${checkmarkStyle}'>${isShortest ? "✓" : ""}</td>`;
             html += "</tr>";
         });
+        
         html += "</table>";
         fullTableDiv.innerHTML = html;
         fullTableDiv.style.display = 'block';
+        
+        // Stelle sicher, dass die Tabellenborden im Dark Mode richtig angezeigt werden
+        if (isDark) {
+            const tableCells = fullTableDiv.querySelectorAll('td, th');
+            tableCells.forEach(cell => {
+                cell.style.borderColor = "#555";
+            });
+        }
     }
     function bfToggleFullTable() {
         const fullTableDiv = document.getElementById('bfFullTable');
