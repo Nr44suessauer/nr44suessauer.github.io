@@ -8,6 +8,7 @@ categories: Fun
 related_posts: false
 disqus_comments: true
 featured: false
+hidden: true
 ---
 
 <div style="display: flex; align-items: flex-start;">

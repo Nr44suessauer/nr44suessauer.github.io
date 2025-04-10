@@ -7,6 +7,7 @@ tags: I-Scan Research_Project Architechture Conzept
 categories: Research_Project
 disqus_comments: true
 featured: false
+hidden: true
 ---
 
 This concept outlines a movable camera setup in the Z-axis, consisting of **three movable modules**, each equipped with a camera. The angle of each camera can be individually adjusted for flexible and precise recording.

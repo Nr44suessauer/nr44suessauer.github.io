@@ -8,6 +8,7 @@ categories: Fun
 related_posts: false
 disqus_comments: true
 featured: true
+hidden: true
 ---
 
 

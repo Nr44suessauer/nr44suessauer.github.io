@@ -7,6 +7,7 @@ tags: basics engineering_tool measurement Voltage OHM Ampere Hz
 categories: Measurement_Parkour concept
 disqus_comments: true
 featured: false
+hidden: true
 ---
 
 Der Student sollte in der Lage sein, Schaltungen aus diesen **drei Kategorien** zu verstehen, zu **analysieren** und auf **Fehler** zu **prüfen**. Mit Messwerkzeugen wie **Oszilloskop und Multimeter** sollen Fehler messtechnisch bewiesen werden.

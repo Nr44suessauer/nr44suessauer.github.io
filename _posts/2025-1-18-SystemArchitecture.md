@@ -7,6 +7,7 @@ tags: I-Scan Research_Project Architechture Rest-API
 categories: Research_Project
 disqus_comments: true
 featured: false
+hidden: true
 ---
 
 This document explains the architecture of the project [I-Scan](https://deadlinedriven.dev/projects/I-Scan/). Based on the available API with which the user can interact, the underlying processes and structures are explained. This includes the various HTTP methods used to communicate with the server, as well as the specific commands and their functionality within the system.
