@@ -1,0 +1,1 @@
+import{j as t,c as n,e as a,a3 as o}from"./DqWQ-N6f.js";const c={};function r(e,s){return a(),n("thead",null,[o(e.$slots,"default",{},void 0,!0)])}const d=t(c,[["render",r],["__scopeId","data-v-81e7d1ab"]]);export{d as default};
