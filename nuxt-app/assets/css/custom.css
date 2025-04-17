@@ -1,7 +1,14 @@
 :root {
   color-scheme: dark;
+  /* Standard-Variablen für das Light Theme */
 }
 
 html {
   color-scheme: dark;
+}
+
+html.dark {
+  /* Variablen für das Dark Theme überschreiben */
+  --color-text-primary: #ffffff; /* Weißer Text für Dark Mode */
+  --color-text-secondary: #e0e0e0; /* Hellgrauer Text für sekundäre Elemente */
 }

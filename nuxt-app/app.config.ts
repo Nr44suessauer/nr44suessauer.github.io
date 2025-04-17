@@ -4,7 +4,11 @@ export default defineAppConfig({
     // Hier den Dark Mode als Default setzen
     theme: {
       // Setze defaultTheme auf 'dark'
-      defaultTheme: 'dark'
+      defaultTheme: 'dark',
+      colors: {
+        primary: '#ff0000', // Beispiel für eine benutzerdefinierte Farbpalette
+        // Hier kannst du weitere Farben anpassen
+      }
     },
     title: 'Alpine',
     description: 'The minimalist blog theme',
