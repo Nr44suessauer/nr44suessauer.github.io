@@ -30,8 +30,8 @@ const updateModule = defineNuxtModule({
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   app: {
-    // Die baseURL-Zeile entfernen oder auskommentieren
-    // baseURL: '/nr44suessauer.github.io/', 
+    // Für User/Organization Pages (username.github.io) baseURL auf '/' setzen
+    baseURL: '/',
     head: {
       htmlAttrs: {
         lang: 'en'
