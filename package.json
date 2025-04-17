@@ -18,10 +18,10 @@
   ],
   "scripts": {
     "prepare": "nuxi prepare && nuxi prepare .starters/default",
-    "dev": "nuxi dev .starters/default",
-    "build": "nuxi build .starters/default",
-    "generate": "nuxi generate .starters/default",
-    "preview": "nuxi preview .starters/default",
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
     "lint": "eslint .",
     "release": "release-it"
   },
