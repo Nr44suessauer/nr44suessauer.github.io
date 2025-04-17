@@ -8,8 +8,8 @@ export default defineTheme({
         dark: '{color.black}'
       },
       color: {
-        initial: '{color.gray.800}', // Text im Light Mode
-        dark: '{color.gray.800}'     // Text im Dark Mode
+        initial: '{color.white}', // Text im Light Mode
+        dark: '{color.white}'     // Text im Dark Mode
       }
     },
     backdrop: {
