@@ -1,5 +1,4 @@
 import theme from '@nuxt-themes/tokens/config'
-import { defineTheme } from 'pinceau'
 
 export default defineTheme({
   alpine: {
@@ -11,12 +10,12 @@ export default defineTheme({
     },
     body: {
       backgroundColor: {
-        initial: '{color.white}',
+        initial: '{color.black}',
         dark: '{color.black}'
       },
       color: {
         initial: '{color.gray.800}',
-        dark: '{color.gray.200}'
+        dark: '{color.gray.800}'
       }
     },
     backdrop: {

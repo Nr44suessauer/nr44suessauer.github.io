@@ -2,13 +2,10 @@
 export default defineAppConfig({
   alpine: {
     // Hier den Dark Mode als Default setzen
-    theme: {
-      // Setze defaultTheme auf 'dark'
-      defaultTheme: 'dark',
-      colors: {
-        primary: '#ffffff', // Beispiel für eine benutzerdefinierte Farbpalette
-        // Hier kannst du weitere Farben anpassen
-      }
+    ui: {
+      primary: 'dark', // Primärfarbe auf "dark" setzen
+      gray: 'slate',   // Optional: Eine Graupalette wählen
+      colors: ['dark'] // Optional: Verfügbare Themefarben definieren
     },
     title: 'Alpine',
     description: 'The minimalist blog theme',
@@ -29,19 +26,26 @@ export default defineAppConfig({
     footer: {
       credits: {
         enabled: true, // possible value are : true | false
-        repository: 'https://www.github.com/nuxt-themes/alpine' // our github repository
+        repository: 'https://github.com/Nr44suessauer' // our github repository
       },
-      navigation: true, // possible value are : true | false
+      navigation: false, // possible value are : true | false
       alignment: 'center', // possible value are : 'none' | 'left' | 'center' | 'right'
-      message: 'Follow me on' // string that will be displayed in the footer (leave empty or delete to disable)
+      message: 'Social Media' // string that will be displayed in the footer (leave empty or delete to disable)
     },
+
+    // Sozial Links
     socials: {
-      twitter: 'nuxtlabs',
-      instagram: 'atinuxt',
+      github: 'Nr44suessauer',
+
+      instagram: {
+        icon: 'uil:instagram',
+        label: 'Instagram',
+        href: 'https://www.instagram.com/nr44mitreis/'
+      },
       linkedin: {
         icon: 'uil:linkedin',
         label: 'LinkedIn',
-        href: 'https://www.linkedin.com/company/nuxtlabs'
+        href: 'https://www.linkedin.com/in/marc-nauendorf-266234329/'
       }
     },
     form: {

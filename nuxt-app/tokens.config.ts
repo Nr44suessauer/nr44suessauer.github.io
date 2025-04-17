@@ -9,7 +9,7 @@ export default defineTheme({
       },
       color: {
         initial: '{color.gray.800}', // Text im Light Mode
-        dark: '{color.gray.200}'     // Text im Dark Mode
+        dark: '{color.gray.800}'     // Text im Dark Mode
       }
     },
     backdrop: {
