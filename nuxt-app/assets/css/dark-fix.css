@@ -1,0 +1,27 @@
+/* Forcierte Styles für Dark Mode */
+html.dark body {
+  color: white !important;
+  background-color: #111 !important;
+}
+
+html.dark h1, 
+html.dark h2, 
+html.dark h3, 
+html.dark h4, 
+html.dark h5, 
+html.dark h6,
+html.dark p, 
+html.dark a,
+html.dark li {
+  color: white !important;
+}
+
+html.dark a:hover {
+  color: #66ccff !important;
+}
+
+/* Forcierte Klasse für den Fall, dass .dark nicht angewendet wird */
+.dark-mode-fix {
+  color: white !important;
+  background-color: #111 !important;
+}

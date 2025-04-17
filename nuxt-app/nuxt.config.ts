@@ -13,6 +13,7 @@ export default defineNuxtConfig({
 
   css: [
     // ...andere CSS-Dateien...
-    '~/assets/css/custom.css'
+     '~/assets/css/custom.css'
+    //'~/plugins/dark-mode-fix.js'
   ]
 })
