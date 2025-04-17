@@ -9,5 +9,10 @@ export default defineNuxtConfig({
     '@nuxt/devtools'
   ],
 
-  compatibilityDate: '2025-04-17'
+  compatibilityDate: '2025-04-17',
+
+  css: [
+    // ...andere CSS-Dateien...
+    '~/assets/css/custom.css'
+  ]
 })

@@ -21,8 +21,8 @@ export default defineTheme({
     },
     backdrop: {
       backgroundColor: {
-        initial: '#f4f4f5b3', // TODO: rgba({color.gray.100}, 0.7)
-        dark: '#18181bb3' // TODO: rgba({color.gray.900}, 0.7)
+        initial: '#18181bb3', // TODO: rgba({color.gray.100}, 0.7)
+        dark: '#f4f4f5b3' // TODO: rgba({color.gray.900}, 0.7)
       }
     },
     readableLine: '68ch'

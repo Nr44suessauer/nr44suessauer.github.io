@@ -1,6 +1,11 @@
 // https://github.com/nuxt-themes/alpine/blob/main/nuxt.schema.ts
 export default defineAppConfig({
   alpine: {
+    // Hier den Dark Mode als Default setzen
+    theme: {
+      // Setze defaultTheme auf 'dark'
+      defaultTheme: 'dark'
+    },
     title: 'Alpine',
     description: 'The minimalist blog theme',
     image: {

@@ -38,33 +38,42 @@ export default defineNuxtConfig({
       }
     }
   },
+
   extends: [envModules.typography, envModules.elements],
+
   runtimeConfig: {
     public: {
       FORMSPREE_URL: process.env.FORMSPREE_URL
     }
   },
+
   pages: true,
+
   modules: [
     envModules.tokens,
     envModules.studio,
     '@nuxt/content',
     updateModule as any
   ],
+
   components: [
     { path: resolve('./components'), global: true },
     { path: resolve('./components/content'), global: true },
     { path: resolve('./components/data-entry'), global: true }
   ],
+
   css: [
     resolve('./assets/main.css'),
   ],
+
   colorMode: {
     classSuffix: ''
   },
+
   pinceau: {
     studio: true
   },
+
   content: {
     documentDriven: true,
     navigation: {
@@ -78,15 +87,20 @@ export default defineNuxtConfig({
       preload: ['json', 'js', 'ts', 'html', 'css', 'vue', 'diff', 'shell', 'markdown', 'yaml', 'bash', 'ini', 'c', 'cpp']
     }
   },
+
   experimental: {
     inlineSSRStyles: false
   },
+
   typescript: {
     includeWorkspace: true
   },
+
   nitro: {
     prerender: {
       ignore: ['/__pinceau_tokens_config.json', '/__pinceau_tokens_schema.json']
     }
   },
+
+  compatibilityDate: '2025-04-17'
 })
