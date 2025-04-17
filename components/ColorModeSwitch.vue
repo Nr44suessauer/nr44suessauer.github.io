@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const colorMode = useColorMode()
 const onClick = () => {
-  const values = ['system', 'light', 'dark']
+  const values = ['light', 'dark']
   const index = values.indexOf(colorMode.preference)
   const next = (index + 1) % values.length
 
@@ -19,10 +19,6 @@ const onClick = () => {
       <template v-else-if="colorMode.preference === 'light'">
         <Icon name="uil:sun" />
         <span class="sr-only">Light mode</span>
-      </template>
-      <template v-else>
-        <Icon name="uil:desktop" />
-        <span class="sr-only">System mode</span>
       </template>
     </ColorScheme>
   </button>
