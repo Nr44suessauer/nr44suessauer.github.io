@@ -1,5 +1,6 @@
 import { defineTheme } from 'pinceau'
 
+
 export default defineTheme({
   alpine: {
     body: {
@@ -8,13 +9,13 @@ export default defineTheme({
         dark: '{color.black}'
       },
       color: {
-        initial: '{color.white}', // Text im Light Mode
+        initial: '{color.white}', 
         dark: '{color.white}'     // Text im Dark Mode
       }
     },
     backdrop: {
       backgroundColor: {
-        initial: '#18181bb3', // Hintergrund für Light Mode
+        initial: '#18181bb3', 
         dark: '#f4f4f5b3'     // Hintergrund für Dark Mode
       }
     },
