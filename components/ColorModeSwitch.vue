@@ -1,7 +1,14 @@
 <script setup lang="ts">
+import { useColorMode, onMounted } from '#imports'
 const colorMode = useColorMode()
+
+// Stellt sicher, dass der Dark Mode beim Erstladen gesetzt ist
+onMounted(() => {
+  colorMode.preference = 'dark'
+})
+
 const onClick = () => {
-  const values = ['system', 'light', 'dark']
+  const values = ['light', 'dark'] // Nur zwischen Light und Dark wechseln
   const index = values.indexOf(colorMode.preference)
   const next = (index + 1) % values.length
 
