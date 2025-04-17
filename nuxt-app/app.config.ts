@@ -6,7 +6,7 @@ export default defineAppConfig({
       // Setze defaultTheme auf 'dark'
       defaultTheme: 'dark',
       colors: {
-        primary: '#ff0000', // Beispiel für eine benutzerdefinierte Farbpalette
+        primary: '#ffffff', // Beispiel für eine benutzerdefinierte Farbpalette
         // Hier kannst du weitere Farben anpassen
       }
     },
