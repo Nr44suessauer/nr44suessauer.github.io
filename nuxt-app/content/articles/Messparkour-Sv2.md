@@ -5,13 +5,16 @@ author:
   avatarUrl: https://pbs.twimg.com/profile_images/1042510623962275840/1Iw_Mvud_400x400.jpg
 date: 2022-08-23T00:00:00.000Z
 layout: page
+description: "Praxisaufgabe SS2025"
 ---
 
 # Messparkour SV2
 
 **Verantwortlicher: Marc Nauendorf** | **Bewertung: 50 Punkte (Praxisteil) + 50 Punkte (Theorie) bei Herr Klemm**  
 
-> **Beide Teile müssen bestanden** werden um SV2 zu bestehen.
+<blockquote>
+  <p><strong>Beide Teile müssen bestanden</strong> werden um SV2 zu bestehen.</p>
+</blockquote>
 
 ### **Vorwort**
 
@@ -35,7 +38,9 @@ Ich freue mich auf eure engagierte Mitarbeit und wünsche euch viel Erfolg bei d
 </div>
 
 
-> Bemerkung: Die jenigen die mit ihrem Microcontroller schon anfangen möchte, kann das gerne tun. Man kann die Arbeiten auch mit AtmelChips o.ä. bearbeiten. Wichtig: **Das Arduino Framework ist das einzige was ihr nicht nutzen dürft, sonst ist alles erlaubt.**
+<blockquote>
+  <p>Bemerkung: Die jenigen die mit ihrem Microcontroller schon anfangen möchte, kann das gerne tun. Man kann die Arbeiten auch mit AtmelChips o.ä. bearbeiten. Wichtig: <strong>Das Arduino Framework ist das einzige was ihr nicht nutzen dürft, sonst ist alles erlaubt.</strong></p>
+</blockquote>
 
 **PS:** Zugang für Labor bei [Herr Ballein](https://www.hs-heilbronn.de/de/martin.ballein)
 
@@ -72,7 +77,9 @@ Ich freue mich auf eure engagierte Mitarbeit und wünsche euch viel Erfolg bei d
 - Aufbauen eurer errechneten Schaltungen mit Freqenzgenerator & Netzteil
 - Bearbeiten der Themenfelder mit Osziloskop & Multimeter
 
-> Am Ende die Ausgabe eines [Pi Pico´s](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html#pico-1-technical-specification) mit einem I²C Bauteil
+<blockquote>
+  <p>Am Ende die Ausgabe eines <a href="https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html#pico-1-technical-specification">Pi Pico´s</a> mit einem I²C Bauteil</p>
+</blockquote>
 
 #### **Nachbereitung**  
 - **Dokumentation**  
@@ -101,7 +108,9 @@ Ich freue mich auf eure engagierte Mitarbeit und wünsche euch viel Erfolg bei d
 - Messtechnische Darstellung, Auslesung und Analyse der I²C Pakete **über das Oszilloskop**.
 - Identifiziere mögliche Fehlerquellen und erstelle Messbilder, die von positiven bis negativen Werten reichen.
 
->  Am Ende die Ausgabe von einem Servo-Motor für Termin 3
+<blockquote>
+  <p>Am Ende die Ausgabe von einem Servo-Motor für Termin 3</p>
+</blockquote>
 
 #### **Nachbereitung**
 - **Dokumentation**
