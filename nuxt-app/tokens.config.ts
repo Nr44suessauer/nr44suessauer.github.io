@@ -4,7 +4,7 @@ export default defineTheme({
   alpine: {
     body: {
       backgroundColor: {
-        initial: '{color.white}',
+        initial: '{color.black}',
         dark: '{color.black}'
       },
       color: {

@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   colorMode: {
     preference: 'dark', // Setzt Dark Mode als Standardeinstellung
     fallback: 'dark',   // Fallback, falls keine Präferenz festgelegt ist
-    classSuffix: '',    // Entfernt das Suffix in den generierten CSS-Klassen
+    //classSuffix: '',    // Entfernt das Suffix in den generierten CSS-Klassen
   },
 
   modules: [
