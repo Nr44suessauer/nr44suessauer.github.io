@@ -1,6 +1,8 @@
 <script lang="ts" setup>
-const alpine = useAppConfig().alpine
+import { ref } from 'vue'
+import { useAppConfig } from '#imports'
 
+const alpine = useAppConfig().alpine
 const show = ref(false)
 </script>
 
@@ -18,18 +20,6 @@ const show = ref(false)
 
     <div class="overlay" :class="[show && 'show']">
       <MainNav @link-click="show = !show" />
-    </div>
-
-    <div class="logo">
-      <NuxtLink v-if="alpine.header.logo" to="/">
-        <!-- TODO: width/height doesn't make much sense here, but Lighthouse requires it. 
-        Used current Alpine logo ratio, will break on enduser logo -->
-        <NuxtImg class="dark-img" :src="alpine.header.logo.pathDark" :alt="alpine.header.logo.alt" width="89" height="31" />
-        <NuxtImg class="light-img" :src="alpine.header.logo.path" :alt="alpine.header.logo.alt" width="89" height="31" />
-      </NuxtLink>
-      <NuxtLink to="/" class="fallback">
-        {{ alpine.title }}
-      </NuxtLink>
     </div>
 
     <div class="main-nav">
@@ -53,7 +43,7 @@ css({
       position: 'absolute',
       display: 'flex',
       ':hover': {
-        color: '{color.primary.500}',
+        color: '{color.primary.500}'
       },
       '.left &&': {
         right: 0
@@ -82,7 +72,7 @@ css({
         opacity: 0,
         transform: 'translateY(-10px) rotateY(-8deg) rotateX(-20deg)',
         '.left &&': {
-          transform: 'translateY(-10px) rotateY(8deg) rotateX(-20deg)',
+          transform: 'translateY(-10px) rotateY(8deg) rotateX(-20deg)'
         },
         pointerEvents: 'none'
       },
@@ -96,7 +86,7 @@ css({
         display: 'none'
       },
       '@dark': {
-        borderColor: '{color.gray.800}',
+        borderColor: '{color.gray.800}'
       }
     },
     '.logo': {
@@ -104,21 +94,21 @@ css({
       gridColumn: 'span 12 / span 12',
       height: 'var(--logo-height)',
       a: {
-        display: 'flex',
+        display: 'flex'
       },
       '.center &&': {
         gridColumn: 'span 12 / span 12',
-        justifyContent: 'center',
+        justifyContent: 'center'
       },
       '.right &&': {
-        justifyContent: 'flex-end',
+        justifyContent: 'flex-end'
       },
       '@sm': {
         gridColumn: 'span 4 / span 4',
         gridColumnStart: 'auto',
         '.right &&': {
-          order: 2,
-        },
+          order: 2
+        }
       },
       '.fallback': {
         fontSize: '{text.2xl.fontSize}',
@@ -130,22 +120,21 @@ css({
       display: 'none',
       '@sm': {
         display: 'flex',
-        gridColumn: 'span 8 / span 8',
+        gridColumn: 'span 12 / span 12',  // Angepasst, um den gesamten Platz zu nutzen
         fontSize: '{text.xl.fontSize}',
         lineHeight: '{text.xl.lineHeight}',
         fontWeight: '{fontWeight.medium}',
         '.center &&': {
-          gridColumn: 'span 12 / span 12',
-          justifyContent: 'center',
+          justifyContent: 'center'
         },
         '.right &&': {
-          justifyContent: 'flex-start',
+          justifyContent: 'flex-start'
         },
         '.left &&': {
-          justifyContent: 'flex-end',
-        },
+          justifyContent: 'flex-end'
+        }
       }
-    },
+    }
   }
 })
 </style>

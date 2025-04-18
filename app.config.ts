@@ -10,17 +10,12 @@ export default defineAppConfig({
     },
     header: {
       position: 'right',
-      // logo: {
-      //   path: '/logo.svg',
-      //   pathDark: '/logo-dark.svg',
-      //   alt: 'alpine'
-      logo: null // oder komplett entfernen
-      }
+      logo: false  // Logo ausschalten
     },
     footer: {
       credits: {
-        enabled: true,
-        text: 'Alpine',
+        enabled: false,
+        text: 'Benis',
         repository: 'https://www.github.com/nuxt-themes/alpine'
       },
       navigation: true,
