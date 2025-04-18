@@ -44,4 +44,60 @@
     transition: all 0.3s ease;
 }
 
+/* Grundlegende Box-Eigenschaften */
+.textbox-violet {
+    padding: 20px;
+    margin: 15px 0;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    
+    /* Hintergrund und Schatten */
+    background-color: #302e2e;
+    box-shadow: 0 3px 8px rgba(216, 9, 188, 0.979);
+    
+    /* Textformatierung */
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
 
+
+/* Grundlegende Box-Eigenschaften */
+.textbox-green {
+    padding: 20px;
+    margin: 15px 0;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    
+    /* Hintergrund und Schatten */
+    background-color: #302e2e;
+    box-shadow: 0 3px 8px rgba(43, 255, 0, 0.959);
+    
+    /* Textformatierung */
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+/* Grundlegende Box-Eigenschaften */
+.textbox-yellow {
+    padding: 20px;
+    margin: 15px 0;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    
+    /* Hintergrund und Schatten */
+    background-color: #302e2e;
+    box-shadow: 0 3px 8px rgba(247, 252, 0, 0.979);
+    
+    /* Textformatierung */
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
