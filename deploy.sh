@@ -14,8 +14,8 @@ cp -rf .output/public/* ..
 # Navigate back to parent directory
 cd ..
 
-git config --global user.email "marcnauendorfbusiness@gmail.com"
-git config --global user.name "Nauendorf"
+# git config --global user.email "marcnauendorfbusiness@gmail.com"
+# git config --global user.name "Nauendorf"
 
 # Add all changes to git
 echo "Adding files to git..."
