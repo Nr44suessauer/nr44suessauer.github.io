@@ -8,6 +8,12 @@ export default defineAppConfig({
       colors: ['dark'] // Optional: Verfügbare Themefarben definieren
     },
 
+    // Header-Konfiguration für das Logo
+    header: {
+      position: 'right',  // Position des Headers
+      logo: false         // Logo explizit deaktivieren
+    },
+
     // Footer-Konfiguration hinzufügen, um Credits zu deaktivieren
     footer: {
       credits: {

@@ -95,25 +95,6 @@ css({
       height: 'var(--logo-height)',
       a: {
         display: 'flex'
-      },
-      '.center &&': {
-        gridColumn: 'span 12 / span 12',
-        justifyContent: 'center'
-      },
-      '.right &&': {
-        justifyContent: 'flex-end'
-      },
-      '@sm': {
-        gridColumn: 'span 4 / span 4',
-        gridColumnStart: 'auto',
-        '.right &&': {
-          order: 2
-        }
-      },
-      '.fallback': {
-        fontSize: '{text.2xl.fontSize}',
-        lineHeight: '{text.2xl.lineHeight}',
-        fontWeight: '{fontWeight.semibold}'
       }
     },
     '.main-nav': {

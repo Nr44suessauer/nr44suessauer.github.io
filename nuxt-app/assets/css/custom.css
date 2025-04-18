@@ -113,3 +113,9 @@ html body a[href^="http"] {
   /* Mobile Styles */
 }
 
+/* Logo ausblenden */
+header .logo, 
+.header .logo {
+  display: none !important;
+}
+
