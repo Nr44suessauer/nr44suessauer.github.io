@@ -24,9 +24,7 @@ const alpine = useAppConfig().alpine
       <div v-if="alpine.socials && Object.entries(alpine.socials)" class="social">
         <SocialIcons :socials="alpine.socials" />
       </div>
-            <!-- <div class="color-mode-switch">
-        <ColorModeSwitch />
-      </div> -->
+      <!-- Der Farbwechsel-Button wurde hier entfernt -->
     </div>
   </footer>
 </template>
@@ -90,11 +88,11 @@ css({
         justifyContent: 'center',
         gap: '{space.4}',
         '@xs': {
-          gridColumn: 'span 12 / span 12', // Geändert, um den gesamten Platz einzunehmen
+          gridColumn: 'span 12 / span 12',
           justifyContent: 'center',
         }
-      },
-      // CSS für color-mode-switch wurde hier entfernt, da wir dieses Element nicht mehr verwenden
+      }
+      // Alle CSS-Stile für den color-mode-switch wurden entfernt
     },
   }
 })
