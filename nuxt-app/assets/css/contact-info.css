@@ -20,23 +20,29 @@
     font-size: 0.95rem;
   }
   
-  .contact-info__item {
-    display: flex;
-    align-items: center;
-    margin-bottom: -3.0rem;
-  }
-  
   .contact-info__icon {
     margin-right: 0.5rem;
     font-style: normal;
+    font-size: 1.5rem;    /* Icon-Größe anpassen */
+    margin-right: 1rem;   /* Abstand zum Text */
+  }
+  
+  .contact-info__item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;  /* Standardwert, den du anpassen kannst */
+    font-size: 1.2rem;    /* Textgröße anpassen */
+    padding: 10px;        /* Innenabstand anpassen */
+    width: 100%;          /* Breite anpassen */
+    max-width: 500px;     /* Maximale Breite festlegen */
   }
   
   /* Profil-Karte mit Kontaktinfo */
 .profile-card {
     width: 250px;
-    border-radius: 10px;
+    border-radius: 30px;
     overflow: hidden;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 8px rgba(2, 210, 247, 0.651);
     background-color: #1a1a1a;
     flex-shrink: 0;
   }
@@ -111,7 +117,7 @@
   }
   
   .profile-card {
-    margin-bottom: 1rem;
+    margin-bottom: 10rem;
     width: 100%;
     max-width: 350px;
   }
