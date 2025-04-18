@@ -93,7 +93,7 @@ export default defineNuxtSchema({
           /**
            * Text to be displayed.
            */
-          text: 'Alpine',
+          text: 'Benis',
           /**
            * GitHub repository link.
            */
