@@ -24,9 +24,9 @@ const alpine = useAppConfig().alpine
       <div v-if="alpine.socials && Object.entries(alpine.socials)" class="social">
         <SocialIcons :socials="alpine.socials" />
       </div>
-      <div class="color-mode-switch">
+      <!-- <div class="color-mode-switch">
         <ColorModeSwitch />
-      </div>
+      </div> -->
     </div>
   </footer>
 </template>
