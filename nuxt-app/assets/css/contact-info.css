@@ -1,0 +1,118 @@
+/* Profilbild-Styles */
+.profile-image-container {
+    float: right;
+    margin: 0 0 1rem 1rem;
+    max-width: 30%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  /* Kontakt-Info Styles */
+  .contact-info {
+    margin: 1rem 0;
+    font-size: 0.95rem;
+  }
+  
+  .contact-info__item {
+    display: flex;
+    align-items: center;
+    margin-bottom: -3.0rem;
+  }
+  
+  .contact-info__icon {
+    margin-right: 0.5rem;
+    font-style: normal;
+  }
+  
+  /* Profil-Karte mit Kontaktinfo */
+.profile-card {
+    width: 250px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    background-color: #1a1a1a;
+    flex-shrink: 0;
+  }
+  
+  .profile-card__image {
+    width: 100%;
+  }
+  
+  .profile-card__image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .profile-card__info {
+    padding: 12px;
+    background-color: #1a1a1a;
+  }
+  
+  .profile-card__contact-item {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+  }
+  
+  .profile-card__icon {
+    font-size: 1rem;
+    margin-right: 10px;
+    min-width: 24px;
+  }
+  
+  .profile-card__text {
+    font-size: 0.9rem;
+    line-height: 1.2;
+    word-break: break-word;
+  }
+
+/* Container für die Profilsektion */
+.profile-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Linke Spalte mit dem Text */
+.profile-content {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  align-items: center; /* Vertikale Zentrierung */
+}
+
+/* Textbox-Stile */
+.textbox {
+  padding: 1.5rem;
+  border-radius: 8px;
+  width: 100%;
+}
+
+/* Background Farbe container 2 */
+.textbox--secondary {
+  background-color: #464c5079;
+}
+
+/* Responsive Design für kleinere Bildschirme */
+@media (max-width: 768px) {
+  .profile-container {
+    flex-direction: column-reverse; /* Profilbild oben, Text unten */
+  }
+  
+  .profile-card {
+    margin-bottom: 1rem;
+    width: 100%;
+    max-width: 350px;
+  }
+}

@@ -19,6 +19,8 @@ export default defineNuxtConfig({
 
   css: [
     // ...andere CSS-Dateien...
-    '~/assets/css/custom.css'
+    '~/assets/css/custom.css',
+    '~/assets/css/contact-info.CSS',
+    '~/assets/css/TextBlock.css'
   ]
 })

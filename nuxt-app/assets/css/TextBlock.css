@@ -1,0 +1,51 @@
+/* ----- Textbox 1: Primäre Textbox ----- */
+.textbox-primary {
+    /* Grundlegende Box-Eigenschaften */
+    padding: 20px;
+    margin: 15px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    
+    /* Hintergrund und Schatten */
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    
+    /* Textformatierung */
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+}
+
+/* Hover-Effekt für die primäre Textbox */
+.textbox-primary:hover {
+    border-color: #aaa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+/* ----- Textbox 2: Sekundäre Textbox ----- */
+.textbox-secondary {
+    /* Grundlegende Box-Eigenschaften */
+    padding: 15px 25px;
+    margin: 15px 0;
+    border: 1px solid #3498db;
+    border-radius: 8px;
+    
+    /* Hintergrund und Schatten */
+    background-color: #ebf5fb;
+    box-shadow: 0 1px 3px rgba(52, 152, 219, 0.2);
+    
+    /* Textformatierung */
+    font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #2c3e50;
+}
+
+/* Hover-Effekt für die sekundäre Textbox */
+.textbox-secondary:hover {
+    background-color: #d6eaf8;
+    border-color: #2980b9;
+    transition: all 0.3s ease;
+}
