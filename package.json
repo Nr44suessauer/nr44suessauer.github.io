@@ -38,6 +38,7 @@
   "devDependencies": {
     "@nuxt/eslint-config": "^0.2.0",
     "@nuxtjs/plausible": "^0.2.4",
+    "@pinegrow/nuxt-module": "^3.0.69",
     "@types/node": "^20.11.5",
     "eslint": "^8.56.0",
     "nuxt": "^3.9.3",

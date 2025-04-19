@@ -26,15 +26,38 @@ export default defineNuxtConfig({
     //classSuffix: '',    // Entfernt das Suffix in den generierten CSS-Klassen
   },
 
+  // Nur EINE modules-Deklaration verwenden
   modules: [
     // https://github.com/nuxt-modules/plausible
     '@nuxtjs/plausible',
     // https://github.com/nuxt/devtools
-    '@nuxt/devtools'
+    '@nuxt/devtools',
+    '@pinegrow/nuxt-module',
+    // Füge hier @nuxt/content hinzu, wenn nicht durch alpine bereits enthalten
+    // '@nuxt/content'
   ],
 
   compatibilityDate: '2025-04-17',
-
+  
+  pinegrow: {
+    liveDesigner: {
+      // Konfiguriere den Server, den Vue Designer verwenden soll
+      devServerUrl: 'http://localhost:3000', // Der Standard-Port für Nuxt
+      plugins: []
+    },
+  },
+  
+  // Server-Konfiguration für externe Verbindungen
+  server: {
+    host: '0.0.0.0', // Erlaubt Verbindungen von allen Netzwerkschnittstellen
+    port: 3000
+  },
+  
+  devtools: {
+    // Enable devtools (default: true)
+    enabled: true
+  },
+  
   css: [
     '~/assets/css/custom.css',
     '~/assets/css/contact-info.CSS',
