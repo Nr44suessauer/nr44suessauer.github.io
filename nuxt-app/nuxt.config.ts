@@ -1,6 +1,24 @@
+import { defineNuxtConfig } from 'nuxt/config'
+
 export default defineNuxtConfig({
   // https://github.com/nuxt-themes/alpine
   extends: '@nuxt-themes/alpine',
+  
+  // Auto-Import von Komponenten aktivieren
+  components: {
+    global: true,
+    dirs: [
+      '~/components',
+      '~/components/algo'
+    ]
+  },
+  
+  content: {
+    markdown: {
+      // Deaktiviere die Plugins vorübergehend
+      remarkPlugins: []
+    }
+  },
   
   colorMode: {
     preference: 'dark', // Setzt Dark Mode als Standardeinstellung
@@ -18,9 +36,17 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-04-17',
 
   css: [
-    // ...andere CSS-Dateien...
     '~/assets/css/custom.css',
     '~/assets/css/contact-info.CSS',
     '~/assets/css/TextBlock.css'
-  ]
+  ],
+
+  // Clientseitige Skripts für Mermaid
+  app: {
+    head: {
+      script: [
+        { src: 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js', body: true }
+      ]
+    }
+  }
 })
