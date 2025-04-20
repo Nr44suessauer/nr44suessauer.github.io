@@ -61,7 +61,8 @@ export default defineNuxtConfig({
   css: [
     '~/assets/css/custom.css',
     '~/assets/css/contact-info.CSS',
-    '~/assets/css/TextBlock.css'
+    '~/assets/css/TextBlock.css',
+    '~/assets/css/ProjectCard.css'
   ],
 
   // Clientseitige Skripts für Mermaid

@@ -64,6 +64,7 @@ export default defineNuxtConfig({
 
   css: [
     resolve('./assets/main.css'),
+    '~/assets/css/ProjectCard.css'
   ],
 
   colorMode: {
