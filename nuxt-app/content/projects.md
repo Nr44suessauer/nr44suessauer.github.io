@@ -21,7 +21,7 @@ title: Projects
     </div>
   </a>
 
-  <a href="/projects/project2" class="project-card">
+  <a href="/projects/project1" class="project-card">
     <img src="/alpine-0.webp" alt="Projektbild" class="project-card__image" />
     <div class="project-card__content">
       <div class="project-card__title">Projektname</div>
@@ -33,7 +33,7 @@ title: Projects
     </div>
   </a>
 
-  <a href="/projects/project3" class="project-card">
+  <a href="/projects/project1" class="project-card">
     <img src="/alpine-0.webp" alt="Projektbild" class="project-card__image" />
     <div class="project-card__content">
       <div class="project-card__title">Projektname</div>
