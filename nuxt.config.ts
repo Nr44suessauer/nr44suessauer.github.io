@@ -1,6 +1,7 @@
 import { createResolver, logger, defineNuxtModule } from '@nuxt/kit'
 import { $fetch } from 'ofetch'
 import { version } from './package.json'
+import { defineNuxtConfig } from 'nuxt/config'
 
 const { resolve } = createResolver(import.meta.url)
 
@@ -35,11 +36,14 @@ export default defineNuxtConfig({
     head: {
       htmlAttrs: {
         lang: 'en'
-      }
+      },
+      script: [
+        { src: 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js', body: true }
+      ]
     }
   },
 
-  extends: [envModules.typography, envModules.elements],
+  extends: '@nuxt-themes/alpine',
 
   runtimeConfig: {
     public: {
@@ -50,24 +54,28 @@ export default defineNuxtConfig({
   pages: true,
 
   modules: [
-    envModules.tokens,
-    envModules.studio,
+    '@nuxtjs/plausible',
+    '@nuxt/devtools',
+    '@pinegrow/nuxt-module',
     '@nuxt/content',
     updateModule as any
   ],
 
   components: [
-    { path: resolve('./components'), global: true },
-    { path: resolve('./components/content'), global: true },
-    { path: resolve('./components/data-entry'), global: true }
+    { path: './components', global: true },
+    { path: './components/algo', global: true }
   ],
 
   css: [
-    resolve('./assets/main.css'),
-    '~/assets/css/ProjectCard.css'
+    'nuxt-app/assets/css/custom.css',
+    'nuxt-app/assets/css/contact-info.CSS',
+    'nuxt-app/assets/css/TextBlock.css',
+    'nuxt-app/assets/css/ProjectCard.css'
   ],
 
   colorMode: {
+    preference: 'dark',
+    fallback: 'dark',
     classSuffix: ''
   },
 
@@ -86,6 +94,9 @@ export default defineNuxtConfig({
         dark: 'github-dark'
       },
       preload: ['json', 'js', 'ts', 'html', 'css', 'vue', 'diff', 'shell', 'markdown', 'yaml', 'bash', 'ini', 'c', 'cpp']
+    },
+    markdown: {
+      remarkPlugins: []
     }
   },
 
@@ -103,5 +114,21 @@ export default defineNuxtConfig({
     }
   },
 
-  compatibilityDate: '2025-04-17'
+  compatibilityDate: '2025-04-17',
+
+  pinegrow: {
+    liveDesigner: {
+      devServerUrl: 'http://localhost:3000',
+      plugins: []
+    },
+  },
+
+  server: {
+    host: '0.0.0.0',
+    port: 3000
+  },
+
+  devtools: {
+    enabled: true
+  }
 })
