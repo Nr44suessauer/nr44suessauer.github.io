@@ -2,7 +2,7 @@
 
 
 #### Aktuelle Dokumentation & Stand:
-https://deadlinedriven.dev/projects/I-Scan/
+Offline -> Dokumentation zieht auf Vue.js um https://deadlinedriven.dev/
 
 
 ## Arbeitspaket 1: Django Server
@@ -14,7 +14,7 @@ Entwicklung einer stabilen Serverlösung zur Bereitstellung einer REST API und e
 
 **Inhalte und Maßnahmen:**  
 - Implementierung einer REST API basierend auf Erweiterungen aus dem Django-Tutorial  
-    (Detail zur Systemarchitektur: [System Architecture](https://deadlinedriven.dev/blog/2025/SystemArchitecture/))
+    (Detail zur Systemarchitektur: [System Architecture](https://github.com/Nr44suessauer/I-Scan/blob/main/docs/markdown/SystemArchitecture.md)
 - Testen der API mit Postman; Erfolgsnachweis über Lognachrichten
 - Bereitstellung einer einfachen SPA (SinglePageApplication) für weniger erfahrene Nutzer
 
@@ -57,7 +57,7 @@ Aufbau einer modularen und erweiterbaren Codebasis für spezifische Systemkompon
 
 **Erwartetes Ergebnis:**  
 Ein sauber strukturierter Code, der eine einfache Erweiterung und Wartung ermöglicht.  
-> note: Codebase kann in SV2, RTS & diversen hardwarenahen Kursen eingesetzt werden. [Git Repo](https://github.com/Nr44suessauer/I-Scan/tree/main/implementation/PositionUnit/main)
+> note: Codebase kann in SV2, RTS & diversen hardwarenahen Kursen eingesetzt werden. [Git Repo](https://github.com/Nr44suessauer/I-Scan/tree/main/implementation/PositionUnit_with_API)
 
 ---
 
@@ -69,7 +69,7 @@ Erstellung einer übersichtlichen Dokumentation, die die Ergebnisse der Arbeitsp
 40 Stunden (entspricht ca. 1,33 ECTS)
 
 **Inhalte und Maßnahmen:**  
-- Überarbeitung vorhandener Dokumentationsteile (siehe: [Dokumentation I-Scan](https://deadlinedriven.dev/projects/I-Scan/)) im gewünschten Stil : [Develop_Pc](https://deadlinedriven.dev/projects/Develop_Pc/)
+- Überarbeitung vorhandener Dokumentationsteile (siehe: [Dokumentation I-Scan](https://github.com/Nr44suessauer/I-Scan/tree/main/docs/markdown) 
 - Detaillierte Dokumentation der Arbeitspakete 1 bis 3 inklusive weiterer Ergänzungen
 - "Benutzerhanduch" erstellen (Step-by-Step Guide)
 
