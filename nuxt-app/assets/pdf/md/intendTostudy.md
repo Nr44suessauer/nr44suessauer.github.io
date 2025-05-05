@@ -1,6 +1,3 @@
-
-
-
 **Marc Nauendorf** \
 **Martikelnummer: 200882** \
 **Email : Marc.Nauendorf@Hs-heilbronn.de**
@@ -21,34 +18,34 @@ This course is primary interviews/questionround with CEO's. leaded by Prof. Dr. 
 
 ## Advanced Software Engineering and Data Science
 
-| Course Number | Course Name                   | Semester | ECTS | Examination Type  | Profile | Still Open |
-|--------------|------------------------------|----------|------|-------------------|---------|------------|
-| <span style="background-color: yellow">172371</span> | <span style="background-color: yellow">Deep Learning</span> | <span style="background-color: yellow">2</span> | <span style="background-color: yellow">6</span> | <span style="background-color: yellow">Practical Work</span> | <span style="background-color: yellow">ASE</span> | <span style="background-color: yellow">Yes</span> |
-| 172360     | Advanced Software Architecture | 2        | 3    | Practical Work | ASE    | No       |
-| 172369     | Cloud Computing                | 2        | 3    | Practical Work | ASE    | No       |
-| <span style="background-color: yellow">262311</span> | <span style="background-color: yellow">Intelligent Systems</span> | <span style="background-color: yellow">1</span> | <span style="background-color: yellow">3</span> | <span style="background-color: yellow">Practical Work</span> | <span style="background-color: yellow">ASE</span> | <span style="background-color: yellow">Yes</span> |
-| 172352     | Machine Learning Lab           | 2        | 3    | Practical Work | ASE    | No       |
+| Course Number | Course Name                   | Semester | ECTS | Examination Type  | Lecturer | Profile | Still Open |
+|--------------|------------------------------|----------|------|-------------------|---------|---------|------------|
+| <span style="background-color: yellow">172371</span> | <span style="background-color: yellow">Deep Learning</span> | <span style="background-color: yellow">2</span> | <span style="background-color: yellow">6</span> | <span style="background-color: yellow">Practical Work</span> | <span style="background-color: yellow">Dr. Nurdedini</span> | <span style="background-color: yellow">ASE</span> | <span style="background-color: yellow">X</span> |
+| 172360     | Advanced Software Architecture | 2        | 3    | Practical Work | Prof. Dr. Heil | ASE    |        |
+| 172369     | Cloud Computing                | 2        | 3    | Practical Work | Dr. Fankhauser | ASE    |        |
+| <span style="background-color: yellow">262311</span> | <span style="background-color: yellow">Intelligent Systems</span> | <span style="background-color: yellow">1</span> | <span style="background-color: yellow">3</span> | <span style="background-color: yellow">Practical Work</span> | <span style="background-color: yellow">Dr. Nurdedini</span> | <span style="background-color: yellow">ASE</span> | <span style="background-color: yellow">X</span> |
+| 172352     | Machine Learning Lab           | 2        | 3    | Practical Work | Prof. Dr. Windberger | ASE    |        |
 
 ## Human-Computer Interaction
-| Course Number | Course Name               | Semester | ECTS | Examination Type  | Profile | Still Open |
-|--------------|--------------------------|----------|------|-------------------|---------|------------|
-| 262312     | Realtime Systems          | 1        | 6    | Practical Work | HCI    | No       |
-| 262331     | Designing User Interfaces | 1        | 3    | Practical Work | HCI    | No       |
-| <span style="background-color: yellow">262333</span> | <span style="background-color: yellow">Mixed Reality Lab</span> | <span style="background-color: yellow">1</span> | <span style="background-color: yellow">6</span> | <span style="background-color: yellow">Practical Work</span> | <span style="background-color: yellow">HCI</span> | <span style="background-color: yellow">Yes</span> |
+| Course Number | Course Name               | Semester | ECTS | Examination Type  | Lecturer | Profile | Still Open |
+|--------------|--------------------------|----------|------|-------------------|---------|---------|------------|
+| 262312     | Realtime Systems          | 1        | 6    | Practical Work | Dr. Doneit | HCI    |        |
+| 262331     | Designing User Interfaces | 1        | 3    | Practical Work | Prof. Dr. Meixner | HCI    |        |
+| <span style="background-color: yellow">262333</span> | <span style="background-color: yellow">Mixed Reality Lab</span> | <span style="background-color: yellow">1</span> | <span style="background-color: yellow">6</span> | <span style="background-color: yellow">Practical Work</span> | <span style="background-color: yellow">Prof. Dr. Meixner</span> | <span style="background-color: yellow">HCI</span> | <span style="background-color: yellow">X</span> |
 
 
 ## Elective Module 
-| Course Number | Course Name     | Semester | ECTS | Examination Type  | Profile | Still Open |
-|--------------|----------------|----------|------|-------------------|---------|------------|
-| 172393     | Research Project | 2        | 12.0 | Practical Work | WM     | No       |
+| Course Number | Course Name     | Semester | ECTS | Examination Type  | Lecturer | Profile | Still Open |
+|--------------|----------------|----------|------|-------------------|---------|---------|------------|
+| 172393     | Research Project | 2        | 12.0 | Practical Work | Prof. Dr. Meixner | WM     |        |
 
 ## Additional Courses
 
-| Course Number | Course Name                | Semester | ECTS | Examination Type  | Profile | Still Open |
-|--------------|---------------------------|----------|------|-------------------|---------|------------|
-| 262451     | Scientific Writing          | 1        | 3    | Practical Work |        | No       |
-| 172383     | Information Visualization   | 2        | 3    | Practical Work |        | No       |
-| <span style="background-color: yellow">262454</span> | <span style="background-color: yellow">Advised Studying</span> | <span style="background-color: yellow">1</span> | <span style="background-color: yellow">9</span> | <span style="background-color: yellow"></span> | <span style="background-color: yellow"></span> | <span style="background-color: yellow">Yes</span> |
+| Course Number | Course Name                | Semester | ECTS | Examination Type  | Lecturer | Profile | Still Open |
+|--------------|---------------------------|----------|------|-------------------|---------|---------|------------|
+| 262451     | Scientific Writing          | 1        | 3    | Practical Work | Dr. Gonzales |        |        |
+| 172383     | Information Visualization   | 2        | 3    | Practical Work | Dr. pobiruchin |        |        |
+| <span style="background-color: yellow">262454</span> | <span style="background-color: yellow">Advised Studying</span> | <span style="background-color: yellow">1</span> | <span style="background-color: yellow">9</span> | <span style="background-color: yellow"></span> | <span style="background-color: yellow">Prof. Dr. Winckler</span> | <span style="background-color: yellow"></span> | <span style="background-color: yellow">X</span> |
 
 
 ## ECTS Overview
