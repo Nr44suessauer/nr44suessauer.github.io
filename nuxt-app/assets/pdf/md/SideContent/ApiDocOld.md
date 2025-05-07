@@ -268,7 +268,11 @@ This is the initial process to connect and verify all subsystems. It is the firs
   "DistanceToCenter": "100cm",
   "HeightOfCenter": "50cm"
 }
+<<<<<<< HEAD
 
+=======
+```
+>>>>>>> 95c8b96 (formulachangestest)
 ### <a id="maximum-delta-z"></a>Maximum Delta Z
 
 If the endstop Z is at 0 cm and the maximum height of the device is 210 cm, the maximum Delta Z can be calculated.
@@ -279,11 +283,19 @@ The units are labeled (Bot = 0, Mid = 1, Top = 2) and is the variable Z Endstop 
 
 Substituting the values:
 
+<<<<<<< HEAD
 ΔZ_max Unit = (Z_Endstop Unit × Unit Height + Maximum Height I-Scan) - (Z_Endstop Mid × Unit Height + Z_Endstop Top × Unit Height)
 
 For Unit Bot (Z Endstop Unit = 0), with Maximum Height = 210 cm and Unit Height = 15 cm:
 
 ΔZ_max Bot = (0 × 15 cm + 210 cm) - (1 × 15 cm + 2 × 15 cm) = 210 cm - 45 cm = 165 cm
+=======
+$$\Delta Z_{\text{max Unit}} = (\text{Z}_{\text{Endstop Unit}} \times \text{Unit Height} + \text{Maximum Height I-Scan}) - (\text{Z}_{\text{Endstop Mid}} \times \text{Unit Height} + \text{Z}_{\text{Endstop Top}} \times \text{Unit Height})$$
+
+For Unit Bot (Z Endstop Unit = 0), with Maximum Height = 210 cm and Unit Height = 15 cm:
+
+$$\Delta Z_{\text{max Bot}} = (0 \times 15 \text{ cm} + 210 \text{ cm}) - (1 \times 15 \text{ cm} + 2 \times 15 \text{ cm}) = 210 \text{ cm} - 45 \text{ cm} = 165 \text{ cm}$$
+>>>>>>> 95c8b96 (formulachangestest)
 
 So the ΔZmax for Unit bot is 165 cm.
 
