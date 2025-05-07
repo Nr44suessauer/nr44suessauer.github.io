@@ -1,0 +1,89 @@
+/* Mixed Reality Presentation Styles */
+
+/* Lead Slide Styles */
+.lead-slide section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 5%;
+}
+
+.lead-slide h1 {
+  font-size: 2.5em;
+}
+
+/* Split Layout for Title Slide */
+.title-slide section {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+}
+
+.top-section {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.top-section img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.bottom-section {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.bottom-section h1 {
+  font-size: 3em;
+}
+
+/* Two-Column Layout */
+.two-column section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left {
+  width: 45%;
+}
+
+.right {
+  width: 45%;
+}
+
+/* Table Styles */
+.styled-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.styled-table th, 
+.styled-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.styled-table th {
+  background-color: #f4f4f4;
+}
+
+/* Animation Effects */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
