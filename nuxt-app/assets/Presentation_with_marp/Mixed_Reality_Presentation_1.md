@@ -307,6 +307,8 @@ competitor: [Shapify.me](https://www.shapify.me/partner/booth)
 }
 </style>
 ## [AliceVision Meshroom](https://github.com/alicevision/Meshroom)
+<p>
+</p>
 <div class="centered-image-section">
   <img src="https://alicevision.org/img/meshroom/buddha_dataset.png" alt="Meshroom Buddha Dataset Example" />
   <div class="caption"></div>
