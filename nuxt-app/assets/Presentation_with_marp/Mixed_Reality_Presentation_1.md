@@ -158,11 +158,11 @@ competitor: [Shapify.me](https://www.shapify.me/partner/booth)
   <div class="split-left">
     <!-- Hier eigenen Inhalt einfügen -->
     <ul>
-    <h1>The Scanner concept</h1>
+    <h1>Scanner concept</h1>
     <br>
       <li>Moveable Camera setup vertical</li>
-      <li>Diverse Hardware is useable</li>
-      <li>Moldular system -> scalable </li>
+      <li>Diverse Hardware should be useable</li>
+      <li>Moldular system | scalable/changeable </li>
     </ul>
   </div>
   <div class="split-right">
@@ -170,53 +170,6 @@ competitor: [Shapify.me](https://www.shapify.me/partner/booth)
   </div>
 </div>
 
----
-
-
-<style scoped>
-.section-flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 2em;
-}
-.section-flex .left {
-  width: 45%;
-  min-height: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #f8f8f8;
-  border-radius: 8px;
-  color: #888;
-  font-size: 1.2em;
-  text-align: center;
-}
-.section-flex .right {
-  width: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.section-flex .right img {
-  max-width: 100%;
-  max-height: 600px;
-  border-radius: 8px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-}
-.section-flex .left h1 {
-  font-size: 1.2em;
-}
-</style>
-
-<div class="section-flex">
-  <div class="left">
-    <h1>System Architecture</h1>
-  </div>
-  <div class="right">
-    <img src="https://github.com/Nr44suessauer/I-Scan/raw/main/docs/diagram/Architecture_Diagram/SystemArchitecture%20V3.0%20%20Http_server%20+%20Lightmodule.png?raw=true">
-  </div>
-</div>
 
 
 ---
@@ -267,7 +220,7 @@ competitor: [Shapify.me](https://www.shapify.me/partner/booth)
   <div class="left-text">
     <!-- Hier deinen Text einfügen -->
     <ul>
-      <li>The positioning module aligns itself to the new center (previous center = center of the scanner on the ground)</li>
+      <li>The Z module aligns itself to the new center (previous center = center of the scanner on the ground)</li>
       <li>Targeted focusing on specific areas enables more precise detail measurement</li>
     </ul>
   </div>
@@ -276,6 +229,58 @@ competitor: [Shapify.me](https://www.shapify.me/partner/booth)
     <div class="caption"></div>
   </div>
 </div>
+
+
+---
+
+
+
+<style scoped>
+.section-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2em;
+}
+.section-flex .left {
+  width: 45%;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f8f8;
+  border-radius: 8px;
+  color: #888;
+  font-size: 1.2em;
+  text-align: center;
+}
+.section-flex .right {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.section-flex .right img {
+  max-width: 100%;
+  max-height: 600px;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+.section-flex .left h1 {
+  font-size: 1.2em;
+}
+</style>
+
+<div class="section-flex">
+  <div class="left">
+    <h1>System Architecture</h1>
+  </div>
+  <div class="right">
+    <img src="https://github.com/Nr44suessauer/I-Scan/raw/main/docs/diagram/Architecture_Diagram/SystemArchitecture%20V3.0%20%20Http_server%20+%20Lightmodule.png?raw=true">
+  </div>
+</div>
+
+
 
 ---
 
