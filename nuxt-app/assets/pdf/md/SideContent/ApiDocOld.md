@@ -268,34 +268,18 @@ This is the initial process to connect and verify all subsystems. It is the firs
   "DistanceToCenter": "100cm",
   "HeightOfCenter": "50cm"
 }
-<<<<<<< HEAD
-
-=======
 ```
->>>>>>> 95c8b96 (formulachangestest)
 ### <a id="maximum-delta-z"></a>Maximum Delta Z
 
 If the endstop Z is at 0 cm and the maximum height of the device is 210 cm, the maximum Delta Z can be calculated.
 
 To calculate the maximum height, we need to know the size of each unit. In our example, these are standardized to 15 cm.
 
-The units are labeled (Bot = 0, Mid = 1, Top = 2) and is the variable Z Endstop Unit.
+The unit´s are labeld (Bot = 0, Mid = 1, Top = 2) and is the variable Z Endstop Unit.
 
 Substituting the values:
 
-<<<<<<< HEAD
-ΔZ_max Unit = (Z_Endstop Unit × Unit Height + Maximum Height I-Scan) - (Z_Endstop Mid × Unit Height + Z_Endstop Top × Unit Height)
-
-For Unit Bot (Z Endstop Unit = 0), with Maximum Height = 210 cm and Unit Height = 15 cm:
-
-ΔZ_max Bot = (0 × 15 cm + 210 cm) - (1 × 15 cm + 2 × 15 cm) = 210 cm - 45 cm = 165 cm
-=======
 $$\Delta Z_{\text{max Unit}} = (\text{Z}_{\text{Endstop Unit}} \times \text{Unit Height} + \text{Maximum Height I-Scan}) - (\text{Z}_{\text{Endstop Mid}} \times \text{Unit Height} + \text{Z}_{\text{Endstop Top}} \times \text{Unit Height})$$
-
-For Unit Bot (Z Endstop Unit = 0), with Maximum Height = 210 cm and Unit Height = 15 cm:
-
-$$\Delta Z_{\text{max Bot}} = (0 \times 15 \text{ cm} + 210 \text{ cm}) - (1 \times 15 \text{ cm} + 2 \times 15 \text{ cm}) = 210 \text{ cm} - 45 \text{ cm} = 165 \text{ cm}$$
->>>>>>> 95c8b96 (formulachangestest)
 
 So the ΔZmax for Unit bot is 165 cm.
 
@@ -317,46 +301,19 @@ The discrete representation is based on fixed unit sizes (e.g., 15 cm per unit),
 
 The heights of the units are represented using continuous functions:
 
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-</head>
-<body>
-    <ol>
-        <li><strong>Definition of Continuous Functions:</strong>
-            <ul>
-                <li>\( f_{\text{bot}}(z) \): Height contribution of the bottom unit.</li>
-                <li>\( f_{\text{mid}}(z) \): Height contribution of the middle unit.</li>
-                <li>\( f_{\text{top}}(z) \): Height contribution of the top unit.</li>
-            </ul>     
-        </li>
-        <div style="display: flex; align-items: center; margin-top: 50px;">
-        <p></p>
-        </div>
-        <li><strong>Integrate Over the Range:</strong>
-            <ul>
-                <li>\(\int_{a}^{b} f_{\text{bot}}(z) \, dz\): This integral represents the height contribution of the bottom unit over the range from \(a\) to \(b\).</li>
-                <li>\(\int_{a}^{b} f_{\text{mid}}(z) \, dz\): This integral represents the height contribution of the middle unit over the range from \(a\) to \(b\).</li>
-                <li>\(\int_{a}^{b} f_{\text{top}}(z) \, dz\): This integral represents the height contribution of the top unit over the range from \(a\) to \(b\).</li>
-            </ul>
-        </li>
-        <div style="display: flex; align-items: center; margin-top: 20px;">
-    <p></p>
-    </div>
-        <li><strong>Calculate the Difference:</strong>
-            <p>
-                \[
-                \Delta Z_{\text{max}} = \left( \text{Maximum Height I-Scan} \right) - \left( \int_{a}^{b} f_{\text{bot}}(z) \, dz + \int_{a}^{b} f_{\text{mid}}(z) \, dz + \int_{a}^{b} f_{\text{top}}(z) \, dz \right)
-                \]
-            </p>
-        </li>
-    </ol>
-</body>
-</html>
+**Definition of Continuous Functions:**
+- $f_{\text{bot}}(z)$: Height contribution of the bottom unit.
+- $f_{\text{mid}}(z)$: Height contribution of the middle unit.
+- $f_{\text{top}}(z)$: Height contribution of the top unit.
+
+**Integrate Over the Range:**
+- $\int_{a}^{b} f_{\text{bot}}(z) \, dz$: This integral represents the height contribution of the bottom unit over the range from $a$ to $b$.
+- $\int_{a}^{b} f_{\text{mid}}(z) \, dz$: This integral represents the height contribution of the middle unit over the range from $a$ to $b$.
+- $\int_{a}^{b} f_{\text{top}}(z) \, dz$: This integral represents the height contribution of the top unit over the range from $a$ to $b$.
+
+**Calculate the Difference:**
+
+$$\Delta Z_{\text{max}} = \left( \text{Maximum Height I-Scan} \right) - \left( \int_{a}^{b} f_{\text{bot}}(z) \, dz + \int_{a}^{b} f_{\text{mid}}(z) \, dz + \int_{a}^{b} f_{\text{top}}(z) \, dz \right)$$
 
 This approach provides a continuous representation of the height changes of each unit.
 
@@ -366,40 +323,11 @@ This approach provides a continuous representation of the height changes of each
 
 The table below shows the dependency of the maximum and minimum heights of each unit based on the positions of the other units. The reference is taken from the bottom of the unit.
 
-<table border="1">
-    <thead>
-        <tr>
-            <th>Unit</th>
-            <th>Upper Border (Maximum)</th>
-            <th>Lower Border (Initial Position)</th>
-            <th>Condition Upper Border</th>
-            <th>Condition Lower Border</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><strong>Bot</strong></td>
-            <td>\( \text{Max } Z_{\text{bot}} = \text{Maximum Height I-Scan} - \left( \int_{a}^{b} f_{\text{bot}}(z) \, dz + \int_{a}^{b} f_{\text{mid}}(z) \, dz + \int_{a}^{b} f_{\text{top}}(z) \, dz \right) \)</td>
-            <td>\( \text{Min } Z_{\text{bot}} = \text{Initial Height I-Scan} \)</td>
-            <td>\( Z_{\text{mid}} \) & \( Z_{\text{top}} \) = \( Z_{\text{max}} \)</td>
-            <td>-</td>
-        </tr>
-        <tr>
-            <td><strong>Mid</strong></td>
-            <td>\( \text{Max } Z_{\text{mid}} = \text{Maximum Height I-Scan} - \left( \int_{a}^{b} f_{\text{mid}}(z) \, dz + \int_{a}^{b} f_{\text{top}}(z) \, dz \right) \)</td>
-            <td>\( \text{Min } Z_{\text{mid}} = \text{Initial Height I-Scan} + \int_{a}^{b} f_{\text{bot}}(z) \, dz \)</td>
-            <td>\( Z_{\text{top}} \) = \( Z_{\text{max}} \)</td>
-            <td>\( Z_{\text{bot}} \) = \( Z_{\text{min}} \)</td>
-        </tr>
-        <tr>
-            <td><strong>Top</strong></td>
-            <td>\( \text{Max } Z_{\text{top}} = \text{Maximum Height I-Scan} - \int_{a}^{b} f_{\text{top}}(z) \, dz \)</td>
-            <td>\( \text{Min } Z_{\text{top}} = \text{Initial Height I-Scan} + \left( \int_{a}^{b} f_{\text{bot}}(z) \, dz + \int_{a}^{b} f_{\text{mid}}(z) \, dz \right) \)</td>
-            <td>-</td>
-            <td>\( Z_{\text{mid}} \) & \( Z_{\text{bot}} \) = \( Z_{\text{min}} \)</td>
-        </tr>
-    </tbody>
-</table>
+| Unit | Upper Border (Maximum) | Lower Border (Initial Position) | Condition Upper Border | Condition Lower Border |
+| ---- | ---------------------- | ------------------------------- | ---------------------- | ---------------------- |
+| **Bot** | $\text{Max } Z_{\text{bot}} = \text{Maximum Height I-Scan} - \left( \int_{a}^{b} f_{\text{bot}}(z) \, dz + \int_{a}^{b} f_{\text{mid}}(z) \, dz + \int_{a}^{b} f_{\text{top}}(z) \, dz \right)$ | $\text{Min } Z_{\text{bot}} = \text{Initial Height I-Scan}$ | $Z_{\text{mid}}$ & $Z_{\text{top}}$ = $Z_{\text{max}}$ | - |
+| **Mid** | $\text{Max } Z_{\text{mid}} = \text{Maximum Height I-Scan} - \left( \int_{a}^{b} f_{\text{mid}}(z) \, dz + \int_{a}^{b} f_{\text{top}}(z) \, dz \right)$ | $\text{Min } Z_{\text{mid}} = \text{Initial Height I-Scan} + \int_{a}^{b} f_{\text{bot}}(z) \, dz$ | $Z_{\text{top}}$ = $Z_{\text{max}}$ | $Z_{\text{bot}}$ = $Z_{\text{min}}$ |
+| **Top** | $\text{Max } Z_{\text{top}} = \text{Maximum Height I-Scan} - \int_{a}^{b} f_{\text{top}}(z) \, dz$ | $\text{Min } Z_{\text{top}} = \text{Initial Height I-Scan} + \left( \int_{a}^{b} f_{\text{bot}}(z) \, dz + \int_{a}^{b} f_{\text{mid}}(z) \, dz \right)$ | - | $Z_{\text{mid}}$ & $Z_{\text{bot}}$ = $Z_{\text{min}}$ |
 
 <div style="display: flex; align-items: center; margin-top: 20px;">
     <p></p>
@@ -412,12 +340,10 @@ The table below shows the dependency of the maximum and minimum heights of each 
 
 **Conditions:**
 
-<ul>
-    <li><strong>Z<sub>mid</sub> & Z<sub>top</sub> = Z<sub>max</sub></strong> : Middle and top units at maximum heights.</li>
-    <li><strong>Z<sub>bot</sub> = Z<sub>min</sub></strong> : Bottom unit at minimum height.</li>
-    <li><strong>Z<sub>top</sub> = Z<sub>max</sub></strong> : Top unit at maximum height.</li>
-    <li><strong>Z<sub>mid</sub> & Z<sub>bot</sub> = Z<sub>min</sub></strong> : Middle and bottom units at minimum heights.</li>
-</ul>
+- **Z<sub>mid</sub> & Z<sub>top</sub> = Z<sub>max</sub>** : Middle and top units at maximum heights.
+- **Z<sub>bot</sub> = Z<sub>min</sub>** : Bottom unit at minimum height.
+- **Z<sub>top</sub> = Z<sub>max</sub>** : Top unit at maximum height.
+- **Z<sub>mid</sub> & Z<sub>bot</sub> = Z<sub>min</sub>** : Middle and bottom units at minimum heights.
 
 ### General Movement condition
 
@@ -427,28 +353,28 @@ The table below shows the dependency of the maximum and minimum heights of each 
 
 ### Module Offset
 
-Der Module Offset gibt den 2-dimensionalen Offset vom Referenzpunkt $$(X_{\text{unit}}, Y_{\text{unit}})$$ an. Dieser Wert wird zusammen mit der Einheitenposition benötigt, um die genaue Position des Moduls zu bestimmen. Der Offset kann von Modul zu Modul variieren. Es wird angenommen, dass Messgeräte zentral an den Einheiten montiert sind. Ist dies nicht der Fall, muss ein zusätzlicher Offsetvektor berücksichtigt werden.
+The module offset indicates the 2-dimensional offset from the reference point $(X_{\text{unit}}, Y_{\text{unit}})$. This value, along with the unit position, is required to determine the exact position of the modul. The offset can vary from module to module. It is assumed that measuring tools are mounted centrally on the units. If this is not the case, an additional offset vector must be considered.
 
-Um die genaue Position $$P_{\text{unit}}$$ der Messeinheit zu bestimmen, können folgende Formeln verwendet werden:
+To determine the exact position $P_{\text{unit}}$ of the measurement unit, the following formulas can be used:
 
-#### Für den 2D-Fall (X, Y-Ebene):
+#### For the 2D Case (X, Y Plane):
 
 $$P_{\text{unit}} = \left( X_{\text{unit}} + \text{Offset}_{X}, Y_{\text{unit}} + \text{Offset}_{Y} \right)$$
 
-#### Für den 3D-Fall (X, Y, Z-Raum):
+#### For the 3D Case (X, Y, Z Space):
 
 $$P_{\text{unit}} = \left( X_{\text{unit}} + \text{Offset}_{X}, Y_{\text{unit}} + \text{Offset}_{Y}, Z_{\text{unit}} + \text{Offset}_{Z} \right)$$
 
-### Definitionen:
+### Definitions:
 
-- $$X_{\text{unit}}, Y_{\text{unit}}, Z_{\text{unit}}$$ repräsentieren die ursprüngliche Position der Messeinheit im 3D-Raum.
-- $$\text{Offset}_{X}$$ ist der Offset entlang der X-Achse.
-- $$\text{Offset}_{Y}$$ ist der Offset entlang der Y-Achse.
-- $$\text{Offset}_{Z}$$ ist der Offset entlang der Z-Achse (falls benötigt).
+- $X_{\text{unit}}, Y_{\text{unit}}, Z_{\text{unit}}$ represent the original position of the measurement unit in 3D space.
+- $\text{Offset}_{X}$ is the offset along the X-axis.
+- $\text{Offset}_{Y}$ is the offset along the Y-axis.
+- $\text{Offset}_{Z}$ is the offset along the Z-axis (if needed).
 
-**Hinweis:** Der $$\text{Offset}_{Z}$$ wird für den Scanvorgang nicht benötigt, aber später bei der Verarbeitung von Messungen auf dem externen System verwendet.
+**Note:** The $\text{Offset}_{Z}$ is not required for the scanning process but is used later during the processing of measurements on the external system.
 
-Durch Anwendung dieser Formeln kann die Position des Moduls präzise berechnet und für verschiedene Montagekonfigurationen angepasst werden.
+By applying these formulas, the module's position can be precisely calculated and adjusted for varying mounting configurations.
 
 ---
 
@@ -457,19 +383,19 @@ Durch Anwendung dieser Formeln kann die Position des Moduls präzise berechnet u
 <div style="display: flex; align-items: flex-start;">
    <div style="flex: 1; padding-right: 20px;">
       <h3>Right-Angled Triangles</h3>
-      <p>In this chapter, we will show how to calculate the angle \( \alpha \) in a right-angled triangle when one side is variable. For our example:</p>
+      <p>In this chapter, we will show how to calculate the angle $\alpha$ in a right-angled triangle when one side is variable. For our example:</p>
       <ul>
-         <li><strong>Side A:</strong> \( Z_{\text{dist}} \)</li>
+         <li><strong>Side A:</strong> $Z_{\text{dist}}$</li>
          <li><strong>Side B:</strong> <code>DistanceToCenter</code> (150 cm as defined in the JSON configuration)</li>
       </ul>
       <h4>Mathematical Derivation</h4>
-      <p>In a right-angled triangle, the tangent of an angle is defined. Since \( \alpha \) is the angle opposite Side A and Side B is the adjacent side, it follows:</p>
-      <p>\( \tan(\alpha) = \frac{Z_{\text{dist}}}{\text{DistanceToCenter}} \)</p>
-      <p>To calculate \( \alpha \), the arctangent is used:</p>
-      <p>\( \alpha = \arctan\left(\frac{Z_{\text{dist}}}{\text{DistanceToCenter}}\right) \)</p>
-      <p><strong>Example:</strong> With \( Z_{\text{dist}} = 150 \) cm and \( \text{DistanceToCenter} = 150 \) cm:</p>
-      <p>\( \alpha = \arctan\left(\frac{150}{150}\right) = 45° \)</p>
-      <p>This method allows substituting any value for \( Z_{\text{dist}} \) to calculate the corresponding angle \( \alpha \) in a right-angled triangle.</p>
+      <p>In a right-angled triangle, the tangent of an angle is defined. Since $\alpha$ is the angle opposite Side A and Side B is the adjacent side, it follows:</p>
+      <p>$\tan(\alpha) = \frac{Z_{\text{dist}}}{\text{DistanceToCenter}}$</p>
+      <p>To calculate $\alpha$, the arctangent is used:</p>
+      <p>$\alpha = \arctan\left(\frac{Z_{\text{dist}}}{\text{DistanceToCenter}}\right)$</p>
+      <p><strong>Example:</strong> With $Z_{\text{dist}} = 150$ cm and $\text{DistanceToCenter} = 150$ cm:</p>
+      <p>$\alpha = \arctan\left(\frac{150}{150}\right) = 45°$</p>
+      <p>This method allows substituting any value for $Z_{\text{dist}}$ to calculate the corresponding angle $\alpha$ in a right-angled triangle.</p>
    </div>
    <div style="flex: 1; display: flex; justify-content: center; align-items: center;">
       <img src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/diagram/mathAnimations/Triangle_center.png?raw=true" alt="Angle Calculation Diagram" style="max-width: 100%;">
@@ -481,16 +407,16 @@ Durch Anwendung dieser Formeln kann die Position des Moduls präzise berechnet u
 <div style="display: flex; align-items: center;">
     <div style="flex: 1;">
         <h4>Define Measurement Center</h4>
-        <p>The variable \( Z_{\text{dist}} \) can also be used to determine the measurement center. This ensures that larger objects remain centered during measurements. The calculation is as follows:</p>
+        <p>The variable $Z_{\text{dist}}$ can also be used to determine the measurement center. This ensures that larger objects remain centered during measurements. The calculation is as follows:</p>
         <p>
-            \[ Z_{\text{dist}} = Z_{\text{center}} - Z_{\text{module}} \]
+            $Z_{\text{dist}} = Z_{\text{center}} - Z_{\text{module}}$
         </p>
-        <p>Here, \( Z_{\text{module}} \) represents the height of the respective unit, \( Z_{\text{center}} \) is our defined center point.</p>
+        <p>Here, $Z_{\text{module}}$ represents the height of the respective unit, $Z_{\text{center}}$ is our defined center point.</p>
         <p>This formula helps in maintaining the central alignment of the modules during the scanning process.</p>
         <h4>Z<sub>module</sub> Calculation</h4>
-        <p>The height \( Z_{\text{module}} \) is calculated by adding the height of the unit \( Z_{\text{unit}} \) and its offset \( \text{Offset}_{Y} \):</p>
+        <p>The height $Z_{\text{module}}$ is calculated by adding the height of the unit $Z_{\text{unit}}$ and its offset $\text{Offset}_{Y}$:</p>
         <p>
-            \[ Z_{\text{module}} = Z_{\text{unit}} + \text{Offset}_{Y} \]
+            $Z_{\text{module}} = Z_{\text{unit}} + \text{Offset}_{Y}$
         </p>
         <p>This ensures that the module's height is accurately determined by considering both the unit's height and its offset.</p>
     </div>
@@ -500,7 +426,7 @@ Durch Anwendung dieser Formeln kann die Position des Moduls präzise berechnet u
 </div>
 
 <h4>Summary</h4>
-<p>In summary, \( Z_{\text{dist}} \) is our relative distance to the center, and the angle \( \alpha \) is calculated based on this distance. This ensures accurate and centered measurements during the scanning process.</p>
+<p>In summary, $Z_{\text{dist}}$ is our relative distance to the center, and the angle $\alpha$ is calculated based on this distance. This ensures accurate and centered measurements during the scanning process.</p>
 
 <div style="display: flex; align-items: center; margin-top: 20px;">
     <p></p>
@@ -518,37 +444,11 @@ Here, &Delta; Z<sub>scan</sub> is the value `MaxDistanceZmove` from the JSON con
     <p></p>
 </div>
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resolution Calculation</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-</head>
-<body>
-    <p>
-\[ \text{Distance Between Measurement Points} = \frac{\Delta Z_{\text{scan}}}{\text{Number of Measurements}} = \frac{150 \text{ cm}}{30} = 5 \text{ cm} \]
-    </p>
-</body>
-</html>
+$$\text{Distance Between Measurement Points} = \frac{\Delta Z_{\text{scan}}}{\text{Number of Measurements}} = \frac{150 \text{ cm}}{30} = 5 \text{ cm}$$
 
 The distance between each measurement is approximately **5 cm**.
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-</head>
-<body>
-    <p>
-\[ \text{Resolution} = \text{Distance Between Measurement Points} \times \text{Number of Measurements} \]
-    </p>
-</body>
-</html>
+$$\text{Resolution} = \text{Distance Between Measurement Points} \times \text{Number of Measurements}$$
 
 <div style="display: flex; align-items: center; margin-top: 20px;">
     <p></p>
@@ -558,22 +458,7 @@ The distance between each measurement is approximately **5 cm**.
 
 It is important to ensure that the value of &Delta; Z<sub>scan</sub> (the maximum distance the Z-axis can move during a scan) is less than or equal to &Delta; Z<sub>max</sub> (the maximum allowable height difference).
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Condition for Delta Z</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-</head>
-<body>
-    <p>
-        \[ 
-        \Delta Z_{\text{scan}} \leq \Delta Z_{\text{max}} 
-        \]
-    </p>
-</body>
-</html>
+$$\Delta Z_{\text{scan}} \leq \Delta Z_{\text{max}}$$
 
 ---
 
