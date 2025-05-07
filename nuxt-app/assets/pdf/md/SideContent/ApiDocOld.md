@@ -269,31 +269,21 @@ This is the initial process to connect and verify all subsystems. It is the firs
   "HeightOfCenter": "50cm"
 }
 ```
-
 ### <a id="maximum-delta-z"></a>Maximum Delta Z
 
 If the endstop Z is at 0 cm and the maximum height of the device is 210 cm, the maximum Delta Z can be calculated.
 
 To calculate the maximum height, we need to know the size of each unit. In our example, these are standardized to 15 cm.
 
-The unit´s are labeld (Bot = 0, Mid = 1, Top = 2) and is the variable Z Endstop Unit.
+The units are labeled (Bot = 0, Mid = 1, Top = 2) and is the variable Z Endstop Unit.
 
 Substituting the values:
 
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-</head>
-<body>
-    <p>
-        \[\Delta Z_{\text{max Unit}} = (\text{Z}_{\text{Endstop Unit}} \times \text{Unit Height} + \text{Maximum Height I-Scan}) - (\text{Z}_{\text{Endstop Mid}} \times \text{Unit Height} + \text{Z}_{\text{Endstop Top}} \times \text{Unit Height})\]
-    </p>
-</body>
-</html>
+$$\Delta Z_{\text{max Unit}} = (\text{Z}_{\text{Endstop Unit}} \times \text{Unit Height} + \text{Maximum Height I-Scan}) - (\text{Z}_{\text{Endstop Mid}} \times \text{Unit Height} + \text{Z}_{\text{Endstop Top}} \times \text{Unit Height})$$
+
+For Unit Bot (Z Endstop Unit = 0), with Maximum Height = 210 cm and Unit Height = 15 cm:
+
+$$\Delta Z_{\text{max Bot}} = (0 \times 15 \text{ cm} + 210 \text{ cm}) - (1 \times 15 \text{ cm} + 2 \times 15 \text{ cm}) = 210 \text{ cm} - 45 \text{ cm} = 165 \text{ cm}$$
 
 So the ΔZmax for Unit bot is 165 cm.
 
