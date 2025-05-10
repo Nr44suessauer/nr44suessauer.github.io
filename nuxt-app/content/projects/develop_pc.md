@@ -121,9 +121,11 @@ It was used simply because it was available, and to replicate the dimensions of 
 --- 
 
 # **Electical System**
+
 <div class="image-row" style="display: flex; gap: 15px; margin: 20px 0;">
-    <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/minipc/Schaltplan.JPG?raw=true" alt="Electrical System Schaltplan" class="img-fluid rounded" style="width: 100%;">
+    <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/minipc/Schaltplan.JPG?raw=true" alt="Electrical System Schaltplan" style="width: 33%;">
 </div>
+
 
 <div style="height: 20px;"></div>
 
