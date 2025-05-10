@@ -15,8 +15,8 @@ export default defineTheme({
         dark: '{color.black}'
       },
       color: {
-        initial: '{color.gray.800}',
-        dark: '{color.gray.800}'
+        initial: '{color.white}',
+        dark: '{color.white}'
       }
     },
     backdrop: {
