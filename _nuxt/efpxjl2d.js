@@ -1,0 +1,1 @@
+import{_ as o,k as r,o as t,a2 as n}from"./DxB6z1-Q.js";const s={};function a(e,c){return t(),r("em",null,[n(e.$slots,"default",{},void 0,!0)])}const f=o(s,[["render",a],["__scopeId","data-v-b3b2ffd9"]]);export{f as default};
