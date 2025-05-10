@@ -74,7 +74,15 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      FORMSPREE_URL: process.env.FORMSPREE_URL
+      FORMSPREE_URL: process.env.FORMSPREE_URL,
+      imgBaseUrl: 'https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/nuxt-app',
+      imageOptimization: {
+        enableAutomaticOptimization: true,
+        preload: {
+          hero: true,
+          aboveTheFold: true
+        }
+      }
     }
   },
 
@@ -92,7 +100,7 @@ export default defineNuxtConfig({
   image: {
     // Nuxt Image Modul Konfiguration
     quality: 80,
-    format: ['webp', 'jpg'],
+    format: ['webp', 'avif', 'jpg'],  // AVIF Format hinzugefügt für noch bessere Kompression
     screens: {
       xs: 320,
       sm: 640,
@@ -110,6 +118,38 @@ export default defineNuxtConfig({
           baseURL: 'https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/nuxt-app'
         }
       }
+    },
+    // Bildoptimierungen hinzufügen
+    presets: {
+      avatar: {
+        modifiers: {
+          format: 'webp',
+          width: 50,
+          height: 50,
+          fit: 'cover',
+        }
+      },
+      thumbnail: {
+        modifiers: {
+          format: 'webp',
+          width: 320,
+          height: 180,
+          fit: 'cover',
+        }
+      },
+      preview: {
+        modifiers: {
+          format: 'webp',
+          width: 640,
+          height: 480,
+          fit: 'inside',
+        }
+      }
+    },
+    densities: [1, 2],
+    // Caching verbessern
+    imgix: {
+      baseURL: 'https://images.your-domain.com'
     }
   },
 
@@ -191,6 +231,18 @@ export default defineNuxtConfig({
     // Statische Assets mit Cache-Control-Header
     '/assets/**': { 
       headers: { 
+        'Cache-Control': 'public, max-age=31536000, immutable'
+      }
+    },
+    // Bilder Cache-Regeln
+    '/pictures/**': {
+      headers: {
+        'Cache-Control': 'public, max-age=31536000, immutable'
+      }
+    },
+    // Cache-Regeln für transformierte Bilder
+    '/_ipx/**': {
+      headers: {
         'Cache-Control': 'public, max-age=31536000, immutable'
       }
     }
