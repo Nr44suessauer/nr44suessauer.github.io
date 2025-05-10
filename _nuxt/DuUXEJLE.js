@@ -1,0 +1,1 @@
+import{v as a,k as o,a2 as s,o as n,_ as d}from"./BNWutf3u.js";const l=["type","disabled"],p=a({__name:"Button",props:{type:{type:String,default:"submit"},disabled:{type:Boolean,default:!1}},setup(e){return(t,_)=>(n(),o("button",{type:e.type,disabled:e.disabled},[s(t.$slots,"default",{},void 0,!0)],8,l))}}),c=d(p,[["__scopeId","data-v-8fa75413"]]);export{c as default};

@@ -9,7 +9,8 @@ export default defineNuxtConfig({
     global: true,
     dirs: [
       '~/components',
-      '~/components/algo'
+      '~/components/algo',
+      '~/components/content' // Explizit Content-Komponenten hinzufügen
     ]
   },
   
@@ -17,8 +18,23 @@ export default defineNuxtConfig({
     markdown: {
       // Deaktiviere die Plugins vorübergehend
       remarkPlugins: []
+    },
+    // Erlaubt die Verwendung von Komponenten in Markdown-Dateien
+    experimental: {
+      clientDB: true,
+      componentIslands: true
     }
   },
+  
+  // Stelle sicher, dass clientseitige Komponenten korrekt hydratisiert werden
+  vite: {
+    optimizeDeps: {
+      include: ['vue']
+    }
+  },
+  
+  // Stärkere Client-Hydratation
+  ssr: true,
   
   colorMode: {
     preference: 'dark', // Setzt Dark Mode als Standardeinstellung
@@ -65,11 +81,12 @@ export default defineNuxtConfig({
     '~/assets/css/ProjectCard.css'
   ],
 
-  // Clientseitige Skripts für Mermaid
+  // Clientseitige Skripts für Mermaid und interaktive Funktionen
   app: {
     head: {
       script: [
-        { src: 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js', body: true }
+        { src: 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js', body: true },
+        { src: '/js/interactive-fallback.js', body: true } // Füge das Fallback-Skript hinzu
       ]
     }
   }

@@ -1,0 +1,1 @@
+import{_ as o,k as t,o as r,a2 as c}from"./BNWutf3u.js";const n={};function s(e,a){return r(),t("blockquote",null,[c(e.$slots,"default",{},void 0,!0)])}const _=o(n,[["render",s],["__scopeId","data-v-96397147"]]);export{_ as default};

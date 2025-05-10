@@ -1,0 +1,1 @@
+import{_ as o,k as r,o as t,a2 as n}from"./BNWutf3u.js";const s={};function a(e,c){return t(),r("li",null,[n(e.$slots,"default",{},void 0,!0)])}const l=o(s,[["render",a],["__scopeId","data-v-4c2f5fb9"]]);export{l as default};
