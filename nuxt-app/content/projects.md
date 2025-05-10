@@ -9,38 +9,14 @@ title: Projects
 # My Projects
 
 <div class="projects-container">
-  <a href="/projects/project1" class="project-card">
-    <img src="/alpine-0.webp" alt="Projektbild" class="project-card__image" />
+  <a href="/projects/develop_pc" class="project-card">
+    <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/minipc/1st_try_mit_wasser.gif?raw=true" alt="Develop PC Projektbild" class="project-card__image" />
     <div class="project-card__content">
-      <div class="project-card__title">Projektname</div>
-      <div class="project-card__desc">Kurze Projektbeschreibung mit Features und Technologien.</div>
+      <div class="project-card__title">Develop PC</div>
+      <div class="project-card__desc">Projekt zur Entwicklung eines individuellen PCs. Siehe Details in <code>develop_pc.md</code>.</div>
       <div class="project-card__tags">
-        <span class="project-card__tag">Vue.js</span>
-        <span class="project-card__tag">Firebase</span>
-      </div>
-    </div>
-  </a>
-
-  <a href="/projects/project1" class="project-card">
-    <img src="/alpine-0.webp" alt="Projektbild" class="project-card__image" />
-    <div class="project-card__content">
-      <div class="project-card__title">Projektname</div>
-      <div class="project-card__desc">Kurze Projektbeschreibung mit Features und Technologien.</div>
-      <div class="project-card__tags">
-        <span class="project-card__tag">Vue.js</span>
-        <span class="project-card__tag">Firebase</span>
-      </div>
-    </div>
-  </a>
-
-  <a href="/projects/project1" class="project-card">
-    <img src="/alpine-0.webp" alt="Projektbild" class="project-card__image" />
-    <div class="project-card__content">
-      <div class="project-card__title">Projektname</div>
-      <div class="project-card__desc">Kurze Projektbeschreibung mit Features und Technologien.</div>
-      <div class="project-card__tags">
-        <span class="project-card__tag">Vue.js</span>
-        <span class="project-card__tag">Firebase</span>
+        <span class="project-card__tag">Hardware</span>
+        <span class="project-card__tag">Planung</span>
       </div>
     </div>
   </a>
