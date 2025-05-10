@@ -38,7 +38,34 @@ export default defineNuxtConfig({
         lang: 'en'
       },
       script: [
-        { src: 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js', body: true }
+        { src: 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js', body: true },
+        // Skript für Bildladeversuche
+        { 
+          innerHTML: `
+            window.addEventListener('DOMContentLoaded', (event) => {
+              document.querySelectorAll('img').forEach(img => {
+                img.addEventListener('error', function() {
+                  // Nur versuchen, wenn noch kein Fallback versucht wurde
+                  if (!this.dataset.fallbackAttempted) {
+                    this.dataset.fallbackAttempted = "true";
+                    
+                    // Wenn es ein relativer Pfad ist, versuche, ihn mit GitHub-Raw-URL zu laden
+                    if (this.src.startsWith('/') && !this.src.includes('githubusercontent.com')) {
+                      const githubPath = 'https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/nuxt-app' + this.src;
+                      console.log('Attempting to load from GitHub raw: ', githubPath);
+                      this.src = githubPath;
+                    }
+                  }
+                });
+              });
+            });
+          `,
+          body: true
+        }
+      ],
+      link: [
+        { rel: 'preconnect', href: 'https://raw.githubusercontent.com' },
+        { rel: 'dns-prefetch', href: 'https://raw.githubusercontent.com' }
       ]
     }
   },
@@ -58,8 +85,33 @@ export default defineNuxtConfig({
     '@nuxt/devtools',
     '@pinegrow/nuxt-module',
     '@nuxt/content',
+    '@nuxt/image',
     updateModule as any
   ],
+
+  image: {
+    // Nuxt Image Modul Konfiguration
+    quality: 80,
+    format: ['webp', 'jpg'],
+    screens: {
+      xs: 320,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      xxl: 1536,
+    },
+    domains: ['raw.githubusercontent.com', 'github.com'],
+    provider: 'ipx',
+    providers: {
+      github: {
+        provider: 'ipx',
+        options: {
+          baseURL: 'https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/nuxt-app'
+        }
+      }
+    }
+  },
 
   components: [
     { path: './components', global: true },
@@ -101,7 +153,9 @@ export default defineNuxtConfig({
   },
 
   experimental: {
-    inlineSSRStyles: false
+    inlineSSRStyles: false,
+    treeshakeClientOnly: true,
+    componentIslands: true
   },
 
   typescript: {
@@ -111,7 +165,8 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       ignore: ['/__pinceau_tokens_config.json', '/__pinceau_tokens_schema.json']
-    }
+    },
+    compressPublicAssets: true
   },
 
   compatibilityDate: '2025-04-17',
@@ -130,5 +185,29 @@ export default defineNuxtConfig({
 
   devtools: {
     enabled: true
+  },
+
+  routeRules: {
+    // Statische Assets mit Cache-Control-Header
+    '/assets/**': { 
+      headers: { 
+        'Cache-Control': 'public, max-age=31536000, immutable'
+      }
+    }
+  },
+
+  vite: {
+    build: {
+      cssMinify: 'lightningcss',
+      minify: 'terser',
+      terserOptions: {
+        compress: {
+          drop_console: true
+        }
+      }
+    },
+    optimizeDeps: {
+      include: ['vue', 'vue-router']
+    }
   }
 })
