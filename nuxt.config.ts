@@ -162,7 +162,8 @@ export default defineNuxtConfig({
     'nuxt-app/assets/css/custom.css',
     'nuxt-app/assets/css/contact-info.css',
     'nuxt-app/assets/css/TextBlock.css',
-    'nuxt-app/assets/css/ProjectCard.css'
+    'nuxt-app/assets/css/ProjectCard.css',
+    'nuxt-app/assets/css/picture-Row.css'  // Füge die CSS-Datei aus dem assets-Ordner hinzu
   ],
 
   colorMode: {

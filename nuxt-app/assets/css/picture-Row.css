@@ -1,0 +1,45 @@
+/* ----- Picture Row: Responsive Image Gallery ----- */
+.picture-row {
+    /* Layout Properties */
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+/* Container for individual images */
+.picture-row > div {
+    /* Sizing Properties */
+    flex: 1;
+    min-width: 0;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+}
+
+/* Image styling */
+.picture-row img {
+    /* Dimensions and Fit */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+    /* Visual Styling */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+    /* Animation */
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect for images */
+.picture-row img:hover {
+    transform: translateY(-5px) scale(1.7);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive behavior for mobile devices */
+@media (max-width: 768px) {
+    .picture-row {
+        flex-direction: column;
+    }
+}

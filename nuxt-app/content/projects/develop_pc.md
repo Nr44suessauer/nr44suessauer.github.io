@@ -4,7 +4,6 @@ description: Custom-built mini PC with water features
 ---
 
 <style>
-/* Inline CSS für die Bildergalerie */
 .PictureRow {
     display: flex;
     gap: 15px;
@@ -29,7 +28,7 @@ description: Custom-built mini PC with water features
 }
 
 .PictureRow img:hover {
-    transform: translateY(-5px) scale(1.05);
+    transform: translateY(-5px) scale(1.7);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -45,21 +44,21 @@ description: Custom-built mini PC with water features
         <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/nuxt-app/assets/pictures/minipc/LattePanda.jpg" 
              alt="LattePanda" 
              width="400"
-             height="300"
+             height="800"
              loading="eager" />
     </div>
     <div>
         <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/nuxt-app/assets/pictures/minipc/1st_try_mit_wasser.gif" 
              alt="First try with water" 
              width="400"
-             height="300"
+             height="800"
              loading="eager" />
     </div>
     <div>
         <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/nuxt-app/assets/pictures/minipc/in_process.jpg" 
              alt="In process" 
              width="400"
-             height="300"
+             height="800"
              loading="eager" />
     </div>
 </div>
@@ -234,18 +233,16 @@ It was used simply because it was available, and to replicate the dimensions of 
 
 # **Power Supply Configuration**
 
-<div class="row">
-    <div class="col-md-6">
-        <div class="note">
-            <p><strong>Note:</strong> The 400W power supply must be bridged so that both the 12V and 5V outputs are available when connected and activated. This crucial step ensures that all connected components receive the proper voltage reliably.</p>
-            <p>At the main connector of the power supply, wires 14 and 16 are shorted, with wire 16 serving as ground.</p>
-        </div>
+<div class="textbox textbox-green" style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin: 20px 0;">
+    <div style="flex: 1; min-width: 300px;">
+        <p><strong>Note:</strong> The 400W power supply must be bridged so that both the 12V and 5V outputs are available when connected and activated. This crucial step ensures that all connected components receive the proper voltage reliably.</p>
+        <p>At the main connector of the power supply, wires 14 and 16 are shorted, with wire 16 serving as ground.</p>
     </div>
-    <div class="col-md-6 text-center">
+    <div style="flex: 1; min-width: 300px; text-align: center;">
         <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/nuxt-app/assets/pictures/minipc/stecker.png" 
              alt="ATX Connector Setup Diagram" 
-             style="width: 100%; max-width: 300px;" />
-        <div style="margin-top: 10px; font-style: italic;">ATX Connector Setup Diagram</div>
+             style="width: 30%; max-width: 300px; margin: 0 auto;" />
+        <div style="margin-top: 10px; font-style: italic; text-align: center;">ATX Connector Setup Diagram</div>
     </div>
 </div>
 
@@ -256,11 +253,9 @@ It was used simply because it was available, and to replicate the dimensions of 
 
 
 # **Fluid System**
-
 <div style="height: 20px;"></div>
-
-<div class="row">
-    <div class="col-md-6">
+<div class="textbox textbox-yellow" style="margin: 20px 0;">
+    <div style="margin-bottom: 20px;">
         <p>
             The Stop Valve functions as a check valve and forms the <strong>theoretical boundary between air and water</strong>. It prevents water from flowing back and separates the zones.
         </p>
@@ -268,11 +263,11 @@ It was used simply because it was available, and to replicate the dimensions of 
             The Magnetic Valve is open when no voltage is applied (i.e., without power). Once the PC or system is supplied with power, it closes. This mechanism enables targeted venting of the pipeline behind the check valve. The pump, <strong>when idle, slowly allows air to escape</strong>, which can lead to <strong>unpredictable pressure conditions</strong>. Without venting, the pressure behind the check valve might build up and trigger it uncontrollably. By opening the Magnetic Valve during a power loss, air is <strong>actively vented</strong> so that the pressure remains stable and the check valve opens only when required—such as during pump operation.
         </p>
     </div>
-    <div class="col-md-6">
-        <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/assets/img/minipc/fluidsystems.JPG" 
+    <div style="text-align: center;">
+        <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/minipc/fluidsystems.JPG?raw=true" 
              alt="Fluid System Diagram" 
-             class="img-fluid rounded" 
-             style="width:100%; height:auto;" />
+             style="width: 80%; max-width: 600px; margin: 0 auto;" />
+        <div style="margin-top: 10px; font-style: italic; text-align: center;"></div>
     </div>
 </div>
 
@@ -282,16 +277,17 @@ It was used simply because it was available, and to replicate the dimensions of 
 <div style="height: 20px;"></div>
 
 
+# **Pump Control System**
 
-<div class="row">
-    <div class="col-md-6 text-center">
-        <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/assets/img/minipc/oszi.gif" 
-             alt="Oscilloscope Gif" 
-             class="img-fluid rounded" 
-             style="width:70%;" />
-    </div>
-    <div class="col-md-6">
+<div class="textbox textbox-violet" style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin: 20px 0;">
+    <div style="flex: 1; min-width: 300px;">
         <p>The pump is operated by a relay driven by a <strong>PWM signal from the onboard Leonardo chip</strong>. A random value between 0 and 255 is selected, and the corresponding signal is applied to the relay's control pin, allowing for precise control of the pump's strength. A reed relay, known for its <strong>silent magnetic switching</strong>, is used instead of traditional noisier relays. It is also worth noting that a <strong>classic transistor would be the best choice</strong> for improved efficiency and reliability.</p>
+    </div>
+    <div style="flex: 1; min-width: 300px; text-align: center;">
+        <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/minipc/oszi.gif?raw=true" 
+             alt="Oscilloscope Gif" 
+             style="width: 70%; max-width: 300px; margin: 0 auto;" />
+        <div style="margin-top: 10px; font-style: italic; text-align: center;">PWM Signal Visualization</div>
     </div>
 </div>
 
