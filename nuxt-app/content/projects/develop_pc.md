@@ -175,15 +175,17 @@ It was used simply because it was available, and to replicate the dimensions of 
 <div style="height: 20px;"></div>
 
 
-<div class="image-row" style="display: flex; gap: 15px; margin: 20px 0;">
-    <div style="width: 50%;">
+# **Power Supply Configuration**
+
+<div class="row">
+    <div class="col-md-6">
         <div class="note">
             <p><strong>Note:</strong> The 400W power supply must be bridged so that both the 12V and 5V outputs are available when connected and activated. This crucial step ensures that all connected components receive the proper voltage reliably.</p>
             <p>At the main connector of the power supply, wires 14 and 16 are shorted, with wire 16 serving as ground.</p>
         </div>
     </div>
-    <div style="width: 50%; text-align: center;">
-        <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/minipc/stecker.png?raw=true" alt="ATX Connector Setup Diagram" style="max-height: 200px; width: auto;">
+    <div class="col-md-6 text-center">
+        <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/minipc/stecker.png?raw=true" alt="ATX Connector Setup Diagram" style="width: 100%; max-width: 300px;">
         <div style="margin-top: 10px; font-style: italic;">ATX Connector Setup Diagram</div>
     </div>
 </div>
