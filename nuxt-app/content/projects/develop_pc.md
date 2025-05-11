@@ -163,7 +163,7 @@ description: Custom-built mini PC with water features
 
 # **Electical System**
 
-<img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/minipc/Schaltplan.JPG?raw=true" 
+<img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/nuxt-app/assets/pictures/minipc/Schaltplan.JPG?raw=true" 
     alt="Electrical System Schematic" 
     style="width: 100%; max-width: 800px; display: block; margin: 0 auto;">
 
@@ -250,7 +250,7 @@ description: Custom-built mini PC with water features
         </p>
     </div>
     <div style="text-align: center;">
-        <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/minipc/fluidsystems.JPG?raw=true" 
+        <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/nuxt-app/assets/pictures/minipc/fluidsystems.JPG?raw=true" 
              alt="Fluid System Diagram" 
              style="width: 80%; max-width: 600px; margin: 0 auto;" />
         <div style="margin-top: 10px; font-style: italic; text-align: center;"></div>
@@ -270,7 +270,7 @@ description: Custom-built mini PC with water features
         <p>The pump is operated by a relay driven by a <strong>PWM signal from the onboard Leonardo chip</strong>. A random value between 0 and 255 is selected, and the corresponding signal is applied to the relay's control pin, allowing for precise control of the pump's strength. A reed relay, known for its <strong>silent magnetic switching</strong>, is used instead of traditional noisier relays. It is also worth noting that a <strong>classic transistor would be the best choice</strong> for improved efficiency and reliability.</p>
     </div>
     <div style="flex: 1; min-width: 300px; text-align: center;">
-        <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/minipc/oszi.gif?raw=true" 
+        <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/nuxt-app/assets/pictures/minipc/oszi.gif?raw=true" 
              alt="Oscilloscope Gif" 
              style="width: 70%; max-width: 300px; margin: 0 auto;" />
         <div style="margin-top: 10px; font-style: italic; text-align: center;">PWM Signal Visualization</div>
@@ -289,7 +289,7 @@ description: Custom-built mini PC with water features
 
 <div style="display: flex; flex-direction: row; gap: 15px; margin: 20px 0;">
     <div style="flex: 1.5; min-width: 0;">
-        <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/minipc/AnimationDevelopPc.gif?raw=true" 
+        <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/nuxt-app/assets/pictures/minipc/AnimationDevelopPc.gif?raw=true" 
              alt="Animation Develop PC" 
              style="width: 150%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);" />
     </div>
@@ -345,7 +345,7 @@ description: Custom-built mini PC with water features
 <div class="textbox textbox-teal" style="margin: 20px 0; padding: 15px; border-radius: 8px;">
     <div style="display: flex; flex-wrap: wrap; gap: 20px; margin: 20px 0;">
         <div style="flex: 1; min-width: 280px; max-width: 45%;">
-            <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/minipc/mewtwo.gif?raw=true" 
+            <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/nuxt-app/assets/pictures/minipc/mewtwo.gif?raw=true" 
                  alt="Mewtwo Gif" 
                  style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);" />
         </div>

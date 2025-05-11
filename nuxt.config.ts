@@ -98,7 +98,6 @@ export default defineNuxtConfig({
   ],
 
   image: {
-    // Nuxt Image Modul Konfiguration
     quality: 80,
     format: ['webp', 'avif', 'jpg'],  // AVIF Format hinzugefügt für noch bessere Kompression
     screens: {
@@ -113,9 +112,9 @@ export default defineNuxtConfig({
     provider: 'ipx',
     providers: {
       github: {
-        provider: 'ipx',
+        provider: 'github',
         options: {
-          baseURL: 'https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/nuxt-app'
+          baseURL: 'https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/nuxt-app/assets/pictures/'
         }
       }
     },
@@ -150,7 +149,8 @@ export default defineNuxtConfig({
     // Caching verbessern
     imgix: {
       baseURL: 'https://images.your-domain.com'
-    }
+    },
+    cacheDir: '.nuxt/image'
   },
 
   components: [
