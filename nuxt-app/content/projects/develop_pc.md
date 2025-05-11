@@ -3,66 +3,23 @@ title: Developing a Mini PC
 description: Custom-built mini PC with water features
 ---
 
-<style>
-.PictureRow {
-    display: flex;
-    gap: 15px;
-    margin: 20px 0;
-    flex-wrap: nowrap;
-}
-
-.PictureRow > div {
-    flex: 1;
-    min-width: 0;
-    aspect-ratio: 4/3;
-    overflow: hidden;
-}
-
-.PictureRow img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.PictureRow img:hover {
-    transform: translateY(-5px) scale(1.7);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-@media (max-width: 768px) {
-    .PictureRow {
-        flex-direction: column;
-    }
-}
-</style>
-
-<div class="PictureRow">
-    <div>
+<div style="display: flex; flex-direction: row; gap: 15px; margin: 20px 0;">
+    <div style="flex: 1; min-width: 0;">
         <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/nuxt-app/assets/pictures/minipc/LattePanda.jpg" 
              alt="LattePanda" 
-             width="400"
-             height="800"
-             loading="eager" />
+             style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);" />
     </div>
-    <div>
+    <div style="flex: 1; min-width: 0;">
         <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/nuxt-app/assets/pictures/minipc/1st_try_mit_wasser.gif" 
              alt="First try with water" 
-             width="400"
-             height="800"
-             loading="eager" />
+             style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);" />
     </div>
-    <div>
+    <div style="flex: 1; min-width: 0;">
         <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/nuxt-app/assets/pictures/minipc/in_process.jpg" 
              alt="In process" 
-             width="400"
-             height="800"
-             loading="eager" />
+             style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);" />
     </div>
 </div>
-<div style="height: 20px;"></div>
 <div style="text-align: center; margin-bottom: 20px; font-style: italic;">
     Only PC without power supply & screen
 </div>
