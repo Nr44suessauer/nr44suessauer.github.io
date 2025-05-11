@@ -101,3 +101,98 @@
     color: #ffffff;
     transition: all 0.3s ease;
 }
+
+/* Grundlegende Box-Eigenschaften */
+.textbox-red {
+    padding: 20px;
+    margin: 15px 0;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    
+    /* Hintergrund und Schatten */
+    background-color: #302e2e;
+    box-shadow: 0 3px 8px rgba(255, 0, 0, 0.959);
+    
+    /* Textformatierung */
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+/* Grundlegende Box-Eigenschaften */
+.textbox-orange {
+    padding: 20px;
+    margin: 15px 0;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    
+    /* Hintergrund und Schatten */
+    background-color: #302e2e;
+    box-shadow: 0 3px 8px rgba(255, 136, 0, 0.959);
+    
+    /* Textformatierung */
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+/* Grundlegende Box-Eigenschaften */
+.textbox-pink {
+    padding: 20px;
+    margin: 15px 0;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    
+    /* Hintergrund und Schatten */
+    background-color: #302e2e;
+    box-shadow: 0 3px 8px rgba(255, 0, 191, 0.959);
+    
+    /* Textformatierung */
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+/* Grundlegende Box-Eigenschaften */
+.textbox-purple {
+    padding: 20px;
+    margin: 15px 0;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    
+    /* Hintergrund und Schatten */
+    background-color: #302e2e;
+    box-shadow: 0 3px 8px rgba(128, 0, 255, 0.959);
+    
+    /* Textformatierung */
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+/* Grundlegende Box-Eigenschaften */
+.textbox-teal {
+    padding: 20px;
+    margin: 15px 0;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    
+    /* Hintergrund und Schatten */
+    background-color: #302e2e;
+    box-shadow: 0 3px 8px rgba(0, 255, 191, 0.959);
+    
+    /* Textformatierung */
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}

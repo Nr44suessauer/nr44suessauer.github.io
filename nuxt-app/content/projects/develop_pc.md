@@ -342,19 +342,21 @@ description: Custom-built mini PC with water features
 
 # **"Future Design additions"**
 
-<div style="display: flex; flex-wrap: wrap; gap: 20px; margin: 20px 0;">
-    <div style="flex: 1; min-width: 280px; max-width: 45%;">
-        <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/minipc/mewtwo.gif?raw=true" 
-             alt="Mewtwo Gif" 
-             style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);" />
-    </div>
-    <div style="flex: 1; min-width: 280px; display: flex; flex-direction: column; justify-content: center;">
-        <p>
-            As a future design enhancement, Mewtwo will be displayed within the water tank, creating a striking visual element. This addition not only serves as an eye-catching centerpiece but also integrates a themed character that complements the experimental nature of the PC build.
-        </p>
-        <p>
-            The character's presence in the tank highlights the unique water features while adding a personalized touch to the overall aesthetic. This decorative element has influenced several design decisions throughout the project development.
-        </p>
+<div class="textbox textbox-teal" style="margin: 20px 0; padding: 15px; border-radius: 8px;">
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; margin: 20px 0;">
+        <div style="flex: 1; min-width: 280px; max-width: 45%;">
+            <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/minipc/mewtwo.gif?raw=true" 
+                 alt="Mewtwo Gif" 
+                 style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);" />
+        </div>
+        <div style="flex: 1; min-width: 280px; display: flex; flex-direction: column; justify-content: center;">
+            <p>
+                As a future design enhancement, Mewtwo will be displayed within the water tank, creating a striking visual element. This addition not only serves as an eye-catching centerpiece but also integrates a themed character that complements the experimental nature of the PC build.
+            </p>
+            <p>
+                The character's presence in the tank highlights the unique water features while adding a personalized touch to the overall aesthetic. This decorative element has influenced several design decisions throughout the project development.
+            </p>
+        </div>
     </div>
 </div>
 
