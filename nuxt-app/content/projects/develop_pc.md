@@ -3,6 +3,29 @@ title: Developing a Mini PC
 description: Custom-built mini PC with water features
 ---
 
+<style>
+    .zoom-image-container {
+        position: relative;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: visible; /* Allow image to expand outside container */
+    }
+    
+    .zoom-image {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+    }
+    
+    .zoom-image:hover {
+        transform: scale(2);
+        z-index: 100; /* Ensure zoomed image appears on top */
+        position: relative;
+    }
+</style>
+
+
 <div style="display: flex; flex-direction: row; gap: 15px; margin: 20px 0;">
     <div style="flex: 1; min-width: 0;">
         <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/nuxt-app/assets/pictures/minipc/LattePanda.jpg" 
@@ -24,8 +47,12 @@ description: Custom-built mini PC with water features
     Only PC without power supply & screen
 </div>
 
-The following sections focus entirely on the PC. An **NVIDIA** graphics card is **not recommended** due to issues with Linux drivers.
-It was used simply because it was available, and to replicate the dimensions of the Quadro graphics card and adjust the mounting holes.
+<div class="textbox textbox-green" style="margin: 20px 0; padding: 15px; border-radius: 8px;">
+    <p>
+        The following sections focus entirely on the PC. An <strong>NVIDIA</strong> graphics card is <strong>not recommended</strong> due to issues with Linux drivers.
+        It was used simply because it was available, and to replicate the dimensions of the Quadro graphics card and adjust the mounting holes.
+    </p>
+</div>
 
 <div style="height: 20px;"></div>
 
@@ -61,24 +88,26 @@ It was used simply because it was available, and to replicate the dimensions of 
 
 <div style="height: 10px;"></div>
 <!-- Table Software -->
-<div class="row">
-    <div class="col-md-6">
+<div class="textbox textbox-yellow" style="margin: 20px 0; padding: 15px; border-radius: 8px;">
+    <div style="margin-bottom: 20px;">
         <p>
         Used software to configure and program the LattePanda. The computer is capable of running as Windows, Linux, Android, or Hackintosh (Apple). 
-        <p></p>
+        </p>
+        <p>
         You can find the OS documentation <a href="https://docs.lattepanda.com/content/alpha_edition/os/">here</a>.
-        <p></p>
+        </p>
+        <p>
         Hardware interface dokumentation <a href="https://docs.lattepanda.com/content/delta_edition/io_playability/">here</a>
         </p>
     </div>
-    <div class="col-md-6">
+</div>
 
 <div class="table-responsive">
 <table class="table">
     <thead>
         <tr>
-            <th><strong>Software</strong></th>
-            <th><strong>Description</strong></th>
+            <th style="font-size: 1.2em; padding: 10px; background-color:#3498db; border-bottom: 2px solid #ddd; color: white;"><strong>Software</strong></th>
+            <th style="font-size: 1.2em; padding: 10px; background-color:#2ecc71; border-bottom: 2px solid #ddd; color: white;"><strong>Description</strong></th>
         </tr>
     </thead>
     <tbody>
@@ -255,7 +284,7 @@ It was used simply because it was available, and to replicate the dimensions of 
 # **3D Design**
 <div style="height: 20px;"></div>
 
-<p><a href="https://github.com/Nr44suessauer/nr44suessauer.github.io/tree/main/assets/3Dprojects">Full file available for download [here]</a>.</p>
+<p><a href="https://github.com/Nr44suessauer/nr44suessauer.github.io/tree/main/nuxt-app/assets/3Dprojects">Full file available for download [here]</a>.</p>
 
 
 <div style="display: flex; flex-direction: row; gap: 15px; margin: 20px 0;">
@@ -284,25 +313,25 @@ It was used simply because it was available, and to replicate the dimensions of 
 
 <div style="height: 50px;"></div>
 
-<div class="row mt-3">
-    <div class="col-sm mt-3 mt-md-0">
-        <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/assets/img/minipc/skellet.PNG" 
-             loading="eager" 
-             class="img-fluid rounded z-depth-1" 
-             style="max-width:80%;" />
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/assets/img/minipc/baseplate.PNG" 
-             loading="eager" 
-             class="img-fluid rounded z-depth-1" 
-             style="max-width:80%;" />
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/assets/img/minipc/back.PNG" 
-             loading="eager" 
-             class="img-fluid rounded z-depth-1" 
-             style="max-width:80%;" />
-    </div>
+<div style="display: flex; flex-direction: row; gap: 15px; margin: 20px 0;">
+        <div style="flex: 1; min-width: 0;" class="zoom-image-container">
+                <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/nuxt-app/assets/pictures/minipc/skellet.PNG" 
+                         alt="3D Design Skeleton" 
+                         class="zoom-image" />
+        </div>
+        <div style="flex: 1; min-width: 0;" class="zoom-image-container">
+                <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/nuxt-app/assets/pictures/minipc/baseplate.PNG" 
+                         alt="Base Plate Design" 
+                         class="zoom-image" />
+        </div>
+        <div style="flex: 1; min-width: 0;" class="zoom-image-container">
+                <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/nuxt-app/assets/pictures/minipc/back.PNG" 
+                         alt="Back Panel Design" 
+                         class="zoom-image" />
+        </div>
+</div>
+<div style="text-align: center; margin-bottom: 20px; font-style: italic;">
+        3D Design Components - Skeleton, Base Plate, and Back Panel
 </div>
 
 
@@ -313,28 +342,20 @@ It was used simply because it was available, and to replicate the dimensions of 
 
 # **"Future Design additions"**
 
-<div style="height: 20px;"></div>
-<div class="row align-items-center">
-    <div class="col-md-6 text-center">
-        <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/assets/img/minipc/mewtwo.gif" 
+<div style="display: flex; flex-wrap: wrap; gap: 20px; margin: 20px 0;">
+    <div style="flex: 1; min-width: 280px; max-width: 45%;">
+        <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/minipc/mewtwo.gif?raw=true" 
              alt="Mewtwo Gif" 
-             class="img-fluid" 
-             style="width:70%;" />
+             style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);" />
     </div>
-    <div class="col-md-6">
-        <h4><strong>Mewtwo in the Tank</strong></h4>
+    <div style="flex: 1; min-width: 280px; display: flex; flex-direction: column; justify-content: center;">
         <p>
-            Mewtwo will be housed in this lab tank. This eye-catching centerpiece reinforces the experimental spirit of the project but also <strong>symbolizes a harmonious blend of art.</strong> Additionally, this file has significantly influenced the design from the very beginning.
+            As a future design enhancement, Mewtwo will be displayed within the water tank, creating a striking visual element. This addition not only serves as an eye-catching centerpiece but also integrates a themed character that complements the experimental nature of the PC build.
         </p>
-        <div class="row">
-        <div class="col-12 text-center">
-        <img src="https://imgflip.com/s/meme/Laughing-Leo.png" 
-             alt="Calvincandy Django Gif" 
-             class="img-fluid" 
-             style="width:30%; margin-top:15px;" />
+        <p>
+            The character's presence in the tank highlights the unique water features while adding a personalized touch to the overall aesthetic. This decorative element has influenced several design decisions throughout the project development.
+        </p>
     </div>
-    </div>
-</div>
 </div>
 
 
@@ -345,45 +366,47 @@ It was used simply because it was available, and to replicate the dimensions of 
 # **Gallery**
 <div style="height: 20px;"></div>
 
-<div class="gallery">
-    <div class="row">
-        <div class="row">
-        <div class="col-sm mt-3 mt-md-0">
-            <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/assets/img/minipc/1st_try_mit_wasser.gif" 
-                 loading="lazy" 
-                 class="img-fluid rounded z-depth-1" />
-        </div>
-        <div class="col-sm mt-3 mt-md-0">
-            <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/assets/img/minipc/in_process.jpg" 
-                 loading="lazy" 
-                 class="img-fluid rounded z-depth-1" />
-        </div>
-        <div class="col-sm mt-3 mt-md-0">
-            <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/assets/img/minipc/LattePanda.jpg" 
-                 loading="lazy" 
-                 class="img-fluid rounded z-depth-1" />
-        </div>
-        <div class="col-sm mt-3 mt-md-0">
-            <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/assets/img/minipc/im_office.jpg" 
-                 loading="lazy" 
-                 class="img-fluid rounded z-depth-1" />
-        </div>
+
+
+<!-- First Row of Images -->
+<div style="display: flex; flex-direction: row; gap: 15px; margin: 20px 0;">
+    <div style="flex: 1; min-width: 0;" class="zoom-image-container">
+        <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/nuxt-app/assets/pictures/minipc/1st_try_mit_wasser.gif" 
+             alt="First try with water" 
+             class="zoom-image" />
     </div>
-        <div class="col-sm mt-3 mt-md-0">
-            <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/assets/img/minipc/waterservice.jpg" 
-                 loading="lazy" 
-                 class="img-fluid rounded z-depth-1" />
-        </div>
-        <div class="col-sm mt-3 mt-md-0">
-            <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/assets/img/minipc/setupA.jpg" 
-                 loading="lazy" 
-                 class="img-fluid rounded z-depth-1" />
-        </div>
-        <div class="col-sm mt-3 mt-md-0">
-            <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/assets/img/minipc/SetupB.jpg" 
-                 loading="lazy" 
-                 class="img-fluid rounded z-depth-1" />
-        </div>
+    <div style="flex: 1; min-width: 0;" class="zoom-image-container">
+        <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/nuxt-app/assets/pictures/minipc/in_process.jpg" 
+             alt="In process" 
+             class="zoom-image" />
+    </div>
+    <div style="flex: 1; min-width: 0;" class="zoom-image-container">
+        <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/nuxt-app/assets/pictures/minipc/LattePanda.jpg" 
+             alt="LattePanda" 
+             class="zoom-image" />
+    </div>
+    <div style="flex: 1; min-width: 0;" class="zoom-image-container">
+        <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/nuxt-app/assets/pictures/minipc/im_office.jpg" 
+             alt="PC in office setting" 
+             class="zoom-image" />
     </div>
 </div>
 
+<!-- Second Row of Images -->
+<div style="display: flex; flex-direction: row; gap: 15px; margin: 20px 0;">
+    <div style="flex: 1; min-width: 0;" class="zoom-image-container">
+        <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/nuxt-app/assets/pictures/minipc/waterservice.jpg" 
+             alt="Water service system" 
+             class="zoom-image" />
+    </div>
+    <div style="flex: 1; min-width: 0;" class="zoom-image-container">
+        <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/nuxt-app/assets/pictures/minipc/setupA.jpg" 
+             alt="Setup configuration A" 
+             class="zoom-image" />
+    </div>
+    <div style="flex: 1; min-width: 0;" class="zoom-image-container">
+        <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/nuxt-app/assets/pictures/minipc/SetupB.jpg" 
+             alt="Setup configuration B" 
+             class="zoom-image" />
+    </div>
+</div>
