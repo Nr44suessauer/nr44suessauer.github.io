@@ -258,22 +258,26 @@ It was used simply because it was available, and to replicate the dimensions of 
 <p><a href="https://github.com/Nr44suessauer/nr44suessauer.github.io/tree/main/assets/3Dprojects">Full file available for download [here]</a>.</p>
 
 
-<div class="row">
-    <div class="col-md-6">
+<div style="display: flex; flex-direction: row; gap: 15px; margin: 20px 0;">
+    <div style="flex: 1.5; min-width: 0;">
+        <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/minipc/AnimationDevelopPc.gif?raw=true" 
+             alt="Animation Develop PC" 
+             style="width: 150%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);" />
+    </div>
+    <div style="flex: 1.5; min-width: 0; display: flex; flex-direction: column; justify-content: center;">
         <p>The power connections are Tx60 Female, and the HDMI output comes with an adapter (DPort -> HDMI).</p>
         <p>The flaps can be modified or fitted with additional USB ports. The bottom is designed with a <strong>grid structure</strong> to ensure that any water leakage does not accumulate inside the case.</p>
         <p>The RGB fan can be inserted into the duct, effectively <strong>cooling</strong> the <strong>backside</strong> of both the graphics card and the Latte Panda. Additionally, the grid structure at the bottom functions as an air outlet.</p>
         <p>An <strong>LED ring</strong> is attached within the tube, and the cables run through the case to the Latte Panda.</p>
         <p>Please note that press-fit sleeves and screws are required.</p>
-        <div class="note">
-            <p><strong>Note:</strong> The tube was originally a paintbrush packaging. It is therefore advisable to adjust the placeholder to match the size of the material actually available.</p>
-        </div>
     </div>
-    <div class="col-md-6 text-center">
-        <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/assets/img/minipc/AnimationDevelopPc.gif" 
-             alt="Animation Develop Pc" 
-             class="img-fluid rounded" 
-             style="width:100%;" />
+</div>
+
+<div class="textbox textbox-yellow" style="margin: 20px 0;">
+    <div style="margin-bottom: 20px;">
+        <p>
+            <strong>Note:</strong> The tube was originally a paintbrush packaging. It is therefore advisable to adjust the placeholder to match the size of the material actually available.
+        </p>
     </div>
 </div>
 
