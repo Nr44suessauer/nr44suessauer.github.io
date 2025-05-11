@@ -42,35 +42,28 @@ description: Custom-built mini PC with water features
 
 <div class="PictureRow">
     <div>
-        <nuxt-img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/minipc/LattePanda.jpg?raw=true" 
-                 alt="LattePanda" 
-                 width="400"
-                 height="300"
-                 format="webp"
-                 loading="eager"
-                 fetchpriority="high"
-                 quality="80" />
+        <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/nuxt-app/assets/pictures/minipc/LattePanda.jpg" 
+             alt="LattePanda" 
+             width="400"
+             height="300"
+             loading="eager" />
     </div>
     <div>
-        <nuxt-img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/minipc/1st_try_mit_wasser.gif?raw=true" 
-                 alt="First try with water" 
-                 width="400"
-                 height="300"
-                 loading="eager"
-                 fetchpriority="high" />
+        <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/nuxt-app/assets/pictures/minipc/1st_try_mit_wasser.gif" 
+             alt="First try with water" 
+             width="400"
+             height="300"
+             loading="eager" />
     </div>
     <div>
-        <nuxt-img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/minipc/in_process.jpg?raw=true" 
-                 alt="In process" 
-                 width="400"
-                 height="300"
-                 format="webp"
-                 loading="eager"
-                 fetchpriority="high"
-                 quality="80" />
+        <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/nuxt-app/assets/pictures/minipc/in_process.jpg" 
+             alt="In process" 
+             width="400"
+             height="300"
+             loading="eager" />
     </div>
 </div>
-
+<div style="height: 20px;"></div>
 <div style="text-align: center; margin-bottom: 20px; font-style: italic;">
     Only PC without power supply & screen
 </div>
@@ -249,13 +242,9 @@ It was used simply because it was available, and to replicate the dimensions of 
         </div>
     </div>
     <div class="col-md-6 text-center">
-        <nuxt-img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/minipc/stecker.png?raw=true" 
-                 alt="ATX Connector Setup Diagram" 
-                 style="width: 100%; max-width: 300px;"
-                 format="webp"
-                 quality="85"
-                 loading="lazy"
-                 placeholder />
+        <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/nuxt-app/assets/pictures/minipc/stecker.png" 
+             alt="ATX Connector Setup Diagram" 
+             style="width: 100%; max-width: 300px;" />
         <div style="margin-top: 10px; font-style: italic;">ATX Connector Setup Diagram</div>
     </div>
 </div>
@@ -280,14 +269,10 @@ It was used simply because it was available, and to replicate the dimensions of 
         </p>
     </div>
     <div class="col-md-6">
-        <nuxt-img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/fluidsystems.JPG?raw=true" 
-                 alt="Fluid System Diagram" 
-                 class="img-fluid rounded" 
-                 style="width:100%; height:auto;"
-                 format="webp"
-                 quality="85"
-                 loading="lazy"
-                 placeholder />
+        <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/assets/img/minipc/fluidsystems.JPG" 
+             alt="Fluid System Diagram" 
+             class="img-fluid rounded" 
+             style="width:100%; height:auto;" />
     </div>
 </div>
 
@@ -300,11 +285,10 @@ It was used simply because it was available, and to replicate the dimensions of 
 
 <div class="row">
     <div class="col-md-6 text-center">
-        <nuxt-img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/oszi.gif?raw=true" 
-                 alt="Oscilloscope Gif" 
-                 class="img-fluid rounded" 
-                 style="width:70%;"
-                 loading="lazy" />
+        <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/assets/img/minipc/oszi.gif" 
+             alt="Oscilloscope Gif" 
+             class="img-fluid rounded" 
+             style="width:70%;" />
     </div>
     <div class="col-md-6">
         <p>The pump is operated by a relay driven by a <strong>PWM signal from the onboard Leonardo chip</strong>. A random value between 0 and 255 is selected, and the corresponding signal is applied to the relay's control pin, allowing for precise control of the pump's strength. A reed relay, known for its <strong>silent magnetic switching</strong>, is used instead of traditional noisier relays. It is also worth noting that a <strong>classic transistor would be the best choice</strong> for improved efficiency and reliability.</p>
@@ -333,11 +317,10 @@ It was used simply because it was available, and to replicate the dimensions of 
         </div>
     </div>
     <div class="col-md-6 text-center">
-        <nuxt-img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/AnimationDevelopPc.gif?raw=true" 
-                 alt="Animation Develop Pc" 
-                 class="img-fluid rounded" 
-                 style="width:100%;"
-                 loading="lazy" />
+        <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/assets/img/minipc/AnimationDevelopPc.gif" 
+             alt="Animation Develop Pc" 
+             class="img-fluid rounded" 
+             style="width:100%;" />
     </div>
 </div>
 
@@ -346,31 +329,22 @@ It was used simply because it was available, and to replicate the dimensions of 
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        <nuxt-img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/skellet.PNG?raw=true" 
-                 loading="eager" 
-                 class="img-fluid rounded z-depth-1" 
-                 style="max-width:80%;" 
-                 format="webp"
-                 quality="80"
-                 placeholder />
+        <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/assets/img/minipc/skellet.PNG" 
+             loading="eager" 
+             class="img-fluid rounded z-depth-1" 
+             style="max-width:80%;" />
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        <nuxt-img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/baseplate.PNG?raw=true" 
-                 loading="eager" 
-                 class="img-fluid rounded z-depth-1" 
-                 style="max-width:80%;" 
-                 format="webp"
-                 quality="80"
-                 placeholder />
+        <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/assets/img/minipc/baseplate.PNG" 
+             loading="eager" 
+             class="img-fluid rounded z-depth-1" 
+             style="max-width:80%;" />
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        <nuxt-img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/back.PNG?raw=true" 
-                 loading="eager" 
-                 class="img-fluid rounded z-depth-1" 
-                 style="max-width:80%;" 
-                 format="webp"
-                 quality="80"
-                 placeholder />
+        <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/assets/img/minipc/back.PNG" 
+             loading="eager" 
+             class="img-fluid rounded z-depth-1" 
+             style="max-width:80%;" />
     </div>
 </div>
 
@@ -385,11 +359,10 @@ It was used simply because it was available, and to replicate the dimensions of 
 <div style="height: 20px;"></div>
 <div class="row align-items-center">
     <div class="col-md-6 text-center">
-        <nuxt-img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/mewtwo.gif?raw=true" 
-                 alt="Mewtwo Gif" 
-                 class="img-fluid" 
-                 style="width:70%;"
-                 loading="lazy" />
+        <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/assets/img/minipc/mewtwo.gif" 
+             alt="Mewtwo Gif" 
+             class="img-fluid" 
+             style="width:70%;" />
     </div>
     <div class="col-md-6">
         <h4><strong>Mewtwo in the Tank</strong></h4>
@@ -398,13 +371,10 @@ It was used simply because it was available, and to replicate the dimensions of 
         </p>
         <div class="row">
         <div class="col-12 text-center">
-        <nuxt-img src="https://imgflip.com/s/meme/Laughing-Leo.png" 
-                 alt="Calvincandy Django Gif" 
-                 class="img-fluid" 
-                 style="width:30%; margin-top:15px;"
-                 loading="lazy"
-                 format="webp"
-                 quality="75" />
+        <img src="https://imgflip.com/s/meme/Laughing-Leo.png" 
+             alt="Calvincandy Django Gif" 
+             class="img-fluid" 
+             style="width:30%; margin-top:15px;" />
     </div>
     </div>
 </div>
@@ -422,58 +392,40 @@ It was used simply because it was available, and to replicate the dimensions of 
     <div class="row">
         <div class="row">
         <div class="col-sm mt-3 mt-md-0">
-            <nuxt-img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/1st_try_mit_wasser.gif?raw=true" 
-                     loading="lazy" 
-                     class="img-fluid rounded z-depth-1" />
+            <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/assets/img/minipc/1st_try_mit_wasser.gif" 
+                 loading="lazy" 
+                 class="img-fluid rounded z-depth-1" />
         </div>
         <div class="col-sm mt-3 mt-md-0">
-            <nuxt-img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/in_process.jpg?raw=true" 
-                     loading="lazy" 
-                     class="img-fluid rounded z-depth-1" 
-                     format="webp"
-                     quality="80"
-                     placeholder />
+            <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/assets/img/minipc/in_process.jpg" 
+                 loading="lazy" 
+                 class="img-fluid rounded z-depth-1" />
         </div>
         <div class="col-sm mt-3 mt-md-0">
-            <nuxt-img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/LattePanda.jpg?raw=true" 
-                     loading="lazy" 
-                     class="img-fluid rounded z-depth-1" 
-                     format="webp"
-                     quality="80"
-                     placeholder />
+            <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/assets/img/minipc/LattePanda.jpg" 
+                 loading="lazy" 
+                 class="img-fluid rounded z-depth-1" />
         </div>
         <div class="col-sm mt-3 mt-md-0">
-            <nuxt-img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/im_office.jpg?raw=true" 
-                     loading="lazy" 
-                     class="img-fluid rounded z-depth-1" 
-                     format="webp"
-                     quality="80"
-                     placeholder />
+            <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/assets/img/minipc/im_office.jpg" 
+                 loading="lazy" 
+                 class="img-fluid rounded z-depth-1" />
         </div>
     </div>
         <div class="col-sm mt-3 mt-md-0">
-            <nuxt-img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/waterservice.jpg?raw=true" 
-                     loading="lazy" 
-                     class="img-fluid rounded z-depth-1" 
-                     format="webp"
-                     quality="80"
-                     placeholder />
+            <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/assets/img/minipc/waterservice.jpg" 
+                 loading="lazy" 
+                 class="img-fluid rounded z-depth-1" />
         </div>
         <div class="col-sm mt-3 mt-md-0">
-            <nuxt-img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/setupA.jpg?raw=true" 
-                     loading="lazy" 
-                     class="img-fluid rounded z-depth-1" 
-                     format="webp"
-                     quality="80"
-                     placeholder />
+            <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/assets/img/minipc/setupA.jpg" 
+                 loading="lazy" 
+                 class="img-fluid rounded z-depth-1" />
         </div>
         <div class="col-sm mt-3 mt-md-0">
-            <nuxt-img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/assets/img/minipc/SetupB.jpg?raw=true" 
-                     loading="lazy" 
-                     class="img-fluid rounded z-depth-1" 
-                     format="webp"
-                     quality="80"
-                     placeholder />
+            <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/assets/img/minipc/SetupB.jpg" 
+                 loading="lazy" 
+                 class="img-fluid rounded z-depth-1" />
         </div>
     </div>
 </div>
