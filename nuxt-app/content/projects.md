@@ -24,7 +24,7 @@ title: Projects
     </div>
   </a>
   
-  <a href="nuxt-app\content\projects\i-Scan.md" class="project-card project-card--green">
+  <a href="/projects/i_scan" class="project-card project-card--green">
     <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/nuxt-app/assets/pictures/I-Scan/I-Scan_prototyp_seitlich.jpg" alt="I-Scan Projektbild" class="project-card__image" />
     <div class="project-card__content">
       <div class="project-card__title">I-Scan</div>
