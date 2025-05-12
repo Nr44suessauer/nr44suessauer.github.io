@@ -28,7 +28,7 @@ title: Projects
     <img src="https://raw.githubusercontent.com/Nr44suessauer/nr44suessauer.github.io/main/nuxt-app/assets/pictures/I-Scan/I-Scan_prototyp_seitlich.jpg" alt="I-Scan Projektbild" class="project-card__image" />
     <div class="project-card__content">
       <div class="project-card__title">I-Scan</div>
-      <div class="project-card__desc">Custom built 3D scanner featuring a modular design compatible with various sensor types. Runs on Mac Mini (2012) with Linux</div>
+      <div class="project-card__desc">Custom built 3D scanner featuring a modular design compatible with various sensor types.</div>
       <div class="project-card__tags">
         <span class="project-card__tag">Hardware</span>
         <span class="project-card__tag">3D-Printing</span>
