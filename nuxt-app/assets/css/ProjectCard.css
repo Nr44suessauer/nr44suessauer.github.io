@@ -116,3 +116,92 @@
 }
 
 
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  background-color: transparent;
+}
+
+@media (max-width: 768px) {
+  .projects-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Color Variants for Project Cards --- */
+
+/* Green Variant */
+.project-card--green {
+  box-shadow: 0 3px 8px rgba(46, 213, 115, 0.651);
+}
+
+.project-card--green:hover {
+  box-shadow: 0 6px 24px rgba(46, 213, 115, 0.9) !important;
+  transform: translateY(-4px) scale(1.02);
+}
+
+.project-card--green .project-card__title,
+.project-card--green .project-card__tag {
+  color: #2ed573;
+}
+
+/* Purple Variant */
+.project-card--purple {
+  box-shadow: 0 3px 8px rgba(162, 155, 254, 0.651);
+}
+
+.project-card--purple:hover {
+  box-shadow: 0 6px 24px rgba(162, 155, 254, 0.9) !important;
+  transform: translateY(-4px) scale(1.02);
+}
+
+.project-card--purple .project-card__title,
+.project-card--purple .project-card__tag {
+  color: #a29bfe;
+}
+
+/* Orange Variant */
+.project-card--orange {
+  box-shadow: 0 3px 8px rgba(255, 165, 2, 0.651);
+}
+
+.project-card--orange:hover {
+  box-shadow: 0 6px 24px rgba(255, 165, 2, 0.9) !important;
+  transform: translateY(-4px) scale(1.02);
+}
+
+.project-card--orange .project-card__title,
+.project-card--orange .project-card__tag {
+  color: #ffa502;
+}
+
+/* Pink Variant */
+.project-card--pink {
+  box-shadow: 0 3px 8px rgba(255, 71, 202, 0.651);
+}
+
+.project-card--pink:hover {
+  box-shadow: 0 6px 24px rgba(255, 71, 202, 0.9) !important;
+  transform: translateY(-4px) scale(1.02);
+}
+
+.project-card--pink .project-card__title,
+.project-card--pink .project-card__tag {
+  color: #ff47ca;
+}
+
+/* Red Variant */
+.project-card--red {
+  box-shadow: 0 3px 8px rgba(255, 71, 87, 0.651);
+}
+
+.project-card--red:hover {
+  box-shadow: 0 6px 24px rgba(255, 71, 87, 0.9) !important;
+  transform: translateY(-4px) scale(1.02);
+}
+
+.project-card--red .project-card__title,
+.project-card--red .project-card__tag {
+  color: #ff4757;
+}
