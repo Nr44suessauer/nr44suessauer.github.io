@@ -4,6 +4,12 @@ REM Nuxt.js Development Server Starter
 REM Startet den Server von überall in der Ordnerstruktur
 REM ====================================================
 
+REM Prüfen ob das Script in einer neuen Konsole gestartet werden muss
+if "%1" neq "CONSOLE" (
+    start "Nuxt.js Development Server" cmd /k "%~f0" CONSOLE
+    exit /b
+)
+
 echo.
 echo [92m========================================[0m
 echo [92m   Nuxt.js Development Server Starter   [0m
@@ -66,9 +72,8 @@ if not exist "package.json" (
     exit /b 1
 )
 
-REM Cache bereinigen
-echo [93mBereinige Nuxt Cache...[0m
-npx nuxi cleanup
+REM Cache bereinigen (übersprungen wegen möglichen Problemen)
+echo [93mÜberspringe Cache-Bereinigung...[0m
 
 REM Abhängigkeiten prüfen (falls node_modules fehlt)
 if not exist "node_modules" (
@@ -78,16 +83,35 @@ if not exist "node_modules" (
 
 echo.
 echo [92mStarte Entwicklungsserver...[0m
-echo [96mServer wird verfügbar sein unter: http://localhost:3000/[0m
-echo [96mZum Beenden: Ctrl+C drücken[0m
+
+REM Lokale IP-Adresse ermitteln
+echo [93mErmittle lokale IP-Adresse...[0m
+for /f "tokens=2 delims=:" %%i in ('ipconfig ^| findstr /i "IPv4" ^| findstr /v "127.0.0.1"') do (
+    set "LOCAL_IP=%%i"
+    goto :found_ip
+)
+:found_ip
+set "LOCAL_IP=%LOCAL_IP: =%"
+
+echo.
+echo [92m========================================[0m
+echo [92m   SERVER INFORMATIONEN                 [0m
+echo [92m========================================[0m
+echo [96mLokal:           http://localhost:3000/[0m
+echo [96mNetzwerk IP:     http://%LOCAL_IP%:3000/[0m
+echo [96mZum Beenden:     Ctrl+C druecken[0m
+echo [92m========================================[0m
+echo.
+echo [93mStarte Server - bitte warten...[0m
 echo.
 
 REM Development Server starten
-npm run dev
+call npm run dev
 
 REM Falls der Server beendet wird, zum ursprünglichen Verzeichnis zurück
 cd /d "%ORIGINAL_DIR%"
 
 echo.
 echo [93mServer wurde beendet.[0m
+echo [93mDrücken Sie eine beliebige Taste zum Schließen...[0m
 pause
