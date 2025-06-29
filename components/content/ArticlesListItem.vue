@@ -67,14 +67,9 @@ const id = computed(() => {
         <h1>
           {{ article.title }}
         </h1>
-      </NuxtLink>
-
-      <p class="description">
+      </NuxtLink>      <p class="description">
         {{ article.description }}
       </p>
-      <time>
-        {{ formatDate(article.date) }}
-      </time>
     </div>
   </article>
 </template>
@@ -127,20 +122,11 @@ css({
           text: '4xl',
           lineClamp: 3,
         },
-      },
-      '.description': {
+      },      '.description': {
         marginBottom: '{space.4}',
         lineClamp: 2,
         '.featured &&': {
           lineClamp: 4,
-        }
-      },
-      time: {
-        text: 'sm',
-        // TODO: add secondary color token
-        color: '{color.gray.500}',
-        '@dark': {
-          color: '{color.gray.500}',
         }
       }
     },

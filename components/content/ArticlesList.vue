@@ -9,7 +9,27 @@ const props = defineProps({
 })
 
 // @ts-ignore
-const { data: _articles } = await useAsyncData(props.path, async () => await queryContent(withTrailingSlash(props.path)).sort({ date: -1 }).find())
+const { data: _articles } = await useAsyncData(props.path, async () => {
+  const articles = await queryContent(withTrailingSlash(props.path)).find()
+  
+  // Sortiere erst nach order (falls vorhanden), dann nach Datum
+  return articles.sort((a, b) => {
+    // Wenn beide order haben, sortiere nach order
+    if (a.order !== undefined && b.order !== undefined) {
+      return a.order - b.order
+    }
+    // Wenn nur a order hat, a kommt zuerst
+    if (a.order !== undefined && b.order === undefined) {
+      return -1
+    }
+    // Wenn nur b order hat, b kommt zuerst
+    if (a.order === undefined && b.order !== undefined) {
+      return 1
+    }
+    // Wenn beide kein order haben, sortiere nach Datum (neueste zuerst)
+    return new Date(b.date).getTime() - new Date(a.date).getTime()
+  })
+})
 
 const articles = computed(() => _articles.value || [])
 </script>

@@ -16,9 +16,8 @@
         class="title"
       >
         {{ page.title }}
-      </h1>
-      <time
-        v-if="page?.date"
+      </h1>      <time
+        v-if="shouldShowDate"
         :datetime="page.date"
       >
         {{ formatDate(page.date) }}
@@ -46,6 +45,19 @@ const route = useRoute()
 const alpine = useAppConfig().alpine
 
 const article = ref<HTMLElement | null>(null)
+
+// Computed property to determine if date should be shown
+const shouldShowDate = computed(() => {
+  if (!page.value?.date) return false
+  
+  // If showDate is explicitly set to false (boolean or string), don't show
+  if (page.value.showDate === false || page.value.showDate === 'false') {
+    return false
+  }
+  
+  // Otherwise show the date (default behavior)
+  return true
+})
 
 if (page.value) {
   const linkArray = []
