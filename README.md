@@ -15,6 +15,25 @@ The minimalist blog theme, powered by [Nuxt](https://nuxt.com).
 - [📸 Online demo](https://alpine.nuxt.space)
 - [⚡️ Play on StackBlitz](https://stackblitz.com/github/nuxt-themes/alpine-starter)
 
+## Quick Start
+
+### 🚀 Development Server
+```bash
+# Start the local development server
+bash scripts/npmrundev.sh
+```
+
+### 🚀 Deployment
+```bash
+# Build and deploy to GitHub Pages
+bash scripts/deploy.sh
+```
+
+### 📁 Scripts
+The project uses only two scripts for simplicity:
+- `scripts/npmrundev.sh` - Starts local development server on localhost:3000
+- `scripts/deploy.sh` - Complete deployment pipeline (clean, install, build, commit, push)
+
 ## Features
 
 - Start from a **profile page**, scale to a **complete blog**!
