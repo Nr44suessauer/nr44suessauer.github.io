@@ -177,6 +177,7 @@ hidden: true
  <body>
     <h3>Brute Force Algorithm</h3>
     <div class="bf-container">
+<!-- KOMMENTIERT AUS - VERURSACHT MDC WARNING: "removing unsafe attribute: onClick"
         <div class="bf-animation-container">
             <div class="bf-controls">
                 <div>
@@ -198,6 +199,7 @@ hidden: true
                     <select id="bfConstellationSelect" onchange="bfToggleConstellation(this.value)" style="height:30px;">
                         <option value="">Choose constellation...</option>
                         <option value="libra">Libra - 10 points</option>
+-->
                         <option value="orion">Orion - 10 points</option>
                         <option value="ursa_minor">Ursa Minor - 7 points</option>
                         <option value="cassiopeia">Cassiopeia - 5 points</option>
@@ -229,6 +231,7 @@ hidden: true
             <div id="bfFullTable" style="display: none; margin-top: 20px;"></div>
         </div>
     </div>
+    <!-- BRUTE FORCE SEKTION ENDE - KOMMENTIERT AUS WEGEN MDC WARNINGS -->
     <!-- Include Jupyter Notebook (collapsible) -->
     <div class="notebook-container" style="margin-top: 20px; margin-bottom: 20px;">
         <details>
@@ -255,6 +258,7 @@ hidden: true
     <div style="display: flex; align-items: center; margin-top: 10px;"><p></p></div>
     <!-- ================ NEAREST NEIGHBOR ALGORITHM ================ -->
     <h3>Nearest Neighbor Algorithm</h3>
+    <!-- KOMMENTIERT AUS - VERURSACHT MDC WARNING: "removing unsafe attribute: onClick"
     <div class="nn-container">
         <div class="nn-animation-container">
             <div class="nn-controls">
@@ -316,6 +320,7 @@ hidden: true
             <div id="nnFullTable" style="display: none; margin-top: 20px;"></div>
         </div>
     </div>
+    --> <!-- NEAREST NEIGHBOR SEKTION ENDE - KOMMENTIERT AUS WEGEN MDC WARNINGS -->
     <!-- Jupyter Notebook einbinden (aufklappbar) -->
     <div class="notebook-container" style="margin-top: 20px; margin-bottom: 20px;">
         <details>
@@ -341,6 +346,8 @@ hidden: true
     <div style="display: flex; align-items: center; margin-top: 10px;"><p></p></div>
     <!-- ================ CHRISTOFIDES ALGORITHMUS ================ -->
     <h3>Christofides Algorithm</h3>
+    <!-- KOMMENTIERT AUS - VERURSACHT MDC WARNING: "removing unsafe attribute: onClick"
+    <!-- KOMMENTIERT AUS - VERURSACHT MDC WARNING: "removing unsafe attribute: onClick"
     <div class="container">
         <div class="animation-container">
             <div class="controls">
@@ -392,6 +399,7 @@ hidden: true
             <div id="dataOutput">Warte auf den ersten Schritt...</div>
         </div>
     </div>
+    --> <!-- CHRISTOFIDES SEKTION ENDE - KOMMENTIERT AUS WEGEN MDC WARNINGS -->
     <!-- Jupyter Notebook einbinden (aufklappbar) -->
     <div class="notebook-container" style="margin-top: 20px; margin-bottom: 20px;">
         <details>
