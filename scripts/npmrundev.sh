@@ -5,6 +5,40 @@ set -e
 
 echo "🚀 Starting Nuxt development server..."
 
+# Kill all processes running on ports 3000-3009
+echo "🔍 Checking for existing servers on ports 3000-3009..."
+
+# Function to kill processes using specific ports
+kill_port_processes() {
+    # Automatisch das richtige System erkennen
+    if [[ "$OSTYPE" == "msys" ]] || [[ "$OSTYPE" == "cygwin" ]] || [[ -n "$WINDIR" ]]; then
+        # Windows mit Git Bash oder ähnlichem
+        echo "⚙️ Windows-Umgebung erkannt, verwende PowerShell für Port-Bereinigung..."
+        for port in $(seq 3000 3009); do
+            echo "⚙️ Überprüfe Port $port..."
+            # PowerShell-Befehl über Git Bash ausführen
+            POWERSHELL_COMMAND="Get-NetTCPConnection -LocalPort $port -ErrorAction SilentlyContinue | ForEach-Object { Stop-Process -Id \$_.OwningProcess -Force -ErrorAction SilentlyContinue }"
+            powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "$POWERSHELL_COMMAND" 2>/dev/null || true
+        done
+    else
+        # Unix-basierte Systeme (Linux/Mac)
+        echo "⚙️ Unix-Umgebung erkannt, verwende native Befehle für Port-Bereinigung..."
+        for port in $(seq 3000 3009); do
+            echo "⚙️ Überprüfe Port $port..."
+            PORT_PID=$(lsof -ti:$port 2>/dev/null)
+            if [ ! -z "$PORT_PID" ]; then
+                echo "🛑 Prozess mit PID $PORT_PID auf Port $port gefunden. Wird beendet..."
+                kill -9 $PORT_PID 2>/dev/null || true
+                echo "✅ Prozess beendet"
+            fi
+        done
+    fi
+    echo "✅ Port-Bereinigung abgeschlossen"
+}
+
+# Port-Bereinigung ausführen
+kill_port_processes
+
 # Get the project root directory (parent of scripts/)
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 echo "📁 Project root: $PROJECT_ROOT"
