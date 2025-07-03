@@ -76,7 +76,7 @@ const gridConfig = ref({
   transitionDuration: '0.3s'
 })
 
-// Image data
+// Image data - All images from BIP folder
 const groupImages = [
   {
     src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/GroupPic.JPG?raw=true",
@@ -84,19 +84,44 @@ const groupImages = [
     caption: "Team photo from our AI in Education program"
   },
   {
-    src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/seeu.JPG?raw=true",
-    alt: "S.E.E.U. Campus",
-    caption: "South East European University campus"
-  },
-  {
-    src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/inseeu.JPG?raw=true",
-    alt: "Inside S.E.E.U.",
-    caption: "Interior view of the university"
+    src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/Germans.JPG?raw=true",
+    alt: "German Team",
+    caption: "The German participants"
   },
   {
     src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/me.JPG?raw=true",
     alt: "Personal Photo",
     caption: "A memorable moment from the journey"
+  },
+  {
+    src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/seeu.JPG?raw=true",
+    alt: "S.E.E.U. Campus",
+    caption: "South East European University campus"
+  },
+  {
+    src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/InSEEU.JPG?raw=true",
+    alt: "Inside S.E.E.U.",
+    caption: "Interior view of the university"
+  },
+  {
+    src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/workSEEU.JPG?raw=true",
+    alt: "Working at S.E.E.U.",
+    caption: "Working session at the university"
+  },
+  {
+    src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/AlexandertheBIgone.JPG?raw=true",
+    alt: "Alexander the Great",
+    caption: "Alexander the Great monument"
+  },
+  {
+    src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/BWRepresantion.JPG?raw=true",
+    alt: "Baden-Württemberg Representation",
+    caption: "Baden-Württemberg representation during the program"
+  },
+  {
+    src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/TinoWithSupervisor.JPG?raw=true",
+    alt: "Tino with Supervisor",
+    caption: "Meeting with the program supervisor"
   }
 ]
 
@@ -112,6 +137,31 @@ const ohridImages = [
     caption: "Another perspective of Ohrid"
   },
   {
+    src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/OhridLake.JPG?raw=true",
+    alt: "Ohrid Lake",
+    caption: "Beautiful Lake Ohrid"
+  },
+  {
+    src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/LakeOhrid2.JPG?raw=true",
+    alt: "Lake Ohrid 2",
+    caption: "Another view of the pristine Lake Ohrid"
+  },
+  {
+    src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/onMountainOhrid.JPG?raw=true",
+    alt: "On Mountain Ohrid",
+    caption: "Mountain view overlooking Ohrid"
+  },
+  {
+    src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/ourPlaceinOhrid.JPG?raw=true",
+    alt: "Our Place in Ohrid",
+    caption: "Our accommodation in Ohrid"
+  },
+  {
+    src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/Promenade.JPG?raw=true",
+    alt: "Promenade",
+    caption: "Walking along the Ohrid promenade"
+  },
+  {
     src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/bridge.JPG?raw=true",
     alt: "Bridge",
     caption: "Historic bridge in North Macedonia"
@@ -120,6 +170,11 @@ const ohridImages = [
     src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/hoteltino.JPG?raw=true",
     alt: "Hotel Tino",
     caption: "Our accommodation during the trip"
+  },
+  {
+    src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/TinoMorning1.JPG?raw=true",
+    alt: "Tino Morning",
+    caption: "Morning view from Hotel Tino"
   }
 ]
 
@@ -138,6 +193,16 @@ const artImages = [
     src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/viewfromchruce.JPG?raw=true",
     alt: "View from Church",
     caption: "Scenic view from the church location"
+  },
+  {
+    src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/kloster.JPG?raw=true",
+    alt: "Monastery",
+    caption: "Historic monastery in North Macedonia"
+  },
+  {
+    src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/KlosterDecke.JPG?raw=true",
+    alt: "Monastery Ceiling",
+    caption: "Beautiful ceiling artwork in the monastery"
   },
   {
     src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/BW-Sticker.JPG?raw=true",
@@ -278,21 +343,54 @@ onUnmounted(() => {
   width: 120px;
 }
 
-/* Gallery Grid - now using CSS Grid instead of Flexbox */
-.gallery-grid {
-  /* Styles are now applied via computed styles */
-}
-
-.gallery-item {
-  /* Styles are now applied via computed styles */
-}
+/* Gallery Grid - Styles are applied via computed styles */
 
 .gallery-item:hover {
   transform: translateY(-4px);
 }
 
-.gallery-img {
-  /* Base styles are now applied via computed styles */
+/* Image placeholder and loading states */
+.image-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%), 
+              linear-gradient(-45deg, #f0f0f0 25%, transparent 25%), 
+              linear-gradient(45deg, transparent 75%, #f0f0f0 75%), 
+              linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  animation: slideBackground 2s linear infinite;
+}
+
+.image-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffebee;
+  color: #c62828;
+  font-size: 12px;
+  text-align: center;
+  padding: 10px;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes slideBackground {
+  0% { background-position: 0 0, 0 10px, 10px -10px, -10px 0px; }
+  100% { background-position: 20px 20px, 20px 30px, 30px 10px, 10px 20px; }
 }
 
 .gallery-item:hover .gallery-img {

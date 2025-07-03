@@ -186,15 +186,22 @@ export default defineNuxtConfig({
         default: 'github-light',
         dark: 'github-dark'
       },
-      preload: ['json', 'js', 'ts', 'html', 'css', 'vue', 'diff', 'shell', 'markdown', 'yaml', 'bash', 'ini', 'c', 'cpp']
+      // PowerShell Sprache hinzugefügt um das WARNING zu beheben: "Language 'powershell' is not loaded to the Shiki highlighter"
+      preload: ['json', 'js', 'ts', 'html', 'css', 'vue', 'diff', 'shell', 'markdown', 'yaml', 'bash', 'ini', 'c', 'cpp', 'powershell']
     },
     markdown: {
       remarkPlugins: []
     }
   },
 
+  // MDC-spezifische Konfiguration für PowerShell-Support
+  mdc: {
+    highlight: {
+      langs: ['json', 'js', 'ts', 'html', 'css', 'vue', 'diff', 'shell', 'markdown', 'yaml', 'bash', 'ini', 'c', 'cpp', 'powershell']
+    }
+  },
+
   experimental: {
-    inlineSSRStyles: false,
     treeshakeClientOnly: true,
     componentIslands: true
   },

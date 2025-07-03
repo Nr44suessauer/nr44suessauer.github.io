@@ -31,7 +31,30 @@ const { data: _articles } = await useAsyncData(props.path, async () => {
   })
 })
 
-const articles = computed(() => _articles.value || [])
+const articles = computed(() => {
+  if (!_articles.value) return []
+  
+  // Sort by gridPosition (higher numbers first), then by date
+  const sorted = [..._articles.value].sort((a: any, b: any) => {
+    const aGrid = Number(a.gridPosition) || 0
+    const bGrid = Number(b.gridPosition) || 0
+    
+    if (aGrid !== bGrid) {
+      return bGrid - aGrid  // Higher gridPosition numbers appear first
+    }
+    
+    const aDate = new Date(a.date || 0).getTime()
+    const bDate = new Date(b.date || 0).getTime()
+    return bDate - aDate
+  })
+  
+  console.log('Sorted articles:', sorted.map((a: any) => ({ 
+    title: a.title, 
+    gridPosition: a.gridPosition 
+  })))
+  
+  return sorted
+})
 </script>
 
 <template>
