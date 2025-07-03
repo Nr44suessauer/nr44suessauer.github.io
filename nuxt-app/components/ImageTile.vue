@@ -123,16 +123,20 @@ onUnmounted(() => {
   cursor: pointer;
 }
 
+.image-tile:hover {
+  z-index: 1000; /* Bringt das gehöverte Bild auf den obersten Layer */
+}
+
 .tile-img {
   width: 100%;
   height: auto;
   display: block;
   border-radius: 8px;
-  transition: transform 0.2s ease;
+  transition: transform 0.3s ease;
 }
 
 .tile-img:hover {
-  transform: scale(1.05);
+  transform: scale(3); /* 100% Vergrößerung (100% + 100% = 200% Gesamtgröße) */
 }
 
 .tile-caption {
