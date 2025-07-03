@@ -5,23 +5,36 @@
 </template>
 
 <script setup>
-// Skalierung beim ersten Laden der App setzen und Desktop-Ansicht für Mobile erzwingen
+// Initiale Einstellungen beim ersten Laden der App setzen
 onMounted(() => {
   if (process.client) {
-    // Prüfen ob bereits eine Skalierung gesetzt wurde in dieser Session
-    const hasScaled = sessionStorage.getItem('page-scaled')
+    // Erkennen ob es ein mobiles Gerät ist
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     
-    if (!hasScaled) {
-      // Skalierung auf 150% setzen
-      document.documentElement.style.zoom = '150%'
-      // Markieren, dass Skalierung bereits gesetzt wurde
-      sessionStorage.setItem('page-scaled', 'true')
-    }
+    // Prüfen ob dies der erste Besuch in dieser Session ist
+    const isFirstVisit = !sessionStorage.getItem('has-visited');
     
-    // Desktop-Ansicht für Mobile-Geräte erzwingen
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-      // Zusätzliche Anpassungen für Mobile-Geräte, falls nötig
-      document.documentElement.style.minWidth = '1024px';
+    // Für Mobile beim ersten Besuch Desktop-Modus als Ausgangspunkt setzen
+    if (isMobile && isFirstVisit) {
+      // Initiale Desktop-Breite setzen, aber nicht erzwingen
+      document.body.style.minWidth = '1280px';
+      document.documentElement.style.minWidth = '1280px';
+      
+      // Sicherstellen, dass der Viewport korrekt eingestellt ist
+      const viewportMeta = document.querySelector('meta[name="viewport"]');
+      if (viewportMeta) {
+        viewportMeta.setAttribute('content', 'width=1280, initial-scale=1.0');
+      }
+      
+      // Markieren, dass Seite besucht wurde
+      sessionStorage.setItem('has-visited', 'true');
+    } 
+    // Für Desktop-Geräte das 150% Zoom anwenden (falls erster Besuch)
+    else if (!isMobile && !sessionStorage.getItem('page-scaled')) {
+      // Skalierung auf 150% setzen (nur für Desktop)
+      document.documentElement.style.zoom = '150%';
+      // Markieren, dass Skalierung gesetzt wurde
+      sessionStorage.setItem('page-scaled', 'true');
     }
   }
 })
@@ -36,5 +49,15 @@ html {
 body {
   background-color: #111;
   color: white;
+}
+
+/* Nur beim ersten Besuch wird die Desktop-Ansicht angezeigt */
+/* Keine Einschränkungen für Zoomen oder Skalieren */
+@media (max-width: 1280px) {
+  html, body {
+    /* Anfängliche Desktop-Größe, aber ohne !important um Änderungen zu erlauben */
+    min-width: 1280px;
+    overflow-x: auto;
+  }
 }
 </style>
