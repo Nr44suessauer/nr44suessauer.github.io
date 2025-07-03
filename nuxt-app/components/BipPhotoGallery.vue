@@ -46,10 +46,6 @@ const allImages = [
     alt: "Baden-Württemberg Representation"
   },
   {
-    src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/TinoWithSupervisor.JPG?raw=true",
-    alt: "Tino with Supervisor"
-  },
-  {
     src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/ohrid.JPG?raw=true",
     alt: "Ohrid"
   },
@@ -100,6 +96,10 @@ const allImages = [
   {
     src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/viewfromchruce.JPG?raw=true",
     alt: "View from Church"
+  },
+    {
+    src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/TinoWithSupervisor.JPG?raw=true",
+    alt: "Tino with Supervisor"
   }
 ]
 </script>
