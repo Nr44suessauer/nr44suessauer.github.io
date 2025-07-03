@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-// Skalierung beim ersten Laden der App setzen
+// Skalierung beim ersten Laden der App setzen und Desktop-Ansicht für Mobile erzwingen
 onMounted(() => {
   if (process.client) {
     // Prüfen ob bereits eine Skalierung gesetzt wurde in dieser Session
@@ -16,6 +16,12 @@ onMounted(() => {
       document.documentElement.style.zoom = '150%'
       // Markieren, dass Skalierung bereits gesetzt wurde
       sessionStorage.setItem('page-scaled', 'true')
+    }
+    
+    // Desktop-Ansicht für Mobile-Geräte erzwingen
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      // Zusätzliche Anpassungen für Mobile-Geräte, falls nötig
+      document.documentElement.style.minWidth = '1024px';
     }
   }
 })

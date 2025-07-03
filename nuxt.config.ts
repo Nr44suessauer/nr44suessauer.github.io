@@ -37,6 +37,10 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'en'
       },
+      meta: [
+        // Viewport auf feste Breite setzen, um Desktop-Ansicht auf Mobilgeräten zu erzwingen
+        { name: 'viewport', content: 'width=1024, initial-scale=1' }
+      ],
       script: [
         { src: 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js', body: true },
         // Skript für Bildladeversuche
