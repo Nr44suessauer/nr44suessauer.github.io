@@ -102,3 +102,8 @@ git push origin main
 
 echo "✅ Deployment completed successfully!"
 echo "🌐 Your website has been deployed!"
+
+# Keep terminal open
+echo ""
+echo "Press any key to close this terminal..."
+read -n 1 -s
