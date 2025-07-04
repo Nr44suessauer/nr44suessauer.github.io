@@ -142,21 +142,22 @@ onUnmounted(() => {
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   z-index: 9999;
   animation: fadeIn 0.3s ease;
 }
 
 .modal-content {
-  position: relative;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   max-width: 90vw;
   max-height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  z-index: 10000;
 }
 
 .image-container {
