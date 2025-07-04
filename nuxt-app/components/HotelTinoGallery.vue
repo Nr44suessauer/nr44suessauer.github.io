@@ -15,21 +15,26 @@
 <script setup>
 // Hotel Tino image data
 const hotelTinoImages = [
-  {
-    src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/ohridWork/HotelTino2.JPG?raw=true",
-    alt: "Hotel Tino - View 2",
-    caption: "Hotel Tino workspace area"
-  },
-  {
-    src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/ohridWork/HotelTino3.JPG?raw=true",
-    alt: "Hotel Tino - View 3", 
-    caption: "Hotel Tino meeting room"
-  },
-  {
-    src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/ohridWork/HotelTino1.JPG?raw=true",
-    alt: "Hotel Tino - View 1",
-    caption: "Hotel Tino main area"
-  }
+    {
+        src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/ohridWork/HotelTino2.JPG?raw=true",
+        alt: "Hotel Tino - View 2",
+        caption: "Hotel Tino workspace area"
+    },
+    {
+        src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/ohridWork/HotelTino3.JPG?raw=true",
+        alt: "Hotel Tino - View 3", 
+        caption: "Hotel Tino meeting room"
+    },
+    {
+        src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/ohridWork/HotelTino1.JPG?raw=true",
+        alt: "Hotel Tino - View 1",
+        caption: "Hotel Tino main area"
+    },
+    {
+        src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/ohridWork/HotelTino4.JPG?raw=true",
+        alt: "Hotel Tino - View 4",
+        caption: "Hotel Tino additional view"
+    }
 ]
 </script>
 
@@ -40,7 +45,7 @@ const hotelTinoImages = [
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 15px;
   max-width: 1200px;
   margin: 0 auto;
@@ -59,7 +64,7 @@ const hotelTinoImages = [
 /* Mobile responsiveness */
 @media (max-width: 768px) {
   .gallery-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     padding: 0 10px;
   }
@@ -67,13 +72,13 @@ const hotelTinoImages = [
 
 @media (min-width: 769px) and (max-width: 1024px) {
   .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
 @media (min-width: 1025px) {
   .gallery-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 </style>
