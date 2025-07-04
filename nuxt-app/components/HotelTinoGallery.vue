@@ -1,11 +1,11 @@
 <template>
-  <div class="hotel-tino-gallery">
+  <div class="bip-gallery">
     <div class="gallery-grid">
       <ImageTile
-        v-for="(image, index) in hotelTinoImages" 
+        v-for="(image, index) in allImages" 
         :key="index"
         :image="image"
-        :loading="index < 3 ? 'eager' : 'lazy'"
+        :loading="index < 4 ? 'eager' : 'lazy'"
         class="gallery-item"
       />
     </div>
@@ -13,33 +13,31 @@
 </template>
 
 <script setup>
-// Hotel Tino image data
-const hotelTinoImages = [
-    {
-        src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/ohridWork/HotelTino2.JPG?raw=true",
-        alt: "Hotel Tino - View 2",
-        caption: "Hotel Tino workspace area"
-    },
-    {
-        src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/ohridWork/HotelTino3.JPG?raw=true",
-        alt: "Hotel Tino - View 3", 
-        caption: "Hotel Tino meeting room"
-    },
-    {
-        src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/ohridWork/HotelTino1.JPG?raw=true",
-        alt: "Hotel Tino - View 1",
-        caption: "Hotel Tino main area"
-    },
-    {
-        src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/ohridWork/HotelTino4.JPG?raw=true",
-        alt: "Hotel Tino - View 4",
-        caption: "Hotel Tino additional view"
-    }
+import ImageTile from './ImageTile.vue'
+
+// Image data - All images from Hotel Tino
+const allImages = [
+  {
+    src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/ohridWork/HotelTino2.JPG?raw=true",
+    alt: "Hotel Tino - View 2"
+  },
+  {
+    src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/ohridWork/HotelTino3.JPG?raw=true",
+    alt: "Hotel Tino - View 3"
+  },
+  {
+    src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/ohridWork/HotelTino1.JPG?raw=true",
+    alt: "Hotel Tino - View 1"
+  },
+  {
+    src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/ohridWork/HotelTino4.JPG?raw=true",
+    alt: "Hotel Tino - View 4"
+  }
 ]
 </script>
 
 <style scoped>
-.hotel-tino-gallery {
+.bip-gallery {
   margin: 20px 0;
 }
 
@@ -47,38 +45,39 @@ const hotelTinoImages = [
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 15px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 15px;
+  width: 100%;
+  margin: 20px 0;
+  align-items: start;
 }
 
 .gallery-item {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
 }
 
-.gallery-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+/* Remove the old .gallery-img styles since we're using ImageTile now */
+
+/* Mobile Responsive */
+@media (max-width: 1200px) {
+  .gallery-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
-/* Mobile responsiveness */
+@media (max-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    padding: 0 10px;
   }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (max-width: 480px) {
   .gallery-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-@media (min-width: 1025px) {
-  .gallery-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr;
   }
 }
 </style>
