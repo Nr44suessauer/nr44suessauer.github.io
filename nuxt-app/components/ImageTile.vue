@@ -15,21 +15,11 @@
       <div class="modal-content" @click.stop>
         <button class="modal-close" @click="closeModal">&times;</button>
         
-        <!-- Zoom controls -->
-        <div class="zoom-controls">
-          <button class="zoom-btn" @click="toggleZoom" :title="isZoomed ? 'Zoom Out' : 'Zoom In'">
-            <span v-if="isZoomed">🔍−</span>
-            <span v-else>🔍+</span>
-          </button>
-        </div>
-        
-        <div class="image-container" :class="{ 'zoomed': isZoomed }">
+        <div class="image-container">
           <img 
             :src="image.src" 
             :alt="image.alt" 
             class="modal-image"
-            :class="{ 'zoomed': isZoomed }"
-            @click="toggleZoom"
           />
         </div>
         
@@ -66,13 +56,11 @@ const props = defineProps({
 
 // Reactive state
 const isModalOpen = ref(false)
-const isZoomed = ref(false)
 
 // Methods
 const openModal = () => {
   console.log('Opening modal for image:', props.image.alt) // Debug log
   isModalOpen.value = true
-  isZoomed.value = false // Reset zoom when opening modal
   if (typeof window !== 'undefined') { // Better client check
     document.body.style.overflow = 'hidden'
   }
@@ -81,15 +69,9 @@ const openModal = () => {
 const closeModal = () => {
   console.log('Closing modal') // Debug log
   isModalOpen.value = false
-  isZoomed.value = false // Reset zoom when closing
   if (typeof window !== 'undefined') { // Better client check
     document.body.style.overflow = 'auto'
   }
-}
-
-const toggleZoom = () => {
-  isZoomed.value = !isZoomed.value
-  console.log('Zoom toggled:', isZoomed.value) // Debug log
 }
 
 // Keyboard support - close on Escape
@@ -174,47 +156,15 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.zoom-controls {
-  position: absolute;
-  top: -50px;
-  left: 0;
-  z-index: 10001;
-}
-
-.zoom-btn {
-  background: rgba(255, 255, 255, 0.2);
-  border: none;
-  color: white;
-  font-size: 20px;
-  cursor: pointer;
-  padding: 0.5rem;
-  border-radius: 4px;
-  transition: background 0.2s ease;
-  margin-right: 10px;
-}
-
-.zoom-btn:hover {
-  background: rgba(255, 255, 255, 0.3);
+  justify-content: center;
 }
 
 .image-container {
-  overflow: auto;
   max-width: 90vw;
   max-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.image-container.zoomed {
-  overflow: auto;
-  cursor: grab;
-}
-
-.image-container.zoomed:active {
-  cursor: grabbing;
 }
 
 .modal-image {
@@ -226,14 +176,6 @@ onUnmounted(() => {
   border-radius: 8px;
   box-shadow: 0 20px 40px rgba(0,0,0,0.5);
   transition: transform 0.3s ease;
-  cursor: pointer;
-}
-
-.modal-image.zoomed {
-  transform: scale(2);
-  max-width: none;
-  max-height: none;
-  cursor: grab;
 }
 
 .modal-caption {
@@ -279,10 +221,6 @@ onUnmounted(() => {
     max-height: 70vh;
   }
   
-  .modal-image.zoomed {
-    transform: scale(1.5); /* Smaller zoom on mobile */
-  }
-  
   .modal-caption {
     font-size: 14px;
     padding: 0.5rem;
@@ -292,16 +230,6 @@ onUnmounted(() => {
     top: 10px;
     right: 10px;
     font-size: 30px;
-  }
-  
-  .zoom-controls {
-    top: 10px;
-    left: 10px;
-  }
-  
-  .zoom-btn {
-    font-size: 16px;
-    padding: 0.3rem;
   }
 }
 
