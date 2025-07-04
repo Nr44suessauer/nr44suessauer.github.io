@@ -1,0 +1,1 @@
+import{_ as a,k as o,o as r,a6 as t}from"./BroBluBj.js";const n={};function s(e,c){return r(),o("ul",null,[t(e.$slots,"default",{},void 0,!0)])}const l=a(n,[["render",s],["__scopeId","data-v-5bd61aad"]]);export{l as default};
