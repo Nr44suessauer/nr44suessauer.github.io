@@ -1,8 +1,8 @@
 ---
-title: 'Evelopment'
+title: 'elopment'
 description: 'Development insights and methodologies'
 cover: '/social-card-preview.png'
-layout: 'site'
+layout: 'default'
 navigation: false
 ---
 
