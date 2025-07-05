@@ -51,6 +51,11 @@ h4 {
   color: var(--color-secondary); /* Noch helleres Orange für H3 */
 }
 
+h5 {
+  font-size: 1.25rem;
+  color: var(--color-primary) !important; /* Grün für H5 wie H1-H3 */
+}
+
 /* ===================================
    BLOCKQUOTE-STILE
    =================================== */
