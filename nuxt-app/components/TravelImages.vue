@@ -29,13 +29,13 @@ const allImages = [
     src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/church/chruchoben.JPG?raw=true",
     alt: "Church from Above"
   },
+    {
+    src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/landscape.JPG?raw=true",
+    alt: "North Macedonia Landscape"
+  },
   {
     src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/church/stairs.JPG?raw=true",
     alt: "Church Stairs"
-  },
-  {
-    src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/landscape.JPG?raw=true",
-    alt: "North Macedonia Landscape"
   }
 ]
 </script>
