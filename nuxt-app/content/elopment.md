@@ -1,5 +1,5 @@
 ---
-title: 'elopment'
+title: 'Evelopment'
 description: 'Development insights and methodologies'
 cover: '/social-card-preview.png'
 layout: 'site'
