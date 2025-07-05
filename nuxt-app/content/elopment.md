@@ -2,7 +2,7 @@
 title: Elopment
 layout: default
 navigation: false
-_path: /elopment
+_draft: false
 head:
   title: Elopment - DeadlineDriven.dev
 description: Versteckte Seite - nur über direkteingabe erreichbar
@@ -12,21 +12,16 @@ description: Versteckte Seite - nur über direkteingabe erreichbar
 
 Diese Seite ist nur über direkte URL-Eingabe erreichbar und wird nicht in der Navigation angezeigt.
 
-## Versteckter Bereich
+## Geheimer Inhalt
 
-Hier finden Sie experimentelle Inhalte und Projektdetails, die nicht über die Navigation erreichbar sind.
+Hier können Sie versteckte Inhalte, Experimente oder andere Dinge platzieren, die nicht öffentlich verlinkt werden sollen.
 
-### Eigenschaften dieser Seite:
-- 🔐 Nur über direkte URL-Eingabe erreichbar
-- 🚫 Kein Link in der Navigation
+### Features:
+- ✅ Nur über direkte URL erreichbar
+- ✅ Kein Link in der Navigation
 - ✅ Vollständig funktionale Seite
-- 📱 Responsives Design
-- 🎨 Konsistentes Styling mit dem Rest der Website
-
-## Inhalt
-
-Hier können Sie beliebige Inhalte hinzufügen, die nur für Personen zugänglich sein sollen, die die direkte URL kennen.
+- ✅ Responsives Design
 
 ---
 
-*Diese Seite ist bewusst versteckt und nur über `deadlinedriven.dev/elopment` erreichbar.*
+*Diese Seite ist bewusst versteckt und nur über deadlinedriven.dev/elopment erreichbar.*

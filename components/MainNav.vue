@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { computed } from 'vue'
+
 const { navigation } = useContent()
 
 const emits = defineEmits(['linkClick'])
@@ -6,13 +8,18 @@ const emits = defineEmits(['linkClick'])
 function handleClick() {
   emits('linkClick')
 }
+
+// Filter out pages with navigation: false
+const filteredNavigation = computed(() => {
+  return navigation.value?.filter((link: any) => link.navigation !== false) || []
+})
 </script>
 
 <template>
   <nav>
     <ul>
       <li
-        v-for="link of navigation"
+        v-for="link of filteredNavigation"
         :key="link._path"
       >
         <NuxtLink

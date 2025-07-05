@@ -227,6 +227,7 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
+      routes: ['/elopment'],
       ignore: ['/__pinceau_tokens_config.json', '/__pinceau_tokens_schema.json']
     },
     compressPublicAssets: true,
