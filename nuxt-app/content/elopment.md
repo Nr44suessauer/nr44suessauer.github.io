@@ -3,6 +3,7 @@ title: Elopment
 layout: default
 navigation: false
 _draft: false
+_path: /elopment
 head:
   title: Elopment - DeadlineDriven.dev
 description: Versteckte Seite - nur über direkteingabe erreichbar

@@ -4,6 +4,28 @@ export default defineNuxtConfig({
   // https://github.com/nuxt-themes/alpine
   extends: '@nuxt-themes/alpine',
   
+  // Enable static site generation
+  ssr: true,
+  
+  // Nitro-Konfiguration für statische Generierung
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: ['/elopment'], // Explizit die elopment Route hinzufügen
+      failOnError: false
+    }
+  },
+  
+  // Route Rules für explizites Prerendering
+  routeRules: {
+    '/elopment': { 
+      prerender: true,
+      headers: {
+        'Cache-Control': 'public, max-age=3600'
+      }
+    }
+  },
+  
   // Auto-Import von Komponenten aktivieren
   components: {
     global: true,

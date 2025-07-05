@@ -228,7 +228,9 @@ export default defineNuxtConfig({
     prerender: {
       crawlLinks: true,
       routes: ['/elopment'],
-      ignore: ['/__pinceau_tokens_config.json', '/__pinceau_tokens_schema.json']
+      ignore: ['/__pinceau_tokens_config.json', '/__pinceau_tokens_schema.json'],
+      // Explizit alle Routen scannen
+      failOnError: false
     },
     compressPublicAssets: true,
     // Ensure static generation works properly
@@ -237,6 +239,10 @@ export default defineNuxtConfig({
         driver: 'fs',
         base: './.output/public'
       }
+    },
+    // Explicitly include the elopment route
+    output: {
+      publicDir: '.output/public'
     }
   },
 
@@ -259,6 +265,13 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
+    // Explizite Route-Regel für die versteckte Elopment-Seite
+    '/elopment': { 
+      prerender: true,
+      headers: {
+        'Cache-Control': 'public, max-age=3600'
+      }
+    },
     // Statische Assets mit Cache-Control-Header
     '/assets/**': { 
       headers: { 
