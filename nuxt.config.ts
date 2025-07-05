@@ -193,7 +193,9 @@ export default defineNuxtConfig({
       }
     },
     navigation: {
-      fields: ['navTitle']
+      fields: ['navTitle'],
+      // Exclude specific routes from navigation
+      exclude: ['/elopment']
     },
     highlight: {
       theme: {
