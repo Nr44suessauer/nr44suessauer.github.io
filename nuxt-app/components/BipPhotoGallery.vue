@@ -86,15 +86,15 @@ const allImages = [
     alt: "Tino Morning"
   },
   {
-    src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/chruchbetweenohridandskope1.JPG?raw=true",
+    src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/church/chruchbetweenohridandskope1.JPG?raw=true",
     alt: "Church Between Ohrid and Skopje 1"
   },
   {
-    src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/chruchbetweenohridandskope2.JPG?raw=true",
+    src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/church/chruchbetweenohridandskope2.JPG?raw=true",
     alt: "Church Between Ohrid and Skopje 2"
   },
   {
-    src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/viewfromchruce.JPG?raw=true",
+    src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/church/viewfromchruce.JPG?raw=true",
     alt: "View from Church"
   },
     {
