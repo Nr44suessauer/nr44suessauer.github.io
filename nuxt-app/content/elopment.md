@@ -5,6 +5,9 @@ layout: 'page'
 navigation: false
 _draft: false
 _hidden: true
+navTitle: false
+showInNavigation: false
+includeInNavigation: false
 ---
 
 <div style="display: flex; justify-content: center; align-items: center; min-height: 50vh;">

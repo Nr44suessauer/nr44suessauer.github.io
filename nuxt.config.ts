@@ -193,9 +193,15 @@ export default defineNuxtConfig({
       }
     },
     navigation: {
-      fields: ['navTitle'],
-      // Exclude specific routes from navigation
-      exclude: ['/elopment']
+      fields: ['navTitle', 'navigation'],
+      // Filter function to exclude specific files
+      filter: (item) => {
+        // Exclude elopment from navigation
+        if (item._path === '/elopment') return false
+        // Exclude files that explicitly set navigation: false
+        if (item.navigation === false) return false
+        return true
+      }
     },
     highlight: {
       theme: {
@@ -261,6 +267,11 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
+    // Hide elopment from navigation but keep it accessible
+    '/elopment': { 
+      index: false,
+      sitemap: false 
+    },
     // Statische Assets mit Cache-Control-Header
     '/assets/**': { 
       headers: { 
