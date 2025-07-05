@@ -184,7 +184,7 @@ export default defineNuxtConfig({
   },
 
   content: {
-    documentDriven: true,
+    documentDriven: false, // Allow pages and content to coexist
     navigation: {
       fields: ['navTitle']
     },
@@ -223,7 +223,14 @@ export default defineNuxtConfig({
       crawlLinks: true,
       ignore: ['/__pinceau_tokens_config.json', '/__pinceau_tokens_schema.json']
     },
-    compressPublicAssets: true
+    compressPublicAssets: true,
+    // Ensure static generation works properly
+    storage: {
+      fs: {
+        driver: 'fs',
+        base: './.output/public'
+      }
+    }
   },
 
   compatibilityDate: '2025-04-17',

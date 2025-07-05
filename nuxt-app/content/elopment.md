@@ -2,7 +2,7 @@
 title: 'elopment'
 description: 'Development insights and methodologies'
 cover: '/social-card-preview.png'
-layout: 'default'
+layout: 'page'
 navigation: false
 ---
 
