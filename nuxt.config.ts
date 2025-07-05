@@ -184,7 +184,14 @@ export default defineNuxtConfig({
   },
 
   content: {
-    documentDriven: false, // Allow pages and content to coexist
+    documentDriven: true,
+    sources: {
+      content: {
+        driver: 'fs',
+        prefix: '/', // All contents will be prefixed by /
+        base: resolve('./nuxt-app/content') // Where to look for content
+      }
+    },
     navigation: {
       fields: ['navTitle']
     },
