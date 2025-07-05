@@ -28,6 +28,13 @@ jobs:
       - name: Generate
         run: pnpm run generate
         
+      - name: Debug - List generated files
+        run: |
+          echo "Generated files in .output/public:"
+          ls -la .output/public/
+          echo "Looking for elopment files:"
+          find .output/public -name "*elopment*" -type f || echo "No elopment files found"
+        
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:

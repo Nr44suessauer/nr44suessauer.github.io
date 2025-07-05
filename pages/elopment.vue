@@ -13,7 +13,8 @@
 definePageMeta({
   title: 'elopment',
   description: 'Development insights and methodologies',
-  layout: 'default'
+  layout: 'default',
+  path: '/elopment'
 })
 
 // SEO
