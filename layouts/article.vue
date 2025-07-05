@@ -93,10 +93,12 @@ const onBackToTop = () => {
 <style scoped lang="ts">
 css({
   article: {
-    maxWidth: '{alpine.readableLine}',
+    maxWidth: '100%',
     mx: 'auto',
+    px: '{space.4}',
     py: '{space.4}',
     '@sm': {
+      px: '{space.6}',
       py: '{space.12}',
     },
     '.back': {
