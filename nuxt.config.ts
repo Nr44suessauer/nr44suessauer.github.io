@@ -193,15 +193,7 @@ export default defineNuxtConfig({
       }
     },
     navigation: {
-      fields: ['navTitle', 'navigation'],
-      // Filter function to exclude specific files
-      filter: (item) => {
-        // Exclude elopment from navigation
-        if (item._path === '/elopment') return false
-        // Exclude files that explicitly set navigation: false
-        if (item.navigation === false) return false
-        return true
-      }
+      fields: ['navTitle']
     },
     highlight: {
       theme: {
@@ -234,7 +226,6 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      routes: ['/elopment'],
       crawlLinks: true,
       ignore: ['/__pinceau_tokens_config.json', '/__pinceau_tokens_schema.json']
     },
@@ -267,11 +258,6 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    // Hide elopment from navigation but keep it accessible
-    '/elopment': { 
-      index: false,
-      sitemap: false 
-    },
     // Statische Assets mit Cache-Control-Header
     '/assets/**': { 
       headers: { 
