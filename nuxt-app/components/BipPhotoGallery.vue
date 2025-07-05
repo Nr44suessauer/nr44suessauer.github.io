@@ -54,10 +54,6 @@ const allImages = [
     alt: "Ohrid Part"
   },
   {
-    src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/OhridLake.JPG?raw=true",
-    alt: "Ohrid Lake"
-  },
-  {
     src: "https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/BIP/LakeOhrid2.JPG?raw=true",
     alt: "Lake Ohrid 2"
   },
