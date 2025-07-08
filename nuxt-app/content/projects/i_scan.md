@@ -398,11 +398,6 @@ Fullscreen View
 </details>
 
 
-<!-- Tabellen und Funktionsgruppen ohne umschließendes <div> für Markdown-Tabellen-Rendering -->
-<!-- ...existing code for other function groups and example usage... -->
-
-
-
 ---
 
 <!-- Activity Diagram und Execution Servo als eigenständige Reiter unterhalb -->
