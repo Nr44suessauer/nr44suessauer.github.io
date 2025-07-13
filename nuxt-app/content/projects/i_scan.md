@@ -523,3 +523,20 @@ result = ApiClient.set_led_color("#FF0000", "http://192.168.137.7")
 
 
 ---
+
+<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
+  <div style="display: flex; align-items: center; justify-content: center;">
+    <img 
+      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Console_failure_connection_camera.PNG?raw=true" 
+      alt="Console Failure Connection Camera" 
+      style="max-width: 900px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
+    />
+  </div>
+  <p style="text-align: center; margin-top: 5px;">
+    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Console_failure_connection_camera.PNG?raw=true" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
+      Fullscreen View
+    </a>
+  </p>
+</div>
+
+---
