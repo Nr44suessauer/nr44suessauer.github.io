@@ -7,6 +7,14 @@ description: custom open source 3D scanner - Meshroom Guide
 ---> YoshiScan (PC-Uni) \
 ---> Bild ToolCHain MeshRoom
 
+<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+  <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" style="width:32px; height:32px;">
+  <strong>GitHub Repository:</strong>
+  <a href="https://github.com/Nr44suessauer/I-Scan/tree/ReleaseVersion1.0" target="_blank" style="font-weight: bold; color: #24292f;">Nr44suessauer/I-Scan</a>
+</div>
+
+---
+
 
 <details style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content;">
   <summary style="background:hsl(0, 0.00%, 0.00%); padding: 15px; cursor: pointer; font-weight: bold; border-bottom: 1px solid #ddd; color: var(--color-primary); width: fit-content;">
@@ -706,5 +714,12 @@ result = ApiClient.set_led_color("#FF0000", "http://192.168.137.7")
     </a>
   </p>
 </div>
+
+---
+
+
+
+
+
 
 ---
