@@ -4,12 +4,11 @@ description: custom open source 3D scanner - Meshroom Guide
 ---
 
 -> noch fehlende Bilder \
----> YoshiScan (PC-Uni) \
----> Bild ToolCHain MeshRoom
+---> Bild ToolCHain MeshRoom bearbeitet \
 
 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
   <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" style="width:32px; height:32px;">
-  <strong>GitHub Repository:</strong>
+  <strong>GitHub Repository Software Version 1.0:</strong>
   <a href="https://github.com/Nr44suessauer/I-Scan/tree/ReleaseVersion1.0" target="_blank" style="font-weight: bold; color: #24292f;">Nr44suessauer/I-Scan</a>
 </div>
 
@@ -717,6 +716,63 @@ result = ApiClient.set_led_color("#FF0000", "http://192.168.137.7")
 
 ---
 
+
+<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
+  <div style="display: flex; align-items: center; justify-content: center;">
+    <img 
+      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/MeshRoom_basic_pipeline.PNG?raw=true" 
+      alt="MeshRoom Basic Pipeline" 
+      style="max-width: 900px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
+    />
+  </div>
+  <p style="text-align: center; margin-top: 5px;">
+    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/MeshRoom_basic_pipeline.PNG?raw=true" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
+      Fullscreen View
+    </a>
+  </p>
+</div>
+
+
+
+---
+
+
+
+<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
+  <div style="display: flex; align-items: center; justify-content: center;">
+    <img 
+      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Yoshi_stl_file.gif?raw=true" 
+      alt="Yoshi STL File Animation" 
+      style="max-width: 900px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
+    />
+  </div>
+  <p style="text-align: center; margin-top: 5px;">
+    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Yoshi_stl_file.gif?raw=true" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
+      Fullscreen View
+    </a>
+  </p>
+</div>
+
+
+
+---
+
+
+
+<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
+  <div style="display: flex; align-items: center; justify-content: center;">
+    <img 
+      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Yoshi_stl_file_printview.gif?raw=true" 
+      alt="Yoshi STL File Printview Animation" 
+      style="max-width: 900px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
+    />
+  </div>
+  <p style="text-align: center; margin-top: 5px;">
+    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Yoshi_stl_file_printview.gif?raw=true" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
+      Fullscreen View
+    </a>
+  </p>
+</div>
 
 
 
