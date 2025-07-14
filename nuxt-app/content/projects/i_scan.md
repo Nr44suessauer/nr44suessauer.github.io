@@ -4,12 +4,12 @@ description: custom open source 3D scanner - Meshroom Guide
 ---
 
 -> noch fehlende Bilder \
----> Bild ToolCHain MeshRoom bearbeitet \
+---> Bild ToolCHain MeshRoom bearbeitet 
 
 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
   <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" style="width:32px; height:32px;">
   <strong>GitHub Repository Software Version 1.0:</strong>
-  <a href="https://github.com/Nr44suessauer/I-Scan/tree/ReleaseVersion1.0" target="_blank" style="font-weight: bold; color: #24292f;">Nr44suessauer/I-Scan</a>
+  <a href="https://github.com/Nr44suessauer/I-Scan/tree/ReleaseVersion1.0" target="_blank" style="font-weight: bold; color: #24292f;">Release V1.0 I-Scan</a>
 </div>
 
 ---
