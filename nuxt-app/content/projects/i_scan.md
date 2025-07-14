@@ -4,7 +4,10 @@ description: custom open source 3D scanner - Meshroom Guide
 ---
 
 -> noch fehlende Bilder \
----> Bild ToolCHain MeshRoom bearbeitet 
+---> Bild ToolChain MeshRoom bearbeitet 
+
+-> noch fehlende Texte \
+---> 
 
 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
   <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" style="width:32px; height:32px;">
