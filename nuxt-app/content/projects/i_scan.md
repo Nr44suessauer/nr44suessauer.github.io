@@ -5,7 +5,6 @@ description: custom open source 3D scanner - Meshroom Guide
 
 -> noch fehlende Bilder \
 ---> Bild ToolChain MeshRoom bearbeitet \
----> Bilderfolge von anderen 3D Scanner + verlinkung
 
 
 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
@@ -99,15 +98,12 @@ description: custom open source 3D scanner - Meshroom Guide
     </span>
   </div>
 </div>
-
 <!--  end introduction    -->
-
 
 ---
 
+<!--  start 3D Scanner derivative    -->
 
-
-### 3D Scanner derivative
 <style>
 .image-row-i-scan {
   display: flex;
@@ -158,6 +154,7 @@ description: custom open source 3D scanner - Meshroom Guide
 }
 </style>
 
+### 3D Scanner derivative
 <div class="image-row-i-scan">
   <div class="image-container">
     <a href="https://kaptura.de/de/3d-laserscanner-stammdatenerfassung-logistik/#next" target="_blank" rel="noopener">
@@ -184,13 +181,13 @@ description: custom open source 3D scanner - Meshroom Guide
     </a>
   </div>
 </div>
+<!--  end 3D Scanner derivative    -->
 
 ---
 
+### The Concept
 
-# Triangles and their useage
-
-<!--- animation Python Triangle new center -->
+<!--- Triangle end -->
 <div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
   <div style="display: flex; align-items: center; justify-content: center;">
     <img 
@@ -206,7 +203,7 @@ description: custom open source 3D scanner - Meshroom Guide
   </p>
 </div>
 
-
+<!--- Triangle end -->
 
 ---
 
