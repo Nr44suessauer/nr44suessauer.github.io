@@ -106,8 +106,8 @@ description: custom open source 3D scanner - Meshroom Guide
 ---
 
 
-<!-- CSS für die Bildreihe wird global eingebunden -->
 
+### 3D Scanner derivate
 <style>
 .image-row-i-scan {
   display: flex;
