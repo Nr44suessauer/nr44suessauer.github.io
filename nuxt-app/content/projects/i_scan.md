@@ -187,6 +187,41 @@ description: custom open source 3D scanner - Meshroom Guide
 
 ### The Concept
 
+The conceptual foundation of this 3D scanner is a modular, highly adaptable architecture  
+that integrates movable and stationary modules for precise, customizable, and efficient object digitization.  
+Central is the dynamic interaction between modules, each with spatial awareness and distinct degrees of freedom,  
+enabling the system to overcome the limitations of conventional fixed-array scanners.
+
+Movable modules traverse the Z-axis with high positional accuracy,  
+guided by user-defined or algorithmically determined center points in 3D space.  
+At each increment, these modules reorient their sensors (e.g., cameras)  
+so their optical axes converge on the current target center.  
+This is achieved through coordinated actuation of stepper motors (linear displacement)  
+and servo motors (angular adjustment), all managed via a REST API.  
+The mathematical logic ensures that, regardless of Z-axis position,  
+the sensor maintains optimal focus and perspective.
+
+Fixed modules are strategically positioned and, while stationary,  
+can dynamically target new center points, mirroring the adaptive behavior of movable modules.  
+This combination enables flexible and efficient scan paths,  
+accommodating a wide variety of object geometries and sizes.
+
+The architecture supports multiple cameras or sensors,  
+each with at least one degree of freedom (typically rotational alignment).  
+When combined with movable modules (linear Z-axis movement and rotational X-axis adjustment),  
+the system can execute complex, multi-perspective scanning routines.  
+This modularity enhances coverage and resolution  
+and allows individualized scan trajectories tailored to the object's morphology.
+
+All control operations—from positioning to sensor orientation—are abstracted through a unified REST API,  
+ensuring integration, extensibility, and remote operability.  
+The mathematical framework enables each module to compute the necessary transformations  
+for precise alignment with dynamically assigned center points.  
+This approach makes the scanner a versatile platform for advanced 3D digitization  
+in research and industrial applications.
+
+
+
 <!--- Triangle end -->
 <div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
   <div style="display: flex; align-items: center; justify-content: center;">
