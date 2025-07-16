@@ -107,7 +107,7 @@ description: custom open source 3D scanner - Meshroom Guide
 
 
 
-### 3D Scanner derivate
+### 3D Scanner derivative
 <style>
 .image-row-i-scan {
   display: flex;
