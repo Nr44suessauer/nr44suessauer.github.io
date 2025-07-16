@@ -18,7 +18,6 @@ description: custom open source 3D scanner - Meshroom Guide
 
 # Introduction
 
-
 <div style="display: flex; align-items: flex-start; gap: 32px;">
   <div style="flex: 2; display: flex; flex-direction: column; justify-content: flex-start;">
     <span style="line-height: 1.7; display: block;">
@@ -101,6 +100,90 @@ description: custom open source 3D scanner - Meshroom Guide
   </div>
 </div>
 
+<!--  end introduction    -->
+
+
+---
+
+
+<!-- CSS für die Bildreihe wird global eingebunden -->
+
+<style>
+.image-row-i-scan {
+  display: flex;
+  gap: 24px;
+  flex-wrap: nowrap; /* verhindert Umbruch */
+  justify-content: flex-start;
+  margin-bottom: 32px;
+  overflow-x: auto; /* ermöglicht horizontales Scrollen */
+}
+.image-row-i-scan .image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  transition: box-shadow 0.2s;
+  width: 320px;
+  max-width: 100%;
+  background: #fafbfc;
+}
+.image-row-i-scan .image-container:hover {
+  box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+}
+.image-row-i-scan img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.25s cubic-bezier(.4,2,.6,1);
+}
+.image-row-i-scan .image-container:hover img {
+  transform: scale(1.07) rotate(-1deg);
+  filter: brightness(1.08) contrast(1.08);
+}
+.image-row-i-scan .caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(30,34,40,0.82);
+  color: #fff;
+  font-size: 15px;
+  padding: 10px 14px 8px 14px;
+  opacity: 0.92;
+  transition: background 0.2s;
+  pointer-events: none;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-sizing: border-box;
+}
+</style>
+
+<div class="image-row-i-scan">
+  <div class="image-container">
+    <a href="https://kaptura.de/de/3d-laserscanner-stammdatenerfassung-logistik/#next" target="_blank" rel="noopener">
+      <img src="https://kaptura.de/wp-content/uploads/2021/07/150_970x670-800x553.jpg" alt="Kaptura 3D Scanner" />
+      <div class="caption">Kaptura 3D Scanner: Professional photogrammetry system with multiple cameras</div>
+    </a>
+  </div>
+  <div class="image-container">
+    <a href="https://www.artec3d.com/portable-3d-scanners/shapifybooth" target="_blank" rel="noopener">
+      <img src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Example3D%20scanner.PNG?raw=true" alt="Artec Shapify Booth" />
+      <div class="caption">Artec Shapify Booth: Commercial 3D scanner for full-body scans </div>
+    </a>
+  </div>
+  <div class="image-container">
+    <a href="https://botspot.de/products/botscan-neo" target="_blank" rel="noopener">
+      <img src="https://botspot.live-website.com/wp-content/uploads/2024/11/Botspot_NEO_Image_03-scaled.jpg" alt="Botspot NEO" />
+      <div class="caption">Botspot NEO: High-precision 3D scanner with LED dome and multi-camera setup</div>
+    </a>
+  </div>
+  <div class="image-container">
+    <a href="https://botspot.de/products/full-body-scanner-flex" target="_blank" rel="noopener">
+      <img src="https://botspot.live-website.com/wp-content/uploads/2025/04/ISO.png" alt="Botspot ISO" />
+      <div class="caption">Botspot ISO: Compact 3D scanner for industrial applications</div>
+    </a>
+  </div>
+</div>
 
 ---
 
