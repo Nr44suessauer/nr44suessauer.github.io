@@ -4,10 +4,9 @@ description: custom open source 3D scanner - Meshroom Guide
 ---
 
 -> noch fehlende Bilder \
----> Bild ToolChain MeshRoom bearbeitet 
+---> Bild ToolChain MeshRoom bearbeitet \
+---> Bilderfolge von anderen 3D Scanner + verlinkung
 
--> noch fehlende Texte \
----> 
 
 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
   <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" style="width:32px; height:32px;">
@@ -16,6 +15,97 @@ description: custom open source 3D scanner - Meshroom Guide
 </div>
 
 ---
+
+# Introduction
+
+
+<div style="display: flex; align-items: flex-start; gap: 32px;">
+  <div style="flex: 2; display: flex; flex-direction: column; justify-content: flex-start;">
+    <span style="line-height: 1.7; display: block;">
+      In the evolving landscape of 3D digitization,  
+      the widespread adoption of advanced scanning technologies is frequently impeded by two primary factors:  
+      the prohibitive cost associated with the integration of an excessive 
+      number of components in commercial systems, and a pervasive lack of transparency regarding their control mechanisms.  
+      While open-source initiatives, such as the <a href="https://github.com/PIX3LFLUX/HSKAnner?tab=readme-ov-file" target="_blank">HSKAnner from Karlsruhe</a>,  
+      demonstrate the potential for community-driven development,  
+      they often rely on fixed multi-camera arrays, which, despite their open nature, can still contribute to elevated costs and architectural rigidity.  
+    </span>
+  </div>
+  <div style="flex: 0 0 auto; align-self: flex-start; display: flex; flex-direction: column; align-items: center;">
+    <img 
+      src="https://github.com/uncle-ben-devel/hskanner3d/raw/master/README_resources/scanner-slightblur.jpg?raw=true" 
+      alt="HSKAnner 3D Scanner" 
+      style="max-width: 275px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-top: -10px;"
+    />
+    <div style="text-align: center; font-size: 11px; margin-top: 4px; color: #555;">
+      HSKAnner 3D Scanner from Karlsruhe
+    </div>
+  </div>
+</div>
+<br>
+<div style="display: flex; align-items: flex-start; gap: 32px;">
+  <div style="flex: 2; display: flex; flex-direction: column; justify-content: flex-start;">
+    <span style="line-height: 1.7; display: block;">
+      This project introduces I-Scan, a novel 3D scanner designed to address these limitations  
+      by prioritizing universality, cost-efficiency, and unparalleled modularity.  
+      I-Scan is engineered for broad sensor compatibility,  
+      supporting a diverse range of imaging devices, including legacy USB and web cameras (which are currently implemented),  
+      and is extensible to integrate various other measurement units such as Lidar or general Time-of-Flight (ToF) sensors,  
+      or indeed any sensor where precise spatial positioning is advantageous. 
+      <br>
+      <br>
+      A core design principle is its adaptable architecture,  
+      where modules possess spatial awareness and are reconfigurable to suit specific use-case requirements,  
+      thereby obviating the need for a singular, fixed setup.  
+      The integration of movable modules along the Z-axis,  
+      coupled with servo-controlled adjustable camera angles,  
+      facilitates comprehensive image acquisition across varying object heights and perspectives,  
+      enhancing data capture flexibility.
+    </span>
+  </div>
+  <div style="flex: 0 0 auto; align-self: flex-start; display: flex; flex-direction: column; align-items: center;">
+    <img 
+      src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/I-Scan/AufbauUndTeile.jpg?raw=true" 
+      alt="First sketch of movable modules" 
+      style="max-width: 275px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-top: -10px;"
+    />
+    <div style="text-align: center; font-size: 11px; margin-top: 4px; color: #555;">
+      First sketch of movable modules
+    </div>
+  </div>
+</div>
+<br>
+<div style="display: flex; align-items: flex-start; gap: 32px;">
+  <div style="flex: 0 0 auto; align-self: flex-start; display: flex; flex-direction: column; align-items: center;">
+    <img 
+      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Software_Full_July25.PNG?raw=true" 
+      alt="Software Full Overview July 25" 
+      style="max-width: 350px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"
+    />
+    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Software_Full_July25.PNG?raw=true" target="_blank" style="margin-top: 5px; padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px; display: inline-block;">
+      Fullscreen View
+    </a>
+  </div>
+  <div style="flex: 2; display: flex; flex-direction: column; justify-content: flex-start;">
+    <span style="line-height: 1.7; display: block;">
+      The operational backbone of I-Scan is a robust Python based application.  
+      This software orchestrates critical functions, including the import and configuration of cameras via JSON files (supporting COM and HTTP interfaces),  
+      precise calculations for Z-axis module movement,  
+      and servo alignment for camera orientation, all managed through REST APIs.  
+      Furthermore, the application provides capabilities for defining complex scan workflows,  
+      visualization of scanner settings, rigorous input validation (mathematical and JSON syntax),  
+      automated dependency management, and comprehensive debug output.  
+      This holistic approach positions I-Scan as a highly adaptable, cost-effective, and transparent solution,  
+      poised to democratize access to advanced 3D digitization capabilities.
+    </span>
+  </div>
+</div>
+
+
+---
+
+
+# Triangles and their useage
 
 <!--- animation Python Triangle new center -->
 <div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
