@@ -103,7 +103,6 @@ description: custom open source 3D scanner - Meshroom Guide
 ---
 
 <!--  start 3D Scanner derivative    -->
-
 <style>
 .image-row-i-scan {
   display: flex;
@@ -236,10 +235,10 @@ enabling seamless integration and adaptation of diverse sensors without requirin
 Future implementations will leverage sensor fusion pipelines to optimize 3D data acquisition and processing  
 for instance, by combining cameras with LiDAR or ToF sensors. This extensibility inherently supports advanced techniques like <a href="https://www.rtbasics.com/Downloads/IEEE_structured_light.pdf" target="_blank" rel="noopener">structured light scanning</a>, where projected patterns and multi angle triangulation reconstruct complex surface geometries with sub millimeter accuracy.
 
+---
 
 
-
-<!--- Triangle end -->
+<!--- Triangle start -->
 <div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
   <div style="display: flex; align-items: center; justify-content: center;">
     <img 
@@ -260,6 +259,342 @@ for instance, by combining cameras with LiDAR or ToF sensors. This extensibility
 ---
 
 
+<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
+  <div style="display: flex; align-items: center; justify-content: center;">
+    <img 
+      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Software_Full_July25.PNG?raw=true" 
+      alt="Software Full Overview July 25" 
+      style="max-width: 900px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
+    />
+  </div>
+  <p style="text-align: center; margin-top: 5px;">
+    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Software_Full_July25.PNG?raw=true" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
+      Fullscreen View
+    </a>
+  </p>
+</div>
+
+---
+
+<!--- Program overview start -->
+<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
+  <div style="display: flex; align-items: center; justify-content: center;">
+    <img 
+      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Software_JSON_Configurator.PNG?raw=true" 
+      alt="Software JSON Configurator" 
+      style="max-width: 900px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
+    />
+  </div>
+  <p style="text-align: center; margin-top: 5px;">
+    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Software_JSON_Configurator.PNG?raw=true" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
+      Fullscreen View
+    </a>
+  </p>
+</div>
+<!--- Program overview end -->
+
+---
+
+<!-- Camera Configurator JSON start -->
+<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
+  <div style="display: flex; align-items: center; justify-content: center;">
+    <img 
+      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Software_Cam_Stream.PNG?raw=true" 
+      alt="Software Cam Stream" 
+      style="max-width: 900px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
+    />
+  </div>
+  <p style="text-align: center; margin-top: 5px;">
+    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Software_Cam_Stream.PNG?raw=true" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
+      Fullscreen View
+    </a>
+  </p>
+</div>
+<!-- Camera Configurator JSON end -->
+
+
+---
+
+
+<!-- Camera UI with Failures start -->
+<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
+  <div style="display: flex; align-items: center; justify-content: center;">
+    <img 
+      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Console_failure_connection_camera.PNG?raw=true" 
+      alt="Console Failure Connection Camera" 
+      style="max-width: 900px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
+    />
+  </div>
+  <p style="text-align: center; margin-top: 5px;">
+    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Console_failure_connection_camera.PNG?raw=true" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
+      Fullscreen View
+    </a>
+  </p>
+</div>
+<!-- Camera UI with Failures end -->
+
+
+---
+
+<!-- Camera Failures Debug Console start -->
+<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
+  <div style="display: flex; flex-direction: row; align-items: flex-end; justify-content: center; gap: 20px;">
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <img 
+        src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/06_servo_geometry_graph_only.png?raw=true" 
+        alt="Servo Geometry Graph Only" 
+        style="max-width: 400px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
+      />
+      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/06_servo_geometry_graph_only.png?raw=true" target="_blank" style="margin-top: 5px; padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px; display: inline-block;">
+        Fullscreen View
+      </a>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <img 
+        src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/07_servo_cone_detail.png?raw=true" 
+        alt="Servo Cone Detail" 
+        style="max-width: 300px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
+      />
+      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/07_servo_cone_detail.png?raw=true" target="_blank" style="margin-top: 5px; padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px; display: inline-block;">
+        Fullscreen View
+      </a>
+    </div>
+  </div>
+</div>
+<!-- Camera Failures Debug Console end -->
+
+---
+
+<!-- Good Case scan config & cone settings start -->
+<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
+  <div style="display: flex; flex-direction: row; align-items: flex-end; justify-content: center; gap: 20px;">
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <img 
+        src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/07_servo_cone_detail_small.png?raw=true" 
+        alt="Servo Cone Detail Small" 
+        style="max-width: 300px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
+      />
+      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/07_servo_cone_detail_small.png?raw=true" target="_blank" style="margin-top: 5px; padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px; display: inline-block;">
+        Fullscreen View
+      </a>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <img 
+        src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/06_servo_geometry_graph_only_smaler_cone.png?raw=true" 
+        alt="Servo Geometry Graph Only Smaller Cone" 
+        style="max-width: 300px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
+      />
+      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/06_servo_geometry_graph_only_smaler_cone.png?raw=true" target="_blank" style="margin-top: 5px; padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px; display: inline-block;">
+        Fullscreen View
+      </a>
+    </div>
+  </div>
+</div>
+<!-- Good Case scan config & cone settings end -->
+
+---
+
+
+
+<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
+  <div style="display: flex; flex-direction: row; align-items: flex-end; justify-content: center; gap: 20px;">
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <img 
+        src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/06_servo_geometry_graph_only_bad.png?raw=true" 
+        alt="Servo Geometry Graph Only Bad" 
+        style="max-width: 300px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
+      />
+      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/06_servo_geometry_graph_only_bad.png?raw=true" target="_blank" style="margin-top: 5px; padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px; display: inline-block;">
+        Fullscreen View
+      </a>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <img 
+        src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/07_servo_cone_detail_20.png?raw=true" 
+        alt="Servo Cone Detail 20" 
+        style="max-width: 300px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
+      />
+      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/07_servo_cone_detail_20.png?raw=true" target="_blank" style="margin-top: 5px; padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px; display: inline-block;">
+        Fullscreen View
+      </a>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <img 
+        src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/06_servo_interpolation.png?raw=true" 
+        alt="Servo Interpolation" 
+        style="max-width: 300px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
+      />
+      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/06_servo_interpolation.png?raw=true" target="_blank" style="margin-top: 5px; padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px; display: inline-block;">
+        Fullscreen View
+      </a>
+    </div>
+  </div>
+</div>
+
+---
+
+
+<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
+  <div style="display: flex; align-items: center; justify-content: center;">
+    <img 
+      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/ScreenRecVapePoleWhite.gif?raw=true" 
+      alt="Screen Recording Vape Pole White" 
+      style="max-width: 900px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
+    />
+  </div>
+  <p style="text-align: center; margin-top: 5px;">
+    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/ScreenRecVapePoleWhite.gif?raw=true" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
+      Fullscreen View
+    </a>
+  </p>
+</div>
+
+
+---
+
+
+<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
+  <div style="display: flex; align-items: center; justify-content: center;">
+    <img 
+      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/ScreenRecVapeWhere.gif?raw=true" 
+      alt="Screen Recording Vape Where" 
+      style="max-width: 900px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
+    />
+  </div>
+  <p style="text-align: center; margin-top: 5px;">
+    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/ScreenRecVapeWhere.gif?raw=true" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
+      Fullscreen View
+    </a>
+  </p>
+</div>
+
+
+
+---
+
+
+<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
+  <div style="display: flex; align-items: center; justify-content: center;">
+    <img 
+      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/MeshRoom_basic_pipeline.PNG?raw=true" 
+      alt="MeshRoom Basic Pipeline" 
+      style="max-width: 900px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
+    />
+  </div>
+  <p style="text-align: center; margin-top: 5px;">
+    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/MeshRoom_basic_pipeline.PNG?raw=true" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
+      Fullscreen View
+    </a>
+  </p>
+</div>
+
+
+
+---
+
+
+
+<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
+  <div style="display: flex; align-items: center; justify-content: center;">
+    <img 
+      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Yoshi_stl_file.gif?raw=true" 
+      alt="Yoshi STL File Animation" 
+      style="max-width: 900px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
+    />
+  </div>
+  <p style="text-align: center; margin-top: 5px;">
+    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Yoshi_stl_file.gif?raw=true" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
+      Fullscreen View
+    </a>
+  </p>
+</div>
+
+
+
+---
+
+
+
+<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
+  <div style="display: flex; align-items: center; justify-content: center;">
+    <img 
+      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Yoshi_stl_file_printview.gif?raw=true" 
+      alt="Yoshi STL File Printview Animation" 
+      style="max-width: 900px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
+    />
+  </div>
+  <p style="text-align: center; margin-top: 5px;">
+    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Yoshi_stl_file_printview.gif?raw=true" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
+      Fullscreen View
+    </a>
+  </p>
+</div>
+
+
+
+
+
+---
+
+
+<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
+  <div style="display: flex; align-items: center; justify-content: center;">
+    <img 
+      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/MovableCameraModule.gif?raw=true" 
+      alt="Movable Camera Module Animation" 
+      style="max-width: 900px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
+    />
+  </div>
+  <p style="text-align: center; margin-top: 5px;">
+    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/MovableCameraModule.gif?raw=true" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
+      Fullscreen View
+    </a>
+  </p>
+  <h4 style="text-align: center; margin-bottom: 10px;">Download 3D Model Files</h4>
+  <ul style="list-style: none; padding: 0; text-align: center;">
+    <li style="margin-bottom: 8px;">
+      <a href="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/3Dprojects/PosUnit.step?raw=true" target="_blank" style="padding: 6px 12px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 14px;">
+        Download STEP File 
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+
+---
+
+
+<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
+  <div style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 20px;">
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <img 
+        src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/theDomeLamp.gif?raw=true" 
+        alt="The Dome Lamp Animation" 
+        style="max-width: 400px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
+      />
+      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/theDomeLamp.gif?raw=true" target="_blank" style="margin-top: 5px; padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px; display: inline-block;">
+        Fullscreen View
+      </a>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <img 
+        src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/TheDomeInReflector.jpg?raw=true" 
+        alt="The Dome In Reflector" 
+        style="max-width: 400px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
+      />
+      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/TheDomeInReflector.jpg?raw=true" target="_blank" style="margin-top: 5px; padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px; display: inline-block;">
+        Fullscreen View
+      </a>
+    </div>
+  </div>
+</div>
+
+
+----
+
+
+<!-- Api Doc & Class Diagram start -->
 <details style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content;">
   <summary style="background:hsl(0, 0.00%, 0.00%); padding: 15px; cursor: pointer; font-weight: bold; border-bottom: 1px solid #ddd; color: var(--color-primary); width: fit-content;">
     📋 Class Diagram anzeigen
@@ -707,9 +1042,6 @@ for instance, by combining cameras with LiDAR or ToF sensors. This extensibility
   </div>
 </details>
 
-
-
-
 ## Example Usage
 
 ```python
@@ -722,332 +1054,3 @@ result = ApiClient.move_stepper(100, 1, 50, "http://192.168.137.7")
 # Set LED to red
 result = ApiClient.set_led_color("#FF0000", "http://192.168.137.7")
 ```
-</details>
-
----
-
-</details>
-
-<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
-  <div style="display: flex; align-items: center; justify-content: center;">
-    <img 
-      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Software_Full_July25.PNG?raw=true" 
-      alt="Software Full Overview July 25" 
-      style="max-width: 900px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
-    />
-  </div>
-  <p style="text-align: center; margin-top: 5px;">
-    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Software_Full_July25.PNG?raw=true" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
-      Fullscreen View
-    </a>
-  </p>
-</div>
-
----
-
-<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
-  <div style="display: flex; align-items: center; justify-content: center;">
-    <img 
-      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Software_JSON_Configurator.PNG?raw=true" 
-      alt="Software JSON Configurator" 
-      style="max-width: 900px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
-    />
-  </div>
-  <p style="text-align: center; margin-top: 5px;">
-    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Software_JSON_Configurator.PNG?raw=true" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
-      Fullscreen View
-    </a>
-  </p>
-</div>
-
-
----
-
-<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
-  <div style="display: flex; align-items: center; justify-content: center;">
-    <img 
-      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Software_Cam_Stream.PNG?raw=true" 
-      alt="Software Cam Stream" 
-      style="max-width: 900px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
-    />
-  </div>
-  <p style="text-align: center; margin-top: 5px;">
-    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Software_Cam_Stream.PNG?raw=true" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
-      Fullscreen View
-    </a>
-  </p>
-</div>
-
-
----
-
-<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
-  <div style="display: flex; align-items: center; justify-content: center;">
-    <img 
-      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Console_failure_connection_camera.PNG?raw=true" 
-      alt="Console Failure Connection Camera" 
-      style="max-width: 900px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
-    />
-  </div>
-  <p style="text-align: center; margin-top: 5px;">
-    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Console_failure_connection_camera.PNG?raw=true" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
-      Fullscreen View
-    </a>
-  </p>
-</div>
-
----
-
-
-<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
-  <div style="display: flex; flex-direction: row; align-items: flex-end; justify-content: center; gap: 20px;">
-    <div style="display: flex; flex-direction: column; align-items: center;">
-      <img 
-        src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/06_servo_geometry_graph_only.png?raw=true" 
-        alt="Servo Geometry Graph Only" 
-        style="max-width: 400px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
-      />
-      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/06_servo_geometry_graph_only.png?raw=true" target="_blank" style="margin-top: 5px; padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px; display: inline-block;">
-        Fullscreen View
-      </a>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center;">
-      <img 
-        src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/07_servo_cone_detail.png?raw=true" 
-        alt="Servo Cone Detail" 
-        style="max-width: 300px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
-      />
-      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/07_servo_cone_detail.png?raw=true" target="_blank" style="margin-top: 5px; padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px; display: inline-block;">
-        Fullscreen View
-      </a>
-    </div>
-  </div>
-</div>
-
-
----
-
-
-<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
-  <div style="display: flex; flex-direction: row; align-items: flex-end; justify-content: center; gap: 20px;">
-    <div style="display: flex; flex-direction: column; align-items: center;">
-      <img 
-        src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/07_servo_cone_detail_small.png?raw=true" 
-        alt="Servo Cone Detail Small" 
-        style="max-width: 300px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
-      />
-      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/07_servo_cone_detail_small.png?raw=true" target="_blank" style="margin-top: 5px; padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px; display: inline-block;">
-        Fullscreen View
-      </a>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center;">
-      <img 
-        src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/06_servo_geometry_graph_only_smaler_cone.png?raw=true" 
-        alt="Servo Geometry Graph Only Smaller Cone" 
-        style="max-width: 300px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
-      />
-      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/06_servo_geometry_graph_only_smaler_cone.png?raw=true" target="_blank" style="margin-top: 5px; padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px; display: inline-block;">
-        Fullscreen View
-      </a>
-    </div>
-  </div>
-</div>
-
-
-<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
-  <div style="display: flex; flex-direction: row; align-items: flex-end; justify-content: center; gap: 20px;">
-    <div style="display: flex; flex-direction: column; align-items: center;">
-      <img 
-        src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/06_servo_geometry_graph_only_bad.png?raw=true" 
-        alt="Servo Geometry Graph Only Bad" 
-        style="max-width: 300px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
-      />
-      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/06_servo_geometry_graph_only_bad.png?raw=true" target="_blank" style="margin-top: 5px; padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px; display: inline-block;">
-        Fullscreen View
-      </a>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center;">
-      <img 
-        src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/07_servo_cone_detail_20.png?raw=true" 
-        alt="Servo Cone Detail 20" 
-        style="max-width: 300px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
-      />
-      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/07_servo_cone_detail_20.png?raw=true" target="_blank" style="margin-top: 5px; padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px; display: inline-block;">
-        Fullscreen View
-      </a>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center;">
-      <img 
-        src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/06_servo_interpolation.png?raw=true" 
-        alt="Servo Interpolation" 
-        style="max-width: 300px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
-      />
-      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/06_servo_interpolation.png?raw=true" target="_blank" style="margin-top: 5px; padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px; display: inline-block;">
-        Fullscreen View
-      </a>
-    </div>
-  </div>
-</div>
-
----
-
-
-<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
-  <div style="display: flex; align-items: center; justify-content: center;">
-    <img 
-      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/ScreenRecVapePoleWhite.gif?raw=true" 
-      alt="Screen Recording Vape Pole White" 
-      style="max-width: 900px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
-    />
-  </div>
-  <p style="text-align: center; margin-top: 5px;">
-    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/ScreenRecVapePoleWhite.gif?raw=true" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
-      Fullscreen View
-    </a>
-  </p>
-</div>
-
-
----
-
-
-<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
-  <div style="display: flex; align-items: center; justify-content: center;">
-    <img 
-      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/ScreenRecVapeWhere.gif?raw=true" 
-      alt="Screen Recording Vape Where" 
-      style="max-width: 900px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
-    />
-  </div>
-  <p style="text-align: center; margin-top: 5px;">
-    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/ScreenRecVapeWhere.gif?raw=true" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
-      Fullscreen View
-    </a>
-  </p>
-</div>
-
-
-
----
-
-
-<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
-  <div style="display: flex; align-items: center; justify-content: center;">
-    <img 
-      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/MeshRoom_basic_pipeline.PNG?raw=true" 
-      alt="MeshRoom Basic Pipeline" 
-      style="max-width: 900px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
-    />
-  </div>
-  <p style="text-align: center; margin-top: 5px;">
-    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/MeshRoom_basic_pipeline.PNG?raw=true" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
-      Fullscreen View
-    </a>
-  </p>
-</div>
-
-
-
----
-
-
-
-<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
-  <div style="display: flex; align-items: center; justify-content: center;">
-    <img 
-      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Yoshi_stl_file.gif?raw=true" 
-      alt="Yoshi STL File Animation" 
-      style="max-width: 900px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
-    />
-  </div>
-  <p style="text-align: center; margin-top: 5px;">
-    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Yoshi_stl_file.gif?raw=true" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
-      Fullscreen View
-    </a>
-  </p>
-</div>
-
-
-
----
-
-
-
-<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
-  <div style="display: flex; align-items: center; justify-content: center;">
-    <img 
-      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Yoshi_stl_file_printview.gif?raw=true" 
-      alt="Yoshi STL File Printview Animation" 
-      style="max-width: 900px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
-    />
-  </div>
-  <p style="text-align: center; margin-top: 5px;">
-    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Yoshi_stl_file_printview.gif?raw=true" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
-      Fullscreen View
-    </a>
-  </p>
-</div>
-
-
-
-
-
----
-
-
-<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
-  <div style="display: flex; align-items: center; justify-content: center;">
-    <img 
-      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/MovableCameraModule.gif?raw=true" 
-      alt="Movable Camera Module Animation" 
-      style="max-width: 900px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
-    />
-  </div>
-  <p style="text-align: center; margin-top: 5px;">
-    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/MovableCameraModule.gif?raw=true" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
-      Fullscreen View
-    </a>
-  </p>
-  <h4 style="text-align: center; margin-bottom: 10px;">Download 3D Model Files</h4>
-  <ul style="list-style: none; padding: 0; text-align: center;">
-    <li style="margin-bottom: 8px;">
-      <a href="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/3Dprojects/PosUnit.step?raw=true" target="_blank" style="padding: 6px 12px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 14px;">
-        Download STEP File 
-      </a>
-    </li>
-  </ul>
-</div>
-
-
-
----
-
-
-<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
-  <div style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 20px;">
-    <div style="display: flex; flex-direction: column; align-items: center;">
-      <img 
-        src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/theDomeLamp.gif?raw=true" 
-        alt="The Dome Lamp Animation" 
-        style="max-width: 400px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
-      />
-      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/theDomeLamp.gif?raw=true" target="_blank" style="margin-top: 5px; padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px; display: inline-block;">
-        Fullscreen View
-      </a>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center;">
-      <img 
-        src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/TheDomeInReflector.jpg?raw=true" 
-        alt="The Dome In Reflector" 
-        style="max-width: 400px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
-      />
-      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/TheDomeInReflector.jpg?raw=true" target="_blank" style="margin-top: 5px; padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px; display: inline-block;">
-        Fullscreen View
-      </a>
-    </div>
-  </div>
-</div>
-
-
-----
-
