@@ -186,57 +186,116 @@ description: custom open source 3D scanner - Meshroom Guide
 
 ### The Concept
 
-The conceptual foundation of this 3D scanner is a modular, highly adaptable structure  
-that integrates movable and stationary modules for precise, customizable, and efficient object digitization.  
-Central is the dynamic interaction between modules, each with spatial awareness and distinct degrees of freedom,  
-enabling the system to overcome the limitations of conventional fixed array scanners.
+<div style="display: flex; align-items: flex-start; gap: 32px;">
+  <div style="flex: 2; display: flex; flex-direction: column; justify-content: flex-start;">
+    <span style="line-height: 1.7; display: block;">
+      The conceptual foundation of this 3D scanner is a modular, highly adaptable structure  
+      that integrates movable and stationary modules for precise, customizable, and efficient object digitization.  
+      Central is the dynamic interaction between modules, each with spatial awareness and distinct degrees of freedom,  
+      enabling the system to overcome the limitations of conventional fixed array scanners.
+      <br>
+      Movable modules traverse the Z-axis with high positional accuracy,  
+      guided by user defined or algorithmically determined center points in 3D space.  
+      At each increment, these modules reorient their sensors (e.g., cameras)  
+      so their optical axes converge on the current target center.  
+      This is achieved through coordinated actuation of stepper motors (linear displacement)  
+      and servo motors (angular adjustment), all managed via a REST API.  
+      The mathematical logic ensures that, regardless of Z-axis position,  
+      the sensor maintains optimal focus and perspective.
+      <br>
+      Fixed modules are strategically positioned and, while stationary,  
+      can dynamically target new center points, mirroring the adaptive behavior of movable modules.  
+      This combination enables flexible and efficient scan paths,  
+      accommodating a wide variety of object geometries and sizes.
+      This modularity enhances coverage and resolution  
+      and allows individualized scan trajectories tailored to the object's morphology.
+      <br>
+      All control operations from positioning to sensor orientation are abstracted through a unified REST API,  
+      ensuring integration, extensibility, and remote operability.
+      <br> 
+      The mathematical framework enables each module to compute the necessary transformations  
+      for precise alignment with dynamically assigned center points.  
+      This approach makes the scanner a versatile platform for advanced 3D digitization  
+      in research and industrial applications.
+      <h4>Primary Goal of the Concept</h4>
+      <p>
+        By vertically displacing along the Z-axis and dynamically adjusting sensor angles, the movable modules generate significantly more perspectives than rigid fixed array setups (where all sensors are locked in pre-defined positions and orientations, offering no adaptability during operation).<br>
+        This eliminates "blind spots" and enables gapless digitization of complex geometries, overcoming the physical constraints of static camera positions.
+      </p>
+      <blockquote>
+        Such systems fundamentally limit perspective coverage to their initial hardware configuration, causing unavoidable blind spots on non convex surfaces.<br>
+        (Non-convex surfaces exhibit cavities, undercuts, or reentrant angles where direct "line of sight" is obstructed – e.g., gear teeth, hollow sculptures, or organic structures like tree roots).
+      </blockquote>
+    </span>
+  </div>
+  <div style="flex: 0 0 auto; align-self: flex-start; display: flex; flex-direction: column; align-items: center;">
+    <img 
+      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Prototyp1.gif?raw=true" 
+      alt="Prototyp1 Animation" 
+      style="max-width: 320px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-top: -10px;"
+    />
+    <div style="text-align: center; font-size: 11px; margin-top: 4px; color: #555;">
+      Prototype 3D Printed
+    </div>
+  </div>
+</div>
 
-Movable modules traverse the Z-axis with high positional accuracy,  
-guided by user defined or algorithmically determined center points in 3D space.  
-At each increment, these modules reorient their sensors (e.g., cameras)  
-so their optical axes converge on the current target center.  
-This is achieved through coordinated actuation of stepper motors (linear displacement)  
-and servo motors (angular adjustment), all managed via a REST API.  
-The mathematical logic ensures that, regardless of Z-axis position,  
-the sensor maintains optimal focus and perspective.
+### <a id="integral-representation"></a>**Integral Representation and Height Calculation**
 
-Fixed modules are strategically positioned and, while stationary,  
-can dynamically target new center points, mirroring the adaptive behavior of movable modules.  
-This combination enables flexible and efficient scan paths,  
-accommodating a wide variety of object geometries and sizes.
-This modularity enhances coverage and resolution  
-and allows individualized scan trajectories tailored to the object's morphology.
-
-All control operations from positioning to sensor orientation are abstracted through a unified REST API,  
-ensuring integration, extensibility, and remote operability.
-  
-The mathematical framework enables each module to compute the necessary transformations  
-for precise alignment with dynamically assigned center points.  
-This approach makes the scanner a versatile platform for advanced 3D digitization  
-in research and industrial applications.
-
-#### Primary Goal of the Concept
-By vertically displacing along the Z-axis
-and dynamically adjusting sensor angles,
-the movable modules generate significantly more perspectives
-than rigid fixed array setups (where all sensors are locked in pre-defined positions and orientations, offering no adaptability during operation).
-This eliminates "blind spots" and enables gapless digitization of complex geometries
-overcoming the physical constraints of static camera positions.
-
-> Such systems fundamentally limit perspective coverage to their initial hardware configuration, 
-causing unavoidable blind spots on non convex surfaces. 
-(Non-convex surfaces exhibit cavities, undercuts, or reentrant angles where direct "line of sight" is obstructed  
-e.g., gear teeth, hollow sculptures, or organic structures like tree roots).
-
-
-#### Secondary Goal of the Concept
-Through its modular architecture, the system achieves exceptional flexibility,  
-enabling seamless integration and adaptation of diverse sensors without requiring full hardware reconfiguration.
-Future implementations will leverage sensor fusion pipelines to optimize 3D data acquisition and processing  
-for instance, by combining cameras with LiDAR or ToF sensors. This extensibility inherently supports advanced techniques like <a href="https://www.rtbasics.com/Downloads/IEEE_structured_light.pdf" target="_blank" rel="noopener">structured light scanning</a>, where projected patterns and multi angle triangulation reconstruct complex surface geometries with sub millimeter accuracy.
+<div style="display: flex; align-items: center; margin-top: 20px;">
+  <p></p>
+</div>
 
 ---
 
+#### Secondary Goal of the Concept
+<div style="display: flex; align-items: flex-start; gap: 32px;">
+  <div style="flex: 2; display: flex; flex-direction: column; justify-content: flex-start;">
+    <span style="line-height: 1.7; display: block;">
+      Through its modular architecture, the system achieves exceptional flexibility,  
+      enabling seamless integration and adaptation of diverse sensors without requiring full hardware reconfiguration.
+      Future implementations will leverage sensor fusion pipelines to optimize 3D data acquisition and processing  
+      for instance, by combining cameras with LiDAR or ToF sensors. This extensibility inherently supports advanced techniques like <a href="https://www.rtbasics.com/Downloads/IEEE_structured_light.pdf" target="_blank" rel="noopener">structured light scanning</a>, where projected patterns and multi angle triangulation reconstruct complex surface geometries with sub millimeter accuracy.
+    </span>
+  </div>
+  <div style="flex: 0 0 auto; align-self: flex-start; display: flex; flex-direction: column; align-items: center;">
+    <img 
+      src="https://www.3dnatives.com/en/wp-content/uploads/sites/2/structured_light_1.jpg" 
+      alt="Structured Light Example" 
+      style="max-width: 275px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-top: -10px;"
+    />
+    <div style="text-align: center; font-size: 11px; margin-top: 4px; color: #555;">
+      Structured Light Scanning 
+    </div>
+  </div>
+</div>
+
+---
+## Integral Representation and Height Calculation
+
+- <span style="font-family:monospace;">f<sub>bot</sub>(z)</span>: Höhenanteil der unteren Einheit  
+- <span style="font-family:monospace;">f<sub>mid</sub>(z)</span>: Höhenanteil der mittleren Einheit  
+- <span style="font-family:monospace;">f<sub>top</sub>(z)</span>: Höhenanteil der oberen Einheit  
+
+**Integration über den Bereich:**
+
+- <span style="font-family:monospace;">∫<sub>a</sub><sup>b</sup> f<sub>bot</sub>(z) dz</span>: Höhenanteil der unteren Einheit im Bereich [a, b]  
+- <span style="font-family:monospace;">∫<sub>a</sub><sup>b</sup> f<sub>mid</sub>(z) dz</span>: Höhenanteil der mittleren Einheit im Bereich [a, b]  
+- <span style="font-family:monospace;">∫<sub>a</sub><sup>b</sup> f<sub>top</sub>(z) dz</span>: Höhenanteil der oberen Einheit im Bereich [a, b]  
+
+**Berechnung der Differenz:**
+
+<div style="font-family:monospace; font-size: 1.1em; background: #4b4949ff; padding: 8px; border-radius: 6px; overflow-x: auto;">
+ΔZ<sub>max</sub> = Maximale Höhe I-Scan − [ ∫<sub>a</sub><sup>b</sup> f<sub>bot</sub>(z) dz + ∫<sub>a</sub><sup>b</sup> f<sub>mid</sub>(z) dz + ∫<sub>a</sub><sup>b</sup> f<sub>top</sub>(z) dz ]
+</div>
+
+### <a id="integral-representation"></a>**Integral Representation and Height Calculation**
+
+<div style="display: flex; align-items: center; margin-top: 20px;">
+  <p></p>
+</div>
+
+---
 
 <!--- Triangle start -->
 <div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
