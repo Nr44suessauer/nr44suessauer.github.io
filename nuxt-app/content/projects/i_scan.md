@@ -581,10 +581,7 @@ description: custom open source 3D scanner - Meshroom Guide
 
 ---
 
-
-
 # Create Scan Workflow 
-
 <div style="display: flex; gap: 32px; align-items: flex-start; flex-wrap: wrap;">
   <div style="flex: 1 1 0; min-width: 300px;">
     <strong>The user interface provides a powerful way to create and manage scan workflows.</strong><br>
@@ -632,151 +629,123 @@ description: custom open source 3D scanner - Meshroom Guide
 
 ------------------
 
+# Camera JSON Configurator
+<div style="margin: 20px 0; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
+  <div style="display: flex; align-items: flex-start; gap: 32px;">
+    <div style="flex: 1 1 0; min-width: 0;">
+      <p>
+        The Camera JSON Configurator is located at the bottom right of the software interface.<br>
+        It allows you to conveniently adjust camera settings via a JSON file.<br>
+        Parameters such as resolution, frame rate, and exposure can be modified directly in the configurator.<br>
+        Changes are immediately reflected in the camera's live view.
+      </p>
+      <p>
+        Cameras can currently be imported into the software either via a COM port (e.g., USB camera) or via a stream (e.g., IP camera).<br>
+        The configuration stores important camera information, which can later also be used in external software such as <a href="https://github.com/alicevision/Meshroom" target="_blank">Meshroom</a>.<br>
+        To ensure reliability, the JSON file is automatically checked for correct syntax with every change.
+      </p>
+    </div>
+    <div style="flex: 1 1 0; min-width: 0;">
+      <div style="margin: 0; border-radius: 6px; overflow: hidden; padding: 0;">
+        <img 
+          src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Software_JSON_Configurator.PNG?raw=true" 
+          alt="Software JSON Configurator" 
+          style="max-width: 100%; width: 100%; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
+        />
+        <p style="text-align: center; margin-top: 5px;">
+          <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Software_JSON_Configurator.PNG?raw=true" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
+            Fullscreen View
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
+<!-- Camera Configurator and Error UI side by side start -->
+<div style="margin: 20px 0; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
+  <div style="display: flex; flex-direction: row; gap: 32px; align-items: flex-start; justify-content: center;">
+    <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+      <img 
+        src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Software_Cam_Stream.PNG?raw=true" 
+        alt="Software Cam Stream" 
+        style="max-width: 420px; width: 100%; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
+      />
+      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Software_Cam_Stream.PNG?raw=true" target="_blank" style="margin-top: 5px; padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px; display: inline-block;">
+        Fullscreen View
+      </a>
+    </div>
+    <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+      <img 
+        src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Console_failure_connection_camera.PNG?raw=true" 
+        alt="Console Failure Connection Camera" 
+        style="max-width: 420px; width: 100%; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
+      />
+      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Console_failure_connection_camera.PNG?raw=true" target="_blank" style="margin-top: 5px; padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px; display: inline-block;">
+        Fullscreen View
+      </a>
+    </div>
+  </div>
+  <div style="margin-top: 18px; text-align: center; font-size: 15px;">
+    If there are errors with the camera connection, an error message will be displayed in the console window.<br>
+    Additionally, the UI will show an error message describing the issue.
+  </div>
+</div>
+<!-- Camera Configurator and Error UI side by side end -->
+
+---
 
 
 
+# Meshroom
+[Meshroom](https://github.com/alicevision/meshroom) is an open-source software for photogrammetric 3D reconstruction,  
+developed by AliceVision.  
+It enables the automatic creation of detailed 3D models from a series of photos of an object or scene.  
+Meshroom provides a graphical user interface  
+where the entire workflow, from image selection and feature detection,  
+camera calibration, dense point cloud calculation, to mesh and texture generation 
+is visually represented as a pipeline.
+
+The software uses advanced image processing algorithms  
+and is completely free to use.  
+Meshroom also includes algorithms that can infer camera positions  
+by analyzing the overlap between images.
 
 
-
-
-
-
-
-
-
-
-
-<!--- Program overview start -->
-<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
+<div style="margin: 20px 0; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
   <div style="display: flex; align-items: center; justify-content: center;">
     <img 
-      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Software_JSON_Configurator.PNG?raw=true" 
-      alt="Software JSON Configurator" 
-      style="max-width: 900px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
+      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/MeshRoom_basic_pipeline.PNG?raw=true" 
+      alt="MeshRoom Basic Pipeline" 
+      style="max-width: 900px; width: 100%; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
     />
   </div>
+  <div style="margin-top: 18px; text-align: center; font-size: 15px;">
+    The image shows the default pipeline in Meshroom. Each node represents a processing step in the photogrammetry workflow, from image input to 3D model output.
+  </div>
   <p style="text-align: center; margin-top: 5px;">
-    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Software_JSON_Configurator.PNG?raw=true" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
+    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/MeshRoom_basic_pipeline.PNG?raw=true" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
       Fullscreen View
     </a>
   </p>
 </div>
-<!--- Program overview end -->
 
 ---
-
-<!-- Camera Configurator JSON start -->
 <div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
   <div style="display: flex; align-items: center; justify-content: center;">
     <img 
-      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Software_Cam_Stream.PNG?raw=true" 
-      alt="Software Cam Stream" 
+      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/STLBookSpiegelReflex.gif?raw=true" 
+      alt="STL Book Spiegel Reflex Animation" 
       style="max-width: 900px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
     />
   </div>
   <p style="text-align: center; margin-top: 5px;">
-    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Software_Cam_Stream.PNG?raw=true" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
+    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/STLBookSpiegelReflex.gif?raw=true" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
       Fullscreen View
     </a>
   </p>
-</div>
-<!-- Camera Configurator JSON end -->
-
-
----
-
-
-<!-- Camera UI with Failures start -->
-<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
-  <div style="display: flex; align-items: center; justify-content: center;">
-    <img 
-      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Console_failure_connection_camera.PNG?raw=true" 
-      alt="Console Failure Connection Camera" 
-      style="max-width: 900px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
-    />
-  </div>
-  <p style="text-align: center; margin-top: 5px;">
-    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Console_failure_connection_camera.PNG?raw=true" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
-      Fullscreen View
-    </a>
-  </p>
-</div>
-<!-- Camera UI with Failures end -->
-
-
----
-
-
-
----
-
-<!-- Good Case scan config & cone settings start -->
-<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
-  <div style="display: flex; flex-direction: row; align-items: flex-end; justify-content: center; gap: 20px;">
-    <div style="display: flex; flex-direction: column; align-items: center;">
-      <img 
-        src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/07_servo_cone_detail_small.png?raw=true" 
-        alt="Servo Cone Detail Small" 
-        style="max-width: 300px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
-      />
-      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/07_servo_cone_detail_small.png?raw=true" target="_blank" style="margin-top: 5px; padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px; display: inline-block;">
-        Fullscreen View
-      </a>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center;">
-      <img 
-        src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/06_servo_geometry_graph_only_smaler_cone.png?raw=true" 
-        alt="Servo Geometry Graph Only Smaller Cone" 
-        style="max-width: 300px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
-      />
-      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/06_servo_geometry_graph_only_smaler_cone.png?raw=true" target="_blank" style="margin-top: 5px; padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px; display: inline-block;">
-        Fullscreen View
-      </a>
-    </div>
-  </div>
-</div>
-<!-- Good Case scan config & cone settings end -->
-
----
-
-
-
-<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
-  <div style="display: flex; flex-direction: row; align-items: flex-end; justify-content: center; gap: 20px;">
-    <div style="display: flex; flex-direction: column; align-items: center;">
-      <img 
-        src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/06_servo_geometry_graph_only_bad.png?raw=true" 
-        alt="Servo Geometry Graph Only Bad" 
-        style="max-width: 300px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
-      />
-      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/06_servo_geometry_graph_only_bad.png?raw=true" target="_blank" style="margin-top: 5px; padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px; display: inline-block;">
-        Fullscreen View
-      </a>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center;">
-      <img 
-        src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/07_servo_cone_detail_20.png?raw=true" 
-        alt="Servo Cone Detail 20" 
-        style="max-width: 300px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
-      />
-      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/07_servo_cone_detail_20.png?raw=true" target="_blank" style="margin-top: 5px; padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px; display: inline-block;">
-        Fullscreen View
-      </a>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center;">
-      <img 
-        src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/06_servo_interpolation.png?raw=true" 
-        alt="Servo Interpolation" 
-        style="max-width: 300px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
-      />
-      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/06_servo_interpolation.png?raw=true" target="_blank" style="margin-top: 5px; padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px; display: inline-block;">
-        Fullscreen View
-      </a>
-    </div>
-  </div>
 </div>
 
 ---
@@ -816,25 +785,6 @@ description: custom open source 3D scanner - Meshroom Guide
   </p>
 </div>
 
-
-
----
-
-
-<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
-  <div style="display: flex; align-items: center; justify-content: center;">
-    <img 
-      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/MeshRoom_basic_pipeline.PNG?raw=true" 
-      alt="MeshRoom Basic Pipeline" 
-      style="max-width: 900px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
-    />
-  </div>
-  <p style="text-align: center; margin-top: 5px;">
-    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/MeshRoom_basic_pipeline.PNG?raw=true" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
-      Fullscreen View
-    </a>
-  </p>
-</div>
 
 
 
@@ -1402,6 +1352,7 @@ result = ApiClient.move_stepper(100, 1, 50, "http://192.168.137.7")
 # Set LED to red
 result = ApiClient.set_led_color("#FF0000", "http://192.168.137.7")
 ```
+
 
 
 
