@@ -629,7 +629,84 @@ description: custom open source 3D scanner - Meshroom Guide
 
 ------------------
 
-# Camera JSON Configurator
+<h2>Scan config</h2>
+<div style="margin: 20px 0; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
+  <div style="display: flex; align-items: flex-start; gap: 32px;">
+    <div style="flex: 2; min-width: 0;">
+      <div style="margin-top: 0; text-align: left; font-size: 15px;">
+        In this window, as described in the previous chapter, you can set the variables for the scan.<br>
+        The <strong>visualization mode</strong> generates a full visual evaluation of all results, while <strong>silent mode</strong> creates a CSV file based on the parameters.<br>
+        The CSV file is automatically imported into the queue window.<br>
+        The <strong>current command</strong> field helps you understand how to use the math engine if you want to integrate it elsewhere.<br>
+        <br>
+        You can also select <strong>Cone details</strong> to view the configuration in detail.
+      </div>
+      <div style="margin-top: 12px; display: flex; align-items: center; gap: 6px;">
+        <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" style="width:20px; height:20px; vertical-align:middle;">
+        <strong style="font-size: 13px;">Math engine :</strong>
+        <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/implementation/ControlScript/Calculator_Angle_Maschine/MathVisualisation/main.py" target="_blank" style="font-weight: bold; color: #24292f; font-size: 13px;">
+          main.py
+        </a>
+      </div>
+    </div>
+    <div style="flex: 1; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; height: 100%;">
+      <img 
+        src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Calculator_window.PNG?raw=true" 
+        alt="Calculator Window" 
+        style="max-width: 400px; width: 100%; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); align-self: flex-start; margin-top: 0;"
+      />
+      <div style="width: 100%; display: flex; justify-content: center;">
+        <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Calculator_window.PNG?raw=true" target="_blank" style="margin-top: 5px; padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px; display: inline-block;">
+          Fullscreen View
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+---
+
+<div style="margin: 20px 0; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
+  <div style="display: flex; flex-direction: row; align-items: flex-start; gap: 32px;">
+    <div style="flex: 2; min-width: 0;">
+      <h2>Scan Workflow Overview</h2>
+      <ul>
+        <li>
+          <strong>Run Queue</strong> executes the scan process. The queue contains all scan steps and can be edited, reordered, or cleared as needed.
+        </li>
+        <li>
+          You can also <strong>import</strong> or <strong>export</strong> the queue for backup or reuse in other projects.
+        </li>
+        <li>
+          In the <strong>PhotoControl</strong> section, the <strong>Config</strong> button opens the Camera JSON Configurator, allowing you to adjust camera settings directly.
+        </li>
+      </ul>
+      <p>
+        This workflow ensures a flexible and repeatable scan process, with full control over each step and camera configuration.
+      </p>
+    </div>
+    <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+      <img 
+        src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/scanWorkflow.PNG?raw=true" 
+        alt="Scan Workflow Diagram" 
+        style="max-width: 400px; width: 100%; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
+      />
+      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/scanWorkflow.PNG?raw=true" target="_blank" style="margin-top: 8px; padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px; display: inline-block; text-align: center;">
+        Fullscreen View
+      </a>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+-----------
+
+
+<h2>Camera JSON Configurator</h2>
 <div style="margin: 20px 0; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
   <div style="display: flex; align-items: flex-start; gap: 32px;">
     <div style="flex: 1 1 0; min-width: 0;">
@@ -696,6 +773,8 @@ description: custom open source 3D scanner - Meshroom Guide
 <!-- Camera Configurator and Error UI side by side end -->
 
 ---
+
+
 
 
 
@@ -863,8 +942,8 @@ by analyzing the overlap between images.
     </div>
   </div>
 </div>
-<!-- Meshroom Scan Results Gallery End -->
 
+---
 
 <div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
   <div style="display: flex; align-items: center; justify-content: center;">
@@ -885,7 +964,6 @@ by analyzing the overlap between images.
 
 
 ---
-
 
 <div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
   <div style="display: flex; align-items: center; justify-content: center;">
@@ -908,6 +986,12 @@ by analyzing the overlap between images.
       </a>
     </li>
   </ul>
+  <div style="display: flex; align-items: center; justify-content: center; margin-top: 18px;">
+    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" style="width:28px; height:28px; margin-right: 8px;">
+    <a href="https://github.com/Nr44suessauer/I-Scan/tree/main/implementation/PositionUnit_with_API" target="_blank" style="font-weight: bold; color: #24292f; font-size: 15px;">
+      Firmware for the individual modules (PositionUnit_with_API)
+    </a>
+  </div>
 </div>
 
 
