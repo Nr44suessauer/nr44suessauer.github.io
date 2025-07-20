@@ -3,10 +3,6 @@ title: i_Scan
 description: custom open source 3D scanner - Meshroom Guide
 ---
 
--> noch fehlende Bilder \
----> Bild ToolChain MeshRoom bearbeitet \
-
-
 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
   <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" style="width:32px; height:32px;">
   <strong>GitHub Repository Software Version 1.0:</strong>
@@ -813,21 +809,19 @@ by analyzing the overlap between images.
 
 
 ---
-
 <!-- Meshroom Scan Results Gallery Start -->
 <style>
 .meshroom-gallery-row {
   display: flex;
   flex-direction: row;
-  gap: 32px;
+  gap: 28px;
   justify-content: center;
   align-items: flex-end;
   background: #18191a;
-  padding: 32px 0 24px 0;
+  padding: 28px 0 22px 0;
   border-radius: 10px;
   margin-bottom: 32px;
   flex-wrap: wrap;
-  overflow-x: unset;
 }
 .meshroom-gallery-item {
   display: flex;
@@ -835,38 +829,38 @@ by analyzing the overlap between images.
   align-items: center;
   background: #232323;
   border-radius: 8px;
-  padding: 16px 12px 12px 12px;
+  padding: 18px 12px 12px 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.18);
   min-width: 180px;
   max-width: 220px;
-  margin: 0 2px;
+  margin: 0 4px;
   flex: 1 1 0;
 }
 .meshroom-gallery-item img {
-  max-width: 200px;
+  max-width: 180px;
   width: 100%;
   border: 1px solid #333;
   border-radius: 6px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.18);
   background: #111;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 .meshroom-gallery-caption {
   color: #eee;
-  font-size: 13px;
+  font-size: 15px;
   text-align: center;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   margin-top: 2px;
   font-weight: 400;
 }
 .meshroom-gallery-item a {
-  margin-top: 2px;
-  padding: 2px 8px;
+  margin-top: 4px;
+  padding: 3px 12px;
   background: #007bff;
   color: #fff;
   text-decoration: none;
   border-radius: 4px;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 500;
   display: inline-block;
   transition: background 0.2s;
@@ -876,47 +870,41 @@ by analyzing the overlap between images.
 }
 .meshroom-gallery-container {
   width: 100vw;
-  max-width: 1200px;
+  max-width: 900px;
   margin-left: 50%;
   transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-@media (max-width: 1200px) {
+@media (max-width: 900px) {
   .meshroom-gallery-container {
     max-width: 98vw;
   }
   .meshroom-gallery-row {
-    gap: 16px;
-    padding: 16px 0;
+    gap: 14px;
+    padding: 14px 0;
   }
   .meshroom-gallery-item img {
-    max-width: 150px;
-  }
-  .meshroom-gallery-item {
-    min-width: 120px;
-    max-width: 150px;
-  }
-}
-@media (max-width: 900px) {
-  .meshroom-gallery-row {
-    gap: 10px;
-    padding: 10px 0;
+    max-width: 110px;
   }
   .meshroom-gallery-item {
     min-width: 90px;
-    max-width: 110px;
-    padding: 8px 2px 6px 2px;
+    max-width: 120px;
+    padding: 6px 2px 6px 2px;
   }
-  .meshroom-gallery-item img {
-    max-width: 90px;
+  .meshroom-gallery-caption {
+    font-size: 12px;
   }
-  .meshroom-gallery-container {
-    max-width: 100vw;
+  .meshroom-gallery-item a {
+    font-size: 10px;
+    padding: 2px 8px;
   }
 }
 </style>
 
-<p style="font-size: 1.1em; font-weight: 500; margin-bottom: 12px;">
-  Examples I generated with Meshroom:
+<p style="font-size: 1.1em; font-weight: 500; margin-bottom: 12px; text-align: center;">
+  Examples | generated with Meshroom
 </p>
 <div class="meshroom-gallery-container">
   <div class="meshroom-gallery-row">
@@ -945,12 +933,13 @@ by analyzing the overlap between images.
 
 ---
 
-<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
+
+<div style="margin: 20px 0; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
   <div style="display: flex; align-items: center; justify-content: center;">
     <img 
       src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/ScreenRecVapePoleWhite.gif?raw=true" 
       alt="Screen Recording Vape Pole White" 
-      style="max-width: 900px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
+      style="max-width: 900px; width: 100%; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
     />
   </div>
   <p style="text-align: center; margin-top: 5px;">
@@ -958,6 +947,11 @@ by analyzing the overlap between images.
       Fullscreen View
     </a>
   </p>
+  <div style="font-family:monospace; font-size: 1.1em; background: #4b4949ff; padding: 8px; border-radius: 6px; overflow-x: auto; margin-top: 18px; text-align: center;">
+    <em>
+      This example shows a coordinated scan of a metallic object placed on a white surface, with illumination coming from one side (as indicated by the visible shadow). Despite the typical complications associated with scanning reflective or metallic materials, the system successfully detected and reconstructed all non-metallic features of the object.
+    </em>
+  </div>
 </div>
 
 
@@ -965,12 +959,14 @@ by analyzing the overlap between images.
 
 ---
 
-<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
+
+<h2>Module | Software &amp; Parts</h2>
+<div style="margin: 20px 0; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
   <div style="display: flex; align-items: center; justify-content: center;">
     <img 
       src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/MovableCameraModule.gif?raw=true" 
       alt="Movable Camera Module Animation" 
-      style="max-width: 900px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
+      style="max-width: 900px; width: 100%; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
     />
   </div>
   <p style="text-align: center; margin-top: 5px;">
@@ -991,36 +987,6 @@ by analyzing the overlap between images.
     <a href="https://github.com/Nr44suessauer/I-Scan/tree/main/implementation/PositionUnit_with_API" target="_blank" style="font-weight: bold; color: #24292f; font-size: 15px;">
       Firmware for the individual modules (PositionUnit_with_API)
     </a>
-  </div>
-</div>
-
-
-
----
-
-
-<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
-  <div style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 20px;">
-    <div style="display: flex; flex-direction: column; align-items: center;">
-      <img 
-        src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/theDomeLamp.gif?raw=true" 
-        alt="The Dome Lamp Animation" 
-        style="max-width: 400px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
-      />
-      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/theDomeLamp.gif?raw=true" target="_blank" style="margin-top: 5px; padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px; display: inline-block;">
-        Fullscreen View
-      </a>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center;">
-      <img 
-        src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/TheDomeInReflector.jpg?raw=true" 
-        alt="The Dome In Reflector" 
-        style="max-width: 400px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
-      />
-      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/TheDomeInReflector.jpg?raw=true" target="_blank" style="margin-top: 5px; padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px; display: inline-block;">
-        Fullscreen View
-      </a>
-    </div>
   </div>
 </div>
 
