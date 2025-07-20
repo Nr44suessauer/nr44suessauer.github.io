@@ -732,23 +732,138 @@ by analyzing the overlap between images.
   </p>
 </div>
 
----
-<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
-  <div style="display: flex; align-items: center; justify-content: center;">
-    <img 
-      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/STLBookSpiegelReflex.gif?raw=true" 
-      alt="STL Book Spiegel Reflex Animation" 
-      style="max-width: 900px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
-    />
-  </div>
-  <p style="text-align: center; margin-top: 5px;">
-    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/STLBookSpiegelReflex.gif?raw=true" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
-      Fullscreen View
-    </a>
-  </p>
-</div>
 
 ---
+
+<!-- Meshroom Scan Results Gallery Start -->
+<style>
+.meshroom-gallery-row {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  justify-content: center;
+  align-items: flex-end;
+  background: #18191a;
+  padding: 32px 0 24px 0;
+  border-radius: 10px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  overflow-x: unset;
+}
+.meshroom-gallery-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #232323;
+  border-radius: 8px;
+  padding: 16px 12px 12px 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  min-width: 180px;
+  max-width: 220px;
+  margin: 0 2px;
+  flex: 1 1 0;
+}
+.meshroom-gallery-item img {
+  max-width: 200px;
+  width: 100%;
+  border: 1px solid #333;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.18);
+  background: #111;
+  margin-bottom: 8px;
+}
+.meshroom-gallery-caption {
+  color: #eee;
+  font-size: 13px;
+  text-align: center;
+  margin-bottom: 6px;
+  margin-top: 2px;
+  font-weight: 400;
+}
+.meshroom-gallery-item a {
+  margin-top: 2px;
+  padding: 2px 8px;
+  background: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  display: inline-block;
+  transition: background 0.2s;
+}
+.meshroom-gallery-item a:hover {
+  background: #0056b3;
+}
+.meshroom-gallery-container {
+  width: 100vw;
+  max-width: 1200px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+@media (max-width: 1200px) {
+  .meshroom-gallery-container {
+    max-width: 98vw;
+  }
+  .meshroom-gallery-row {
+    gap: 16px;
+    padding: 16px 0;
+  }
+  .meshroom-gallery-item img {
+    max-width: 150px;
+  }
+  .meshroom-gallery-item {
+    min-width: 120px;
+    max-width: 150px;
+  }
+}
+@media (max-width: 900px) {
+  .meshroom-gallery-row {
+    gap: 10px;
+    padding: 10px 0;
+  }
+  .meshroom-gallery-item {
+    min-width: 90px;
+    max-width: 110px;
+    padding: 8px 2px 6px 2px;
+  }
+  .meshroom-gallery-item img {
+    max-width: 90px;
+  }
+  .meshroom-gallery-container {
+    max-width: 100vw;
+  }
+}
+</style>
+
+<p style="font-size: 1.1em; font-weight: 500; margin-bottom: 12px;">
+  Examples I generated with Meshroom:
+</p>
+<div class="meshroom-gallery-container">
+  <div class="meshroom-gallery-row">
+    <div class="meshroom-gallery-item">
+      <img src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Yoshi_stl_file.gif?raw=true" alt="Yoshi STL File Animation" />
+      <div class="meshroom-gallery-caption">Yoshi STL in Cura</div>
+      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Yoshi_stl_file.gif?raw=true" target="_blank" rel="noopener">Fullscreen View</a>
+    </div>
+    <div class="meshroom-gallery-item">
+      <img src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Yoshi_stl_file_printview.gif?raw=true" alt="Yoshi STL File Printview Animation" />
+      <div class="meshroom-gallery-caption">Yoshi STL in Cura</div>
+      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Yoshi_stl_file_printview.gif?raw=true" target="_blank" rel="noopener">Fullscreen View</a>
+    </div>
+    <div class="meshroom-gallery-item">
+      <img src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/STLBookSpiegelReflex.gif?raw=true" alt="STL Book Spiegel Reflex Animation" />
+      <div class="meshroom-gallery-caption">STL Book in Simply3D</div>
+      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/STLBookSpiegelReflex.gif?raw=true" target="_blank" rel="noopener">Fullscreen View</a>
+    </div>
+    <div class="meshroom-gallery-item">
+      <img src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/ScreenRecVapeWhere.gif?raw=true" alt="Screen Recording Vape Where" />
+      <div class="meshroom-gallery-caption">Metallic object in Meshroom</div>
+      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/ScreenRecVapeWhere.gif?raw=true" target="_blank" rel="noopener">Fullscreen View</a>
+    </div>
+  </div>
+</div>
+<!-- Meshroom Scan Results Gallery End -->
 
 
 <div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
@@ -765,69 +880,6 @@ by analyzing the overlap between images.
     </a>
   </p>
 </div>
-
-
----
-
-
-<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
-  <div style="display: flex; align-items: center; justify-content: center;">
-    <img 
-      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/ScreenRecVapeWhere.gif?raw=true" 
-      alt="Screen Recording Vape Where" 
-      style="max-width: 900px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
-    />
-  </div>
-  <p style="text-align: center; margin-top: 5px;">
-    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/ScreenRecVapeWhere.gif?raw=true" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
-      Fullscreen View
-    </a>
-  </p>
-</div>
-
-
-
-
----
-
-
-
-<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
-  <div style="display: flex; align-items: center; justify-content: center;">
-    <img 
-      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Yoshi_stl_file.gif?raw=true" 
-      alt="Yoshi STL File Animation" 
-      style="max-width: 900px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
-    />
-  </div>
-  <p style="text-align: center; margin-top: 5px;">
-    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Yoshi_stl_file.gif?raw=true" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
-      Fullscreen View
-    </a>
-  </p>
-</div>
-
-
-
----
-
-
-
-<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
-  <div style="display: flex; align-items: center; justify-content: center;">
-    <img 
-      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Yoshi_stl_file_printview.gif?raw=true" 
-      alt="Yoshi STL File Printview Animation" 
-      style="max-width: 900px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
-    />
-  </div>
-  <p style="text-align: center; margin-top: 5px;">
-    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Yoshi_stl_file_printview.gif?raw=true" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
-      Fullscreen View
-    </a>
-  </p>
-</div>
-
 
 
 
