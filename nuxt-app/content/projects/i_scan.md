@@ -240,14 +240,6 @@ description: custom open source 3D scanner - Meshroom Guide
   </div>
 </div>
 
-### <a id="integral-representation"></a>**Integral Representation and Height Calculation**
-
-<div style="display: flex; align-items: center; margin-top: 20px;">
-  <p></p>
-</div>
-
----
-
 #### Secondary Goal of the Concept
 <div style="display: flex; align-items: flex-start; gap: 32px;">
   <div style="flex: 2; display: flex; flex-direction: column; justify-content: flex-start;">
@@ -270,54 +262,359 @@ description: custom open source 3D scanner - Meshroom Guide
   </div>
 </div>
 
----
-## Integral Representation and Height Calculation
-
-- <span style="font-family:monospace;">f<sub>bot</sub>(z)</span>: Höhenanteil der unteren Einheit  
-- <span style="font-family:monospace;">f<sub>mid</sub>(z)</span>: Höhenanteil der mittleren Einheit  
-- <span style="font-family:monospace;">f<sub>top</sub>(z)</span>: Höhenanteil der oberen Einheit  
-
-**Integration über den Bereich:**
-
-- <span style="font-family:monospace;">∫<sub>a</sub><sup>b</sup> f<sub>bot</sub>(z) dz</span>: Höhenanteil der unteren Einheit im Bereich [a, b]  
-- <span style="font-family:monospace;">∫<sub>a</sub><sup>b</sup> f<sub>mid</sub>(z) dz</span>: Höhenanteil der mittleren Einheit im Bereich [a, b]  
-- <span style="font-family:monospace;">∫<sub>a</sub><sup>b</sup> f<sub>top</sub>(z) dz</span>: Höhenanteil der oberen Einheit im Bereich [a, b]  
-
-**Berechnung der Differenz:**
-
-<div style="font-family:monospace; font-size: 1.1em; background: #4b4949ff; padding: 8px; border-radius: 6px; overflow-x: auto;">
-ΔZ<sub>max</sub> = Maximale Höhe I-Scan − [ ∫<sub>a</sub><sup>b</sup> f<sub>bot</sub>(z) dz + ∫<sub>a</sub><sup>b</sup> f<sub>mid</sub>(z) dz + ∫<sub>a</sub><sup>b</sup> f<sub>top</sub>(z) dz ]
-</div>
-
-### <a id="integral-representation"></a>**Integral Representation and Height Calculation**
-
 <div style="display: flex; align-items: center; margin-top: 20px;">
   <p></p>
 </div>
 
 ---
 
-<!--- Triangle start -->
-<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
-  <div style="display: flex; align-items: center; justify-content: center;">
-    <img 
-      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/diagram/mathAnimations/Triangle_newCenter.gif?raw=true" 
-      alt="Triangle New Center Animation" 
-      style="max-width: 600px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
-    />
+
+### <a id="calculation-of-measurement-angle"></a>Calculation of Measurement Angle
+
+<div style="display: flex; align-items: flex-start;">
+  <div style="flex: 1; padding-right: 20px;">
+    <h3>Right-Angled Triangles</h3>
+    <p>
+      In this chapter, we show how to calculate the angle <strong>&alpha;</strong> in a right-angled triangle when one side is variable.<br>
+      For our example:
+    </p>
+    <ul>
+      <li><strong>Side A:</strong> <code>Z<sub>dist</sub></code></li>
+      <li><strong>Side B:</strong> <code>DistanceToCenter</code> (150 cm as defined in the JSON configuration)</li>
+    </ul>
   </div>
-  <p style="text-align: center; margin-top: 5px;">
-    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/diagram/mathAnimations/Triangle_newCenter.gif?raw=true" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
+  <div style="flex: 1; display: flex; justify-content: center; align-items: center;">
+    <img src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/diagram/mathAnimations/Triangle_center.png?raw=true" alt="Angle Calculation Diagram" style="max-width: 100%;">
+  </div>
+</div>
+<p>
+  In a right-angled triangle, the tangent of an angle is defined as the ratio of the opposite side to the adjacent side.<br>
+  Since <strong>&alpha;</strong> is the angle opposite Side A and Side B is the adjacent side, it follows:
+</p>
+<div style="background: rgba(30,34,40,0.82); color: #fff; padding: 10px 12px; border-radius: 6px; font-size: 16px; margin-bottom: 8px;">
+  tan(&alpha;) = Z<sub>dist</sub> / DistanceToCenter
+</div>
+<p>
+  To calculate <strong>&alpha;</strong>, use the arctangent (inverse tangent) function:
+</p>
+<div style="background: rgba(30,34,40,0.82); color: #fff; padding: 10px 12px; border-radius: 6px; font-size: 16px; margin-bottom: 8px;">
+  &alpha; = arctan(Z<sub>dist</sub> / DistanceToCenter)
+</div>
+<p>
+  <strong>Example:</strong><br>
+  With <code>Z<sub>dist</sub> = 150</code> cm and <code>DistanceToCenter = 150</code> cm:
+</p>
+<div style="background: rgba(30,34,40,0.82); color: #fff; padding: 10px 12px; border-radius: 6px; font-size: 16px; margin-bottom: 8px;">
+  &alpha; = arctan(150 / 150) = arctan(1) = 45°
+</div>
+<p>
+  This method allows you to substitute any value for <code>Z<sub>dist</sub></code> to calculate the corresponding angle <strong>&alpha;</strong> in a right-angled triangle.
+</p>
+
+---
+
+<h2>Geometric Angle Calculation</h2>
+
+<div style="display: flex; align-items: flex-start; gap: 32px;">
+  <div style="flex: 2; min-width: 0;">
+    <ul>
+      <li><strong>Step size:</strong><br>
+        <code>step_size = SCAN_DISTANCE / (NUMBER_OF_MEASUREMENTS - 1)</code>
+      </li>
+      <li><strong>For each measurement point:</strong>
+        <ul>
+          <li><code>y_position = i * step_size</code></li>
+          <li><code>dx = TARGET_CENTER_X - SCANNER_MODULE_X</code></li>
+          <li><code>dy = TARGET_CENTER_Y - y_position</code></li>
+          <li><strong>Angle calculation:</strong><br>
+            <code>angle_rad = atan2(dx, dy)</code><br>
+            <code>angle_deg = angle_rad * 180 / π</code><br>
+          </li>
+          <li><strong>Hypotenuse:</strong><br>
+            <code>hypotenuse = sqrt(dx² + dy²)</code>
+          </li>
+          <li><strong>Store:</strong><br>
+            <code>angles.append({ ... })</code>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <div style="font-family:monospace; font-size: 1.1em; background: #4b4949ff; padding: 8px; border-radius: 6px; overflow-x: auto;">
+      For each measurement point:<br>
+      Calculate y-position, dx, dy, angle (deg), hypotenuse and store in the result array.
+    </div>
+    </div>
+    <div style="flex: 1 0 320px; max-width: 320px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
+    <img src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/diagram/mathAnimations/Triangle_newCenter.gif?raw=true" alt="Measurement Center Diagram" style="width: 620px; height: 320px; object-fit: contain; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/diagram/mathAnimations/Triangle_newCenter.gif?raw=true" target="_blank" style="margin-top: 5px; padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px; display: inline-block;">
       Fullscreen View
     </a>
-  </p>
-</div>
+    </div>
+  </div>
+  <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" style="width:24px; height:24px;">
+    <strong>Source code:</strong>
+    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/implementation/ControlScript/Calculator_Angle_Maschine/MathVisualisation/calculations.py" target="_blank" style="font-weight: bold; color: #24292f;">
+    calculations.py
+    </a>
+  </div>
 
-<!--- Triangle end -->
 
 ---
 
 
+## Servo Interpolation with Physical Correction 
+<div style="margin: 20px 0; padding: 20px; width: 100vw; max-width: 1000px;">
+  <div style="display: flex; align-items: flex-start; gap: 32px;">
+    <div style="flex: 2; display: flex; flex-direction: column; justify-content: flex-start;">
+      <span style="line-height: 1.7; display: block;">
+        To ensure that each servo can be installed regardless of its individual angular range,  
+        the servo parameters are configured accordingly.  
+        By specifying the installation angle of the servo, we can align it precisely.  
+        The servo’s cone of rotation is combined with the installation angle  
+        and then matched with the theoretically calculated angle to the object.
+        <br>
+        <br>
+        This process yields the exact angle at which the servo must be controlled  
+        to achieve the desired orientation as previously determined by the geometric calculations.
+        <br>
+        <br>
+        For each measurement point, the algorithm calculates the geometric angle,  
+        determines the target angle in the coordinate system,  
+        checks if the target is within the servo’s physical range,  
+        and maps this to the actual servo angle.  
+        All relevant values are stored for further control and visualization.
+      </span>
+    </div>
+    <div style="flex: 0 0 auto; align-self: flex-start; display: flex; flex-direction: column; align-items: center;">
+      <img 
+        src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/07_servo_cone_detail.png?raw=true" 
+        alt="Servo Cone Detail" 
+        style="max-width: 300px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-top: -10px;"
+      />
+      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/07_servo_cone_detail.png?raw=true" target="_blank" style="margin-top: 5px; padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px; display: inline-block;">
+        Fullscreen View
+      </a>
+      <div style="text-align: center; font-size: 11px; margin-top: 4px; color: #555;">
+        Servo Cone Detail 0-90
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="display: flex; align-items: flex-start; gap: 32px;">
+  <div style="flex: 3;">
+    <ul>
+      <li><strong>Calculate the geometric angle for the point:</strong><br>
+        <span style="font-family:monospace;">geometric_angle = calculate_geometric_angle(y_pos)</span>
+      </li>
+      <li><strong>Determine target angle in the coordinate system:</strong><br>
+        <span style="font-family:monospace;">target_coord_angle = atan2(dy, dx) (in degrees)</span>
+      </li>
+      <li><strong>Check reachability:</strong><br>
+        <span style="font-family:monospace;">is_reachable = (COORD_MAX_ANGLE ≤ target_coord_angle ≤ COORD_MIN_ANGLE)</span>
+      </li>
+      <li><strong>Physical servo angle:</strong>
+        <ul>
+          <li>If reachable:<br>
+            <span style="font-family:monospace;">physical_servo_angle = linear mapping from coordinate angle to min°–max°</span>
+          </li>
+          <li>Otherwise:<br>
+            <span style="font-family:monospace;">physical_servo_angle = min° or max° (nearest limit)</span>
+          </li>
+        </ul>
+      </li>
+      <li><strong>Servo coordinate angle:</strong><br>
+        <span style="font-family:monospace;">servo_coordinate_angle = geometric_angle - SERVO_NEUTRAL_ANGLE</span>
+      </li>
+    </ul>
+    <div style="font-family:monospace; font-size: 1.1em; background: #4b4949ff; padding: 8px; border-radius: 6px; overflow-x: auto;">
+      For a single measurement point:<br>
+      Calculate target angle, check reachability, map to servo angle, calculate visualization angle, and store all values in the result object.
+    </div>
+  </div>
+  <div style="flex: 0 0 120px; display: flex; flex-direction: column; align-items: center;">
+    <img 
+      src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/06_servo_geometry_graph_only.png?raw=true" 
+      alt="Servo Geometry Graph Only" 
+      style="max-width: 310px; width: 300%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
+    />
+    <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/06_servo_geometry_graph_only.png?raw=true" target="_blank" style="margin-top: 5px; padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px; display: inline-block;">
+      Fullscreen View
+    </a>
+  </div>
+</div>
+<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+  <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" style="width:24px; height:24px;">
+  <strong>Source code:</strong>
+  <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/implementation/ControlScript/Calculator_Angle_Maschine/MathVisualisation/servo_interpolation.py" target="_blank" style="font-weight: bold; color: #24292f;">
+    servo_interpolation.py
+  </a>
+</div>
+
+
+---
+
+# Different configurations
+
+<!-- Servo Gallery Start -->
+<style>
+.servo-gallery-row {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  justify-content: center;
+  align-items: flex-end;
+  background: #18191a;
+  padding: 32px 0 24px 0;
+  border-radius: 10px;
+  margin-bottom: 32px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+.servo-gallery-pair {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #232323;
+  border-radius: 8px;
+  padding: 16px 12px 12px 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  min-width: 220px;
+  max-width: 340px;
+  margin: 0 2px;
+}
+.servo-gallery-pair img {
+  max-width: 320px;
+  width: 100%;
+  border: 1px solid #333;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.18);
+  background: #111;
+  margin-bottom: 8px;
+}
+.servo-gallery-pair a {
+  margin-top: 2px;
+  padding: 2px 8px;
+  background: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  display: inline-block;
+  transition: background 0.2s;
+}
+.servo-gallery-pair a:hover {
+  background: #0056b3;
+}
+.servo-gallery-caption {
+  color: #eee;
+  font-size: 13px;
+  text-align: center;
+  margin-bottom: 6px;
+  margin-top: 2px;
+  font-weight: 400;
+}
+.servo-gallery-container {
+  width: 100vw;
+  max-width: 1200px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+@media (max-width: 1200px) {
+  .servo-gallery-container {
+    max-width: 98vw;
+  }
+  .servo-gallery-row {
+    gap: 16px;
+    padding: 16px 0;
+  }
+  .servo-gallery-pair img {
+    max-width: 220px;
+  }
+}
+@media (max-width: 900px) {
+  .servo-gallery-row {
+    gap: 10px;
+    padding: 10px 0;
+  }
+  .servo-gallery-pair {
+    min-width: 140px;
+    max-width: 180px;
+    padding: 8px 2px 6px 2px;
+  }
+  .servo-gallery-pair img {
+    max-width: 140px;
+  }
+  .servo-gallery-container {
+    max-width: 100vw;
+  }
+}
+</style>
+
+<div class="servo-gallery-container">
+  <div class="servo-gallery-row">
+    <div class="servo-gallery-pair">
+      <img src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/06_servo_geometry_graph_only_smaler_cone.png?raw=true" alt="Servo Geometry Graph Only Smaller Cone" />
+      <div class="servo-gallery-caption">Servo Geometry Graph Only Smaller Cone</div>
+      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/06_servo_geometry_graph_only_smaler_cone.png?raw=true" target="_blank">Fullscreen View</a>
+    </div>
+    <div class="servo-gallery-pair">
+      <img src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/07_servo_cone_detail_small.png?raw=true" alt="Servo Cone Detail Small" />
+      <div class="servo-gallery-caption">Servo Cone Detail Small</div>
+      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/07_servo_cone_detail_small.png?raw=true" target="_blank">Fullscreen View</a>
+    </div>
+    <div class="servo-gallery-pair">
+      <img src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/06_servo_geometry_graph_only_bad.png?raw=true" alt="Servo Geometry Graph Only Bad" />
+      <div class="servo-gallery-caption">Servo Geometry Graph Only Bad</div>
+      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/06_servo_geometry_graph_only_bad.png?raw=true" target="_blank">Fullscreen View</a>
+    </div>
+    <div class="servo-gallery-pair">
+      <img src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/07_servo_cone_detail_20.png?raw=true" alt="Servo Cone Detail 20" />
+      <div class="servo-gallery-caption">Servo Cone Detail 20</div>
+      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/07_servo_cone_detail_20.png?raw=true" target="_blank">Fullscreen View</a>
+    </div>
+  </div>
+</div>
+<!-- Servo Gallery End -->
+
+---
+
+
+
+# Create Scan Workflow 
+
+<div style="display: flex; gap: 32px; align-items: flex-start; flex-wrap: wrap;">
+  <div style="flex: 1 1 0; min-width: 300px;">
+    <strong>The user interface provides a powerful way to create and manage scan workflows.</strong><br>
+    Each step of the 3D acquisition process can be defined in detail.<br>
+    A workflow consists of multiple steps that are executed sequentially to ensure a structured and repeatable scanning procedure.<br><br>
+    <strong>Each step in the workflow is individually configurable.</strong><br>
+    This includes not only Z-axis movement, servo alignment, and camera control,<br>
+    but also the integration of multiple cameras into the process.<br>
+    Cameras can be added to the workflow as needed,<br>
+    and each camera can be fully configured through the interface.
+  </div>
+  <div style="flex: 1 1 0; min-width: 300px;">
+    Camera parameters can be adjusted, active cameras for specific steps can be selected,<br>
+    and their operation can be coordinated with other system components.<br><br>
+    Future features such as lighting control can also be integrated into the workflow,<br>
+    providing even more flexibility and control.<br>
+    This approach allows all relevant settings for each step to be reviewed, adjusted, and optimized.<br>
+    <div style="display: flex; align-items: center; gap: 10px; margin: 12px 0;">
+      <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" style="width:24px; height:24px;">
+      <strong>Software start:</strong>
+      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/implementation/ControlScript/start_modular_version.bat" target="_blank" style="font-weight: bold; color: #24292f;">
+        Download the project and run <code>start_modular_version.bat</code>
+      </a>
+    </div>
+    <p>
+      All required dependencies will be installed through the script.
+      If anything is missing, the console will indicate what is required.
+    </p>
+  </div>
+</div>
 <div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
   <div style="display: flex; align-items: center; justify-content: center;">
     <img 
@@ -333,7 +630,24 @@ description: custom open source 3D scanner - Meshroom Guide
   </p>
 </div>
 
----
+------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!--- Program overview start -->
 <div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
@@ -395,32 +709,7 @@ description: custom open source 3D scanner - Meshroom Guide
 
 ---
 
-<!-- Camera Failures Debug Console start -->
-<div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
-  <div style="display: flex; flex-direction: row; align-items: flex-end; justify-content: center; gap: 20px;">
-    <div style="display: flex; flex-direction: column; align-items: center;">
-      <img 
-        src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/06_servo_geometry_graph_only.png?raw=true" 
-        alt="Servo Geometry Graph Only" 
-        style="max-width: 400px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
-      />
-      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/06_servo_geometry_graph_only.png?raw=true" target="_blank" style="margin-top: 5px; padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px; display: inline-block;">
-        Fullscreen View
-      </a>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center;">
-      <img 
-        src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/07_servo_cone_detail.png?raw=true" 
-        alt="Servo Cone Detail" 
-        style="max-width: 300px; width: 100%; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
-      />
-      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/07_servo_cone_detail.png?raw=true" target="_blank" style="margin-top: 5px; padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px; display: inline-block;">
-        Fullscreen View
-      </a>
-    </div>
-  </div>
-</div>
-<!-- Camera Failures Debug Console end -->
+
 
 ---
 
@@ -1113,3 +1402,7 @@ result = ApiClient.move_stepper(100, 1, 50, "http://192.168.137.7")
 # Set LED to red
 result = ApiClient.set_led_color("#FF0000", "http://192.168.137.7")
 ```
+
+
+
+
