@@ -1274,10 +1274,29 @@ python main.py --csv --csv-name my_3d_scan --target-x 30 --target-y 50 --scan-di
   </div>
 </details>
 
-
+<details style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content;">
+  <summary style="background: #000000ff; padding: 15px; cursor: pointer; font-weight: bold; border-bottom: 1px solid #ddd;">
+    <span style="color: #00e900ff; font-size: 1.15em;">📓 Show API Posunit Jupyter Notebook</span>
+  </summary>
+  <div style="padding: 20px; width: 100vw; max-width: 900px; font-size: 15px;">
+    <iframe
+      src="https://nbviewer.org/github/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/jupyter/Api-Posunit.ipynb"
+      width="900"
+      height="800"
+      style="border: none; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    </iframe>
+    <p style="text-align: center; margin-top: 10px;">
+      <a href="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/jupyter/Api-Posunit.ipynb" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
+        Open Notebook on GitHub
+      </a>
+    </p>
+  </div>
+</details>
 
 
 ---
+
+### Software Achitecture 
 
 
 <!-- Api Doc & Class Diagram start -->
@@ -1678,6 +1697,7 @@ python main.py --csv --csv-name my_3d_scan --target-x 30 --target-y 50 --scan-di
 
 
 ---
+
 <details style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content;">
   <summary style="background:hsl(0, 0.00%, 0.00%); padding: 15px; cursor: pointer; font-weight: bold; border-bottom: 1px solid #ddd; color: var(--color-primary); width: fit-content;">
     📊 Show Activity Diagram
@@ -1727,3 +1747,7 @@ python main.py --csv --csv-name my_3d_scan --target-x 30 --target-y 50 --scan-di
     </div>
   </div>
 </details>
+
+---
+
+
