@@ -1050,22 +1050,91 @@ ControlScript/
 ```bash
 ./start_modular_version.bat
 ```
-
 ### Start the Mathematics & Visualization Tool
+
+<div style="display: flex; justify-content: space-between; align-items: flex-start;">
+  <div>
+    <h3 style="color: #27ae60; font-weight: bold;">Example Commands</h3>
+  </div>
+  <div>
+    <details style="margin: 0 0 0 16px; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content;">
+      <summary style="background:hsl(0, 0.00%, 0.00%); padding: 12px; cursor: pointer; font-weight: bold; border-bottom: 1px solid #ddd; color: var(--color-primary); width: fit-content;">
+        ⚙️ Command Line Flags
+      </summary>
+      <div style="padding: 12px; width: 100vw; max-width: 600px;">
+        <details>
+          <summary style="font-weight: 500; cursor: pointer;">Main Options</summary>
+          <div style="overflow-x:auto;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Flag</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>(none)</td><td>Analysis & Visualization</td></tr>
+                <tr><td><code>--csv</code>, <code>-c</code></td><td>Analysis + CSV Export</td></tr>
+                <tr><td><code>--visualize</code>, <code>-v</code></td><td>Visualization Only</td></tr>
+                <tr><td><code>--math</code>, <code>-m</code></td><td>Mathematics Only + CSV</td></tr>
+                <tr><td><code>--silent</code>, <code>-s</code></td><td>Minimal Output + CSV</td></tr>
+                <tr><td><code>--servo-graph</code>, <code>-g</code></td><td>Save Servo Graph Only</td></tr>
+                <tr><td><code>--help</code>, <code>-h</code></td><td>Show Help</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <details>
+          <summary style="font-weight: 500; cursor: pointer;">Configuration</summary>
+          <div style="overflow-x:auto;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Flag</th>
+                  <th>Description & Default</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td><code>--target-x</code></td><td>Target X (cm) [50]</td></tr>
+                <tr><td><code>--target-y</code></td><td>Target Y (cm) [50]</td></tr>
+                <tr><td><code>--scanner-x</code></td><td>Scanner X (cm) [0]</td></tr>
+                <tr><td><code>--scanner-y</code></td><td>Scanner Y (cm) [0]</td></tr>
+                <tr><td><code>--scan-distance</code></td><td>Scan Distance (cm) [100]</td></tr>
+                <tr><td><code>--measurements</code></td><td>Number of Measurements [10]</td></tr>
+                <tr><td><code>--servo-min</code></td><td>Servo Minimum (°) [0.0]</td></tr>
+                <tr><td><code>--servo-max</code></td><td>Servo Maximum (°) [90.0]</td></tr>
+                <tr><td><code>--servo-neutral</code></td><td>Servo Neutral (°) [45.0]</td></tr>
+                <tr><td><code>--servo-offset</code></td><td>Servo Offset (°) [45.0]</td></tr>
+                <tr><td><code>--csv-name</code></td><td>CSV Filename [timestamp]</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+      </div>
+    </details>
+  </div>
+</div>
+
 ```bash
-cd Calculator_Angle_Maschine/MathVisualisation
-python main.py --help         # Display help message
-python main.py --csv          # Generate CSV export
-python main.py --visualize    # Start with visualization
+python main.py --csv
+python main.py --csv --csv-name custom_scan_results
+python main.py --visualize --target-x 90 --target-y 50 --scan-distance 80 --measurements 30
+python main.py --silent --target-x 100 --target-y 75
+python main.py --math --servo-min 10 --servo-max 80
+python main.py --csv --scan-distance 80 --measurements 7
+python main.py --csv --csv-name my_3d_scan --target-x 30 --target-y 50 --scan-distance 80 --measurements 5
 ```
+
+
 
 
 ---
 
+
 <!-- Api Doc & Class Diagram start -->
 <details style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content;">
   <summary style="background:hsl(0, 0.00%, 0.00%); padding: 15px; cursor: pointer; font-weight: bold; border-bottom: 1px solid #ddd; color: var(--color-primary); width: fit-content;">
-    📋 Class Diagram anzeigen
+    📋 Show Class Diagram
   </summary>
   <div style="padding: 20px; width: 100vw; max-width: 1000px;">
     <div style="display: flex; flex-direction: row; align-items: flex-start; gap: 32px;">
@@ -1337,7 +1406,7 @@ python main.py --visualize    # Start with visualization
             <tr>
               <td><code>add_camera</code></td>
               <td>Adds new camera</td>
-              <td><code>index</code> (int): Index<br><code>verbindung</code> (str): Connection<br><code>beschreibung</code> (str): Description<br><code>name</code> (str, optional): Name</td>
+              <td><code>index</code> (int): Index<br><code>connection</code> (str): Connection<br><code>description</code> (str): Description<br><code>name</code> (str, optional): Name</td>
               <td>bool: True on success</td>
               <td>Configuration</td>
             </tr>
@@ -1458,11 +1527,11 @@ python main.py --visualize    # Start with visualization
 </details>
 
 
----
 
+---
 <details style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content;">
   <summary style="background:hsl(0, 0.00%, 0.00%); padding: 15px; cursor: pointer; font-weight: bold; border-bottom: 1px solid #ddd; color: var(--color-primary); width: fit-content;">
-    📊 Activity Diagram anzeigen
+    📊 Show Activity Diagram
   </summary>
   <div style="padding: 20px; width: 100vw; max-width: 1000px;">
     <div style="display: flex; align-items: flex-start; gap: 20px;">
@@ -1488,7 +1557,7 @@ python main.py --visualize    # Start with visualization
 
 <details style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content;">
   <summary style="background:hsl(0, 0.00%, 0.00%); padding: 15px; cursor: pointer; font-weight: bold; border-bottom: 1px solid #ddd; color: var(--color-primary); width: fit-content;">
-    ⚙️ Execution Servo anzeigen
+    ⚙️ Show Execution Servo
   </summary>
   <div style="padding: 20px; width: 100vw; max-width: 1000px;">
     <div style="display: flex; align-items: flex-start; gap: 20px;">
@@ -1509,6 +1578,3 @@ python main.py --visualize    # Start with visualization
     </div>
   </div>
 </details>
-
-
-
