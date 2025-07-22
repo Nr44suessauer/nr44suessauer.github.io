@@ -1128,176 +1128,17 @@ python main.py --csv --csv-name my_3d_scan --target-x 30 --target-y 50 --scan-di
 ---
 
 
-### Example Rest Api calls for PositionUnit
-
-<!-- PositionUnit API Commands - Collapsible HTML Table -->
-<details style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content;">
-  <summary style="background:hsl(0, 0.00%, 0.00%); padding: 15px; cursor: pointer; font-weight: bold; border-bottom: 1px solid #ddd; color: var(--color-primary); width: fit-content;">
-    🛠️ PositionUnit API Commands
-  </summary>
-  <div style="padding: 20px; width: 100vw; max-width: 900px;">
-    <details>
-      <summary style="font-weight: 500; cursor: pointer;">Servo Control</summary>
-      <div style="overflow-x:auto;">
-        <table>
-          <thead>
-            <tr>
-              <th>HTTP Method</th>
-              <th>URL</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>GET</td>
-              <td><code>http://192.168.178.77/setServo?angle=0</code></td>
-              <td>Positions the servo at 0 degrees (minimum)</td>
-            </tr>
-            <tr>
-              <td>GET</td>
-              <td><code>http://192.168.178.77/setServo?angle=180</code></td>
-              <td>Positions the servo at 180 degrees (maximum)</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </details>
-    <details>
-      <summary style="font-weight: 500; cursor: pointer;">Stepper Motor Control</summary>
-      <div style="overflow-x:auto;">
-        <table>
-          <thead>
-            <tr>
-              <th>HTTP Method</th>
-              <th>URL</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>GET</td>
-              <td><code>http://192.168.178.77/setMotor?position=250</code></td>
-              <td>Moves the motor to absolute position 250</td>
-            </tr>
-            <tr>
-              <td>GET</td>
-              <td><code>http://192.168.178.77/setMotor?position=0</code></td>
-              <td>Moves the motor back to the zero position</td>
-            </tr>
-            <tr>
-              <td>GET</td>
-              <td><code>http://192.168.178.77/setMotor?steps=4096&amp;direction=1</code></td>
-              <td>Moves the motor one full rotation forward</td>
-            </tr>
-            <tr>
-              <td>GET</td>
-              <td><code>http://192.168.178.77/setMotor?steps=100&amp;direction=-1&amp;speed=75</code></td>
-              <td>Moves the motor 100 steps backward at 75% speed</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </details>
-    <details>
-      <summary style="font-weight: 500; cursor: pointer;">RGB LED Control</summary>
-      <div style="overflow-x:auto;">
-        <table>
-          <thead>
-            <tr>
-              <th>HTTP Method</th>
-              <th>URL</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>GET</td>
-              <td><code>http://192.168.178.77/color?index=0</code></td>
-              <td>Sets the LED to red (preset color)</td>
-            </tr>
-            <tr>
-              <td>GET</td>
-              <td><code>http://192.168.178.77/hexcolor?hex=%2300FFFF</code></td>
-              <td>Sets the LED to cyan (custom color)</td>
-            </tr>
-            <tr>
-              <td>GET</td>
-              <td><code>http://192.168.178.77/setBrightness?value=255</code></td>
-              <td>Sets the LED brightness to maximum (255)</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </details>
-    <details>
-      <summary style="font-weight: 500; cursor: pointer;">Button Status</summary>
-      <div style="overflow-x:auto;">
-        <table>
-          <thead>
-            <tr>
-              <th>HTTP Method</th>
-              <th>URL</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>GET</td>
-              <td><code>http://192.168.178.77/getButtonState</code></td>
-              <td>Retrieves the current status of the button (pressed or not)</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </details>
-    <details>
-      <summary style="font-weight: 500; cursor: pointer;">Diverse</summary>
-      <div style="overflow-x:auto;">
-        <table>
-          <thead>
-            <tr>
-              <th>HTTP Method</th>
-              <th>URL</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>GET</td>
-              <td><code>http://192.168.178.77/</code></td>
-              <td>Retrieves the main page of the web interface</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </details>
-  </div>
-</details>
-
-<details style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content;">
-  <summary style="background: #000000ff; padding: 15px; cursor: pointer; font-weight: bold; border-bottom: 1px solid #ddd;">
-    <span style="color: #00e900ff; font-size: 1.15em;">📓 Show API Posunit Jupyter Notebook</span>
-  </summary>
-  <div style="padding: 20px; width: 100vw; max-width: 900px; font-size: 15px;">
-    <iframe
-      src="https://nbviewer.org/github/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/jupyter/Api-Posunit.ipynb"
-      width="900"
-      height="800"
-      style="border: none; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-    </iframe>
-    <p style="text-align: center; margin-top: 10px;">
-      <a href="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/jupyter/Api-Posunit.ipynb" target="_blank" style="padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
-        Open Notebook on GitHub
-      </a>
-    </p>
-  </div>
-</details>
-
-
----
 
 ### Software Achitecture 
+This section presents the UML diagrams and API documentation for the I-Scan software. The class diagram provides an overview of the main modules and their relationships, and allows you to explore available functions along with their descriptions. Use the collapsible tables below to view detailed information about each function and its purpose within the system.
 
+
+<div style="background: rgba(30,34,40,0.82); color: #fff; padding: 10px 12px; border-radius: 6px; font-size: 16px; margin-bottom: 8px;">
+  <strong>Note:</strong> If diagrams or similar visual elements do not load, simply reload the page.<br>
+  Currently, no optimized images are available on the site.
+</div>
+
+---
 
 <!-- Api Doc & Class Diagram start -->
 <details style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content;">
@@ -1750,4 +1591,171 @@ python main.py --csv --csv-name my_3d_scan --target-x 30 --target-y 50 --scan-di
 
 ---
 
+
+### Example Rest Api calls for PositionUnit
+
+<!-- PositionUnit API Commands - Collapsible HTML Table -->
+  <details style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content;">
+  <summary style="background:hsl(0, 0.00%, 0.00%); padding: 15px; cursor: pointer; font-weight: bold; border-bottom: 1px solid #ddd; color: var(--color-primary); width: fit-content; font-size: 15px; font-family: inherit;">
+    PositionUnit API Commands
+  </summary>
+  <div style="padding: 20px; width: 100vw; max-width: 900px; font-size: 15px; font-family: inherit;">
+    <details>
+      <summary style="font-weight: bold; cursor: pointer; font-size: 15px; font-family: inherit;">Servo Control</summary>
+      <div style="overflow-x:auto;">
+        <table style="font-size: 15px; font-family: inherit; font-weight: normal;">
+          <thead>
+            <tr>
+              <th>HTTP Method</th>
+              <th>URL</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>GET</td>
+              <td><code>http://192.168.178.77/setServo?angle=0</code></td>
+              <td>Positions the servo at 0 degrees (minimum)</td>
+            </tr>
+            <tr>
+              <td>GET</td>
+              <td><code>http://192.168.178.77/setServo?angle=180</code></td>
+              <td>Positions the servo at 180 degrees (maximum)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    <details>
+      <summary style="font-weight: bold; cursor: pointer; font-size: 15px; font-family: inherit;">Stepper Motor Control</summary>
+      <div style="overflow-x:auto;">
+        <table style="font-size: 15px; font-family: inherit; font-weight: normal;">
+          <thead>
+            <tr>
+              <th>HTTP Method</th>
+              <th>URL</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>GET</td>
+              <td><code>http://192.168.178.77/setMotor?position=250</code></td>
+              <td>Moves the motor to absolute position 250</td>
+            </tr>
+            <tr>
+              <td>GET</td>
+              <td><code>http://192.168.178.77/setMotor?position=0</code></td>
+              <td>Moves the motor back to the zero position</td>
+            </tr>
+            <tr>
+              <td>GET</td>
+              <td><code>http://192.168.178.77/setMotor?steps=4096&amp;direction=1</code></td>
+              <td>Moves the motor one full rotation forward</td>
+            </tr>
+            <tr>
+              <td>GET</td>
+              <td><code>http://192.168.178.77/setMotor?steps=100&amp;direction=-1&amp;speed=75</code></td>
+              <td>Moves the motor 100 steps backward at 75% speed</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    <details>
+      <summary style="font-weight: bold; cursor: pointer; font-size: 15px; font-family: inherit;">RGB LED Control</summary>
+      <div style="overflow-x:auto;">
+        <table style="font-size: 15px; font-family: inherit; font-weight: normal;">
+          <thead>
+            <tr>
+              <th>HTTP Method</th>
+              <th>URL</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>GET</td>
+              <td><code>http://192.168.178.77/color?index=0</code></td>
+              <td>Sets the LED to red (preset color)</td>
+            </tr>
+            <tr>
+              <td>GET</td>
+              <td><code>http://192.168.178.77/hexcolor?hex=%2300FFFF</code></td>
+              <td>Sets the LED to cyan (custom color)</td>
+            </tr>
+            <tr>
+              <td>GET</td>
+              <td><code>http://192.168.178.77/setBrightness?value=255</code></td>
+              <td>Sets the LED brightness to maximum (255)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    <details>
+      <summary style="font-weight: bold; cursor: pointer; font-size: 15px; font-family: inherit;">Button Status</summary>
+      <div style="overflow-x:auto;">
+        <table style="font-size: 15px; font-family: inherit; font-weight: normal;">
+          <thead>
+            <tr>
+              <th>HTTP Method</th>
+              <th>URL</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>GET</td>
+              <td><code>http://192.168.178.77/getButtonState</code></td>
+              <td>Retrieves the current status of the button (pressed or not)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    <details>
+      <summary style="font-weight: bold; cursor: pointer; font-size: 15px; font-family: inherit;">Diverse</summary>
+      <div style="overflow-x:auto;">
+        <table style="font-size: 15px; font-family: inherit; font-weight: normal;">
+          <thead>
+            <tr>
+              <th>HTTP Method</th>
+              <th>URL</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>GET</td>
+              <td><code>http://192.168.178.77/</code></td>
+              <td>Retrieves the main page of the web interface</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+  </div>
+</details>
+<details style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content;">
+  <summary style="background:hsl(0, 0%, 0%); padding: 15px; cursor: pointer; font-weight: bold; border-bottom: 1px solid #ddd; color: var(--color-primary); width: fit-content; font-size: 15px; font-family: inherit;">
+    API Posunit Jupyter Notebook
+  </summary>
+  <div style="padding: 20px; width: 100vw; max-width: 900px; font-size: 15px; font-family: inherit;">
+    <iframe
+      src="https://nbviewer.org/github/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/jupyter/Api-Posunit.ipynb"
+      width="900"
+      height="800"
+      style="border: none; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    </iframe>
+    <p style="text-align: center; margin-top: 10px;">
+      <a href="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/jupyter/Api-Posunit.ipynb" target="_blank" style="padding: 1px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px; font-family: inherit;">
+        Open Notebook on GitHub
+      </a>
+    </p>
+  </div>
+</details>
+
+
+---
 
