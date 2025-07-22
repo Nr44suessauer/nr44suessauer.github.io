@@ -768,6 +768,23 @@ description: custom open source 3D scanner - Meshroom Guide
 </div>
 <!-- Camera Configurator and Error UI side by side end -->
 
+
+
+
+---
+
+
+## Practical Benefits
+With this system, each camera’s spatial vector is precisely known and documented. You can define a fixed scanning area and extract all possible perspectives that the setup allows. All relevant camera positions, scan area, and workflow steps are easily accessible from JSON or CSV files, including camera configuration and scan settings.
+
+This accelerates processing in Meshroom, as the determination of camera positions can be almost skipped. Consistency is ensured: if you later add more images taken from the same known positions, they can be seamlessly integrated into the existing reconstruction without recalculating the entire structure from scratch.
+
+
+<div style="margin-top: 18px; text-align: center; font-size: 15px;">
+  Direct transfer of known camera positions to Meshroom is planned as the next feature, but it is not yet implemented.<br>
+  Until then, Meshroom will continue to determine camera positions.
+</div>
+
 ---
 
 
@@ -956,7 +973,6 @@ by analyzing the overlap between images.
 </div>
 
 ---
-
 
 <h2>Module | Software &amp; Parts</h2>
 <div style="margin: 20px 0; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
