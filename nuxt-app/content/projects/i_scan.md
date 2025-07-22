@@ -789,8 +789,6 @@ This accelerates processing in Meshroom, as the determination of camera position
 
 
 
-
-
 # Meshroom
 [Meshroom](https://github.com/alicevision/meshroom) is an open-source software for photogrammetric 3D reconstruction,  
 developed by AliceVision.  
