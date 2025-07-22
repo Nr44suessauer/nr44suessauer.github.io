@@ -809,6 +809,7 @@ by analyzing the overlap between images.
 
 
 ---
+
 <!-- Meshroom Scan Results Gallery Start -->
 <style>
 .meshroom-gallery-row {
@@ -906,8 +907,8 @@ by analyzing the overlap between images.
 <p style="font-size: 1.1em; font-weight: 500; margin-bottom: 12px; text-align: center;">
   Examples | generated with Meshroom
 </p>
-<div class="meshroom-gallery-container">
-  <div class="meshroom-gallery-row">
+<div class="meshroom-gallery-container" style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+  <div class="meshroom-gallery-row" style="display: flex; justify-content: center; gap: 24px; width: 100%; max-width: 1200px;">
     <div class="meshroom-gallery-item">
       <img src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/pictures/Yoshi_stl_file.gif?raw=true" alt="Yoshi STL File Animation" />
       <div class="meshroom-gallery-caption">Yoshi STL in Cura</div>
@@ -954,9 +955,6 @@ by analyzing the overlap between images.
   </div>
 </div>
 
-
-
-
 ---
 
 
@@ -993,6 +991,76 @@ by analyzing the overlap between images.
 
 ----
 
+## Technical Documentation
+
+<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+  <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" style="width:32px; height:32px;">
+  <strong>GitHub Repository:</strong>
+  <a href="https://github.com/Nr44suessauer/I-Scan" target="_blank" style="font-weight: bold; color: #24292f;">I-Scan Software</a>
+</div>
+
+Below is an overview of the project structure and instructions for starting the main modules.
+
+```
+ControlScript/
+├── start_modular_version.bat             # Main start script
+├── CLEANUP_SUMMARY.md                    # This summary
+├── Calculator_Angle_Maschine/            # Math & Visualization Module
+│   └── MathVisualisation/                # Visualization tools
+│       ├── main.py                       # Main application (CSV export)
+│       ├── calculations.py               # Core calculations
+│       ├── config.py                     # Configuration
+│       ├── export_commands.py            # Export functions
+│       ├── save_servo_graph.py           # Save servo graph functionality
+│       ├── servo_interpolation.py        # Servo interpolation logic
+│       ├── README.md                     # Module documentation
+│       ├── .gitignore                    # Git ignore file
+│       └── visualizations/               # Visualization modules
+│           ├── __init__.py               # Module initialization
+│           ├── angle_progression.py      # Angle progression visualization
+│           ├── calculation_table.py      # Calculation table visualization
+│           ├── geometric.py              # Geometric visualization
+│           ├── point_calculation.py      # Point calculations visualization
+│           └── servo_interpolation.py    # Servo interpolation visualization
+└── Modular Version/                      # 📹 Main Camera System
+    ├── main_modular.py                   # Main application
+    ├── README.md                         # Main documentation
+    ├── requirements.txt                  # Python dependencies
+    ├── config.py                         # Configuration
+    ├── gui_components.py                 # GUI components
+    ├── event_handlers.py                 # Event handlers
+    ├── webcam_helper.py                  # Camera helper functions
+    ├── api_client.py                     # API client
+    ├── device_control.py                 # Device control logic
+    ├── logger.py                         # Logging utility
+    ├── operation_queue.py                # Operations queue management
+    ├── queue_operations.py               # Queue operations
+    ├── angle_calculator_commands.py      # Angle calculation commands
+    ├── servo_angle_calculator.py         # Servo angle calculation
+    ├── wizard_icon.png                   # Application icon
+    └── camera/                           # Camera System
+        ├── cameras_config.json           # JSON configuration for cameras
+        ├── json_camera_config.py         # Configuration manager
+        ├── json_camera_stream.py         # Stream manager
+        ├── README.md                     # Camera documentation
+        └── __init__.py                   # Module exports
+```
+
+### Start the Camera System
+```bash
+./start_modular_version.bat
+```
+
+### Start the Mathematics & Visualization Tool
+```bash
+cd Calculator_Angle_Maschine/MathVisualisation
+python main.py --help         # Display help message
+python main.py --csv          # Generate CSV export
+python main.py --visualize    # Start with visualization
+```
+
+
+---
 
 <!-- Api Doc & Class Diagram start -->
 <details style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content;">
@@ -1288,9 +1356,9 @@ by analyzing the overlap between images.
               <td>Management</td>
             </tr>
             <tr>
-              <td><code>parse_verbindung</code></td>
+              <td><code>parse_connection</code></td>
               <td>Parses connection string</td>
-              <td><code>verbindung</code> (str): Connection string</td>
+              <td><code>connection</code> (str): Connection string</td>
               <td>Dict: Parsed connection data</td>
               <td>Processing</td>
             </tr>
@@ -1441,21 +1509,6 @@ by analyzing the overlap between images.
     </div>
   </div>
 </details>
-
-## Example Usage
-
-```python
-# Using the API Client
-from api_client import ApiClient
-# Set servo to 45°
-result = ApiClient.set_servo_angle(45, "http://192.168.137.7")
-# Move motor 100 steps upward
-result = ApiClient.move_stepper(100, 1, 50, "http://192.168.137.7")
-# Set LED to red
-result = ApiClient.set_led_color("#FF0000", "http://192.168.137.7")
-```
-
-
 
 
 
