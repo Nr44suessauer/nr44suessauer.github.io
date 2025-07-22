@@ -1125,6 +1125,155 @@ python main.py --csv --scan-distance 80 --measurements 7
 python main.py --csv --csv-name my_3d_scan --target-x 30 --target-y 50 --scan-distance 80 --measurements 5
 ```
 
+---
+
+
+### Example Rest Api calls for PositionUnit
+
+<!-- PositionUnit API Commands - Collapsible HTML Table -->
+<details style="margin: 20px 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; width: fit-content;">
+  <summary style="background:hsl(0, 0.00%, 0.00%); padding: 15px; cursor: pointer; font-weight: bold; border-bottom: 1px solid #ddd; color: var(--color-primary); width: fit-content;">
+    🛠️ PositionUnit API Commands
+  </summary>
+  <div style="padding: 20px; width: 100vw; max-width: 900px;">
+    <details>
+      <summary style="font-weight: 500; cursor: pointer;">Servo Control</summary>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>HTTP Method</th>
+              <th>URL</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>GET</td>
+              <td><code>http://192.168.178.77/setServo?angle=0</code></td>
+              <td>Positions the servo at 0 degrees (minimum)</td>
+            </tr>
+            <tr>
+              <td>GET</td>
+              <td><code>http://192.168.178.77/setServo?angle=180</code></td>
+              <td>Positions the servo at 180 degrees (maximum)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    <details>
+      <summary style="font-weight: 500; cursor: pointer;">Stepper Motor Control</summary>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>HTTP Method</th>
+              <th>URL</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>GET</td>
+              <td><code>http://192.168.178.77/setMotor?position=250</code></td>
+              <td>Moves the motor to absolute position 250</td>
+            </tr>
+            <tr>
+              <td>GET</td>
+              <td><code>http://192.168.178.77/setMotor?position=0</code></td>
+              <td>Moves the motor back to the zero position</td>
+            </tr>
+            <tr>
+              <td>GET</td>
+              <td><code>http://192.168.178.77/setMotor?steps=4096&amp;direction=1</code></td>
+              <td>Moves the motor one full rotation forward</td>
+            </tr>
+            <tr>
+              <td>GET</td>
+              <td><code>http://192.168.178.77/setMotor?steps=100&amp;direction=-1&amp;speed=75</code></td>
+              <td>Moves the motor 100 steps backward at 75% speed</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    <details>
+      <summary style="font-weight: 500; cursor: pointer;">RGB LED Control</summary>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>HTTP Method</th>
+              <th>URL</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>GET</td>
+              <td><code>http://192.168.178.77/color?index=0</code></td>
+              <td>Sets the LED to red (preset color)</td>
+            </tr>
+            <tr>
+              <td>GET</td>
+              <td><code>http://192.168.178.77/hexcolor?hex=%2300FFFF</code></td>
+              <td>Sets the LED to cyan (custom color)</td>
+            </tr>
+            <tr>
+              <td>GET</td>
+              <td><code>http://192.168.178.77/setBrightness?value=255</code></td>
+              <td>Sets the LED brightness to maximum (255)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    <details>
+      <summary style="font-weight: 500; cursor: pointer;">Button Status</summary>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>HTTP Method</th>
+              <th>URL</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>GET</td>
+              <td><code>http://192.168.178.77/getButtonState</code></td>
+              <td>Retrieves the current status of the button (pressed or not)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    <details>
+      <summary style="font-weight: 500; cursor: pointer;">Diverse</summary>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>HTTP Method</th>
+              <th>URL</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>GET</td>
+              <td><code>http://192.168.178.77/</code></td>
+              <td>Retrieves the main page of the web interface</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+  </div>
+</details>
+
 
 
 
