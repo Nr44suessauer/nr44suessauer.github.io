@@ -1773,3 +1773,27 @@ This section presents the UML diagrams and API documentation for the I-Scan soft
 
 ---
 
+  
+[Handwritten notes from beginning](https://github.com/Nr44suessauer/I-Scan/blob/main/docs/NotizenKonzept_20241201_0001.pdf)
+<div style="margin: 20px 0; border-radius: 6px; overflow: hidden; width: fit-content; padding: 20px; width: 100vw; max-width: 1000px;">
+  <div style="display: flex; flex-direction: row; gap: 32px; align-items: flex-start; justify-content: center;">
+    <div style="flex: 1 1 0; min-width: 0;">
+      <iframe 
+        src="https://docs.google.com/viewer?url=https://github.com/Nr44suessauer/I-Scan/raw/main/docs/NotizenKonzept_20241201_0001.pdf&embedded=true" 
+        width="450px" 
+        height="600px" 
+        style="border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 18px;">
+      </iframe>
+    </div>
+    <div style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; align-items: center;">
+      <img 
+        src="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/notizen_whiteboard.JPG?raw=true" 
+        alt="Whiteboard Notes" 
+        style="max-width: 450px; width: 100%; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
+      />
+      <a href="https://github.com/Nr44suessauer/I-Scan/blob/main/docs/notizen_whiteboard.JPG?raw=true" target="_blank" style="margin-top: 5px; padding: 2px 6px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 9px;">
+        Fullscreen View
+      </a>
+    </div>
+  </div>
+</div>
