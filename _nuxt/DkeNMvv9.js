@@ -1,0 +1,1 @@
+import o from"./B3A3DX-Y.js";import{v as r,N as t,o as n}from"./4bLmpumY.js";const m=r({__name:"SourceLink",props:{source:{type:String,required:!0}},setup(_){return(c,p)=>{const e=o;return n(),t(e)}}});export{m as default};
