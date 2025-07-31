@@ -43,8 +43,7 @@ export default defineNuxtConfig({
     },
     // Erlaubt die Verwendung von Komponenten in Markdown-Dateien
     experimental: {
-      clientDB: true,
-      componentIslands: true
+      clientDB: true
     }
   },
   
@@ -56,7 +55,7 @@ export default defineNuxtConfig({
   },
   
   // Stärkere Client-Hydratation
-  ssr: true,
+  // ssr ist bereits oben gesetzt
   
   colorMode: {
     preference: 'dark', // Setzt Dark Mode als Standardeinstellung
@@ -71,8 +70,7 @@ export default defineNuxtConfig({
     // https://github.com/nuxt/devtools
     '@nuxt/devtools',
     '@pinegrow/nuxt-module',
-    // Füge hier @nuxt/content hinzu, wenn nicht durch alpine bereits enthalten
-    // '@nuxt/content'
+    '@nuxt/content'
   ],
 
   compatibilityDate: '2025-04-17',
@@ -85,11 +83,6 @@ export default defineNuxtConfig({
     },
   },
   
-  // Server-Konfiguration für externe Verbindungen
-  server: {
-    host: '0.0.0.0', // Erlaubt Verbindungen von allen Netzwerkschnittstellen
-    port: 3000
-  },
   
   devtools: {
     // Enable devtools (default: true)
@@ -107,8 +100,8 @@ export default defineNuxtConfig({
   app: {
     head: {
       script: [
-        { src: 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js', body: true },
-        { src: '/js/interactive-fallback.js', body: true } // Füge das Fallback-Skript hinzu
+        { src: 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js' },
+        { src: '/js/interactive-fallback.js' } // Füge das Fallback-Skript hinzu
       ]
     }
   }
