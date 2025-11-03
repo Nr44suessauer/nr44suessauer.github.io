@@ -6,19 +6,21 @@ description: Automated knitting machine for hats and more. It seems no one is cr
 <div style="display: flex; align-items: center; gap: 16px; margin-top: 32px;">
     <div style="flex: 1; padding-right: 20px;">
         <p>
-            <h1>T-Knit</h1>
+            <span style="font-size: 2.2em; font-weight: bold; color: #06ff59f5;">T-Knit</span>
+            <span style="font-size: 1.21em; color: #06ff59f5; margin-left: 13px;">Turbo Knitting Machine</span><br>
+            <br>
             This project is about automating an existing knitting machine, which is typically used for children. The machine comes in several sizes, featuring 22, 40, or 48 needles. By motorizing its operation, the goal is to transform manual cranking into a fully automated process.<br><br>
-            The T-Knit project focuses on automating the operation of a <a href="https://de.aliexpress.com/item/1005007342180493.html?spm=a2g0o.order_list.order_list_main.265.5b7c1802eW2ePi&gatewayAdapt=glo2deu" target="_blank" rel="noopener noreferrer">knitting machine</a>. By designing and constructing this machine, it becomes interesting for step-by-step automation. The idea originated when I noticed that nobody had installed a permanent motor on the device; instead, most people only use a <a href="https://de.aliexpress.com/item/1005005033745984.html?spm=a2g0o.detail.pcDetailBottomMoreOtherSeller.13.76171Zx51Zx5wN&gps-id=pcDetailBottomMoreOtherSeller&scm=1007.40050.354490.0&scm_id=1007.40050.354490.0&scm-url=1007.40050.354490.0&pvid=4aa993e6-3479-420a-9145-e59bdf75cb46&_t=gps-id:pcDetailBottomMoreOtherSeller,scm-url:1007.40050.354490.0,pvid:4aa993e6-3479-420a-9145-e59bdf75cb46,tpp_buckets:668%232846%238111%231996&pdp_ext_f=%7B%22order%22%3A%22270%22%2C%22eval%22%3A%221%22%2C%22sceneId%22%3A%2230050%22%2C%22fromPage%22%3A%22recommend%22%7D&utparam-url=scene%3ApcDetailBottomMoreOtherSeller%7Cquery_from%3A%7Cx_object_id%3A1005005033745984%7C_p_origin_prod%3A" target="_blank" rel="noopener noreferrer">drill attachment</a>. However, with that method, you still need to actively participate in the process. With this project, I aim to change that and make knitting fully automated.<br><br>
+            The T-Knit project focuses on automating the operation of a <a href="https://de.aliexpress.com/item/1005007342180493.html?spm=a2g0o.order_list.order_list_main.265.5b7c1802eW2ePi&gatewayAdapt=glo2deu" target="_blank" rel="noopener noreferrer">knitting machine</a>. By designing and constructing this machine, it becomes interesting for step-by-step automation. The idea originated when I noticed that nobody had installed a permanent motor on the device, instead most people only use a <a href="https://de.aliexpress.com/item/1005005033745984.html?spm=a2g0o.detail.pcDetailBottomMoreOtherSeller.13.76171Zx51Zx5wN&gps-id=pcDetailBottomMoreOtherSeller&scm=1007.40050.354490.0&scm_id=1007.40050.354490.0&scm-url=1007.40050.354490.0&pvid=4aa993e6-3479-420a-9145-e59bdf75cb46&_t=gps-id:pcDetailBottomMoreOtherSeller,scm-url:1007.40050.354490.0,pvid:4aa993e6-3479-420a-9145-e59bdf75cb46,tpp_buckets:668%232846%238111%231996&pdp_ext_f=%7B%22order%22%3A%22270%22%2C%22eval%22%3A%221%22%2C%22sceneId%22%3A%2230050%22%2C%22fromPage%22%3A%22recommend%22%7D&utparam-url=scene%3ApcDetailBottomMoreOtherSeller%7Cquery_from%3A%7Cx_object_id%3A1005005033745984%7C_p_origin_prod%3A" target="_blank" rel="noopener noreferrer">drill attachment</a>. However, with that method, you still need to actively participate in the process. With this project, I aim to change that and make knitting fully automated.<br><br>
             The ultimate goal is for the user to only need to supply yarn and select a hat or scarf via an interface. The machine will then produce the chosen item completely autonomously, including error detection and handling as part of the process.<br><br>
             The project is structured into acts, with each act focusing on a module that contributes a specific task to the automation process.
+            <ul>
+                <li>
+                    <a href="#act-i-motorization-of-the-knitting-unit" style="color: #f300aaff; font-weight: bold; background-color: #000000ff; padding: 2.2px 6.6px; border-radius: 4.4px;">
+                        Act I : Motorization of the Knitting Unit
+                    </a>
+                </li>
+            </ul>
         </p>
-        <ul>
-            <li>
-                <a href="#act-i-motorization-of-the-knitting-unit" style="color: #f300aaff; font-weight: bold; background-color: #000000ff; padding: 2px 6px; border-radius: 4px;">
-                    Act I : Motorization of the Knitting Unit
-                </a>
-            </li>
-        </ul>     </ul>
     </div>
     <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/T-Knit/gif/Loop_View_T-Knit.gif?raw=true" alt="Loop View T-Knit" style="max-width: 32%; height: 50%;">
     </div>
