@@ -7,9 +7,6 @@ title: Projects
 ---
 
 
-
-# My Projects
-
 <div class="projects-container">  
 
   <a href="/projects/develop_pc" class="project-card">
