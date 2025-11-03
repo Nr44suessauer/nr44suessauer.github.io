@@ -6,6 +6,8 @@ description:
 title: Projects
 ---
 
+
+
 # My Projects
 
 <div class="projects-container">  
@@ -35,6 +37,22 @@ title: Projects
         <span class="project-card__tag">Linux</span>
         <span class="project-card__tag">C/C++</span>
         <span class="project-card__tag">Python</span>
+      </div>
+    </div>
+  </a>
+
+  <a href="/projects/t_knit" class="project-card project-card--pink">
+    <img src="https://github.com/Nr44suessauer/nr44suessauer.github.io/blob/main/nuxt-app/assets/pictures/T-Knit/gif/Full_view_T-Knit.gif?raw=true" alt="T-Knit Projektbild" class="project-card__image" />
+    <div class="project-card__content">
+      <div class="project-card__title">T-Knit</div>
+      <div class="project-card__desc">Automated knitting machine for hats and more. It seems no one is cranking automatically.</div>
+      <div class="project-card__tags">
+        <span class="project-card__tag">knitting</span>
+        <span class="project-card__tag">automation</span>     
+        <span class="project-card__tag">C/C++</span>
+        <span class="project-card__tag">C#</span>
+        <span class="project-card__tag">YarnTech</span>
+        <span class="project-card__tag">childsplay</span>
       </div>
     </div>
   </a>
