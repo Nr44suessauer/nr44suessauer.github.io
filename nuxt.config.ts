@@ -45,7 +45,7 @@ export default defineNuxtConfig({
         { name: 'viewport', content: 'width=1280, initial-scale=1.0' }
       ],
       script: [
-        { src: 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js', body: true },
+        { src: 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js', tagPosition: 'bodyClose' },
         // Skript für Bildladeversuche
         { 
           innerHTML: `
@@ -67,7 +67,7 @@ export default defineNuxtConfig({
               });
             });
           `,
-          body: true
+          tagPosition: 'bodyClose'
         }
       ],
       link: [
@@ -101,8 +101,15 @@ export default defineNuxtConfig({
     '@pinegrow/nuxt-module',
     '@nuxt/content',
     '@nuxt/image',
+    '@nuxt/icon',
     updateModule as any
   ],
+
+  // Icon configuration to ensure icons are properly bundled in production
+  // @ts-ignore - icon config is provided by @nuxt/icon module
+  icon: {
+    serverBundle: 'auto'
+  },
 
   image: {
     quality: 80,
