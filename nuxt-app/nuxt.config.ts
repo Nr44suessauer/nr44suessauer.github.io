@@ -51,6 +51,13 @@ export default defineNuxtConfig({
   vite: {
     optimizeDeps: {
       include: ['vue']
+    },
+    vue: {
+      template: {
+        compilerOptions: {
+          isCustomElement: (tag) => ['path', 'Path', 'svg'].includes(tag.toLowerCase())
+        }
+      }
     }
   },
   
