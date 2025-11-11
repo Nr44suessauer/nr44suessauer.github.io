@@ -11,7 +11,7 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ['/elopment'], // Explizit die elopment Route hinzufügen
+      routes: ['/elopment', '/sv2'], // Explizit die elopment und sv2 Routen hinzufügen
       failOnError: false
     }
   },
@@ -19,6 +19,12 @@ export default defineNuxtConfig({
   // Route Rules für explizites Prerendering
   routeRules: {
     '/elopment': { 
+      prerender: true,
+      headers: {
+        'Cache-Control': 'public, max-age=3600'
+      }
+    },
+    '/sv2': { 
       prerender: true,
       headers: {
         'Cache-Control': 'public, max-age=3600'
