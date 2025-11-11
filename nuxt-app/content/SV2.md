@@ -9,13 +9,105 @@ _draft: false
 _path: /sv2
 ---
 
-# SV2 - Schwingkreis Labor
+# SV2 Messsparkur simuliert
+<div style="height: 50px;"></div>
 
-<div style="margin: 1rem 0 2rem 0; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+<!-- Table of Contents -->
+<div class="page-wrapper">
+  <nav class="toc-sidebar">
+    <h3 style="margin-top: 0; margin-bottom: 1rem; color: #00ff41; font-size: 1.2rem; text-shadow: 0 0 10px rgba(0, 255, 65, 0.8);">TOC</h3>
+    <ul class="toc-list">
+      <li><a href="#pdf-vorlesung" class="toc-link">PDF Vorlesung</a></li>
+      <li><a href="#aufgaben" class="toc-link">Laboraufgaben</a></li>
+      <li><a href="#falstad-simulator" class="toc-link">Falstad Circuit Simulator</a></li>
+      <li><a href="#ai-support" class="toc-link">AI Support</a></li>
+      <li><a href="#ilias-portal" class="toc-link">Abgabe</a></li>
+    </ul>
+  </nav>
+
+  <main class="main-content">
+
+<div id="pdf-vorlesung" style="margin: 1rem 0 2rem 0; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
 <iframe src="/assets/pdf/Präsentation2.pdf" width="100%" height="400" frameborder="0" style="border: none;"></iframe>
 </div>
 
+<div style="height: 50px;"></div>
+
 <style>
+/* Page Layout with Sidebar */
+.page-wrapper {
+  display: flex;
+  gap: 2rem;
+  max-width: 100%;
+  margin: 0;
+  position: relative;
+  align-items: flex-start;
+}
+
+.toc-sidebar {
+  position: sticky;
+  top: 2rem;
+  width: 200px;
+  height: fit-content;
+  background: linear-gradient(135deg, #0d0208 0%, #001a0d 100%);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 255, 65, 0.3), 0 0 40px rgba(0, 255, 65, 0.1);
+  flex-shrink: 0;
+  margin-left: -250px;
+  border: 1px solid rgba(0, 255, 65, 0.2);
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc-list li {
+  margin-bottom: 0.75rem;
+}
+
+.toc-link {
+  display: block;
+  color: #00ff41;
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  border-left: 3px solid transparent;
+  text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+}
+
+.toc-link:hover {
+  background: rgba(0, 255, 65, 0.15);
+  color: #00ff41;
+  border-left-color: #00ff41;
+  transform: translateX(5px);
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+  text-shadow: 0 0 10px rgba(0, 255, 65, 1);
+}
+
+.main-content {
+  flex: 1;
+  min-width: 0;
+  max-width: 1200px;
+}
+
+@media (max-width: 1024px) {
+  .page-wrapper {
+    flex-direction: column;
+  }
+  
+  .toc-sidebar {
+    position: relative;
+    width: 100%;
+    top: 0;
+    margin-left: 0;
+  }
+}
+
 /* Tab System Styles */
 .task-tabs-container {
   margin: 2rem 0;
@@ -27,11 +119,12 @@ _path: /sv2
 
 .task-tab-navbar {
   display: flex;
-  gap: 1px;
+  flex-direction: row;
+  gap: 10px;
   margin-bottom: 0;
-  justify-content: center;
-  flex-wrap: wrap;
-  overflow-x: visible;
+  justify-content: space-between;
+  align-items: stretch;
+  width: 100%;
 }
 
 label.task-tab-btn {
@@ -45,7 +138,9 @@ label.task-tab-btn {
   transition: all 0.3s ease !important;
   outline: none !important;
   white-space: nowrap !important;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+  flex: 1;
+  text-align: center;
 }
 
 /* Individual colors for each tab - MUST come after base styles */
@@ -72,42 +167,42 @@ label.task-tab-btn[for="task-tab-0"]:hover,
   background: #4a148c !important;
   color: white !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(106, 27, 154, 0.4) !important;
+  box-shadow: 0 4px 8px rgba(106, 27, 154, 0.4) !important;
 }
 label.task-tab-btn[for="task-tab-1"]:hover,
 #task-tab-1:checked ~ .task-tab-navbar label.task-tab-btn[for="task-tab-1"] {
   background: #1976d2 !important;
   color: white !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(33, 150, 243, 0.4) !important;
+  box-shadow: 0 4px 8px rgba(33, 150, 243, 0.4) !important;
 }
 label.task-tab-btn[for="task-tab-2"]:hover,
 #task-tab-2:checked ~ .task-tab-navbar label.task-tab-btn[for="task-tab-2"] {
   background: #f57c00 !important;
   color: white !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(255, 152, 0, 0.4) !important;
+  box-shadow: 0 4px 8px rgba(255, 152, 0, 0.4) !important;
 }
 label.task-tab-btn[for="task-tab-3"]:hover,
 #task-tab-3:checked ~ .task-tab-navbar label.task-tab-btn[for="task-tab-3"] {
   background: #388e3c !important;
   color: white !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(76, 175, 80, 0.4) !important;
+  box-shadow: 0 4px 8px rgba(76, 175, 80, 0.4) !important;
 }
 label.task-tab-btn[for="task-tab-4"]:hover,
 #task-tab-4:checked ~ .task-tab-navbar label.task-tab-btn[for="task-tab-4"] {
   background: #c2185b !important;
   color: white !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(233, 30, 99, 0.5) !important;
+  box-shadow: 0 4px 8px rgba(233, 30, 99, 0.5) !important;
 }
 label.task-tab-btn[for="task-tab-5"]:hover,
 #task-tab-5:checked ~ .task-tab-navbar label.task-tab-btn[for="task-tab-5"] {
   background: #0097a7 !important;
   color: white !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 188, 212, 0.4) !important;
+  box-shadow: 0 4px 8px rgba(0, 188, 212, 0.4) !important;
 }
 
 /* Task content bubbles */
@@ -117,7 +212,7 @@ label.task-tab-btn[for="task-tab-5"]:hover,
   border-radius: 0 0 20px 20px;
   padding: 2rem;
   color: white;
-  margin-top: -2px;
+  margin-top: 0;
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
@@ -248,7 +343,7 @@ label.task-tab-btn[for="task-tab-5"]:hover,
 }
 </style>
 
-<div class="task-tabs-container">
+<div id="aufgaben" class="task-tabs-container">
 <input type="radio" name="task-tab" id="task-tab-0" class="task-tab-radio" checked>
 <input type="radio" name="task-tab" id="task-tab-1" class="task-tab-radio">
 <input type="radio" name="task-tab" id="task-tab-2" class="task-tab-radio">
@@ -265,7 +360,7 @@ label.task-tab-btn[for="task-tab-5"]:hover,
     <label class="task-tab-btn" for="task-tab-5" style="background: #00bcd4 !important; color: white !important;">🏆 Task 6</label>
   </nav>
 
-<div class="task-content task-content-0" data-task="0">
+<div id="aufgabe-1" class="task-content task-content-0" data-task="0">
 
 <h3 style="color: #6a1b9a;">Resonanzfrequenz des Reihenschwingkreises</h3>
 
@@ -303,7 +398,7 @@ Bauen Sie den Reihenschwingkreis mit folgenden Werten nach:
 
 </div>
 
-<div class="task-content task-content-1">
+<div id="aufgabe-2" class="task-content task-content-1">
 
 <h3 style="color: #2196f3;">Güte und Dämpfung visualisieren</h3>
 
@@ -343,7 +438,7 @@ Bauen Sie den Reihenschwingkreis mit folgenden Werten:
 
 </div>
 
-<div class="task-content task-content-2">
+<div id="aufgabe-3" class="task-content task-content-2">
 
 <h3 style="color: #ff9800;">Bandpass vs. Bandsperre</h3>
 
@@ -393,7 +488,7 @@ Ein **Reihenschwingkreis** (L/C) wird parallel zu einem Ausgangswiderstand R2 ge
 
 </div>
 
-<div class="task-content task-content-3">
+<div id="aufgabe-4" class="task-content task-content-3">
 
 <h3 style="color: #4caf50;">Der 3-Bit D/A-Wandler (R-2R-Netzwerk)</h3>
 
@@ -464,7 +559,7 @@ Die 3 Schalter repräsentieren ein 3-Bit-Digitalwort (von **000** bis **111**).
 
 <!-- ===================== AUFGABE 5 ===================== -->
 
-<div class="task-content task-content-4">
+<div id="aufgabe-5" class="task-content task-content-4">
 
 <h3 style="color: #e91e63;">Filterung von Obertönen (Rechteck-zu-Sinus-Wandler)</h3>
 
@@ -586,7 +681,7 @@ Beantworten Sie die folgenden Fragen basierend auf Ihren Beobachtungen aus Schri
 ---
 
 
-<div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+<div id="falstad-simulator" style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
     <img src="https://www.falstad.com/mathphysics_small.gif" alt="CircuitJS Logo" style="width: 64px; height: 64px; border-radius: 8px;">
     <div>
         <h3 style="margin: 0;">
@@ -629,5 +724,150 @@ Display and analyze signals directly in the simulator.
 <div style="height: 50px;"></div>
 
 ---
+<div id="ai-support">
 
+# AI support for this task
 
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0;">
+    <!-- Hinweis-Text -->
+    <div style="display: flex; align-items: center; gap: 1.2rem; padding: 16px; background: linear-gradient(135deg, #e0e7ef 0%, #b2f7ef 100%); border-radius: 12px; border: 1px solid #b2f7ef; box-shadow: 0 2px 8px rgba(0,0,0,0.07); color: #1a202c;">
+        <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZHVvZDZpeXh0dTZoMWNkaDJzMWpodmk4eGpjbHgzMHc2ZnEwcTJlayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/5XELueHTZd3XCaMGbw/giphy.gif" alt="Hinweis GIF" style="width: 72px; height: 72px; border-radius: 8px; flex-shrink: 0;">
+        <div>
+            <strong>Hinweis:</strong><br>
+            Da ihr fundamentale Dinge fragen werdet, könnt ihr dazu dedizierte Modelle nutzen – Modelle, die euch nichts kosten und die euch keiner wegnehmen kann.
+        </div>
+    </div>
+    <!-- A1-Terminal Repository -->
+    <div style="padding: 16px; background: linear-gradient(135deg, #025709ff 0%, #05fa1aff 100%); border-radius: 12px; border: 1px solid #010202ff; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="background: #ffffff; border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 6px rgba(0,0,0,0.2);">
+                <svg height="32" width="32" viewBox="0 0 16 16" style="fill: #24292e;">
+                    <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+                </svg>
+            </div>
+            <div>
+                <div style="font-weight: bold; color: #24292e; font-size: 1.1em;">
+                    🖥️ A1-Terminal v1.0
+                </div>
+                <div style="margin-top: 4px;">
+                    <a href="https://github.com/Nr44suessauer/A1-Terminal/tree/Release-Version-1.0" target="_blank" style="color: #0366d6; text-decoration: none; font-weight: 500;">Nr44suessauer/A1-Terminal</a>
+                </div>
+                <div style="margin-top: 8px; color: #000000ff; font-size: 0.9em; line-height: 1.5;">
+                    Desktop GUI application for local AI models. Features automatic installation, session management, and complete offline privacy. Perfect for beginners and local development.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="height: 40px;"></div>
+
+<div style="width: 100%; height: 800px; overflow: hidden; border: none; position: relative;">
+    <iframe 
+        src="https://deadlinedriven.dev/articles/ollama-intruduction" 
+        width="100%" 
+        height="50%" 
+        frameborder="0" 
+        style="border: none; transform: scale(0.8); transform-origin: 0 0; width: 125%; height: 125%;">
+    </iframe>
+</div>
+
+<div style="height: 50px;"></div>
+
+---
+<div id="ilias-portal">
+
+## 📤 Abgabe der Dokumentation
+
+<div style="background: linear-gradient(135deg, #0d0208 0%, #001a0d 100%); padding: 2rem; border-radius: 12px; margin: 2rem 0; box-shadow: 0 8px 30px rgba(0, 255, 65, 0.3), 0 0 60px rgba(0, 255, 65, 0.1); border: 1px solid rgba(0, 255, 65, 0.3);">
+
+<div style="background: rgba(255, 200, 0, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; border: 1px solid rgba(255, 200, 0, 0.3); text-align: center;">
+  <strong style="color: #ffc800; font-size: 1.2rem; text-shadow: 0 0 8px rgba(255, 200, 0, 0.6);">⏰ Abgabefrist: 18. Januar 2026 um 23:59 Uhr</strong>
+</div>
+
+<div style="background: rgba(0, 255, 65, 0.05); padding: 1.5rem; border-radius: 8px; margin-top: 1rem; border: 1px solid rgba(0, 255, 65, 0.2);">
+
+Laden Sie Ihre vollständige Dokumentation im folgenden ILIAS-Ordner hoch:
+
+<div style="margin: 1.5rem 0; text-align: center;">
+  <a href="https://ilias.hs-heilbronn.de/ilias.php?baseClass=ilrepositorygui&cmdNode=105:p7&cmdClass=ilObjFolderGUI&ref_id=988997" target="_blank" rel="noopener noreferrer" 
+     style="display: inline-block; padding: 1.2rem 2.5rem; background: rgba(0, 255, 65, 0.15); color: #00ff41; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(0, 255, 65, 0.3), 0 0 20px rgba(0, 255, 65, 0.2); transition: transform 0.2s, box-shadow 0.2s; border: 2px solid #00ff41; text-shadow: 0 0 8px rgba(0, 255, 65, 0.8);"
+     onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 25px rgba(0, 255, 65, 0.5), 0 0 35px rgba(0, 255, 65, 0.3)'; this.style.background='rgba(0, 255, 65, 0.25)'; this.style.textShadow='0 0 12px rgba(0, 255, 65, 1)';"
+     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0, 255, 65, 0.3), 0 0 20px rgba(0, 255, 65, 0.2)'; this.style.background='rgba(0, 255, 65, 0.15)'; this.style.textShadow='0 0 8px rgba(0, 255, 65, 0.8)';">
+    📤 Zur ILIAS-Abgabe
+  </a>
+</div>
+
+</div>
+
+### 📋 Anforderungen an die Dokumentation
+
+Ihre Dokumentation muss folgende Elemente enthalten:
+
+<div style="background: rgba(0, 255, 65, 0.08); padding: 1.5rem; border-radius: 8px; border: 1px solid rgba(0, 255, 65, 0.2); box-shadow: 0 0 10px rgba(0, 255, 65, 0.1); margin-bottom: 1.5rem;">
+<strong style="color: #00ff41; text-shadow: 0 0 5px rgba(0, 255, 65, 0.5); font-size: 1.1rem;">📄 Studenteninformationen (nach dem Deckblatt)</strong><br>
+<p style="color: #00ff41; margin-top: 0.5rem; margin-bottom: 0.5rem;">Fügen Sie nach Ihrem Deckblatt folgende Markdown-Tabelle ein:</p>
+
+```markdown
+# Student Information
+
+| Feld              | Wert                        |
+|-------------------|-----------------------------|
+| Name              | Marc Nauendorf              |
+| Matrikelnummer    | 200882                      |
+| Studiengang       | Software engineering Master |
+| Kurs              | SV2                         |
+| Betreuer          | Prof. Dr. supervisor        |
+| Akademisches Jahr | 2025/2026                   |
+```
+
+<p style="color: #00ff41; margin-top: 0.5rem; font-size: 0.9rem;">⚠️ Passen Sie die Werte in der rechten Spalte an Ihre persönlichen Daten an!</p>
+</div>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+
+<div style="background: rgba(0, 255, 65, 0.08); padding: 1rem; border-radius: 8px; border: 1px solid rgba(0, 255, 65, 0.2); box-shadow: 0 0 10px rgba(0, 255, 65, 0.1);">
+<strong style="color: #00ff41; text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);">✅ Protokoll aller Aufgaben</strong><br>
+<ul style="margin-top: 0.5rem; margin-bottom: 0; color: #00ff41;">
+<li>Vollständige Bearbeitung aller Tasks</li>
+<li>Messungen und Berechnungen</li>
+<li>Ausgefüllte Tabellen</li>
+</ul>
+</div>
+
+<div style="background: rgba(0, 255, 65, 0.08); padding: 1rem; border-radius: 8px; border: 1px solid rgba(0, 255, 65, 0.2); box-shadow: 0 0 10px rgba(0, 255, 65, 0.1);">
+<strong style="color: #00ff41; text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);">🎬 GIF-Dokumentation</strong><br>
+<ul style="margin-top: 0.5rem; margin-bottom: 0; color: #00ff41;">
+<li>Alle GIFs direkt im Dokument eingebettet</li>
+<li>Keine externen Verweise ("siehe GIF 2")</li>
+<li>Klare Beschriftung der Simulationen</li>
+</ul>
+</div>
+
+<div style="background: rgba(0, 255, 65, 0.08); padding: 1rem; border-radius: 8px; border: 1px solid rgba(0, 255, 65, 0.2); box-shadow: 0 0 10px rgba(0, 255, 65, 0.1);">
+<strong style="color: #00ff41; text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);">🤖 AI-Sessions</strong><br>
+<ul style="margin-top: 0.5rem; margin-bottom: 0; color: #00ff41;">
+<li>Vollständige Chat-Protokolle mit der AI</li>
+<li>Fragen und Antworten dokumentiert</li>
+<li>Verwendetes Modell angeben</li>
+</ul>
+</div>
+
+<div style="background: rgba(0, 255, 65, 0.08); padding: 1rem; border-radius: 8px; border: 1px solid rgba(0, 255, 65, 0.2); box-shadow: 0 0 10px rgba(0, 255, 65, 0.1);">
+<strong style="color: #00ff41; text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);">📊 Auswertungen</strong><br>
+<ul style="margin-top: 0.5rem; margin-bottom: 0; color: #00ff41;">
+<li>Vergleich Theorie vs. Simulation</li>
+<li>Erklärungen der Beobachtungen</li>
+<li>Beantwortung aller Fragen</li>
+</ul>
+</div>
+
+</div>
+
+<div style="background: rgba(0, 255, 65, 0.1); padding: 1rem; border-left: 4px solid #00ff41; margin-top: 1.5rem; border-radius: 4px; box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);">
+<strong style="color: #00ff41; text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);">⚠️ Wichtig:</strong> <span style="color: #00ff41;">Alle GIFs müssen direkt im Dokument abrufbar sein (z.B. als eingebettete Bilder mit Markdown-Syntax <code style="background: rgba(0, 255, 65, 0.15); padding: 2px 6px; border-radius: 3px; color: #00ff41;">![Beschreibung](pfad/zum/gif.gif)</code>). Verweise wie "siehe GIF 2" sind nicht ausreichend!</span>
+</div>
+
+</div>
+
+<div style="height: 50px;"></div>
