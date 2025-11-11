@@ -1,5 +1,5 @@
 ---
-title: SV2
+title: sv2
 cover: https://via.placeholder.com/1200x600/1a1a1a/ffffff?text=SV2
 date: 2025-11-11T00:00:00.000Z
 description: SV2 - Hidden Article
@@ -47,12 +47,20 @@ Display and analyze signals directly in the simulator.
 
 <div style="height: 40px;"></div>
 
-<iframe src="https://www.falstad.com/circuit/circuitjs.html" width="100%" height="600" frameborder="0"></iframe>
+<iframe src="https://www.falstad.com/circuit/circuitjs.html" width="100%" height="800" frameborder="0"></iframe>
 
 
 ---
 
 
+<div style="zoom: 0.8; -webkit-transform: scale(0.8); -webkit-transform-origin: 0 0; transform: scale(0.8); transform-origin: 0 0; width: 125%; overflow: auto; margin-bottom: 0.5rem;">
+    <iframe src="https://deadlinedriven.dev/articles/ollama-intruduction" width="100%" height="1200" frameborder="0"></iframe>
+    <div style="height: 30px;"></div>
+    <div style="display: flex; justify-content: center; margin-bottom: 1.5rem; margin-top: -0.5rem;">
+        <a href="https://deadlinedriven.dev/articles/ollama-intruduction" target="_blank" style="display: inline-block; background: #3182ce; color: #fff; padding: 0.7em 1.5em; border-radius: 6px; text-decoration: none; font-weight: 600; box-shadow: 0 2px 8px rgba(49,130,206,0.15); transition: background 0.2s;">
+        Blog Post about AI Models & Ollama
+    </a>
+</div>
 
-https://deadlinedriven.dev/articles/ollama-intruduction
 
+</div>
