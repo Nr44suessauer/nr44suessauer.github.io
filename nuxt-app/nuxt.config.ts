@@ -50,6 +50,10 @@ export default defineNuxtConfig({
     // Erlaubt die Verwendung von Komponenten in Markdown-Dateien
     experimental: {
       clientDB: true
+    },
+    highlight: {
+      theme: 'github-dark',
+      langs: ['python', 'javascript', 'typescript', 'bash', 'json', 'yaml', 'markdown']
     }
   },
   
