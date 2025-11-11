@@ -9,7 +9,7 @@ _draft: false
 _path: /sv2
 ---
 
-# SV2 Messsparkur simuliert
+# SV2 Messparkur simuliert
 <div style="height: 50px;"></div>
 
 <!-- Table of Contents -->
