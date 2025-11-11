@@ -234,7 +234,7 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ['/elopment'],
+      routes: ['/elopment', '/sv2'],
       ignore: ['/__pinceau_tokens_config.json', '/__pinceau_tokens_schema.json'],
       // Explizit alle Routen scannen
       failOnError: false
