@@ -5,7 +5,6 @@ date: 2025-11-11T00:00:00.000Z
 description: SV2 - Hidden Article
 layout: article_backup
 navigation: false
-draft: true
 ---
 
 # SV2
