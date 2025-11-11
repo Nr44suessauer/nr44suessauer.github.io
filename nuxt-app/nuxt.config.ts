@@ -117,8 +117,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       script: [
-        { src: 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js' },
-        { src: '/js/interactive-fallback.js' } // Füge das Fallback-Skript hinzu
+        { src: 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js' }
       ]
     }
   }

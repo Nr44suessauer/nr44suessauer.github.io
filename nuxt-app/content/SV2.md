@@ -607,7 +607,7 @@ Ein **Schwingkreis als Bandpass** (<a href="/assets/pdf/Präsentation2.pdf#page=
 
 <div class="task-content task-content-5" data-task="5">
 
-<h3 style="color: #00bcd4;">👑 Fourier-Analyse eines komplexen Filters</h3>
+<h3 style="color: #00bcd4;">Fourier-Analyse eines komplexen Filters</h3>
 
 <h4 style="color: #00bcd4;">Ziel</h4>
 
@@ -726,7 +726,7 @@ Display and analyze signals directly in the simulator.
 ---
 <div id="ai-support">
 
-# AI support for this task
+# AI support 
 
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0;">
     <!-- Hinweis-Text -->
@@ -734,7 +734,7 @@ Display and analyze signals directly in the simulator.
         <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZHVvZDZpeXh0dTZoMWNkaDJzMWpodmk4eGpjbHgzMHc2ZnEwcTJlayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/5XELueHTZd3XCaMGbw/giphy.gif" alt="Hinweis GIF" style="width: 72px; height: 72px; border-radius: 8px; flex-shrink: 0;">
         <div>
             <strong>Hinweis:</strong><br>
-            Da ihr fundamentale Dinge fragen werdet, könnt ihr dazu dedizierte Modelle nutzen – Modelle, die euch nichts kosten und die euch keiner wegnehmen kann.
+            Da ihr fundamentale Dinge fragen werdet, könnt ihr dazu kleinere Modelle nutzen – Modelle, die euch nichts kosten und die euch keiner wegnehmen kann.
         </div>
     </div>
     <!-- A1-Terminal Repository -->
@@ -811,7 +811,7 @@ Ihre Dokumentation muss folgende Elemente enthalten:
 ```markdown
 # Student Information
 
-| Feld              | Wert                        |
+|                   |                             |
 |-------------------|-----------------------------|
 | Name              | Marc Nauendorf              |
 | Matrikelnummer    | 200882                      |
@@ -842,15 +842,22 @@ Ihre Dokumentation muss folgende Elemente enthalten:
 <li>Keine externen Verweise ("siehe GIF 2")</li>
 <li>Klare Beschriftung der Simulationen</li>
 </ul>
+<p style="color: #00ff41; margin-top: 0.8rem; font-size: 0.9rem;">💡 Syntax für GIFs im Repository:</p>
+<pre style="background: rgba(0, 0, 0, 0.4); padding: 0.5rem; border-radius: 4px; overflow-x: auto; color: #00ff41; font-family: 'Courier New', monospace; font-size: 0.85rem;">![Beschreibung](pfad/zum/gif.gif)</pre>
 </div>
 
 <div style="background: rgba(0, 255, 65, 0.08); padding: 1rem; border-radius: 8px; border: 1px solid rgba(0, 255, 65, 0.2); box-shadow: 0 0 10px rgba(0, 255, 65, 0.1);">
 <strong style="color: #00ff41; text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);">🤖 AI-Sessions</strong><br>
 <ul style="margin-top: 0.5rem; margin-bottom: 0; color: #00ff41;">
 <li>Vollständige Chat-Protokolle mit der AI</li>
-<li>Fragen und Antworten dokumentiert</li>
-<li>Verwendetes Modell angeben</li>
 </ul>
+<p style="color: #00ff41; margin-top: 0.8rem; font-size: 0.9rem;">📤 Upload hier:</p>
+<a href="https://ilias.hs-heilbronn.de/ilias.php?baseClass=ilrepositorygui&ref_id=989034" target="_blank" rel="noopener noreferrer" 
+   style="display: inline-block; margin-top: 0.3rem; padding: 0.5rem 1rem; background: rgba(0, 255, 65, 0.15); color: #00ff41; text-decoration: none; border-radius: 6px; font-size: 0.9rem; border: 1px solid #00ff41; transition: all 0.2s;"
+   onmouseover="this.style.background='rgba(0, 255, 65, 0.25)'"
+   onmouseout="this.style.background='rgba(0, 255, 65, 0.15)'">
+  ILIAS AI-Sessions Upload
+</a>
 </div>
 
 <div style="background: rgba(0, 255, 65, 0.08); padding: 1rem; border-radius: 8px; border: 1px solid rgba(0, 255, 65, 0.2); box-shadow: 0 0 10px rgba(0, 255, 65, 0.1);">
@@ -868,6 +875,12 @@ Ihre Dokumentation muss folgende Elemente enthalten:
 <strong style="color: #00ff41; text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);">⚠️ Wichtig:</strong> <span style="color: #00ff41;">Alle GIFs müssen direkt im Dokument abrufbar sein (z.B. als eingebettete Bilder mit Markdown-Syntax <code style="background: rgba(0, 255, 65, 0.15); padding: 2px 6px; border-radius: 3px; color: #00ff41;">![Beschreibung](pfad/zum/gif.gif)</code>). Verweise wie "siehe GIF 2" sind nicht ausreichend!</span>
 </div>
 
+<div style="background: rgba(255, 0, 0, 0.15); padding: 1rem; border-left: 4px solid #ff4444; margin-top: 1rem; border-radius: 4px; box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);">
+<strong style="color: #ff4444; text-shadow: 0 0 5px rgba(255, 68, 68, 0.5);">⚠️ Punktabzug:</strong> <span style="color: #ff9999;">Bei Nicht-Einhaltung der Formatvorgaben (falsch eingebettete GIFs, unvollständige Tabellen etc) erfolgt Punktabzug!</span>
+</div>
+
 </div>
 
 <div style="height: 50px;"></div>
+
+
