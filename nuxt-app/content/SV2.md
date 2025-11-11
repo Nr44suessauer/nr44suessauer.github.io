@@ -102,6 +102,13 @@ label.task-tab-btn[for="task-tab-4"]:hover,
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(233, 30, 99, 0.5) !important;
 }
+label.task-tab-btn[for="task-tab-5"]:hover,
+#task-tab-5:checked ~ .task-tab-navbar label.task-tab-btn[for="task-tab-5"] {
+  background: #0097a7 !important;
+  color: white !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 188, 212, 0.4) !important;
+}
 
 /* Task content bubbles */
 .task-content {
@@ -118,7 +125,8 @@ label.task-tab-btn[for="task-tab-4"]:hover,
 #task-tab-1:checked ~ .task-content.task-content-1,
 #task-tab-2:checked ~ .task-content.task-content-2,
 #task-tab-3:checked ~ .task-content.task-content-3,
-#task-tab-4:checked ~ .task-content.task-content-4 {
+#task-tab-4:checked ~ .task-content.task-content-4,
+#task-tab-5:checked ~ .task-content.task-content-5 {
   display: block;
 }
 
@@ -152,6 +160,12 @@ label.task-tab-btn[for="task-tab-4"]:hover,
   border-left: 3px solid #e91e63;
   border-right: 3px solid #e91e63;
   border-bottom: 3px solid #e91e63;
+}
+#task-tab-5:checked ~ .task-content.task-content-5 {
+  border-top: 4px solid #00bcd4;
+  border-left: 3px solid #00bcd4;
+  border-right: 3px solid #00bcd4;
+  border-bottom: 3px solid #00bcd4;
 }
 
 .task-content h3 {
@@ -240,6 +254,7 @@ label.task-tab-btn[for="task-tab-4"]:hover,
 <input type="radio" name="task-tab" id="task-tab-2" class="task-tab-radio">
 <input type="radio" name="task-tab" id="task-tab-3" class="task-tab-radio">
 <input type="radio" name="task-tab" id="task-tab-4" class="task-tab-radio">
+<input type="radio" name="task-tab" id="task-tab-5" class="task-tab-radio">
 
   <nav class="task-tab-navbar">
     <label class="task-tab-btn" for="task-tab-0" style="background: #6a1b9a !important; color: white !important;">📊 Aufgabe 1</label>
@@ -247,6 +262,7 @@ label.task-tab-btn[for="task-tab-4"]:hover,
     <label class="task-tab-btn" for="task-tab-2" style="background: #ff9800 !important; color: white !important;">🔄 Aufgabe 3</label>
     <label class="task-tab-btn" for="task-tab-3" style="background: #4caf50 !important; color: white !important;">🔢 Aufgabe 4</label>
     <label class="task-tab-btn" for="task-tab-4" style="background: #e91e63 !important; color: white !important;">👑 Aufgabe 5</label>
+    <label class="task-tab-btn" for="task-tab-5" style="background: #00bcd4 !important; color: white !important;">🎵 Aufgabe 6</label>
   </nav>
 
 <div class="task-content task-content-0" data-task="0">
@@ -580,6 +596,80 @@ Beobachten Sie, wie der Filter die <strong>3. Harmonische (1,7 MHz)</strong> ver
 
 </div>
 
+<div class="task-content task-content-5" data-task="5">
+
+<h3 style="color: #00bcd4;">Filterung von Obertönen (Rechteck-zu-Sinus-Wandler)</h3>
+
+<h4 style="color: #00bcd4;">Ziel</h4>
+
+Kombinieren Sie die **Fourier-Analyse** (ab <a href="/assets/pdf/Präsentation2.pdf#page=22" target="_blank" style="color: #00bcd4; font-weight: bold;">Folie 22</a>) und die **Filterwirkung von Schwingkreisen** (<a href="/assets/pdf/Präsentation2.pdf#page=12" target="_blank" style="color: #00bcd4; font-weight: bold;">Folie 12</a>). Verstehen Sie, wie ein Bandpass-Filter Obertöne einer Rechteckwelle herausfiltert und nur die Grundfrequenz durchlässt.
+
+<h4 style="color: #00bcd4;">Konzept</h4>
+
+Aus der Fourier-Analyse (<a href="/assets/pdf/Präsentation2.pdf#page=23" target="_blank" style="color: #00bcd4; font-weight: bold;">Folie 23</a> und <a href="/assets/pdf/Präsentation2.pdf#page=25" target="_blank" style="color: #00bcd4; font-weight: bold;">Folie 25</a>) wissen wir, dass eine **Rechteckschwingung** aus einer Summe von Sinusschwingungen besteht:
+
+- **Grundschwingung** (f₁)
+- **Ungerade Obertöne**: 3. Harmonische (f₃), 5. Harmonische (f₅), usw.
+
+Ein **Schwingkreis als Bandpass** (<a href="/assets/pdf/Präsentation2.pdf#page=12" target="_blank" style="color: #00bcd4; font-weight: bold;">Folie 12</a>) ist darauf ausgelegt, nur eine Frequenz (seine **Resonanzfrequenz f₀**) durchzulassen und alle anderen Frequenzen zu blockieren.
+
+<h4 style="color: #00bcd4;">Aufgabe</h4>
+
+**1. Berechnen Sie die Resonanzfrequenz f₀** des LC-Bandpasses von Folie 12:
+- **L = 500 µH**
+- **C = 100 nF**
+- Formel: <code>f₀ = 1 / (2π√LC)</code>
+
+**2. Bauen Sie diesen Bandpass** im Falstad-Simulator auf
+
+**3. Speisen Sie die Schaltung** mit einer Rechteckspannung (Square Wave), deren Grundfrequenz f₁ genau dieser Resonanzfrequenz f₀ entspricht
+
+**4. Beobachten Sie** die Eingangs- und Ausgangsspannung im Oszilloskop (Zeitbereich)
+
+<details style="background: rgba(0, 188, 212, 0.05); border: 2px solid #00bcd4; border-radius: 8px; padding: 1rem; margin: 1.5rem 0;">
+<summary style="cursor: pointer; font-weight: bold; font-size: 1.1rem; color: #00bcd4; padding: 0.5rem;">
+📋 Durchführung & Auswertung (aufklappen)
+</summary>
+
+<div style="padding-top: 1rem;">
+
+<h4 style="color: #00bcd4;">Durchführung</h4>
+
+1. **Berechnung der Resonanzfrequenz:**
+   - <code>f₀ = 1 / (2π√LC) = 1 / (2π√(500×10⁻⁶ × 100×10⁻⁹))</code>
+   - <code>f₀ ≈ 7118 Hz</code> (ca. 7,1 kHz)
+
+2. **Schaltungsaufbau:**
+   - Rechteckspannungsquelle mit **7,1 kHz**, Amplitude 10 V
+   - **L = 500 µH** in Serie
+   - **C = 100 nF** in Serie
+   - **Widerstand R** (z.B. 10 Ω) zur Dämpfung
+   - Oszilloskop an Ein- und Ausgang
+
+3. **Beobachtung:**
+   - Vergleichen Sie Eingangs- und Ausgangssignal
+   - Was passiert mit der Rechteckform?
+
+<h4 style="color: #00bcd4;">Auswertung</h4>
+
+**Erwartetes Ergebnis:**
+- Am **Eingang**: Rechteckwelle (enthält f₁, f₃, f₅, f₇, ...)
+- Am **Ausgang**: **Sinuswelle** mit Frequenz f₁
+
+**Erklärung:**
+Der Bandpass-Filter lässt nur die Grundfrequenz f₁ durch (da f₁ = f₀), während alle Obertöne (f₃, f₅, f₇, ...) gedämpft werden. Das Ergebnis ist eine reine Sinusschwingung.
+
+</div>
+</details>
+
+<div style="background: linear-gradient(135deg, rgba(0, 188, 212, 0.15), rgba(0, 151, 167, 0.1)); border-left: 4px solid #00bcd4; padding: 1rem; margin: 1rem 0; border-radius: 0 8px 8px 0; box-shadow: 0 2px 8px rgba(0, 188, 212, 0.2);">
+<strong style="color: #00bcd4;">✨ Erwartung:</strong> Die Rechteckwelle wird durch den Bandpass in eine <strong>Sinuswelle</strong> umgewandelt, da nur die Grundfrequenz durchgelassen wird. Dies demonstriert sowohl die Fourier-Zerlegung als auch die selektive Filterwirkung eines Schwingkreises.
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 
@@ -631,5 +721,3 @@ Display and analyze signals directly in the simulator.
 ---
 
 
-
-</div>
