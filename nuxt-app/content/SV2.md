@@ -257,12 +257,12 @@ label.task-tab-btn[for="task-tab-5"]:hover,
 <input type="radio" name="task-tab" id="task-tab-5" class="task-tab-radio">
 
   <nav class="task-tab-navbar">
-    <label class="task-tab-btn" for="task-tab-0" style="background: #6a1b9a !important; color: white !important;">📊 Aufgabe 1</label>
-    <label class="task-tab-btn" for="task-tab-1" style="background: #2196f3 !important; color: white !important;">📐 Aufgabe 2</label>
-    <label class="task-tab-btn" for="task-tab-2" style="background: #ff9800 !important; color: white !important;">🔄 Aufgabe 3</label>
-    <label class="task-tab-btn" for="task-tab-3" style="background: #4caf50 !important; color: white !important;">🔢 Aufgabe 4</label>
-    <label class="task-tab-btn" for="task-tab-4" style="background: #e91e63 !important; color: white !important;">👑 Aufgabe 5</label>
-    <label class="task-tab-btn" for="task-tab-5" style="background: #00bcd4 !important; color: white !important;">🎵 Aufgabe 6</label>
+    <label class="task-tab-btn" for="task-tab-0" style="background: #6a1b9a !important; color: white !important;">📊 Task 1</label>
+    <label class="task-tab-btn" for="task-tab-1" style="background: #2196f3 !important; color: white !important;">📐 Task 2</label>
+    <label class="task-tab-btn" for="task-tab-2" style="background: #ff9800 !important; color: white !important;">🔄 Task 3</label>
+    <label class="task-tab-btn" for="task-tab-3" style="background: #4caf50 !important; color: white !important;">🔢 Task 4</label>
+    <label class="task-tab-btn" for="task-tab-4" style="background: #e91e63 !important; color: white !important;">👑 Task 5</label>
+    <label class="task-tab-btn" for="task-tab-5" style="background: #00bcd4 !important; color: white !important;">🏆 Task 6</label>
   </nav>
 
 <div class="task-content task-content-0" data-task="0">
@@ -278,37 +278,24 @@ Verifizieren Sie die Berechnungen von <a href="/assets/pdf/Präsentation2.pdf#pa
 Bauen Sie den Reihenschwingkreis mit folgenden Werten nach:
 
 - **AC-Spannungsquelle:** U = 1 V
-- **Widerstand:** R = 1000 Ω
-- **Spule:** L = 100 mH
-- **Kondensator:** C = 0,15 μF (bzw. 150 nF)
+- **Widerstand:** R = 500 Ω
+- **Spule:** L = 10 mH
+- **Kondensator:** C = 100 nF
 
 <details style="background: rgba(106, 27, 154, 0.05); border: 2px solid #6a1b9a; border-radius: 8px; padding: 1rem; margin: 1.5rem 0;">
 <summary style="cursor: pointer; font-weight: bold; font-size: 1.1rem; color: #6a1b9a; padding: 0.5rem;">
-📋 Durchführung & Auswertung (aufklappen)
+📋 Aufgabe & Auswertung
 </summary>
 
 <div style="padding-top: 1rem;">
 
-<h4 style="color: #6a1b9a;">Durchführung</h4>
+1. **Berechnung:** Berechnen Sie zuerst die theoretische **Resonanzfrequenz** f₀ mit der Formel von <a href="/assets/pdf/Präsentation2.pdf#page=5" target="_blank" style="color: #6a1b9a; font-weight: bold;">Folie 5</a> und den gegebenen Werten.
 
-1. Verändern Sie die Quellenfrequenz schrittweise
-2. Beobachten Sie den Strom I im Kreis
-3. Finden Sie den Punkt, an dem der Strom sein **Maximum** erreicht
-4. Dies ist der Resonanzpunkt, da die Impedanz Z hier minimal ist
+2. **Simulation:** Bauen Sie die Schaltung auf. Finden Sie im Simulator die Frequenz, bei der der **Strom I maximal** ist. (Tipp: Verwenden Sie einen "Slider" für die Frequenz und beobachten Sie die Helligkeit/Geschwindigkeit der fließenden Punkte).
 
-<div class="simulator-hint">
-<strong>💡 Tipp:</strong>
-<br>
-Verwenden Sie die "Sliders/Choices" Funktion, um die Frequenz dynamisch zu verändern und den Stromverlauf zu beobachten.
-</div>
+3. **Dokumentation:** Notieren Sie die Frequenz, die Sie im Simulator gemessen haben.
 
-<h4 style="color: #6a1b9a;">Auswertung</h4>
-
-Vergleichen Sie Ihre gemessene Resonanzfrequenz mit dem theoretischen Wert von **1300 Hz** aus <a href="/assets/pdf/Präsentation2.pdf#page=7" target="_blank" style="color: #6a1b9a; font-weight: bold;">Folie 7</a>.
-
-<div style="background: linear-gradient(135deg, rgba(106, 27, 154, 0.15), rgba(74, 20, 140, 0.1)); border-left: 4px solid #6a1b9a; padding: 1rem; margin: 1rem 0; border-radius: 0 8px 8px 0; box-shadow: 0 2px 8px rgba(106, 27, 154, 0.2);">
-<strong style="color: #6a1b9a;">✨ Erwartung:</strong> Die gemessene Resonanzfrequenz sollte nahe bei <strong>1300 Hz</strong> liegen. An diesem Punkt erreicht der Strom sein Maximum, da die Impedanz minimal ist.
-</div>
+4. **Vergleich:** Vergleichen Sie Ihren Rechenwert (aus 1.), Ihren Messwert (aus 3.) und den Wert auf <a href="/assets/pdf/Präsentation2.pdf#page=7" target="_blank" style="color: #6a1b9a; font-weight: bold;">Folie 7</a>. Was stellen Sie fest?
 
 </div>
 
@@ -328,39 +315,27 @@ Untersuchen Sie den Einfluss des Widerstands R (Dämpfung) auf die Schärfe der 
 
 Bauen Sie den Reihenschwingkreis mit folgenden Werten:
 
-- **Spule:** L = 100 mH
-- **Kondensator:** C = 100 nF
-- **Widerstand:** R variabel (Bereich: 5 Ω bis 300 Ω)
+- **Spule:** L = 20 mH
+- **Kondensator:** C = 10 nF
+- **Widerstand:** R (variabel, Bereich: 10 Ω bis 1000 Ω)
 
 <details style="background: rgba(33, 150, 243, 0.05); border: 2px solid #2196f3; border-radius: 8px; padding: 1rem; margin: 1.5rem 0;">
 <summary style="cursor: pointer; font-weight: bold; font-size: 1.1rem; color: #2196f3; padding: 0.5rem;">
-📋 Durchführung & Auswertung (aufklappen)
+📋 Aufgabe & Auswertung
 </summary>
 
 <div style="padding-top: 1rem;">
 
-<h4 style="color: #2196f3;">Durchführung</h4>
+1. Finden Sie eine Methode in der Simulationssoftware, um den **Frequenzgang des Stroms** sichtbar zu machen. (Tipp: Die Spannung am Widerstand R ist proportional zum Strom I).
 
-1. Fügen Sie einen **Schieberegler** für den Widerstand R hinzu
-2. Aktivieren Sie die **Oszilloskop-Funktion** ("Scope")
-3. Messen Sie den Strom als Spannung am Widerstand
-4. Variieren Sie R und beobachten Sie die Veränderung der Peak-Form
+2. Stellen Sie den Widerstand R so ein, dass Sie ihn **interaktiv verändern** können (z.B. mit einem Schieberegler).
 
-<div class="simulator-hint">
-<strong>💡 Beobachtungen:</strong>
-<br>
-- Kleiner Widerstand → Schmaler, hoher Peak (hohe Güte Q)
-<br>
-- Großer Widerstand → Breiter, flacher Peak (niedrige Güte Q)
-</div>
+3. Dokumentieren Sie durch ein **GIF**, wie sich die Form der Resonanzkurve (die "Peak-Form") ändert, wenn Sie R von einem sehr kleinen Wert (z.B. 5 Ω) zu einem großen Wert (z.B. 300 Ω) ändern.
 
-<h4 style="color: #2196f3;">Auswertung</h4>
-
-Dokumentieren Sie, wie sich die Resonanzkurve bei verschiedenen Widerstandswerten verändert.
-
-<div style="background: linear-gradient(135deg, rgba(33, 150, 243, 0.15), rgba(25, 118, 210, 0.1)); border-left: 4px solid #2196f3; padding: 1rem; margin: 1rem 0; border-radius: 0 8px 8px 0; box-shadow: 0 2px 8px rgba(33, 150, 243, 0.2);">
-<strong style="color: #2196f3;">✨ Erwartung:</strong> Bei <strong>kleinem Widerstand</strong> (hohe Güte Q) sollten Sie einen schmalen, hohen Peak sehen. Bei <strong>großem Widerstand</strong> (niedrige Güte Q) wird der Peak breiter und flacher.
-</div>
+4. Erklären Sie den Zusammenhang, den Sie beobachten:
+   - Was passiert mit der **Höhe** des Peaks?
+   - Was passiert mit der **Breite** des Peaks?
+   - Was bedeutet das für die **Güte Q** und die **Bandbreite** der Schaltung (vgl. <a href="/assets/pdf/Präsentation2.pdf#page=9" target="_blank" style="color: #2196f3; font-weight: bold;">Folie 9</a>)?
 
 </div>
 
@@ -374,7 +349,7 @@ Dokumentieren Sie, wie sich die Resonanzkurve bei verschiedenen Widerstandswerte
 
 <h4 style="color: #ff9800;">Ziel</h4>
 
-Verstehen Sie den fundamentalen Unterschied zwischen Bandpassfilter und Bandsperrfilter (siehe <a href="/assets/pdf/Präsentation2.pdf#page=12" target="_blank" style="color: #ff9800; font-weight: bold;">Folie 12</a>). Beide nutzen dieselben L/C-Werte, haben aber gegensätzliche Funktionen.
+Verstehen Sie den fundamentalen Unterschied zwischen einem Bandpassfilter und einem Bandsperrfilter (siehe <a href="/assets/pdf/Präsentation2.pdf#page=12" target="_blank" style="color: #ff9800; font-weight: bold;">Folie 12</a>). Beide nutzen dieselben L/C-Werte, haben aber gegensätzliche Funktionen.
 
 <h4 style="color: #ff9800;">Aufbau 1: Bandpass-Filter</h4>
 
@@ -386,40 +361,31 @@ Ein **Reihenschwingkreis** (L/C) wird parallel zu einem Ausgangswiderstand R2 ge
 
 <h4 style="color: #ff9800;">Gemeinsame Werte für beide Schaltungen</h4>
 
-- **Spule:** L = 500 μH
-- **Kondensator:** C = 100 nF
-- **Eingangswiderstand (Bandpass):** Ri = 1 kΩ
-- **Ausgangswiderstand (Bandsperre):** R2 = 1 kΩ
+- **Spule:** L = 1 mH
+- **Kondensator:** C = 10 nF
+- **Eingangswiderstand (Bandpass):** Ri = 2,2 kΩ
+- **Ausgangswiderstand (Bandsperre):** R2 = 2,2 kΩ
 
 <details style="background: rgba(255, 152, 0, 0.05); border: 2px solid #ff9800; border-radius: 8px; padding: 1rem; margin: 1.5rem 0;">
 <summary style="cursor: pointer; font-weight: bold; font-size: 1.1rem; color: #ff9800; padding: 0.5rem;">
-📋 Durchführung & Auswertung (aufklappen)
+📋 Aufgabe & Auswertung 
 </summary>
 
 <div style="padding-top: 1rem;">
 
-<h4 style="color: #ff9800;">Durchführung</h4>
+1. Bauen Sie beide Schaltungen im Simulator auf.
 
-1. Bauen Sie beide Schaltungen parallel auf
-2. Messen Sie bei beiden den Frequenzgang der Ausgangsspannung
-3. Verwenden Sie den "Frequency Analysis" Modus
-4. Vergleichen Sie das Verhalten bei der Resonanzfrequenz
+2. Berechnen Sie zuerst die erwartete **Resonanzfrequenz** f₀ (Thomsonsche Formel).
 
-<div class="simulator-hint">
-<strong>💡 Erwartetes Verhalten:</strong>
-<br>
-<strong>Bandpass:</strong>Maximum bei Resonanzfrequenz (Signal wird durchgelassen)
-<br>
-<strong>Bandsperre:</strong>Minimum bei Resonanzfrequenz (Signal wird blockiert)
-</div>
+3. Simulieren Sie den **Frequenzgang der Ausgangsspannung** für beide Schaltungen (z.B. in einem Bereich von 15 kHz bis 30 kHz).
 
-<h4 style="color: #ff9800;">Auswertung</h4>
+4. Dokumentieren Sie Ihre Ergebnisse durch **GIFs**, die den Frequenzgang beider Schaltungen zeigen.
 
-Erklären Sie anhand Ihrer Messungen, warum die beiden Schaltungen trotz gleicher Bauteile ein gegensätzliches Verhalten zeigen.
-
-<div style="background: linear-gradient(135deg, rgba(255, 152, 0, 0.15), rgba(245, 124, 0, 0.1)); border-left: 4px solid #ff9800; padding: 1rem; margin: 1rem 0; border-radius: 0 8px 8px 0; box-shadow: 0 2px 8px rgba(255, 152, 0, 0.2);">
-<strong style="color: #ff9800;">✨ Erwartung:</strong> Der <strong>Bandpass</strong> zeigt ein Maximum bei der Resonanzfrequenz (Signal wird durchgelassen), während die <strong>Bandsperre</strong> ein Minimum zeigt (Signal wird blockiert) - trotz identischer Bauteile.
-</div>
+5. Beantworten Sie die folgenden Fragen:
+   - Bestätigt Ihre Simulation die berechnete Resonanzfrequenz?
+   - Beschreiben Sie präzise das **gegensätzliche Verhalten** der beiden Schaltungen bei dieser Frequenz.
+   - **Erklären Sie** Warum führt Aufbau 1 (Parallelschwingkreis als Ausgang) zu einem Spannungsmaximum, während Aufbau 2 (Reihenschwingkreis parallel zum Ausgang) zu einem Spannungsminimum führt?  
+     (Tipp: Denken Sie an die **Impedanz**. Wie verhält sich ein Parallelschwingkreis bei f₀? Und wie ein Reihenschwingkreis?)
 
 </div>
 
@@ -445,26 +411,27 @@ Die 3 Schalter repräsentieren ein 3-Bit-Digitalwort (von **000** bis **111**).
 
 **Bauteile:**
 
-- **1 DC-Spannungsquelle:** 5 V (für Logik-HIGH)
+- **1 DC-Spannungsquelle:** 10 V (für Logik-HIGH)
 - **3 Umschalter (SPDT):** Repräsentieren die Bits 0 (LSB), 1 und 2 (MSB)
 - **Widerstände:** R = 1 kΩ und 2R = 2 kΩ
 
-**Hinweis zur Logikspannung:**
-
-Die "Logikspannung" (der "Ein"-Zustand) soll **5 V** betragen.
-
 <details style="background: rgba(76, 175, 80, 0.05); border: 2px solid #4caf50; border-radius: 8px; padding: 1rem; margin: 1.5rem 0;">
 <summary style="cursor: pointer; font-weight: bold; font-size: 1.1rem; color: #4caf50; padding: 0.5rem;">
-📋 Durchführung & Auswertung (aufklappen)
+📋 Durchführung & Auswertung
 </summary>
 
 <div style="padding-top: 1rem;">
 
-<h4 style="color: #4caf50;">Durchführung</h4>
+1. Bauen Sie das R-2R-Netzwerk im Simulator auf.
 
-<div class="simulator-hint">
-<strong>💡 Messwerttabelle:</strong>
-<br><br>
+2. Stellen Sie nacheinander alle **8 Binärkombinationen** (von 000 bis 111) mit den drei Schaltern ein.
+
+3. Messen Sie für jede Kombination die resultierende analoge **Ausgangsspannung** Uaus (Tipp: der "DC Level" im Scope) und füllen Sie die folgende Tabelle aus.
+
+4. Dokumentieren Sie durch ein **GIF**, wie sich die Ausgangsspannung ändert, wenn Sie die Binärkombinationen durchschalten.
+
+**💡 Messwerttabelle:**
+
 <table>
 <tr>
 <th>Bit 2 (MSB)</th>
@@ -482,15 +449,12 @@ Die "Logikspannung" (der "Ein"-Zustand) soll **5 V** betragen.
 <tr><td>1</td><td>1</td><td>0</td><td>6</td><td>_____</td></tr>
 <tr><td>1</td><td>1</td><td>1</td><td>7</td><td>_____</td></tr>
 </table>
-</div>
 
-<h4 style="color: #4caf50;">Auswertung</h4>
+**Auswertung:**
 
-Dokumentieren Sie, wie die Ausgangsspannung **proportional zum eingegebenen Digitalwert** ansteigt. 
-
-<div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(56, 142, 60, 0.1)); border-left: 4px solid #4caf50; padding: 1rem; margin: 1rem 0; border-radius: 0 8px 8px 0; box-shadow: 0 2px 8px rgba(76, 175, 80, 0.2);">
-<strong style="color: #4caf50;">✨ Erwartung:</strong> Die Ausgangsspannung sollte in <strong>gleichmäßigen Schritten</strong> zunehmen und linear proportional zum Binärwert sein (z.B. bei 5V Logikspannung: 0V, 0.625V, 1.25V, ... bis 4.375V).
-</div>
+- Analysieren Sie Ihre Messwerte. Was stellen Sie fest?
+- Berechnen Sie die **Spannungsdifferenz** (die "Schrittgröße") zwischen den einzelnen Dezimalwerten (z.B. die Differenz zwischen Wert 1 und Wert 2). Ist diese Schrittgröße konstant?
+- Erklären Sie, warum die Schaltung das tut, was auf <a href="/assets/pdf/Präsentation2.pdf#page=30" target="_blank" style="color: #4caf50; font-weight: bold;">Folie 30</a> (Quantisierung/Treppenstufen) gezeigt wird.
 
 </div>
 
@@ -502,93 +466,43 @@ Dokumentieren Sie, wie die Ausgangsspannung **proportional zum eingegebenen Digi
 
 <div class="task-content task-content-4">
 
-<h3 style="color: #e91e63;">👑 Fourier-Analyse eines komplexen Filters</h3>
+<h3 style="color: #e91e63;">Filterung von Obertönen (Rechteck-zu-Sinus-Wandler)</h3>
 
 <h4 style="color: #e91e63;">Ziel</h4>
 
-Kombinieren Sie die Konzepte aus <a href="/assets/pdf/Präsentation2.pdf#page=15" target="_blank" style="color: #e91e63; text-decoration: underline;">Folie 15 (Komplexe Filter)</a> und <a href="/assets/pdf/Präsentation2.pdf#page=25" target="_blank" style="color: #e91e63; text-decoration: underline;">Folie 25 (Fourier-Analyse)</a>. Bauen Sie einen komplexen RLC-Filter und analysieren Sie sein Verhalten mit einer **Rechteckwelle** im Frequenzbereich.
+Kombinieren Sie die **Fourier-Analyse** (ab <a href="/assets/pdf/Präsentation2.pdf#page=22" target="_blank" style="color: #e91e63; font-weight: bold;">Folie 22</a>) und die **Filterwirkung von Schwingkreisen** (<a href="/assets/pdf/Präsentation2.pdf#page=12" target="_blank" style="color: #e91e63; font-weight: bold;">Folie 12</a>). Verstehen Sie, wie ein Bandpass-Filter Obertöne einer Rechteckwelle herausfiltert und nur die Grundfrequenz durchlässt.
 
 <h4 style="color: #e91e63;">Konzept</h4>
 
-**Komplexe Filter** bestehen aus mehreren Schwingkreisen und zeigen mehrere Resonanzfrequenzen. Wenn man eine **Rechteckwelle** als Eingangssignal verwendet, kann man die **Fourier-Komponenten** (Grundschwingung + ungerade Harmonische) sehen und beobachten, wie der Filter nur bestimmte Frequenzen durchlässt.
+Aus der Fourier-Analyse (<a href="/assets/pdf/Präsentation2.pdf#page=23" target="_blank" style="color: #e91e63; font-weight: bold;">Folie 23</a> und <a href="/assets/pdf/Präsentation2.pdf#page=25" target="_blank" style="color: #e91e63; font-weight: bold;">Folie 25</a>) wissen wir, dass eine **Rechteckschwingung** aus einer Summe von Sinusschwingungen besteht:
 
-**Fourier-Zerlegung einer Rechteckwelle:**
-- **Grundfrequenz (f₀):** Die niedrigste Frequenzkomponente
-- **Harmonische:** 3·f₀, 5·f₀, 7·f₀, 9·f₀, ... (nur ungerade Vielfache)
-- **Amplitude:** Nimmt mit steigender Ordnung ab (1/n für n-te Harmonische)
+- **Grundschwingung** (f₁)
+- **Ungerade Obertöne**: 3. Harmonische (f₃), 5. Harmonische (f₅), usw.
 
-**Strategie:** Wählen Sie die Frequenz der Rechteckwelle so, dass eine ihrer **Harmonischen auf die Resonanzfrequenz** des Filters trifft. Dann wird diese Harmonische verstärkt, während andere gedämpft werden.
-
-<h4 style="color: #e91e63;">Aufbau</h4>
-
-Bauen Sie folgenden komplexen Filter mit **zwei Schwingkreisen**:
-
-**Komponenten:** (siehe <a href="/assets/pdf/Präsentation2.pdf#page=15" target="_blank" style="color: #e91e63; text-decoration: underline;">Folie 15</a>)
-
-| Bauteil | Wert |
-|---------|------|
-| **L1** | 5 µH |
-| **C1** | 2 nF |
-| **R1** | 25 Ω |
-| **C2** | 5 nF |
-| **L2** | 10 µH |
-| **R2** | 100 Ω |
-
-**Signalquelle:**
-- **Rechteckwelle** mit **566,7 kHz** (damit die 3. Harmonische bei ca. 1,7 MHz liegt)
-- **Amplitude:** 10 V
-
-**Schaltungsaufbau:**
-1. Spannungsquelle (Rechteckwelle)
-2. Erster Schwingkreis: L1 (5 µH) – C1 (2 nF) – R1 (25 Ω) in Serie
-3. Zweiter Schwingkreis: C2 (5 nF) – L2 (10 µH) – R2 (100 Ω) in Serie
-4. Ausgang nach dem zweiten Schwingkreis
-
-<div style="background: rgba(233, 30, 99, 0.1); border-left: 4px solid #e91e63; padding: 1rem; margin: 1.5rem 0; border-radius: 0 8px 8px 0;">
-<strong>💡 Simulator-Hinweis:</strong><br>
-Nutzen Sie die <strong>FFT-Funktion</strong> (Fast Fourier Transform) im Simulator, um das Frequenzspektrum anzuzeigen. Sie sollten die Rechteckwelle als Summe von Harmonischen sehen: f₀ = 566,7 kHz, 3·f₀ = 1,7 MHz, 5·f₀ = 2,83 MHz, etc.
-<br><br>
-Beobachten Sie, wie der Filter die <strong>3. Harmonische (1,7 MHz)</strong> verstärkt, da sie nahe der Resonanzfrequenz eines Schwingkreises liegt.
-</div>
+Ein **Schwingkreis als Bandpass** (<a href="/assets/pdf/Präsentation2.pdf#page=12" target="_blank" style="color: #e91e63; font-weight: bold;">Folie 12, oben</a>) ist darauf ausgelegt, nur Frequenzen nahe seiner **Resonanzfrequenz** f₀ durchzulassen und alle anderen zu blockieren.
 
 <details style="background: rgba(233, 30, 99, 0.05); border: 2px solid #e91e63; border-radius: 8px; padding: 1rem; margin: 1.5rem 0;">
 <summary style="cursor: pointer; font-weight: bold; font-size: 1.1rem; color: #e91e63; padding: 0.5rem;">
-📋 Durchführung & Auswertung (aufklappen)
+📋 Aufgabe & Auswertung
 </summary>
 
 <div style="padding-top: 1rem;">
 
-<h4 style="color: #e91e63;">Durchführung</h4>
+1. **Berechnung:** Berechnen Sie die theoretische **Resonanzfrequenz** f₀ für den LC-Bandpass (L = 1 mH, C = 10 nF). Notieren Sie Ihren Rechenweg und das Ergebnis.
 
-1. **Schaltung aufbauen** mit den oben genannten Komponenten
-2. **Rechteckwelle einstellen:** 566,7 kHz, 10 V Amplitude
-3. **Oszilloskop an Eingang und Ausgang** anschließen
-4. **Beobachtung im Zeitbereich:** Wie sieht die Ausgangsspannung aus? Ist sie noch rechteckig?
-5. **FFT aktivieren:** Zeigen Sie das Frequenzspektrum von Eingang und Ausgang
-6. **Frequenzen vergleichen:** Welche Harmonischen sind am Ausgang stärker/schwächer?
+2. **Aufbau:** Bauen Sie den Bandpass-Filter vom Typ auf <a href="/assets/pdf/Präsentation2.pdf#page=12" target="_blank" style="color: #e91e63; font-weight: bold;">Folie 12 (oberes Bild)</a> im Simulator nach. Verwenden Sie Ri = 2,2 kΩ und die gegebenen L/C-Werte.
 
-**Variation:**
-- Ändern Sie die Rechteckfrequenz auf **850 kHz** → Die 2. Harmonische (1,7 MHz) trifft die Resonanz
-- Ändern Sie die Rechteckfrequenz auf **340 kHz** → Die 5. Harmonische (1,7 MHz) trifft die Resonanz
+3. **Simulation:**
+   - Speisen Sie die Schaltung mit einer **Rechteckspannung** (Square Wave).
+   - Stellen Sie die **Grundfrequenz** f₁ der Rechteckwelle genau auf die in Schritt 1 berechnete Resonanzfrequenz f₀ ein.
 
-<h4 style="color: #e91e63;">Auswertung</h4>
+4. **Messung & Dokumentation:**
+   - Öffnen Sie das Oszilloskop ("Scope") und zeigen Sie das **Eingangssignal** (an der Quelle) und das **Ausgangssignal** (über dem L/C-Parallelkreis) gleichzeitig an.
+   - Dokumentieren Sie durch ein **GIF**, das beide Wellenformen zeigt.
 
-1. **Zeitbereich-Analyse:**
-   - Ist die Ausgangsspannung noch rechteckig oder sinusförmig?
-   - Welche Frequenzkomponente dominiert am Ausgang?
-
-2. **Frequenzbereich-Analyse (FFT):**
-   - Welche Harmonischen werden verstärkt?
-   - Welche werden gedämpft?
-   - Wo liegt die Resonanzfrequenz des Filters?
-
-3. **Fourier-Verständnis:**
-   - Erklären Sie, warum eine Rechteckwelle **nur ungerade Harmonische** enthält
-   - Warum nimmt die Amplitude der Harmonischen mit steigender Ordnung ab?
-
-<div style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 193, 7, 0.1)); border-left: 4px solid #ffd700; padding: 1rem; margin: 1rem 0; border-radius: 0 8px 8px 0; box-shadow: 0 2px 8px rgba(255, 215, 0, 0.2);">
-<strong style="color: #ffd700;">✨ Erwartung:</strong> Am Ausgang sollten Sie eine <strong>nahezu sinusförmige Schwingung</strong> bei ca. 1,7 MHz sehen, da der Filter diese Frequenz herausfiltert und verstärkt, während alle anderen Harmonischen gedämpft werden.
-</div>
+5. **Erklärung:**
+   - Beschreiben Sie den **Unterschied** zwischen der Eingangs- und der Ausgangswellenform.
+   - Erklären Sie mit Verweis auf die Fourier-Analyse (<a href="/assets/pdf/Präsentation2.pdf#page=25" target="_blank" style="color: #e91e63; font-weight: bold;">Folie 25</a>), warum das Ausgangssignal diese Form hat. Welche Frequenzkomponenten der Rechteckwelle lässt der Filter passieren und welche blockiert er?
 
 </div>
 
@@ -598,73 +512,69 @@ Beobachten Sie, wie der Filter die <strong>3. Harmonische (1,7 MHz)</strong> ver
 
 <div class="task-content task-content-5" data-task="5">
 
-<h3 style="color: #00bcd4;">Filterung von Obertönen (Rechteck-zu-Sinus-Wandler)</h3>
+<h3 style="color: #00bcd4;">👑 Fourier-Analyse eines komplexen Filters</h3>
 
 <h4 style="color: #00bcd4;">Ziel</h4>
 
-Kombinieren Sie die **Fourier-Analyse** (ab <a href="/assets/pdf/Präsentation2.pdf#page=22" target="_blank" style="color: #00bcd4; font-weight: bold;">Folie 22</a>) und die **Filterwirkung von Schwingkreisen** (<a href="/assets/pdf/Präsentation2.pdf#page=12" target="_blank" style="color: #00bcd4; font-weight: bold;">Folie 12</a>). Verstehen Sie, wie ein Bandpass-Filter Obertöne einer Rechteckwelle herausfiltert und nur die Grundfrequenz durchlässt.
+Kombinieren Sie die Konzepte aus <a href="/assets/pdf/Präsentation2.pdf#page=15" target="_blank" style="color: #00bcd4; text-decoration: underline;">Folie 15 (Komplexe Filter)</a> und <a href="/assets/pdf/Präsentation2.pdf#page=25" target="_blank" style="color: #00bcd4; text-decoration: underline;">Folie 25 (Fourier-Analyse)</a>. Analysieren Sie das Filterverhalten einer komplexen Schaltung, wenn sie mit einem nicht-sinusförmigen Signal (Rechteckwelle) gespeist wird.
 
 <h4 style="color: #00bcd4;">Konzept</h4>
 
-Aus der Fourier-Analyse (<a href="/assets/pdf/Präsentation2.pdf#page=23" target="_blank" style="color: #00bcd4; font-weight: bold;">Folie 23</a> und <a href="/assets/pdf/Präsentation2.pdf#page=25" target="_blank" style="color: #00bcd4; font-weight: bold;">Folie 25</a>) wissen wir, dass eine **Rechteckschwingung** aus einer Summe von Sinusschwingungen besteht:
+Wie auf <a href="/assets/pdf/Präsentation2.pdf#page=25" target="_blank" style="color: #00bcd4; text-decoration: underline;">Folie 25</a> gezeigt, besteht eine ideale Rechteckwelle aus einer Grundschwingung (f₁) und unendlich vielen ungeraden Harmonischen (f₃, f₅, f₇, ...). Ein Filter, wie der auf <a href="/assets/pdf/Präsentation2.pdf#page=15" target="_blank" style="color: #00bcd4; text-decoration: underline;">Folie 15</a>, ist darauf ausgelegt, bestimmte Frequenzen zu dämpfen und andere (nahe seiner Resonanzfrequenz) zu verstärken.
 
-- **Grundschwingung** (f₁)
-- **Ungerade Obertöne**: 3. Harmonische (f₃), 5. Harmonische (f₅), usw.
+**Was passiert, wenn diese beiden Konzepte aufeinandertreffen?**
 
-Ein **Schwingkreis als Bandpass** (<a href="/assets/pdf/Präsentation2.pdf#page=12" target="_blank" style="color: #00bcd4; font-weight: bold;">Folie 12</a>) ist darauf ausgelegt, nur eine Frequenz (seine **Resonanzfrequenz f₀**) durchzulassen und alle anderen Frequenzen zu blockieren.
+<h4 style="color: #00bcd4;">Aufbau im Falstad-Simulator</h4>
 
-<h4 style="color: #00bcd4;">Aufgabe</h4>
+Bauen Sie die Schaltung aus <a href="/assets/pdf/Präsentation2.pdf#page=15" target="_blank" style="color: #00bcd4; text-decoration: underline;">Folie 15</a> exakt nach (achten Sie auf die T-Struktur!):
 
-**1. Berechnen Sie die Resonanzfrequenz f₀** des LC-Bandpasses von Folie 12:
-- **L = 500 µH**
-- **C = 100 nF**
-- Formel: <code>f₀ = 1 / (2π√LC)</code>
-
-**2. Bauen Sie diesen Bandpass** im Falstad-Simulator auf
-
-**3. Speisen Sie die Schaltung** mit einer Rechteckspannung (Square Wave), deren Grundfrequenz f₁ genau dieser Resonanzfrequenz f₀ entspricht
-
-**4. Beobachten Sie** die Eingangs- und Ausgangsspannung im Oszilloskop (Zeitbereich)
+| Bauteil | Wert |
+|---------|------|
+| **Quelle (V)** | AC-Quelle |
+| **L1** | 10 µH |
+| **C1** | 1 nF |
+| **R1** | 25 Ω |
+| **C2** | 2 nF |
+| **L2** | 20 µH |
+| **R2** | 100 Ω |
 
 <details style="background: rgba(0, 188, 212, 0.05); border: 2px solid #00bcd4; border-radius: 8px; padding: 1rem; margin: 1.5rem 0;">
 <summary style="cursor: pointer; font-weight: bold; font-size: 1.1rem; color: #00bcd4; padding: 0.5rem;">
-📋 Durchführung & Auswertung (aufklappen)
+📋 Durchführung & Auswertung
 </summary>
 
 <div style="padding-top: 1rem;">
 
-<h4 style="color: #00bcd4;">Durchführung</h4>
+**Schritt 1: Resonanz finden (Sinus-Analyse)**
 
-1. **Berechnung der Resonanzfrequenz:**
-   - <code>f₀ = 1 / (2π√LC) = 1 / (2π√(500×10⁻⁶ × 100×10⁻⁹))</code>
-   - <code>f₀ ≈ 7118 Hz</code> (ca. 7,1 kHz)
+1. Stellen Sie die Quelle auf "Sine" (Sinus), 5V Amplitude.
+2. Führen Sie eine AC-Analyse ("Frequency"-Plot) am Ausgang (V) durch.
+3. Finden Sie die Frequenz, bei der die Schaltung ihre **stärkste Resonanz** (größte Verstärkung) zeigt.
 
-2. **Schaltungsaufbau:**
-   - Rechteckspannungsquelle mit **7,1 kHz**, Amplitude 10 V
-   - **L = 500 µH** in Serie
-   - **C = 100 nF** in Serie
-   - **Widerstand R** (z.B. 10 Ω) zur Dämpfung
-   - Oszilloskop an Ein- und Ausgang
+**Schritt 2: Filter-Analyse (Rechteck-Analyse)**
 
-3. **Beobachtung:**
-   - Vergleichen Sie Eingangs- und Ausgangssignal
-   - Was passiert mit der Rechteckform?
+4. Ändern Sie die Quelle zu einer "Square Wave" (Rechteck), 5V Amplitude.
+5. Stellen Sie die **Grundfrequenz** der Rechteckwelle auf **1,18 MHz** ein. (Dies ist 1/3 der Resonanzfrequenz aus Schritt 1).
+6. Betrachten Sie den **Eingang und den Ausgang** (V) im **Zeitbereich** (Scope).
+7. Betrachten Sie den **Eingang und den Ausgang** (V) im **Frequenzbereich** (FFT / "Frequency").
 
-<h4 style="color: #00bcd4;">Auswertung</h4>
+**Schritt 3: Variation (Optional)**
 
-**Erwartetes Ergebnis:**
-- Am **Eingang**: Rechteckwelle (enthält f₁, f₃, f₅, f₇, ...)
-- Am **Ausgang**: **Sinuswelle** mit Frequenz f₁
+8. Ändern Sie die Grundfrequenz der Rechteckwelle auf **712 kHz**. (Dies ist 1/5 der Resonanzfrequenz).
+9. Beobachten Sie erneut das Spektrum am Ausgang.
 
-**Erklärung:**
-Der Bandpass-Filter lässt nur die Grundfrequenz f₁ durch (da f₁ = f₀), während alle Obertöne (f₃, f₅, f₇, ...) gedämpft werden. Das Ergebnis ist eine reine Sinusschwingung.
+**Auswertung:**
+
+Beantworten Sie die folgenden Fragen basierend auf Ihren Beobachtungen aus Schritt 2:
+
+- **Zeitbereich:** Vergleichen Sie das Eingangs- und Ausgangssignal. Welche Form hat das Ausgangssignal? Welche Frequenz hat es (grob gemessen)?
+- **Frequenzbereich (Eingang):** Beschreiben Sie das Spektrum der Rechteckwelle, das Sie sehen. Welche Harmonischen sind vorhanden (1., 3., 5. ...)?
+- **Frequenzbereich (Ausgang):** Beschreiben Sie das Spektrum am Ausgang. Was ist mit der Grundschwingung (1,18 MHz) passiert? Was ist mit der 3. Harmonischen (3,56 MHz) passiert?
+- **Erklärung:** Fassen Sie zusammen, was der Filter mit dem Rechtecksignal gemacht hat und warum das Ausgangssignal so aussieht, wie es aussieht.
 
 </div>
+
 </details>
-
-<div style="background: linear-gradient(135deg, rgba(0, 188, 212, 0.15), rgba(0, 151, 167, 0.1)); border-left: 4px solid #00bcd4; padding: 1rem; margin: 1rem 0; border-radius: 0 8px 8px 0; box-shadow: 0 2px 8px rgba(0, 188, 212, 0.2);">
-<strong style="color: #00bcd4;">✨ Erwartung:</strong> Die Rechteckwelle wird durch den Bandpass in eine <strong>Sinuswelle</strong> umgewandelt, da nur die Grundfrequenz durchgelassen wird. Dies demonstriert sowohl die Fourier-Zerlegung als auch die selektive Filterwirkung eines Schwingkreises.
-</div>
 
 </div>
 
