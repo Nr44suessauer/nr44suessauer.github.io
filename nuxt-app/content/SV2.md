@@ -685,7 +685,7 @@ Beantworten Sie die folgenden Fragen basierend auf Ihren Beobachtungen aus Schri
     <img src="https://www.falstad.com/mathphysics_small.gif" alt="CircuitJS Logo" style="width: 64px; height: 64px; border-radius: 8px;">
     <div>
         <h3 style="margin: 0;">
-            <a href="https://www.falstad.com/circuit/index.html" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; cursor: pointer;">
+            <a href="https://www.falstad.com/circuit/index.html" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; cursor: pointer;" onclick="event.preventDefault(); window.open('https://www.falstad.com/circuit/index.html', '_blank');">
                 Falstad Circuit Simulator
             </a>
         </h3>
