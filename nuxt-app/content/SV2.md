@@ -341,6 +341,70 @@ label.task-tab-btn[for="task-tab-5"]:hover,
     padding: 10px 16px !important;
   }
 }
+
+/* Matrix-style bubble for external link */
+.matrix-bubble {
+  display: inline-block !important;
+  padding: 12px 20px !important;
+  background: linear-gradient(135deg, #0d0208 0%, #001a0d 100%) !important;
+  color: #00ff41 !important;
+  text-decoration: none !important;
+  border-radius: 20px !important;
+  font-weight: bold !important;
+  font-size: 0.9rem !important;
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.4), 0 0 40px rgba(0, 255, 65, 0.2) !important;
+  border: 2px solid #00ff41 !important;
+  text-shadow: 0 0 10px rgba(0, 255, 65, 0.8) !important;
+  transition: all 0.3s ease !important;
+  margin-left: auto !important;
+}
+
+.matrix-bubble:hover {
+  transform: translateY(-2px) scale(1.05) !important;
+  box-shadow: 0 0 30px rgba(0, 255, 65, 0.6), 0 0 60px rgba(0, 255, 65, 0.4) !important;
+  text-shadow: 0 0 15px rgba(0, 255, 65, 1) !important;
+  color: #00ff41 !important;
+}
+
+@media (max-width: 768px) {
+  #falstad-simulator {
+    flex-direction: column !important;
+    text-align: center !important;
+  }
+  
+  .matrix-bubble {
+    margin-left: 0 !important;
+    margin-top: 1rem !important;
+  }
+}
+
+/* Falstad Bubble */
+.falstad-bubble {
+  background: linear-gradient(135deg, #0d0208 0%, #001a0d 100%);
+  color: #00ff41;
+  padding: 15px 20px;
+  border-radius: 15px;
+  border: 2px solid #00ff41;
+  box-shadow: 0 0 30px rgba(0, 255, 65, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1;
+  font-weight: bold;
+  text-shadow: 0 0 15px rgba(0, 255, 65, 0.8);
+  text-align: center;
+}
+
+.falstad-bubble:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 50px rgba(0, 255, 65, 0.5);
+}
+
+.falstad-bubble small {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  font-weight: normal;
+}
+</style>
 </style>
 
 <div id="aufgaben" class="task-tabs-container">
@@ -681,18 +745,16 @@ Beantworten Sie die folgenden Fragen basierend auf Ihren Beobachtungen aus Schri
 ---
 
 
-<div id="falstad-simulator" style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+## Falstad Circuit Simulator
+
+<div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
     <img src="https://www.falstad.com/mathphysics_small.gif" alt="CircuitJS Logo" style="width: 64px; height: 64px; border-radius: 8px;">
-    <div>
-        <h3 style="margin: 0;">
-            <a href="https://www.falstad.com/circuit/index.html" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; cursor: pointer;" onclick="event.preventDefault(); window.open('https://www.falstad.com/circuit/index.html', '_blank');">
-                Falstad Circuit Simulator
-            </a>
-        </h3>
-        <p style="margin: 0.5rem 0 0 0; color: #666;">Interactive, browser-based circuit design and simulation</p>
-        <p style="margin: 0.2rem 0 0 0; color: #888; font-size: 0.95em;">
-            Contact: <a href="mailto:java@falstad.com" style="color: #3182ce;">java@falstad.com</a>
-        </p>
+    <div class="falstad-bubble">
+        <a href="https://www.falstad.com/circuit/index.html" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">
+            🔗 Open Falstad Circuit Simulator
+        </a>
+        <br>
+        <small>Contact: java@falstad.com</small>
     </div>
 </div>
 
